@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fragrance Manufacturing Case Studies | Dubey Perfumers</title>
+<meta name="description" content="Real fragrance development case studies, from an antibacterial fragrance for Mecca and Medina to launches for leading brands.">
+<style>
+:root{--night:#070F1E;--deep:#050B16;--paper:#F5F1EA;--gold:#FDC92C;--line:rgba(245,241,234,.14);--muted:rgba(245,241,234,.68);--faint:rgba(245,241,234,.42);--f:Raleway,system-ui,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--paper);font-family:var(--f);font-weight:300;line-height:1.8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.wrap{width:min(1280px,92vw);margin:0 auto}
+.w{display:inline-block;overflow:hidden;vertical-align:bottom}
+.w>span{display:inline-block;transform:translateY(115%);transition:transform 1s cubic-bezier(.19,1,.22,1)}
+.wtext.in .w>span{transform:none}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.w>span{transform:none;transition:none}.rv{opacity:1;transform:none}}
+
+/* header */
+.nav{position:fixed;inset:0 0 auto 0;z-index:90;background:rgba(7,15,30,.22);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.05);transition:background .4s ease,border-color .4s ease,backdrop-filter .4s ease}
+.nav-in{width:min(1280px,92vw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{display:inline-flex;align-items:center;gap:12px}
+.brand img{height:44px}
+.brand-name{font-weight:600;font-size:15px;letter-spacing:.24em;text-transform:lowercase}
+.nav-cta{border:1px solid rgba(253,201,44,.55);padding:9px 18px;border-radius:100px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;transition:.35s}
+.nav-cta:hover{background:var(--gold);color:var(--night);border-color:var(--gold)}
+.menu-pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(253,201,44,.5);border-radius:100px;background:transparent;color:var(--paper);padding:11px 18px;cursor:pointer;transition:.35s;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-family:var(--f)}
+.menu-pill:hover{background:var(--gold);color:var(--night)}
+.mp-lines{display:flex;flex-direction:column;gap:4px}
+.mp-lines span{width:16px;height:1.5px;background:var(--paper)}
+.menu{position:fixed;inset:0;z-index:90;background:rgba(5,11,22,.97);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.45s}
+.menu.on{opacity:1;pointer-events:auto}
+.menu-in{width:min(720px,90vw);text-align:center}
+.mlink{display:block;font-weight:600;font-size:clamp(24px,4.5vw,38px);line-height:1.3;padding:10px 0;letter-spacing:.04em;opacity:0;transform:translateY(18px);transition:.5s}
+.mlink:hover{color:var(--gold)}
+.menu.on .mlink{opacity:1;transform:none}
+.menu-close{position:absolute;top:22px;right:4vw;width:46px;height:46px;border:1px solid rgba(253,201,44,.5);border-radius:50%;background:transparent;color:var(--paper);font-size:18px;cursor:pointer}
+.menu-close:hover{background:var(--gold);color:var(--night)}
+
+/* shared */
+.eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.rule{width:56px;height:1px;background:var(--gold)}
+.tag{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);font-weight:600}
+.pill-cta{display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(253,201,44,.55);font-size:12px;letter-spacing:.22em;text-transform:uppercase;padding:13px 30px;border-radius:100px;transition:.35s}
+.pill-cta:hover{background:var(--gold);color:var(--night)}
+.row-cta{display:inline-flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.row-cta u{text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px}
+.row-cta .arr{width:42px;height:42px;border:1px solid rgba(253,201,44,.55);border-radius:50%;display:grid;place-items:center;color:var(--gold);transition:.35s}
+.row-cta:hover .arr{background:var(--gold);color:var(--night)}
+
+/* ===== HERO ===== */
+.hero{position:relative;height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.2) brightness(.55);transform:scale(1.16);transition:transform 3s cubic-bezier(.19,1,.22,1),filter 2.4s}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,15,30,.62),rgba(7,15,30,.38) 40%,rgba(7,15,30,.97) 96%)}
+.hero-in{position:relative;z-index:2;width:min(1280px,92vw);margin:0 auto;padding-bottom:96px}
+.hero h1{font-weight:600;font-size:clamp(44px,8.2vw,108px);line-height:1.06;letter-spacing:.01em}
+.hero .lede{font-size:clamp(14px,1.35vw,16px);line-height:1.9;color:var(--muted);max-width:36em;margin-top:30px}
+
+/* ===== STACKED DECK ===== */
+.deck{position:relative}
+.card{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:flex-end}
+.card .cimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.3) brightness(.62);transform:scale(1.08);transition:transform 2.2s cubic-bezier(.19,1,.22,1)}
+.card.in .cimg{transform:scale(1)}
+.card .cveil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,15,30,.55),rgba(7,15,30,.25) 42%,rgba(7,15,30,.96) 96%)}
+.card .cin{position:relative;z-index:2;width:min(1280px,92vw);margin:0 auto;padding-bottom:84px}
+.card h2{font-weight:600;font-size:clamp(30px,4.8vw,60px);line-height:1.15;margin:14px 0 30px}
+.card .num{position:absolute;top:110px;left:4vw;z-index:2;font-weight:600;font-size:clamp(60px,10vw,130px);line-height:1;color:rgba(245,241,234,.14);letter-spacing:.02em}
+.card .body{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,56px)}
+.card .body p{font-size:clamp(14px,1.35vw,16px);line-height:1.9;color:var(--muted);max-width:34em}
+.hl{display:flex;flex-wrap:wrap;gap:clamp(26px,6vw,90px);margin-top:44px;padding-top:34px;border-top:1px solid rgba(245,241,234,.22)}
+.hl .v{font-weight:600;font-size:clamp(24px,3.4vw,42px);color:var(--gold);letter-spacing:.02em}
+.hl .v small{font-size:.45em;letter-spacing:.22em;margin-left:6px}
+.hl .t{margin-top:8px}
+.seqline{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:40px}
+.seqline b{font-weight:600;letter-spacing:.22em;font-size:clamp(12px,1.4vw,15px)}
+.seqline i{color:var(--gold);font-style:normal;font-size:18px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(245,241,234,.2);border:1px solid rgba(245,241,234,.2);margin-top:40px}
+.step{background:rgba(5,11,22,.78);padding:22px 20px;backdrop-filter:blur(6px)}
+.step .tag{color:var(--gold)}
+.step .d{font-size:13.5px;color:var(--muted);margin-top:6px}
+.growth{text-align:left;margin-top:8px}
+.growth .from{font-weight:300;font-size:clamp(24px,3.4vw,40px);color:var(--muted)}
+.growth .from b{font-weight:600;color:var(--paper)}
+.growth .dn{color:var(--gold);font-size:22px;padding:10px 0}
+.growth .to{font-weight:600;font-size:clamp(36px,5.6vw,72px);color:var(--gold);line-height:1.05}
+@media(max-width:900px){.card .body{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+
+/* ===== CERT horizontal ===== */
+.hwrap{position:relative;height:340vh}
+.hstick{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:center}
+.htrack{display:flex;gap:0;will-change:transform}
+.panel{flex:0 0 100vw;height:100svh;display:flex;align-items:center;position:relative;overflow:hidden}
+.panel .pimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.35) brightness(.4)}
+.panel .pveil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,15,30,.95),rgba(7,15,30,.6) 55%,rgba(7,15,30,.85))}
+.panel .pin{position:relative;z-index:2;width:min(1280px,92vw);margin:0 auto}
+.panel h3{font-weight:600;font-size:clamp(34px,5.4vw,74px);line-height:1.1;letter-spacing:.01em}
+.panel .pd{margin-top:20px;font-size:clamp(14px,1.5vw,17px);color:var(--muted);max-width:26em}
+.panel .pn{font-weight:600;font-size:clamp(90px,14vw,190px);line-height:1;color:rgba(253,201,44,.16);position:absolute;right:6vw;top:22vh}
+.hfix{position:absolute;top:110px;left:4vw;z-index:5}
+
+/* ===== INSIGHTS ===== */
+.brow{display:grid;gap:clamp(24px,4vw,60px);align-items:center;border-top:1px solid var(--line);padding:32px 0}
+.brow img{width:100%;object-fit:cover;filter:grayscale(.3) brightness(.85);border:1px solid var(--line);transition:transform 1.2s cubic-bezier(.19,1,.22,1)}
+.brow:hover img{transform:scale(1.05)}
+
+/* === HAUTE PARFUMERIE EDITORIAL TYPOGRAPHY (CORMORANT GARAMOND) === */
+:root {
+  --font-serif: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+}
+h1, h2, h3, h4, .sec-title, .hero-copy h1, .row-copy h3, .menu-in a.mlink, .brand-name, .era-name, .stage-label .t, .close h2, .captive-in .sig {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif !important;
+  letter-spacing: 0.02em;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+}
+/* Aligned Lining Numerals: Numbers (1895, 1960s, 1970s) completely level on the baseline */
+.chapter-year, [class*="year"], [class*="num"], [class*="stat"], .era-no, .chapter-dot {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+}
+.chapter-year {
+  font-size: clamp(28px, 2.5vw, 36px) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  color: #fff !important;
+}
+
+</style>
+    <!-- Haute Luxury Editorial Typography (Cormorant Garamond, Cinzel, Raleway) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" crossorigin href="/assets/nav-BCnBoWF3.css">
+</head>
+<body id="top">
+
+<header class="nav"><div class="nav-in">
+<a class="brand" href="index.html" aria-label="Dubey Perfumers"><img src="/assets/Dubey-Logo-CX9k5OmQ.svg" alt="Dubey Perfumers" class="brand-logo"></a>
+<button class="nav-menu-btn" id="burger" aria-label="Open Navigation Menu">
+  <div class="menu-dots-grid">
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+  </div>
+</button>
+</div></header>
+
+<div class="menu-drawer" id="menu" aria-hidden="true">
+  <div class="menu-top-bar">
+    <div class="menu-brand-tag">
+      <span class="menu-brand-title">DUBEY PERFUMERS</span>
+      <span class="menu-brand-sep">|</span>
+      <span class="menu-brand-sub">FRAGRANCE HOUSE SINCE 1895</span>
+    </div>
+    <button class="menu-close-btn" id="menuClose" aria-label="Close Navigation Menu">
+      <span>CLOSE</span>
+      <div class="close-icon-circle">&#10005;</div>
+    </button>
+  </div>
+  <div class="menu-main-content">
+    <div class="menu-items-col">
+      <a class="menu-row" href="index.html" data-num="I" data-meta="FOUNDED 1895 · KANNAUJ &amp; HYDERABAD" data-img="/assets/images/img_09.webp">
+        <span class="menu-roman">I</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Home</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Fine fragrance creation &amp; natural extraction since 1895</p>
+        </div>
+      </a>
+      <a class="menu-row" href="about-us.html" data-num="II" data-meta="OUR STORY &amp; MILESTONES · 1895 — PRESENT" data-img="/assets/images/1895.png">
+        <span class="menu-roman">II</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">About Us</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">How we got here &amp; our sacred centennial heritage</p>
+        </div>
+      </a>
+      <a class="menu-row" href="expertise.html" data-num="III" data-meta="GRASSE &amp; INDIAN TERROIRS" data-img="/assets/images/img_56.webp">
+        <span class="menu-roman">III</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Expertise</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">French rigour, Indian craft, and rare global terroirs</p>
+        </div>
+      </a>
+      <a class="menu-row" href="craft-and-process.html" data-num="IV" data-meta="SUPERCRITICAL CO2 &amp; EXTRACTIONS" data-img="/assets/images/img_19.webp">
+        <span class="menu-roman">IV</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Craft &amp; Process</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Natural extraction &amp; supercritical laboratory distillation</p>
+        </div>
+      </a>
+      <a class="menu-row" href="services.html" data-num="V" data-meta="PERSONALISED FRAGRANCES &amp; COMPOUNDS" data-img="/assets/images/img_57.webp">
+        <span class="menu-roman">V</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Services</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Personalised fragrance creation &amp; exceptional quality for your market needs</p>
+        </div>
+      </a>
+      <a class="menu-row" href="journal.html" data-num="VI" data-meta="RESEARCH &amp; FIELD ARCHIVES" data-img="/assets/images/img_23.webp">
+        <span class="menu-roman">VI</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Journal</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Case studies, harvest whitepapers, and field archives</p>
+        </div>
+      </a>
+      <a class="menu-row" href="careers.html" data-num="VII" data-meta="ATELIER TALENT &amp; OPPORTUNITIES" data-img="/assets/images/careers-facility.png">
+        <span class="menu-roman">VII</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Careers</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Join the master formulation atelier and chemists</p>
+        </div>
+      </a>
+      <a class="menu-row" href="contact-us.html" data-num="VIII" data-meta="START YOUR BRIEF" data-img="/assets/images/Today.png">
+        <span class="menu-roman">VIII</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Contact Us</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Reach our team in Shadnagar, Hyderabad · Delhi &amp; Dubai</p>
+        </div>
+      </a>
+    </div>
+    <div class="menu-preview-col">
+      <div class="menu-preview-card">
+        <img id="menuPreviewImg" src="/assets/img_23-DOtWheC2.webp" alt="Menu Preview" class="menu-preview-img">
+        <div class="menu-preview-gradient"></div>
+        <div class="menu-preview-meta">
+          <span id="menuPreviewTag" class="preview-tag">RESEARCH &amp; FIELD ARCHIVES</span>
+          <span id="menuPreviewTitle" class="preview-title">Journal</span>
+        </div>
+      </div>
+      <div class="menu-preview-foot">
+        <span>INDIAN HERITAGE · FRENCH EXPERTISE</span>
+        <span>ESTABLISHED 1895</span>
+      </div>
+    </div>
+  </div>
+  <div class="menu-bottom-bar">
+    <div><b>FACILITY:</b> Shadnagar, Hyderabad, Telangana 509410</div>
+    <div><b>PHONE:</b> <a href="tel:+919000222725" style="color:inherit;text-decoration:none;">+91 90002 22725</a></div>
+    <div><b>EMAIL:</b> <a href="mailto:contact@dubeyperfumers.com" style="color:inherit;text-decoration:none;">contact@dubeyperfumers.com</a></div>
+  </div>
+</div>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <img class="bg" src="/assets/img_23-DOtWheC2.webp" alt="Amber perfume bottle in dark atmosphere"/>
+  <div class="veil"></div>
+  <div class="hero-in">
+    <div class="eyebrow rv">Case Studies</div>
+    <div class="rule rv" style="margin:24px 0 34px;transition-delay:.08s"></div>
+    <h1 class="wtext" style="max-width:12em">Proof, not promises.</h1>
+    <p class="lede rv" style="transition-delay:.55s">We're trusted by leading national fragrance brands and by clients with turnovers above $1 billion. Here are a few of the stories we can tell.</p>
+  </div>
+</section>
+
+<!-- STACKED STORY DECK -->
+<div class="deck" id="deck">
+
+  <!-- STORY 01 -->
+  <section class="card" id="story1">
+    <img class="cimg" src="/assets/journal-holy-mosques-BE7wSQMD.png" alt="Grand mosque arches at dusk"/>
+    <div class="cveil"></div>
+    <div class="num">01</div>
+    <div class="cin">
+      <div class="tag rv">Story 01 &middot; Mecca &middot; Medina</div>
+      <h2 class="wtext">A fragrance for the holy mosque</h2>
+      <div class="body">
+        <p class="rv" style="transition-delay:.15s">We were entrusted with an innovative brief: to develop a specialised antibacterial fragrance exclusively for use at the holy mosques in Mecca and Medina. It needed to fulfil its antibacterial purpose without bringing a clinical atmosphere into a sacred place.<br><br>People were arriving for worship. The fragrance needed to respect that moment. This meant approaching the formulation with equal attention to its technical requirements and the experience of those encountering it.</p>
+        <p class="rv" style="transition-delay:.3s">We spent 18 months developing and refining the fragrance, with testing conducted through specialist laboratories in India involving approximately 200 people. Following approval from the relevant Saudi medical authority, it was introduced into diffusers at the entrances—a bespoke creation with a specific antibacterial purpose, designed to feel entirely at home in its setting.</p>
+      </div>
+      <div class="hl">
+        <div class="rv" style="transition-delay:.4s"><div class="v">18<small>MONTHS</small></div><div class="tag t">Refining the formulation</div></div>
+        <div class="rv" style="transition-delay:.55s"><div class="v">~200<small>PEOPLE</small></div><div class="tag t">Tested in specialised labs</div></div>
+        <div class="rv" style="transition-delay:.7s"><div class="v" style="font-size:clamp(16px,2vw,26px);letter-spacing:.14em">SAUDI MEDICAL APPROVAL</div><div class="tag t">Diffusers at sacred entrances</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY 02 -->
+  <section class="card" id="story2">
+    <img class="cimg" src="/assets/journal-royalty-oman-NaGtEkIe.png" alt="Luxury natural ingredients and golden oils"/>
+    <div class="cveil"></div>
+    <div class="num">02</div>
+    <div class="cin">
+      <div class="tag rv">Story 02 &middot; Royal Family of the Gulf</div>
+      <h2 class="wtext">Made for Royalty</h2>
+      <div class="body">
+        <p class="rv" style="transition-delay:.15s">Among our most exclusive creations is a bespoke blend developed for one of the Gulf’s ruling royal families. Drawing on our expertise in natural ingredients, we shaped the composition through extensive research and successive rounds of feedback, refining it to the royal house’s precise preferences.</p>
+        <p class="rv" style="transition-delay:.3s">The distinction lies in how it was created: not an existing fragrance presented to royalty, but an original composition developed exclusively for them. Its exclusivity began with the brief—not the label.</p>
+      </div>
+      <div class="rv" style="transition-delay:.45s;margin-top:36px">
+        <div class="seqline">
+          <b>BRIEF &middot; NOT THE LABEL</b><i>&rarr;</i><b>SUCCESSIVE FEEDBACK</b><i>&rarr;</i><b style="color:var(--gold)">EXCLUSIVE ROYAL BLEND</b>
+        </div>
+        <div class="tag" style="margin-top:16px">Original composition developed exclusively for royal house</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY 03 -->
+  <section class="card" id="story3">
+    <img class="cimg" src="/assets/journal-captive-molecule-CRGIont2.png" alt="Perfumer evaluating a formulation in the laboratory"/>
+    <div class="cveil"></div>
+    <div class="num">03</div>
+    <div class="cin">
+      <div class="tag rv">Story 03 &middot; Captive Molecule</div>
+      <h2 class="wtext">The Molecule That Made the Difference</h2>
+      <p class="rv" style="transition-delay:.15s;max-width:44em;font-size:clamp(14px,1.35vw,16px);color:var(--muted)">A leading national fragrance brand, and a client of four years, approached us with a brief for a major launch: a fruity fragrance with room-filling presence and lasting power.</p>
+      <p class="rv" style="transition-delay:.25s;max-width:44em;font-size:clamp(14px,1.35vw,16px);color:var(--muted);margin-top:12px">Five months into development, we were close. The fragrance had the direction we were looking for, but something was still missing—a final element to bring the composition together.</p>
+      <p class="rv" style="transition-delay:.35s;max-width:44em;font-weight:500;color:var(--paper);margin-top:14px">We turned to our proprietary palette, introducing one of our captive molecules to give the composition a more distinctive signature. The revised fragrance was approved and successfully launched—bringing our research out of the laboratory and into a meaningful point of difference for the brand.</p>
+      <div class="steps rv" style="transition-delay:.45s">
+        <div class="step"><div class="tag">01 — The Brief</div><div class="d">Fruity &middot; Room-filling &middot; Lasting power</div></div>
+        <div class="step"><div class="tag">02 — Five Months</div><div class="d">Close, but missing a final element</div></div>
+        <div class="step"><div class="tag">03 — The Turn</div><div class="d">Captive molecule from proprietary palette</div></div>
+        <div class="step"><div class="tag">04 — The Result</div><div class="d">Approved &amp; successfully launched</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY 04 -->
+  <section class="card" id="story4">
+    <img class="cimg" src="/assets/journal-growing-together-DKI4gB61.png" alt="Global fragrance industry — premium partnership"/>
+    <div class="cveil"></div>
+    <div class="num">04</div>
+    <div class="cin">
+      <div class="tag rv">Story 04 &middot; Enduring Partnerships</div>
+      <h2 class="wtext">Partners Before the Success Story</h2>
+      <div class="body">
+        <div>
+          <p class="rv" style="transition-delay:.15s">Some of our biggest clients were not big when we first began working together.<br><br>Over decades, we have grown alongside them. Today, those relationships include brands with annual revenues in the hundreds of millions of dollars. Our fragrance expertise has played a part in that journey, contributing to their products and supporting their ambitions as their businesses expanded.</p>
+        </div>
+        <div>
+          <p class="rv" style="transition-delay:.3s">These are more than established names in our portfolio. They are partnerships built over years of creating, refining and moving forward together.<br><br>For your brand, that means working with a partner who understands where you are—and has experience helping businesses get where you want to go.</p>
+          <div class="rv" style="transition-delay:.45s;margin-top:28px">
+            <a class="pill-cta" href="contact-us.html">Start your own story &nbsp;&rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- CERTIFIED — horizontal scroll -->
+<div class="hwrap" id="cert">
+  <div class="hstick">
+    <div class="hfix">
+      <div class="eyebrow">Certified where it counts</div>
+      <div class="rule" style="margin-top:20px"></div>
+    </div>
+    <div class="htrack" id="htrack">
+
+      <div class="panel">
+        <img class="pimg" src="/assets/journal-ifra-certified-CCyjaVyK.png" alt="Certified fragrance laboratory"/>
+        <div class="pveil"></div>
+        <div class="pn">01</div>
+        <div class="pin">
+          <h3>IFRA<br/>Certified</h3>
+          <p class="pd">Every fragrance we make.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <img class="pimg" src="/assets/journal-endocrine-free-Bupo-st7.png" alt="Pure botanical formulation"/>
+        <div class="pveil"></div>
+        <div class="pn">02</div>
+        <div class="pin">
+          <h3>Endocrine-Free<br/>Formulations</h3>
+          <p class="pd">No hormonal disruptors, when a brief needs it.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <img class="pimg" src="/assets/img_44-BejiseIS.webp" alt="Stock and capability ready at the house"/>
+        <div class="pveil"></div>
+        <div class="pn">03</div>
+        <div class="pin">
+          <h3>Capability +<br/>Stock Ready</h3>
+          <p class="pd">Both kept ready at all times.</p>
+          <div style="margin-top:36px"><a class="pill-cta" href="contact-us.html">Ask About Compliance &nbsp;&rarr;</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</main>
+
+<!-- FOOTER -->
+<div class="foot" style="background:#000;color:#fff;border-top:1px solid rgba(255,255,255,.14)"><div style="width:min(1280px,92vw);margin:0 auto;padding:56px 0 26px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:32px">
+<div><a class="foot-brand" href="index.html" aria-label="Dubey Perfumers"><img src="/assets/images/dubey-emblem.svg" alt="Dubey Perfumers" class="brand-logo-foot"></a><p style="margin-top:12px;font-size:13px;line-height:1.8;color:rgba(255,255,255,.72);max-width:26em">French rigour. Indian craft. A fragrance house in India with European-level quality.</p></div>
+<div><h5 style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:18px;font-weight:600">House</h5><a href="index.html" style="display:block;font-size:13.5px;padding:5px 0">Home</a><a href="about-us.html" style="display:block;font-size:13.5px;padding:5px 0">About Us</a><a href="expertise.html" style="display:block;font-size:13.5px;padding:5px 0">Expertise</a><a href="craft-and-process.html" style="display:block;font-size:13.5px;padding:5px 0">Craft &amp; Process</a></div>
+<div><h5 style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:18px;font-weight:600">More</h5><a href="services.html" style="display:block;font-size:13.5px;padding:5px 0">Services</a><a href="journal.html" style="display:block;font-size:13.5px;padding:5px 0">Journal</a><a href="careers.html" style="display:block;font-size:13.5px;padding:5px 0">Careers</a><a href="contact-us.html" style="display:block;font-size:13.5px;padding:5px 0">Contact Us</a></div>
+<div><h5 style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:18px;font-weight:600">Fragrance</h5><a href="index.html#fine-fragrances" style="display:block;font-size:13.5px;padding:5px 0">Fine Fragrances</a><a href="index.html#captive-aroma-chemicals" style="display:block;font-size:13.5px;padding:5px 0">Captive Aroma Chemicals</a><a href="contact-us.html" style="display:block;font-size:13.5px;padding:5px 0">Start Your Brief</a><a href="#top" style="display:block;font-size:13.5px;padding:5px 0">Back to top &uarr;</a></div>
+</div><div class="wrap"><div style="border-top:1px solid rgba(255,255,255,.16);margin-top:26px;padding:18px 0 8px;display:flex;justify-content:space-between;gap:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.72)"><span>&copy; Dubey Perfumers</span><span><a href="index.html#fine-fragrances">Fine Fragrances</a> &middot; <a href="index.html#captive-aroma-chemicals">Captive Aroma Chemicals</a></span></div></div></div>
+
+<script>
+/* word splitter */
+document.querySelectorAll('.wtext').forEach(el=>{
+  el.innerHTML=el.textContent.trim().split(/\s+/).map(w=>'<span class="w"><span>'+w+'</span></span>').join(' ');
+  el.querySelectorAll('.w>span').forEach((s,i)=>s.style.transitionDelay=(i*.09)+'s');
+});
+
+/* reveal observers */
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;const t=e.target;
+  t.classList.add('in');
+  t.querySelectorAll('.rv,.wtext').forEach(x=>x.classList.add('in'));
+  if(t.classList.contains('card')||t.classList.contains('hero')){const i=t.querySelector('.cimg,.bg');if(i){i.style.transform='scale(1)';i.style.filter='grayscale(.15) brightness(.62)'}}
+  io.unobserve(t);
+}),{threshold:.25});
+document.querySelectorAll('.card,.hero,.brow,.wtext').forEach(el=>io.observe(el));
+
+/* hero image immediate animate-in */
+addEventListener('load',()=>{const h=document.querySelector('.hero .bg');if(h){h.style.transform='scale(1)';h.style.filter='grayscale(.15) brightness(.55)'}});
+
+/* horizontal certification scroll */
+const hwrap=document.getElementById('cert'),htrack=document.getElementById('htrack');
+function hscroll(){
+  const r=hwrap.getBoundingClientRect();
+  const total=r.height-innerHeight;
+  let p=0;
+  if(r.top<=0&&r.bottom>=innerHeight){p=Math.min(1,Math.max(0,(-r.top)/total))}
+  const max=htrack.scrollWidth-innerWidth;
+  htrack.style.transform='translateX('+(-p*max)+'px)';
+}
+addEventListener('scroll',hscroll,{passive:true});addEventListener('resize',hscroll);hscroll();
+</script>
+    
+    <script src="/assets/nav.js"></script>
+</body>
+</html>

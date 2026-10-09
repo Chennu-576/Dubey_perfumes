@@ -1,0 +1,709 @@
+/* ==========================================================================
+   DUBEY PERFUMERS — UNIFIED LUXURY NAVBAR & NAVIGATION DRAWER
+   ========================================================================== */
+
+/* Cross-platform rendering & font smoothing (Mac Safari, Windows, iOS) */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Subtle gold-tinted scrollbars for Windows & Chrome */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.4) rgba(9, 9, 11, 0.85);
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(9, 9, 11, 0.85);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.7);
+}
+
+/* Mobile input zoom prevention for iOS Safari (< 768px) */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Navbar Container — Translucent Luxury Floating Header */
+.nav, header.nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 90 !important;
+  height: 72px !important;
+  background: rgba(7, 15, 30, 0.22) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.4s ease !important;
+}
+
+/* Translucent when at the top of the page */
+.nav.at-top, header.nav.at-top {
+  background: rgba(7, 15, 30, 0.12) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+  box-shadow: none !important;
+}
+
+/* Translucent frosted glass when scrolling */
+.nav.scrolled, header.nav.scrolled {
+  background: rgba(7, 15, 30, 0.62) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35) !important;
+}
+
+.nav-in {
+  width: min(1280px, 92vw);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Identity */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand img, .brand-logo {
+  height: 56px;
+  width: auto;
+  max-height: 62px;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+}
+.brand:hover .brand-logo, .brand:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.55));
+}
+.brand-name {
+  display: none !important;
+}
+@media (max-width: 600px) {
+  .brand img, .brand-logo {
+    height: 44px;
+    max-height: 48px;
+  }
+}
+
+/* Haute Dubey Hero Header Logo (Main Home Page) */
+.dubey-nav-logo {
+  height: 58px;
+  width: auto;
+  max-height: 64px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 16px rgba(212, 175, 55, 0.5));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease, height 0.35s ease;
+}
+
+@media (min-width: 640px) {
+  .dubey-nav-logo {
+    height: 68px;
+    max-height: 74px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dubey-nav-logo {
+    height: 78px;
+    max-height: 84px;
+  }
+}
+
+header.border-b .dubey-nav-logo {
+  height: 50px !important;
+  max-height: 54px !important;
+}
+
+@media (min-width: 1024px) {
+  header.border-b .dubey-nav-logo {
+    height: 58px !important;
+    max-height: 62px !important;
+  }
+}
+
+/* 4-Dot Luxury Menu Button (Image 3) */
+.nav-menu-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+.nav-menu-btn:hover {
+  border-color: #d4af37;
+  background: rgba(14, 14, 18, 0.95);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+}
+.menu-dots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 6px);
+  gap: 4.5px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-menu-btn:hover .menu-dots-grid {
+  transform: rotate(45deg);
+}
+.menu-dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: background 0.3s ease;
+}
+.nav-menu-btn:hover .menu-dot {
+  background: #d4af37;
+}
+
+/* Full-Screen Luxury Navigation Drawer */
+#menu.menu-drawer, .menu-drawer {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  background: #09090b !important;
+  color: #f4f4f5 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100dvh !important;
+  min-height: 100vh !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1) !important;
+  clip-path: inset(0% 0% 100% 0%) !important;
+  box-sizing: border-box !important;
+  padding-bottom: max(16px, env(safe-area-inset-bottom)) !important;
+}
+#menu.menu-drawer.on, .menu-drawer.on, #menu.menu-drawer.open, .menu-drawer.open {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  clip-path: inset(0% 0% 0% 0%) !important;
+  visibility: visible !important;
+}
+
+/* Top Bar */
+.menu-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: max(20px, env(safe-area-inset-top)) min(64px, 5vw) 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.menu-brand-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.menu-brand-title {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.3em;
+  font-size: 16px;
+  font-weight: 600;
+  color: #d4af37;
+}
+.menu-brand-sep {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+}
+.menu-brand-sub {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-family: 'Montserrat', sans-serif;
+}
+#menuClose.menu-close-btn, .menu-close-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  background: transparent !important;
+  border: none !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  font-family: 'Raleway', sans-serif !important;
+  cursor: pointer !important;
+  transition: color 0.3s !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+#menuClose.menu-close-btn:hover, .menu-close-btn:hover {
+  color: #ffffff !important;
+}
+.close-icon-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  color: #fff;
+  transition: all 0.35s ease;
+}
+.menu-close-btn:hover .close-icon-circle {
+  border-color: #d4af37;
+  color: #d4af37;
+  transform: rotate(90deg);
+}
+
+/* Main Content Grid */
+.menu-main-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px min(64px, 5vw);
+  align-items: center;
+  gap: 48px;
+}
+@media (min-width: 1024px) {
+  .menu-main-content {
+    grid-template-columns: 1.25fr 0.85fr;
+  }
+}
+
+/* Items List Column */
+.menu-items-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.menu-row {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  text-decoration: none;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+.menu-roman {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  color: rgba(212, 175, 55, 0.6);
+  width: 32px;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+.menu-info {
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 10px;
+  transition: border-color 0.3s ease;
+}
+.menu-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-title {
+  font-family: 'Cormorant Garamond', 'Cinzel', serif;
+  font-size: clamp(23px, 2.7vw, 34px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(244, 244, 245, 0.85);
+  line-height: 1.15;
+  transition: all 0.3s ease;
+}
+.menu-arrow {
+  color: #d4af37;
+  font-size: 18px;
+  opacity: 0;
+  transform: translateX(-4px) translateY(4px);
+  transition: all 0.3s ease;
+}
+.menu-subtitle {
+  font-family: 'Montserrat', 'Raleway', sans-serif;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  margin-top: 4px;
+  transition: color 0.3s ease;
+}
+
+/* Hover States */
+.menu-row:hover {
+  transform: translateX(8px);
+}
+.menu-row:hover .menu-roman {
+  color: #d4af37;
+}
+.menu-row:hover .menu-info {
+  border-bottom-color: rgba(212, 175, 55, 0.4);
+}
+.menu-row:hover .menu-title {
+  color: #ffffff;
+  text-shadow: 0 0 16px rgba(212, 175, 55, 0.25);
+}
+.menu-row:hover .menu-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+.menu-row:hover .menu-arrow {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* Right Preview Column (Desktop) */
+.menu-preview-col {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .menu-preview-col {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.menu-preview-card {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+.menu-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: brightness(0.9);
+}
+.menu-preview-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 100%);
+}
+.menu-preview-meta {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.preview-tag {
+  font-size: 9.5px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #d4af37;
+  font-weight: 600;
+  font-family: 'Cinzel', serif;
+}
+.preview-title {
+  font-family: 'Cormorant Garamond', 'Cinzel', serif;
+  font-size: 22px;
+  color: #ffffff;
+  font-weight: 400;
+}
+.menu-preview-foot {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Bottom Coordinates Bar */
+.menu-bottom-bar {
+  padding: 20px min(64px, 5vw);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.16em;
+  font-family: 'Montserrat', sans-serif;
+}
+@media (min-width: 768px) {
+  .menu-bottom-bar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.menu-bottom-bar b {
+  color: #d4af37;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   HOMEPAGE MANIFESTO STATS TICKER (#about-stats) — COMPACT & ELEGANT
+   ========================================================================== */
+#about-stats,
+.about-stats-bar {
+  padding-top: clamp(1.25rem, 2.5vw, 2.25rem) !important;
+  padding-bottom: clamp(1.25rem, 2.5vw, 2.25rem) !important;
+  margin-top: clamp(1.25rem, 2.5vw, 2rem) !important;
+  margin-bottom: clamp(1.25rem, 2.5vw, 2rem) !important;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  background: transparent !important;
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+.about-stat-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.5rem 0.25rem !important;
+  transition: transform 0.35s ease;
+}
+
+.about-stat-item:hover {
+  transform: translateY(-3px);
+}
+
+.about-stat-num {
+  font-family: 'Cinzel', serif !important;
+  font-size: clamp(2.2rem, 4.2vw, 3.5rem) !important;
+  line-height: 1.1 !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.04em !important;
+}
+
+.about-stat-label {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: clamp(10.5px, 1.25vw, 12.5px) !important;
+  letter-spacing: 0.28em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  margin-top: 0.5rem !important;
+  font-weight: 500 !important;
+}
+
+/* Mobile viewports (< 640px) drawer & cross-device polish */
+@media (max-width: 640px) {
+  .menu-top-bar {
+    padding: max(16px, env(safe-area-inset-top)) 18px 14px !important;
+  }
+  .menu-brand-title {
+    font-size: 13.5px !important;
+    letter-spacing: 0.22em !important;
+  }
+  .menu-brand-sep,
+  .menu-brand-sub {
+    display: none !important;
+  }
+  .menu-main-content {
+    padding: 16px 18px !important;
+    gap: 16px !important;
+  }
+  .menu-row {
+    padding: 8px 0 !important;
+    gap: 12px !important;
+  }
+  .menu-roman {
+    font-size: 12px !important;
+    width: 20px !important;
+  }
+  .menu-title {
+    font-size: clamp(20px, 5.2vw, 26px) !important;
+  }
+  .menu-subtitle {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    margin-top: 2px !important;
+  }
+  .menu-bottom-bar {
+    padding: 14px 18px max(18px, env(safe-area-inset-bottom)) !important;
+    gap: 8px !important;
+    font-size: 10px !important;
+    letter-spacing: 0.1em !important;
+  }
+}
+
+/* ==========================================================================
+   UNIFIED FOOTER ALIGNMENT — PURE BLACK BACKGROUND & LOWERED TEXT/LOGO RHYTHM
+   ========================================================================== */
+.foot-brand,
+.f-logo-wrap,
+footer a.foot-brand,
+#footer a.inline-block,
+div.foot a.foot-brand {
+  display: inline-block !important;
+  text-decoration: none !important;
+  margin-bottom: 14px !important;
+}
+
+.foot-brand img,
+.brand-logo-foot,
+.f-logo,
+footer img.f-logo,
+#footer img {
+  height: 48px !important;
+  max-height: 52px !important;
+  width: auto !important;
+  max-width: 140px !important;
+  display: block !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  transition: transform 0.3s ease;
+}
+
+.foot-brand:hover img,
+.f-logo:hover,
+#footer a.inline-block:hover img {
+  transform: scale(1.04);
+}
+
+/* Explicitly hide any redundant text in the footer logo area */
+.foot-name,
+.f-name,
+.foot-brand span,
+.f-logo-wrap span {
+  display: none !important;
+}
+
+/* Homepage #footer precision alignment — strictly pure pitch black */
+#footer,
+footer#footer,
+footer.footer,
+div.foot,
+footer.foot {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+#footer {
+  padding-top: clamp(84px, 7.5vw, 116px) !important;
+  padding-bottom: clamp(48px, 5vw, 64px) !important;
+}
+
+#footer .grid {
+  display: grid !important;
+  align-items: start !important;
+  padding-top: 16px !important;
+}
+
+#footer a.inline-block {
+  margin-top: 6px !important;
+  margin-bottom: 16px !important;
+}
+
+#footer h4 {
+  font-family: 'Cinzel', 'Montserrat', serif, sans-serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.25em !important;
+  text-transform: uppercase !important;
+  color: #FDC92C !important;
+  font-weight: 600 !important;
+  margin-top: 6px !important;
+  margin-bottom: 18px !important;
+  line-height: 1.3 !important;
+}
+
+#footer ul {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+
+#footer ul li a {
+  font-size: 12.5px !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-weight: 300 !important;
+  text-decoration: none !important;
+  transition: color 0.25s ease, transform 0.25s ease !important;
+  display: inline-block !important;
+}
+
+#footer ul li a:hover {
+  color: #FDC92C !important;
+  transform: translateX(3px) !important;
+}
+
+#footer a[href="contact-us.html"] {
+  display: inline-block !important;
+  padding: 9px 22px !important;
+  border-radius: 9999px !important;
+  border: 1px solid #FDC92C !important;
+  color: #FDC92C !important;
+  font-size: 11px !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none !important;
+}
+
+#footer a[href="contact-us.html"]:hover {
+  background: #FDC92C !important;
+  color: #070F1E !important;
+  box-shadow: 0 0 20px rgba(253, 201, 44, 0.35) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Audio button deconfliction: permanently positioned bottom-left */
+.dubey-audio-pill {
+  left: 28px !important;
+  right: auto !important;
+  bottom: 28px !important;
+}
+
+@media (max-width: 640px) {
+  .dubey-audio-pill {
+    left: 18px !important;
+    right: auto !important;
+    bottom: 20px !important;
+  }
+}

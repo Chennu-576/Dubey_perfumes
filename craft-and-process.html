@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Natural Fragrance Extracts | Rose, Jasmine, Kewra, Oud</title>
+<meta name="description" content="Natural fragrance extracts from India, including the world's only Kewra Absolute, rose from Hasayan and jasmine from Kannauj.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Haute Luxury Editorial Typography (Cormorant Garamond, Cinzel, Raleway) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+<script src="assets/vendor/tailwindcss.js"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { cream:'#070F1E', cream2:'#050B16', ink:'#F5F1EA', char:'#070F1E', char2:'#050B16', gold:'#FDC92C', goldsoft:'#FDC92C', sage:'#9FB0CA', line:'rgba(245,241,234,.14)' },
+  fontFamily: { ral:['Raleway','sans-serif'] }
+}}}
+</script>
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<style>
+body{font-family:'Raleway',sans-serif}
+html{background:#000000}
+body{background:#070F1E;color:#F5F1EA;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:#FDC92C;color:#070F1E}
+.grain{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");}
+.wrap{max-width:1440px;margin:0 auto;padding-inline:clamp(22px,5vw,72px)}
+.eyebrow{font-size:11px;letter-spacing:.34em;font-weight:700}
+.hair{height:1px;background:rgba(245,241,234,.16)}
+.hair-light{height:1px;background:rgba(250,244,232,.16)}
+.vlabel{writing-mode:vertical-rl;letter-spacing:.42em;font-size:11px;font-weight:700}
+.reveal{opacity:0;transform:translateY(30px)}
+.imgfill{width:100%;height:100%;object-fit:cover;display:block}
+/* hero crossfade layers */
+.hero-layer{position:absolute;inset:0;opacity:0;transition:opacity .3s linear}
+.hero-layer.on{opacity:1}
+.hero-layer img{width:100%;height:115%;object-fit:cover;display:block}
+/* botanical + lab actives */
+.bstep,.lstep{opacity:.25;transition:opacity .5s,transform .5s;transform:translateY(14px)}
+.bstep.active,.lstep.active{opacity:1;transform:none}
+.bstep.active .bdot{background:#FDC92C;border-color:#FDC92C;color:#070F1E}
+.bdot{width:44px;height:44px;border:1px solid rgba(245,241,234,.35);border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:.1em;transition:all .4s;flex-shrink:0;color:#F5F1EA}
+/* R&D console */
+.rd-row{border-bottom:1px solid rgba(250,244,232,.14);cursor:pointer;transition:background .35s}
+.rd-row:hover{background:rgba(250,244,232,.04)}
+.rd-row.open{background:rgba(253,201,44,.07)}
+.rd-body{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.4,0,.2,1)}
+.rd-row.open .rd-body{max-height:420px}
+.rd-row .plus{transition:transform .4s}
+.rd-row.open .plus{transform:rotate(45deg)}
+.rd-row.open .rd-name{color:#FDC92C}
+/* map */
+.mapdot{transition:all .35s ease;cursor:pointer}
+.mapdot .halo{transition:opacity .35s ease,transform .35s ease;pointer-events:none}
+.mapdot.current .halo{opacity:1;animation:mapHaloPulse 2.2s infinite ease-in-out}
+@keyframes mapHaloPulse{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.35);opacity:.85}}
+.mapdot .core{fill:#050B16;stroke:rgba(253,201,44,.5);stroke-width:1.5;transition:all .35s ease}
+.mapdot.lit .core{fill:#FDC92C;stroke:#F5F1EA;stroke-width:2.5}
+.mapdot.current .core{fill:#FFFFFF;stroke:#FDC92C;stroke-width:3}
+.mapdot text{fill:rgba(250,244,232,.55);font-size:10px;font-weight:700;letter-spacing:.12em;paint-order:stroke fill;stroke:#000000;stroke-width:4.5px;stroke-linejoin:round;stroke-linecap:round;transition:fill .3s ease;pointer-events:none}
+.mapdot.lit text{fill:rgba(253,201,44,.85)}
+.mapdot.current text{fill:#FDC92C;font-weight:800}
+.mapitem{opacity:.4;transition:all .35s ease;cursor:pointer;color:#F5F1EA}
+.mapitem:hover{opacity:.85;border-color:rgba(253,201,44,.5)!important}
+.mapitem.lit{opacity:1;border-color:#FDC92C!important;background:rgba(253,201,44,.12);color:#FDC92C}
+.cap-block{opacity:0;transform:translateY(36px)}
+.chip{font-size:10px;letter-spacing:.26em;font-weight:800;border:1px solid currentColor;border-radius:999px;padding:7px 14px}
+/* footer (expertise chrome) */
+.footer{background:#000000;border-top:1px solid rgba(253,201,44,.35);padding:0;color:#F5F1EA;position:relative;overflow:hidden}
+.footer::before{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,#FDC92C,transparent);opacity:.7}
+.footer .f-top{max-width:1280px;margin:0 auto;padding:64px 40px 40px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;align-items:start}
+.footer .f-logo{height:72px;width:auto;object-fit:contain;border:1px solid rgba(253,201,44,.5);border-radius:4px;background:#000000}
+.footer .f-name{margin-top:16px;font-size:11px;letter-spacing:.34em;color:#FDC92C}
+.footer .f-note{margin-top:10px;font-size:13px;line-height:1.8;color:#9FB0CA;max-width:340px;font-style:italic}
+.footer .f-col h5{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#6E7F9A;margin-bottom:16px;font-weight:400}
+.footer .f-links{display:flex;flex-direction:column;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#C6D0E2}
+.footer .f-links a{opacity:.75;transition:.3s;text-decoration:none}
+.footer .f-links a:hover{opacity:1;color:#FDC92C;padding-left:4px}
+.footer .f-base{border-top:1px solid rgba(255,255,255,.08);padding:20px 40px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:10px;letter-spacing:.26em;color:#6E7F9A;max-width:1280px;margin:0 auto}
+.footer .f-base b{color:#FDC92C;font-weight:400}
+@media(max-width:900px){.sticky-col{position:relative!important;top:auto!important}.footer .f-top{grid-template-columns:1fr;padding:48px 22px 30px}.footer .f-base{padding:18px 22px}}
+
+/* === HAUTE PARFUMERIE EDITORIAL TYPOGRAPHY (CORMORANT GARAMOND) === */
+:root {
+  --font-serif: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+}
+h1, h2, h3, h4, .sec-title, .hero-copy h1, .row-copy h3, .menu-in a.mlink, .brand-name, .era-name, .stage-label .t, .close h2, .captive-in .sig {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif !important;
+  letter-spacing: 0.02em;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+}
+/* Aligned Lining Numerals: Numbers (1895, 1960s, 1970s) completely level on the baseline */
+.chapter-year, [class*="year"], [class*="num"], [class*="stat"], .era-no, .chapter-dot {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+}
+.chapter-year {
+  font-size: clamp(28px, 2.5vw, 36px) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  color: #fff !important;
+}
+
+</style>
+  <link rel="stylesheet" crossorigin href="/assets/nav-BCnBoWF3.css">
+</head>
+<body class="font-ral">
+<div class="grain"></div>
+
+<header class="nav"><div class="nav-in">
+<a class="brand" href="index.html" aria-label="Dubey Perfumers"><img src="/assets/Dubey-Logo-CX9k5OmQ.svg" alt="Dubey Perfumers" class="brand-logo"></a>
+<button class="nav-menu-btn" id="burger" aria-label="Open Navigation Menu">
+  <div class="menu-dots-grid">
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+  </div>
+</button>
+</div></header>
+
+<div class="menu-drawer" id="menu" aria-hidden="true">
+  <div class="menu-top-bar">
+    <div class="menu-brand-tag">
+      <span class="menu-brand-title">DUBEY PERFUMERS</span>
+      <span class="menu-brand-sep">|</span>
+      <span class="menu-brand-sub">FRAGRANCE HOUSE SINCE 1895</span>
+    </div>
+    <button class="menu-close-btn" id="menuClose" aria-label="Close Navigation Menu">
+      <span>CLOSE</span>
+      <div class="close-icon-circle">&#10005;</div>
+    </button>
+  </div>
+  <div class="menu-main-content">
+    <div class="menu-items-col">
+      <a class="menu-row" href="index.html" data-num="I" data-meta="FOUNDED 1895 · KANNAUJ &amp; HYDERABAD" data-img="/assets/images/img_09.webp">
+        <span class="menu-roman">I</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Home</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Fine fragrance creation &amp; natural extraction since 1895</p>
+        </div>
+      </a>
+      <a class="menu-row" href="about-us.html" data-num="II" data-meta="OUR STORY &amp; MILESTONES · 1895 — PRESENT" data-img="/assets/images/1895.png">
+        <span class="menu-roman">II</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">About Us</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">How we got here &amp; our sacred centennial heritage</p>
+        </div>
+      </a>
+      <a class="menu-row" href="expertise.html" data-num="III" data-meta="GRASSE &amp; INDIAN TERROIRS" data-img="/assets/images/img_56.webp">
+        <span class="menu-roman">III</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Expertise</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">French rigour, Indian craft, and rare global terroirs</p>
+        </div>
+      </a>
+      <a class="menu-row" href="craft-and-process.html" data-num="IV" data-meta="SUPERCRITICAL CO2 &amp; EXTRACTIONS" data-img="/assets/images/img_19.webp">
+        <span class="menu-roman">IV</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Craft &amp; Process</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Natural extraction &amp; supercritical laboratory distillation</p>
+        </div>
+      </a>
+      <a class="menu-row" href="services.html" data-num="V" data-meta="PERSONALISED FRAGRANCES &amp; COMPOUNDS" data-img="/assets/images/img_57.webp">
+        <span class="menu-roman">V</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Services</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Personalised fragrance creation &amp; exceptional quality for your market needs</p>
+        </div>
+      </a>
+      <a class="menu-row" href="journal.html" data-num="VI" data-meta="RESEARCH &amp; FIELD ARCHIVES" data-img="/assets/images/img_23.webp">
+        <span class="menu-roman">VI</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Journal</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Case studies, harvest whitepapers, and field archives</p>
+        </div>
+      </a>
+      <a class="menu-row" href="careers.html" data-num="VII" data-meta="ATELIER TALENT &amp; OPPORTUNITIES" data-img="/assets/images/careers-facility.png">
+        <span class="menu-roman">VII</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Careers</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Join the master formulation atelier and chemists</p>
+        </div>
+      </a>
+      <a class="menu-row" href="contact-us.html" data-num="VIII" data-meta="START YOUR BRIEF" data-img="/assets/images/Today.png">
+        <span class="menu-roman">VIII</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Contact Us</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Reach our team in Shadnagar, Hyderabad · Delhi &amp; Dubai</p>
+        </div>
+      </a>
+    </div>
+    <div class="menu-preview-col">
+      <div class="menu-preview-card">
+        <img id="menuPreviewImg" src="/assets/img_19-C1oaNsLH.webp" alt="Menu Preview" class="menu-preview-img">
+        <div class="menu-preview-gradient"></div>
+        <div class="menu-preview-meta">
+          <span id="menuPreviewTag" class="preview-tag">SUPERCRITICAL CO2 &amp; EXTRACTIONS</span>
+          <span id="menuPreviewTitle" class="preview-title">Craft &amp; Process</span>
+        </div>
+      </div>
+      <div class="menu-preview-foot">
+        <span>INDIAN HERITAGE · FRENCH EXPERTISE</span>
+        <span>ESTABLISHED 1895</span>
+      </div>
+    </div>
+  </div>
+  <div class="menu-bottom-bar">
+    <div><b>FACILITY:</b> Shadnagar, Hyderabad, Telangana 509410</div>
+    <div><b>PHONE:</b> <a href="tel:+919000222725" style="color:inherit;text-decoration:none;">+91 90002 22725</a></div>
+    <div><b>EMAIL:</b> <a href="mailto:contact@dubeyperfumers.com" style="color:inherit;text-decoration:none;">contact@dubeyperfumers.com</a></div>
+  </div>
+</div>
+
+<!-- ═══ 01 · HERO — banner images kept same ═══ -->
+<div id="heroPin" class="relative bg-char" style="height:420vh">
+  <div class="sticky top-0 h-screen overflow-hidden" id="heroStage">
+    <div class="hero-layer on" data-phase="0"><img id="ph0" src="/assets/img_06-CPcP5ws1.webp" alt="Fresh rose blossoms"></div>
+    <div class="hero-layer" data-phase="1"><img loading="lazy" src="/assets/img_02-D48iYMhu.webp" alt="Rose petal botanical detail"></div>
+    <div class="hero-layer" data-phase="2"><img loading="lazy" src="/assets/img_19-C1oaNsLH.webp" alt="Extraction laboratory"></div>
+    <div class="hero-layer" data-phase="3"><img loading="lazy" src="/assets/img_50-B6hDlKMW.webp" alt="Pure floral absolute in glass"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(to bottom,rgba(7,15,30,.55),rgba(7,15,30,.15) 40%,rgba(7,15,30,.25) 70%,#070F1E 100%)"></div>
+
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6" id="heroCopy">
+      <p class="eyebrow text-[#FDC92C] mb-6" id="heroKick">DUBEY PERFUMERS · NATURAL EXTRACTION</p>
+      <h1 class="text-[#FAF4E8] font-light leading-[1.04]" style="font-size:clamp(34px,5.2vw,78px);letter-spacing:-.01em" id="heroH">
+        From fresh blossoms<br><span class="font-extrabold">to pure floral essence.</span>
+      </h1>
+      <div class="mt-6 h-[2px] w-[72px] bg-[#FDC92C]" id="heroRule"></div>
+      <p class="mt-6 text-[#FAF4E8]/80 font-medium tracking-wide" style="font-size:clamp(13px,1.4vw,17px)" id="heroSub">Carefully extracted. Precisely purified. Scientifically verified.</p>
+      <p class="chip text-[#FDC92C] mt-8 opacity-0" id="heroTag">EXTRACTION / DUBEY PERFUMERS</p>
+    </div>
+
+    <div class="absolute bottom-8 left-0 right-0">
+      <div class="wrap flex items-center gap-4">
+        <div class="flex-1 h-[2px] bg-white/15 relative overflow-hidden rounded-full"><div id="phaseBar" class="absolute inset-0 bg-[#FDC92C]" style="transform:scaleX(.05);transform-origin:left"></div></div>
+        <span class="text-[#FAF4E8]/70 text-[11px] font-bold tracking-[.24em]">04 · ESSENCE</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 1 · NATURAL EXTRACTION — 5 origins, same visual structure ═══ -->
+<section class="bg-cream py-[clamp(70px,9vw,130px)] relative" style="background:#070F1E">
+  <div class="wrap">
+    <div class="mb-12">
+      <p class="eyebrow text-[#FDC92C] mb-4 reveal" data-r>01 · NATURAL EXTRACTION</p>
+      <h2 class="font-light reveal text-[#F5F1EA]" data-r style="font-size:clamp(32px,4.2vw,60px)">From fresh blossoms<br><span class="font-extrabold">to pure floral essence.</span></h2>
+      <p class="mt-4 text-[#FDC92C] font-medium tracking-wide reveal" data-r style="font-size:clamp(13px,1.4vw,16px)">Carefully extracted. Precisely purified. Scientifically verified.</p>
+      <p class="mt-5 max-w-[680px] text-white/70 leading-[1.85] font-medium reveal" data-r>Extraction is where we started, and where we&rsquo;re still fussiest. Whatever aroma plants grow in India, we distil in-house. Today, we&rsquo;re one of the largest rose-extraction operations in the world, and one of the largest sandalwood distillers in India.</p>
+    </div>
+    <div class="grid md:grid-cols-12 gap-10">
+      <div class="md:col-span-5">
+        <div class="sticky-col sticky top-[90px]">
+          <div class="overflow-hidden rounded-[4px] aspect-[4/5] bg-[#050B16] relative border border-white/10">
+            <img id="botImg" class="imgfill" src="/assets/craft-rose-harvest-C1pdnUfs.png" alt="Rose fields at harvest">
+            <div class="absolute bottom-0 inset-x-0 bg-[#050B16] text-[#F5F1EA] px-6 py-4 flex justify-between items-center border-t border-white/10">
+              <span id="botLoc" class="text-[11px] font-extrabold tracking-[.24em]">ROSE, FROM HASAYAN</span>
+              <span id="botCount" class="text-[#FDC92C] font-extrabold text-sm">01 / 05</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-7 flex flex-col gap-[7vh]" id="botSteps">
+        <div class="bstep active flex gap-5" data-img="/assets/images/craft-rose-harvest.png" data-loc="ROSE, FROM HASAYAN">
+          <div class="bdot">01</div><div><div class="w-10 h-[2px] bg-[#FDC92C] mb-3"></div>
+          <h3 class="text-[26px] font-light text-[#F5F1EA]">Rose, <span class="font-extrabold">from Hasayan</span></h3>
+          <p class="mt-2 text-white/70 leading-[1.75] font-medium max-w-[560px]">Rose farming in India was shrinking before we arrived in Hasayan, Uttar Pradesh. In the few years since, the acreage has been climbing again, and we&rsquo;re proud to have helped bring it back.</p></div>
+        </div>
+        <div class="bstep flex gap-5" data-img="/assets/images/img_62.jpeg" data-loc="JASMINE, FROM KANNAUJ">
+          <div class="bdot">02</div><div><div class="w-10 h-[2px] bg-[#FDC92C] mb-3"></div>
+          <h3 class="text-[26px] font-light text-[#F5F1EA]">Jasmine, <span class="font-extrabold">from Kannauj</span></h3>
+          <p class="mt-2 text-white/70 leading-[1.75] font-medium max-w-[560px]">Sourced from Kannauj and carried to us in temperature-controlled vehicles, so every flower arrives as fresh as the day it was picked.</p></div>
+        </div>
+        <div class="bstep flex gap-5" data-img="/assets/images/img_64.jpeg" data-loc="KEWRA, FROM ODISHA">
+          <div class="bdot">03</div><div><div class="w-10 h-[2px] bg-[#FDC92C] mb-3"></div>
+          <h3 class="text-[26px] font-light text-[#F5F1EA]">Kewra, <span class="font-extrabold">from Odisha</span></h3>
+          <p class="mt-2 text-white/70 leading-[1.75] font-medium max-w-[560px]">Our Kewra Absolute is made by no one else in the world, using our own proprietary extraction process. Along the way, we&rsquo;ve helped keep kewra farming alive in Odisha.</p></div>
+        </div>
+        <div class="bstep flex gap-5" data-img="/assets/images/img_61.jpeg" data-loc="SANDALWOOD, FROM AUSTRALIA">
+          <div class="bdot">04</div><div><div class="w-10 h-[2px] bg-[#FDC92C] mb-3"></div>
+          <h3 class="text-[26px] font-light text-[#F5F1EA]">Sandalwood, <span class="font-extrabold">from Australia</span></h3>
+          <p class="mt-2 text-white/70 leading-[1.75] font-medium max-w-[560px]">For every sandalwood tree harvested, 10 more are planted. Our optimised extraction turns that wood into three to four specialised extracts you won&rsquo;t find on the open market.</p></div>
+        </div>
+        <div class="bstep flex gap-5" data-img="/assets/images/img_60.jpeg" data-loc="OUD, FROM ASSAM">
+          <div class="bdot">05</div><div><div class="w-10 h-[2px] bg-[#FDC92C] mb-3"></div>
+          <h3 class="text-[26px] font-light text-[#F5F1EA]">Oud, <span class="font-extrabold">from Assam</span></h3>
+          <p class="mt-2 text-white/70 leading-[1.75] font-medium max-w-[560px]">Sourced from Assam, home to some of the purest, highest-quality oud in the world.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 2 · EXTRACTION PROCESS — vertical timeline ═══ -->
+<section class="border-y border-white/10 py-[clamp(70px,9vw,130px)]" style="background:#000000">
+  <div class="wrap grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-4">
+      <div class="sticky-col sticky top-[90px]">
+        <p class="eyebrow text-[#FDC92C] mb-4 reveal" data-r>02 · EXTRACTION PROCESS</p>
+        <h2 class="font-light reveal text-[#F5F1EA]" data-r style="font-size:clamp(30px,3.6vw,52px)">How a floral<br><span class="font-extrabold">absolute is made</span></h2>
+        <div class="overflow-hidden rounded-[4px] aspect-[4/3] mt-6 bg-[#050B16] border border-white/10"><img loading="lazy" class="imgfill" src="/assets/imgT.png" alt="Cold purification in the laboratory"></div>
+      </div>
+    </div>
+    <div class="md:col-span-8 relative pl-10" id="labCol">
+      <div class="absolute left-[15px] top-2 bottom-2 w-[2px] bg-white/10 rounded-full overflow-hidden"><div id="labProg" class="absolute inset-0 bg-[#FDC92C]" style="transform:scaleY(.1);transform-origin:top"></div></div>
+      <div class="flex flex-col gap-[6vh]" id="labSteps">
+        <div class="lstep active relative"><span class="absolute -left-10 top-1 w-4 h-4 rounded-full bg-[#FDC92C] border-2 border-[#050B16]"></span><p class="text-[11px] font-extrabold tracking-[.26em] text-[#FDC92C]">01</p><h3 class="text-[24px] font-light mt-1 text-[#F5F1EA]">Fresh in.</h3><p class="text-white/70 font-medium mt-2 max-w-[600px] leading-relaxed">Flowers arrive in temperature-controlled vehicles and are inspected and cleaned.</p></div>
+        <div class="lstep relative"><span class="absolute -left-10 top-1 w-4 h-4 rounded-full bg-[#050B16] border-2 border-[#FDC92C]"></span><p class="text-[11px] font-extrabold tracking-[.26em] text-[#FDC92C]">02</p><h3 class="text-[24px] font-light mt-1 text-[#F5F1EA]">Gentle extraction.</h3><p class="text-white/70 font-medium mt-2 max-w-[600px] leading-relaxed">A food-grade solvent draws out the aromatic compounds, leaving a rich floral concrete.</p></div>
+        <div class="lstep relative"><span class="absolute -left-10 top-1 w-4 h-4 rounded-full bg-[#050B16] border-2 border-[#FDC92C]"></span><p class="text-[11px] font-extrabold tracking-[.26em] text-[#FDC92C]">03</p><h3 class="text-[24px] font-light mt-1 text-[#F5F1EA]">Purified cold.</h3><p class="text-white/70 font-medium mt-2 max-w-[600px] leading-relaxed">The concrete is purified with alcohol at around -40&deg;C, where waxes separate out.</p></div>
+        <div class="lstep relative"><span class="absolute -left-10 top-1 w-4 h-4 rounded-full bg-[#050B16] border-2 border-[#FDC92C]"></span><p class="text-[11px] font-extrabold tracking-[.26em] text-[#FDC92C]">04</p><h3 class="text-[24px] font-light mt-1 text-[#F5F1EA]">Pure absolute.</h3><p class="text-white/70 font-medium mt-2 max-w-[600px] leading-relaxed">The alcohol is gently recovered, leaving a pure floral absolute.</p></div>
+        <div class="lstep relative"><span class="absolute -left-10 top-1 w-4 h-4 rounded-full bg-[#050B16] border-2 border-[#FDC92C]"></span><p class="text-[11px] font-extrabold tracking-[.26em] text-[#FDC92C]">05</p><h3 class="text-[24px] font-light mt-1 text-[#F5F1EA]">Verified.</h3><p class="text-white/70 font-medium mt-2 max-w-[600px] leading-relaxed">Every batch is tested with GC-MS analysis and approved by our quality team before it leaves.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 3 · PEOPLE ═══ -->
+<section class="relative overflow-hidden" style="background:#070F1E">
+  <div class="wrap py-[clamp(80px,10vw,150px)] grid md:grid-cols-12 gap-10 items-center">
+    <div class="md:col-span-6">
+      <p class="eyebrow text-[#FDC92C] mb-5 reveal" data-r>03 · PEOPLE</p>
+      <h2 class="font-light max-w-[560px] reveal text-[#F5F1EA]" data-r style="font-size:clamp(32px,4.4vw,62px)">The hands <span class="font-extrabold">behind it</span></h2>
+      <p class="mt-5 max-w-[560px] text-white/75 leading-[1.8] font-medium reveal" data-r>Around 500 people work with us directly. Another 1,500, many of them rural flower pickers, earn their living alongside us. Walk the fields at harvest and you&rsquo;ll hear radios playing between the rows.</p>
+      <a href="craft-and-process.html" class="reveal inline-flex mt-10 rounded-full bg-[#FDC92C] text-[#070F1E] px-8 py-4 text-[12px] font-extrabold tracking-[.16em] hover:bg-[#F5F1EA]" data-r>SEE HOW WE DEVELOP FRAGRANCE →</a>
+    </div>
+    <div class="md:col-span-6 reveal" data-r>
+      <div class="overflow-hidden rounded-[4px] aspect-[4/5] max-h-[560px] w-full bg-[#050B16] border border-white/10">
+        <img loading="lazy" class="imgfill" src="/assets/img_4_U.JPG" alt="Dubey Perfumers manufacturing facility campus">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 4 · DEVELOPMENT & INNOVATION ═══ -->
+<section class="py-[clamp(70px,9vw,130px)]" style="background:#000000">
+  <div class="wrap grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-4">
+      <p class="eyebrow text-[#FDC92C] mb-4 reveal" data-r>04 · DEVELOPMENT &amp; INNOVATION</p>
+      <h2 class="font-light reveal text-[#F5F1EA]" data-r style="font-size:clamp(30px,3.8vw,54px)">From concept<br><span class="font-extrabold text-[#FDC92C]">to compound.</span></h2>
+      <p class="mt-4 text-white/65 font-medium leading-relaxed reveal" data-r>Custom fragrance development starts with listening. We learn your brief, break down what makes a scent work, then build toward something that&rsquo;s yours. Four in-house platforms carry that work.</p>
+      <div class="mt-6 hair-light reveal" data-r></div>
+      <p class="mt-6 text-[11px] font-extrabold tracking-[.26em] text-[#FDC92C] reveal" data-r>TAP A PLATFORM TO EXPAND</p>
+    </div>
+    <div class="md:col-span-8 border-t border-white/10" id="rdList">
+      <div class="rd-row open py-6 px-2 md:px-6" data-r>
+        <div class="flex items-center justify-between gap-4 rd-head"><div class="flex items-baseline gap-5"><span class="text-[11px] font-extrabold tracking-[.2em] text-[#FDC92C]">R·01</span><span class="rd-name text-[22px] font-bold text-[#F5F1EA]">LABO101</span></div><span class="plus text-2xl font-light text-[#FDC92C]">+</span></div>
+        <div class="rd-body"><p class="py-4 text-white/70 leading-[1.8] font-medium max-w-[640px]">This took two years in working, but finally this marvel was ready to be presented in 2019. LABO101 consists of marvellous creations, each of these creations took on an average 101 hours of one of our dedicated master perfumer to this project.<br><br>We don&rsquo;t wait to see what future holds. We develop it ourself. LABO 101 has fragrances of tomorrow. These creations have never be seen in the market before however extensive market research has been gone into making each creations considering the current market trends and expected market trends. Are you looking for a future winner fragrance that is truly unique and that will make your brand standout, LABO101 is the answer.</p></div>
+      </div>
+      <div class="rd-row py-6 px-2 md:px-6" data-r>
+        <div class="flex items-center justify-between gap-4 rd-head"><div class="flex items-baseline gap-5"><span class="text-[11px] font-extrabold tracking-[.2em] text-[#FDC92C]">R·02</span><span class="rd-name text-[22px] font-bold text-[#F5F1EA]">Perfcode</span></div><span class="plus text-2xl font-light text-[#FDC92C]">+</span></div>
+        <div class="rd-body"><p class="py-4 text-white/70 leading-[1.8] font-medium max-w-[640px]">One more question that every brand, irrespective of the application/industry was always asking us: How do we make our products unique, so that no one in the market can make a match of our fragrance.<br><br>To cater to this problem, Perfcode came to the rescue. Through many years of research and development, Our passionate scientists were able to come up with perfcode raw materials. These perfcode raw materials are only available to us and are not for sale in the open market. So if we use our perfcode raw materials in your compound, you can sit back and relax, with no reason to stress about competition coming up with the same fragrance.</p></div>
+      </div>
+      <div class="rd-row py-6 px-2 md:px-6" data-r>
+        <div class="flex items-center justify-between gap-4 rd-head"><div class="flex items-baseline gap-5"><span class="text-[11px] font-extrabold tracking-[.2em] text-[#FDC92C]">R·03</span><span class="rd-name text-[22px] font-bold text-[#F5F1EA]">Jannat-Al-Oudh</span></div><span class="plus text-2xl font-light text-[#FDC92C]">+</span></div>
+        <div class="rd-body"><p class="py-4 text-white/70 leading-[1.8] font-medium max-w-[640px]">Agar woods has always been a fascination for us. Their beauty cannot be described in words: This fascination led us to do extensive research on agarwoods. After 10 years of extensive research and 3 years of one of our perfumer personally travelling to Vietnam, Cambodia, Laos, Thailand and India to study different types of agarwoods, we have collected the right technology and enough know-how to come up with synthetic agar woods like you have never smelled before at prices you have never imagined before.<br><br>With Agarwoods price has been a major factor withholding its consumption in formulation of fragrances however our JANNAT-AL-OUDH collections eliminates this limitation and opens up an ocean of opportunities for companies for their formulations. Adding agar woods from our JANNAT-AL-OUDH collection to your fragrance will add natural-like agar wood notes at relatively very low prices.</p></div>
+      </div>
+      <div class="rd-row py-6 px-2 md:px-6" data-r>
+        <div class="flex items-center justify-between gap-4 rd-head"><div class="flex items-baseline gap-5"><span class="text-[11px] font-extrabold tracking-[.2em] text-[#FDC92C]">R·04</span><span class="rd-name text-[22px] font-bold text-[#F5F1EA]">Perfshield</span></div><span class="plus text-2xl font-light text-[#FDC92C]">+</span></div>
+        <div class="rd-body"><p class="py-4 text-white/70 leading-[1.8] font-medium max-w-[640px]">A key challenge faced by the Perfume Industry is in giving it’s customers a long lasting experience by virtue of their creations. Irrespective of brand or application, we have been tasked with producing fragrances that will greatly enhance the customer experience.<br><br>Our Research and Development team uses todays advancements in technologies to develop Perfshield. Perfshield protects the fragrance from losing its magic to the external environment by using specialized microcapsules. These capsules act as a shield to protect the fragrance and will only get infused on personal contact.</p></div>
+      </div>
+      <div class="rd-row py-6 px-2 md:px-6" data-r>
+        <div class="flex items-center justify-between gap-4 rd-head"><div class="flex items-baseline gap-5"><span class="text-[11px] font-extrabold tracking-[.2em] text-[#FDC92C]">R·05</span><span class="rd-name text-[22px] font-bold text-[#F5F1EA]">Dip Diffusion</span><span class="ml-2 text-[10px] font-extrabold tracking-[.2em] text-[#070F1E] bg-[#FDC92C] rounded-full px-3 py-1">IN DEVELOPMENT</span></div><span class="plus text-2xl font-light text-[#FDC92C]">+</span></div>
+        <div class="rd-body"><p class="py-4 text-white/70 leading-[1.8] font-medium max-w-[640px]">Some scents can&rsquo;t be extracted at all. Saffron, betel leaf and berries won&rsquo;t give up a usable oil. Our gas-infusion process, still in development, captures their real aroma in oil, with no synthetic stand-ins.</p></div>
+      </div>
+      <a href="#captive-molecules" class="inline-flex mt-8 rounded-full border-[1.5px] border-[#FDC92C] text-[#FDC92C] px-8 py-4 text-[12px] font-extrabold tracking-[.16em] hover:bg-[#FDC92C] hover:text-[#070F1E]">MEET OUR CAPTIVE MOLECULES →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 5 · CAPTIVE AROMA CHEMICALS ═══ -->
+<section id="captive-molecules" class="relative overflow-hidden py-[clamp(80px,10vw,150px)]" style="background:#000000">
+  <canvas id="molCanvas" class="absolute inset-0 w-full h-full opacity-[.35]"></canvas>
+  <img loading="lazy" src="/assets/img_19-C1oaNsLH.webp" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-[.12]">
+  <div class="wrap relative">
+    <p class="eyebrow text-[#FDC92C] mb-4">05 · CAPTIVE AROMA CHEMICALS</p>
+    <h2 class="font-light max-w-[720px] text-[#F5F1EA]" style="font-size:clamp(32px,4.4vw,64px)">Captive Aroma Chemicals<br><span class="font-extrabold text-[#FDC92C]">Original chemistry. Distinctive signatures.</span></h2>
+    <div class="mt-4 h-[2px] w-[72px] bg-[#FDC92C]"></div>
+    <div class="mt-10 max-w-[720px] flex flex-col gap-6 text-white/70 leading-[1.85] font-medium">
+      <p>Developed in our laboratories and reserved for our formulations, our captive aroma molecules give our perfumers a palette beyond commercially available ingredients. Around ten are already in active use, bringing proprietary innovation into the fragrances we create.</p>
+      <p>Their chemistry remains confidential, preserving an exclusive creative resource for our perfumers. For our clients, this means distinctive olfactive signatures with an additional layer of differentiation—making them more difficult to replicate.</p>
+      <p>Our research also extends to enzymatic synthesis, transforming selected natural materials into new aroma ingredients. By exploring new possibilities within familiar ingredients, we broaden our creative palette and bring original dimensions to fragrance design.</p>
+    </div>
+    <a href="journal.html#story3" class="inline-flex mt-12 rounded-full bg-[#FDC92C] text-[#070F1E] px-8 py-4 text-[12px] font-extrabold tracking-[.16em] hover:bg-[#F5F1EA]">SEE A CAPTIVE AT WORK →</a>
+  </div>
+</section>
+
+<!-- ═══ SECTION 6 · MANUFACTURING & QUALITY ═══ -->
+<section class="py-[clamp(70px,9vw,130px)]" style="background:#070F1E">
+  <div class="wrap">
+    <p class="eyebrow text-[#FDC92C] mb-4 reveal" data-r>06 · MANUFACTURING &amp; QUALITY</p>
+    <h2 class="font-light reveal text-[#F5F1EA]" data-r style="font-size:clamp(32px,4.4vw,62px)">Built to a standard, <span class="font-extrabold">not a shortcut.</span></h2>
+    <p class="mt-5 max-w-[720px] text-white/70 leading-[1.85] font-medium reveal" data-r>Our Hyderabad facility does one thing: fine-fragrance blending. Its ERP and quality systems are modelled on French practice, so every batch meets the same controls, from raw material to finished compound.</p>
+    <div class="relative mt-10 overflow-hidden rounded-[6px] aspect-[16/7] bg-[#050B16] border border-white/10 reveal" data-r>
+      <img loading="lazy" class="imgfill opacity-90 object-[center_45%]" src="/assets/craft-blending-laboratory-ml-LJLfR.png" alt="Hyderabad fine-fragrance blending laboratory">
+      <div class="absolute top-5 left-5 chip bg-[#050B16]/70 text-[#F5F1EA] border-transparent backdrop-blur">HYDERABAD · FINE-FRAGRANCE BLENDING</div>
+      <div class="absolute bottom-5 left-5 right-5 flex flex-wrap justify-between gap-3 items-center">
+        <span class="text-[#F5F1EA] text-[11px] font-bold tracking-[.22em]">ERP · FRENCH-PRACTICE QUALITY SYSTEMS</span>
+        <span class="text-[#FDC92C] text-[11px] font-bold tracking-[.22em]">GMP · ISO · IFRA-ALIGNED QC</span>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-12 gap-10 mt-12">
+      <div class="md:col-span-5 reveal" data-r>
+        <h3 class="text-[24px] font-light text-[#F5F1EA]">Where we work</h3>
+        <div class="mt-5 flex flex-col divide-y divide-white/10 border-y border-white/10">
+          <div class="py-4"><p class="text-[11px] font-extrabold tracking-[.24em] text-[#FDC92C]">HYDERABAD</p><p class="mt-1 text-white/70 font-medium">Headquarters and fine-fragrance blending facility, across two sites.</p></div>
+          <div class="py-4"><p class="text-[11px] font-extrabold tracking-[.24em] text-[#FDC92C]">KANNAUJ · ODISHA · ASSAM · MANIPUR</p><p class="mt-1 text-white/70 font-medium">Extraction facilities.</p></div>
+          <div class="py-4"><p class="text-[11px] font-extrabold tracking-[.24em] text-[#FDC92C]">DELHI · DUBAI</p><p class="mt-1 text-white/70 font-medium">Sales offices, with two in Delhi.</p></div>
+          <div class="py-4"><p class="text-[11px] font-extrabold tracking-[.24em] text-[#FDC92C]">INDONESIA · FRANCE</p><p class="mt-1 text-white/70 font-medium">Partner facilities.</p></div>
+        </div>
+        <a href="journal.html" class="inline-flex mt-6 rounded-full bg-[#FDC92C] text-[#070F1E] px-8 py-4 text-[12px] font-extrabold tracking-[.16em] hover:bg-[#F5F1EA]">VIEW OUR CERTIFICATIONS →</a>
+      </div>
+      <div class="md:col-span-7 reveal" data-r>
+        <div class="border border-white/10 rounded-[6px] p-5 md:p-7" style="background:#000000" id="routeCard">
+          <div class="flex flex-wrap justify-between items-center gap-2 mb-4">
+            <div>
+              <div class="text-[11px] font-extrabold tracking-[.24em] text-white/60">FIELD → FACILITY → WORLD — <span id="routeName" class="text-[#FDC92C]">HYDERABAD</span></div>
+              <div id="routeRole" class="text-[11px] text-white/50 tracking-[.14em] font-medium mt-0.5">Headquarters &amp; Fine-Fragrance Blending</div>
+            </div>
+            <span class="text-[11px] font-bold text-white/40 tracking-[.18em]">TAP OR SCROLL</span>
+          </div>
+          <svg viewBox="0 0 720 280" class="w-full h-auto rounded-[4px]" style="background:#000000" id="routeMap">
+            <!-- Full background guide path (faint dashed) -->
+            <path id="routeBgPath" d="M 60 200 C 72.5 194.2, 110.0 167.5, 135 165 C 160.0 162.5, 185.0 187.5, 210 185 C 235.0 182.5, 260.0 151.7, 285 150 C 310.0 148.3, 335.0 178.3, 360 175 C 385.0 171.7, 410.0 135.0, 435 130 C 460.0 125.0, 485.0 147.5, 510 145 C 535.0 142.5, 560.0 125.0, 585 115 C 610.0 105.0, 647.5 90.0, 660 85" fill="none" stroke="rgba(253,201,44,0.22)" stroke-width="2" stroke-dasharray="6 6"/>
+            <!-- Active golden connecting path (dot-by-dot) -->
+            <path id="routeActivePath" d="" fill="none" stroke="#FDC92C" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round"/>
+            <g id="routeDots">
+              <g class="mapdot lit current" data-i="0" transform="translate(60,200)">
+                <circle class="halo" r="16" fill="rgba(253,201,44,0.2)" opacity="1"/>
+                <circle class="core" r="8"/>
+                <text y="28" text-anchor="middle">HYDERABAD</text>
+              </g>
+              <g class="mapdot" data-i="1" transform="translate(135,165)">
+                <circle class="halo" r="16" fill="rgba(253,201,44,0.2)" opacity="0"/>
+                <circle class="core" r="7"/>
+                <text y="-20" text-anchor="middle">KANNAUJ</text>
+              </g>
+              <g class="mapdot" data-i="2" transform="translate(210,185)">
+                <circle class="halo" r="16" fill="rgba(253,201,44,0.2)" opacity="0"/>
+                <circle class="core" r="7"/>
+                <text y="28" text-anchor="middle">ODISHA</text>
+              </g>
+              <g class="mapdot" data-i="3" transform="translate(285,150)">
+                <circle class="halo" r="16" fill="rgba(253,201,44,0.2)" opacity="0"/>
+                <circle class="core" r="7"/>
+                <text y="-20" text-anchor="middle">ASSAM</text>
+              </g>
+              <g class="mapdot" data-i="4" transform="translate(360,175)">
+                <circle class="halo" r="16" fill="rgba(253,201,44,0.2)" opacity="0"/>
+                <circle class="core" r="7"/>
+                <text y="28" text-anchor="middle">MANIPUR</text>
+              </g>
+              <g class="mapdot" data-i="5" transform="translate(435,130)">
+                <circle class="halo" r="16" fill="rgba(253,201,44,0.2)" opacity="0"/>
+                <circle class="core" r="7"/>
+                <text y="-20" text-anchor="middle">DELHI</text>
+              </g>
+              <g class="mapdot" data-i="6" transform="translate(510,145)">
+                <circle class="halo" r="16" fill="rgba(253,201,44,0.2)" opacity="0"/>
+                <circle class="core" r="8"/>
+                <text y="28" text-anchor="middle">DUBAI</text>
+              </g>
+              <g class="mapdot" data-i="7" transform="translate(585,115)">
+                <circle class="halo" r="16" fill="rgba(253,201,44,0.2)" opacity="0"/>
+                <circle class="core" r="7"/>
+                <text y="-20" text-anchor="middle">INDONESIA</text>
+              </g>
+              <g class="mapdot" data-i="8" transform="translate(660,85)">
+                <circle class="halo" r="16" fill="rgba(253,201,44,0.2)" opacity="0"/>
+                <circle class="core" r="8"/>
+                <text y="-20" text-anchor="middle">FRANCE</text>
+              </g>
+            </g>
+          </svg>
+          <div class="grid grid-cols-3 sm:grid-cols-9 gap-2 mt-4" id="routeList">
+            <button class="mapitem lit border border-white/15 rounded-full py-2 text-[10px] font-extrabold tracking-[.1em]" data-i="0">HYDERABAD</button>
+            <button class="mapitem border border-white/15 rounded-full py-2 text-[10px] font-extrabold tracking-[.1em]" data-i="1">KANNAUJ</button>
+            <button class="mapitem border border-white/15 rounded-full py-2 text-[10px] font-extrabold tracking-[.1em]" data-i="2">ODISHA</button>
+            <button class="mapitem border border-white/15 rounded-full py-2 text-[10px] font-extrabold tracking-[.1em]" data-i="3">ASSAM</button>
+            <button class="mapitem border border-white/15 rounded-full py-2 text-[10px] font-extrabold tracking-[.1em]" data-i="4">MANIPUR</button>
+            <button class="mapitem border border-white/15 rounded-full py-2 text-[10px] font-extrabold tracking-[.1em]" data-i="5">DELHI</button>
+            <button class="mapitem border border-white/15 rounded-full py-2 text-[10px] font-extrabold tracking-[.1em]" data-i="6">DUBAI</button>
+            <button class="mapitem border border-white/15 rounded-full py-2 text-[10px] font-extrabold tracking-[.1em]" data-i="7">INDONESIA</button>
+            <button class="mapitem border border-white/15 rounded-full py-2 text-[10px] font-extrabold tracking-[.1em]" data-i="8">FRANCE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 7 · RAW MATERIALS & PROCESS CONTROL — closing ═══ -->
+<section class="py-[clamp(70px,9vw,130px)] border-t border-white/10" style="background:#000000">
+  <div class="wrap">
+    <p class="eyebrow text-[#FDC92C] mb-4 reveal" data-r>07 · RAW MATERIALS &amp; CONTROL</p>
+    <h2 class="font-light reveal text-[#F5F1EA]" data-r style="font-size:clamp(34px,4.6vw,66px)">We don&rsquo;t outsource <span class="font-extrabold text-[#FDC92C]">what matters.</span></h2>
+    <div class="grid grid-cols-3 gap-4 mt-12 reveal" data-r>
+      <div class="overflow-hidden rounded-[4px] aspect-[3/4] border border-white/10"><img loading="lazy" class="imgfill" src="/assets/img_12-C6DwIsdh.webp" alt="Rose harvest"></div>
+      <div class="overflow-hidden rounded-[4px] aspect-[3/4] mt-8 border border-white/10"><img loading="lazy" class="imgfill" src="/assets/img_36-C7xXJpGC.webp" alt="Jasmine harvest"></div>
+      <div class="overflow-hidden rounded-[4px] aspect-[3/4] border border-white/10"><img loading="lazy" class="imgfill" src="/assets/img_47-DnmFL-MG.webp" alt="Sandalwood"></div>
+    </div>
+    <p class="mt-8 max-w-[760px] text-white/70 leading-[1.85] font-medium reveal" data-r>Quality starts in the field. Our team walks the rose, jasmine and sandalwood fields in person, checking each harvest against our own standards. We source every material from where it grows best, whether that&rsquo;s India, Europe, Indonesia, the US or South America, and we control the process end to end.</p>
+    <div class="grid sm:grid-cols-3 gap-3 mt-8 reveal" data-r>
+      <div class="border border-white/15 rounded-full px-5 py-3 text-center text-[11px] font-extrabold tracking-[.2em] text-white/70">WALKED IN PERSON</div>
+      <div class="border border-white/15 rounded-full px-5 py-3 text-center text-[11px] font-extrabold tracking-[.2em] text-white/70">SOURCED WHERE IT GROWS BEST</div>
+      <div class="border border-[#FDC92C]/60 rounded-full px-5 py-3 text-center text-[11px] font-extrabold tracking-[.2em] text-[#FDC92C]">CONTROLLED END TO END</div>
+    </div>
+    <div class="mt-10 flex flex-wrap items-center gap-5 reveal" data-r>
+      <a href="contact-us.html" class="rounded-full bg-[#FDC92C] text-[#070F1E] px-10 py-4 text-[12px] font-extrabold tracking-[.16em] hover:bg-[#F5F1EA]">START A PROJECT →</a>
+      <span class="text-[11px] tracking-[.22em] font-bold text-white/50">KANNAUJ — HYDERABAD — DUBAI</span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+<div class="f-top">
+<div>
+<a class="foot-brand" href="index.html" aria-label="Dubey Perfumers"><img class="f-logo" src="/assets/images/dubey-emblem.svg" alt="Dubey Perfumers"></a>
+
+<p class="f-note">For 130 years — turning what the earth grows into what the world wears.</p>
+</div>
+<div class="f-col"><h5>House</h5><nav class="f-links">
+<a href="index.html">Home</a>
+<a href="about-us.html">About Us</a>
+<a href="craft-and-process.html">Natural Extractions</a>
+<a href="craft-and-process.html">Development Process</a>
+</nav></div>
+<div class="f-col"><h5>Craft</h5><nav class="f-links">
+<a href="services.html">Manufacturing &amp; Quality</a>
+<a href="services.html">Captive Aroma Chemicals</a>
+<a href="services.html">Working With Us</a>
+<a href="contact-us.html">Contact Us</a>
+</nav></div>
+</div>
+<div class="f-base"><span><b>DUBEY PERFUMERS</b> · PASSION PERFUMERY</span><span>SINCE 1895</span></div>
+</footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+try{
+  const lenis=new Lenis({smoothWheel:true,lerp:.09});
+  lenis.on('scroll',ScrollTrigger.update);
+  gsap.ticker.add(t=>lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+  window.__lenis=lenis;
+}catch(e){}
+
+/* reveals */
+gsap.utils.toArray('[data-r]').forEach(el=>{
+  gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+});
+
+/* ── 01 HERO transformation (same banner images) ── */
+const layers=[...document.querySelectorAll('.hero-layer')];
+function setPhase(i){
+  layers.forEach((l,k)=>l.classList.toggle('on',k===i));
+  gsap.to('#phaseBar',{scaleX:(i+1)/4,duration:.4,ease:'power2.out'});
+}
+ScrollTrigger.create({trigger:'#heroPin',start:'top top',end:'bottom bottom',scrub:.6,
+  onUpdate:s=>{
+    const i=Math.min(3,Math.floor(s.progress*4));
+    setPhase(i);
+    gsap.set('#heroH',{y:s.progress*-140,opacity:1-s.progress*1.4,letterSpacing:(s.progress*.4)+'em'});
+    gsap.set('#heroSub',{y:s.progress*-90,opacity:1-s.progress*1.8});
+    gsap.set('#heroRule',{scaleX:1-s.progress,opacity:1-s.progress*1.5});
+    gsap.set('#heroTag',{opacity:Math.max(0,(s.progress-.45)*2.2),y:(1-s.progress)*20});
+    gsap.set('#heroKick',{opacity:1-s.progress*2});
+  }});
+layers.forEach(l=>{const img=l.querySelector('img');
+  gsap.fromTo(img,{scale:1.05},{scale:1.18,ease:'none',scrollTrigger:{trigger:'#heroPin',start:'top top',end:'bottom bottom',scrub:true}});});
+
+/* ── Botanical (same 5-point structure) ── */
+const bSteps=[...document.querySelectorAll('#botSteps .bstep')];
+const bImg=document.getElementById('botImg');
+function setBot(i){
+  bSteps.forEach((s,k)=>s.classList.toggle('active',k===i));
+  const d=bSteps[i].dataset;
+  if(bImg.getAttribute('src')!==d.img){gsap.to(bImg,{opacity:0,duration:.2,onComplete:()=>{bImg.src=d.img;gsap.to(bImg,{opacity:1,duration:.5})}});}
+  document.getElementById('botLoc').textContent=d.loc;
+  document.getElementById('botCount').textContent='0'+(i+1)+' / 05';
+}
+bSteps.forEach((s,i)=>ScrollTrigger.create({trigger:s,start:'top 62%',end:'bottom 38%',onEnter:()=>setBot(i),onEnterBack:()=>setBot(i)}));
+
+/* ── Lab line ── */
+const lSteps=[...document.querySelectorAll('#labSteps .lstep')];
+function setLab(i){
+  lSteps.forEach((s,k)=>s.classList.toggle('active',k===i));
+  gsap.to('#labProg',{scaleY:(i+1)/5,duration:.45,ease:'power2.out'});
+}
+lSteps.forEach((s,i)=>ScrollTrigger.create({trigger:s,start:'top 65%',end:'bottom 40%',onEnter:()=>setLab(i),onEnterBack:()=>setLab(i)}));
+
+/* ── people: static split, no count-up ── */
+
+/* ── R&D accordion ── */
+document.querySelectorAll('.rd-row').forEach(r=>{
+  r.querySelector('.rd-head').addEventListener('click',()=>{
+    const open=r.classList.contains('open');
+    document.querySelectorAll('.rd-row').forEach(x=>x.classList.remove('open'));
+    if(!open)r.classList.add('open');
+    setTimeout(()=>ScrollTrigger.refresh(),600);
+  });
+});
+
+/* ── captive reveal + molecule canvas ── */
+gsap.utils.toArray('.cap-block').forEach((b,i)=>{
+  gsap.to(b,{opacity:1,y:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:b,start:'top 88%'}});
+});
+(function(){
+  const c=document.getElementById('molCanvas');if(!c)return;const x=c.getContext('2d');let W,H,pts=[];
+  function size(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;
+    pts=Array.from({length:Math.min(70,W/18)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3}));}
+  size();addEventListener('resize',size);
+  (function tick(){x.clearRect(0,0,W,H);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      x.fillStyle='#FDC92C';x.beginPath();x.arc(p.x,p.y,1.4,0,7);x.fill();});
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
+      if(d<130){x.strokeStyle='rgba(253,201,44,'+((1-d/130)*.35)+')';x.lineWidth=1;x.beginPath();x.moveTo(pts[i].x,pts[i].y);x.lineTo(pts[j].x,pts[j].y);x.stroke();}}
+    requestAnimationFrame(tick);})();
+})();
+
+/* ── route map (field → facility → world) ── */
+const routeData = [
+  { name: 'HYDERABAD', role: 'Headquarters & Fine Fragrance Blending', x: 60,  y: 200 },
+  { name: 'KANNAUJ',   role: 'Extraction Facility — Rose & Jasmine',  x: 135, y: 165 },
+  { name: 'ODISHA',    role: 'Extraction Facility — Kewra',           x: 210, y: 185 },
+  { name: 'ASSAM',     role: 'Extraction Facility — Agarwood Oud',    x: 285, y: 150 },
+  { name: 'MANIPUR',   role: 'Extraction Facility — Naturals',        x: 360, y: 175 },
+  { name: 'DELHI',     role: 'Commercial & Sales Offices',            x: 435, y: 130 },
+  { name: 'DUBAI',     role: 'International Hub & Regional Sales',     x: 510, y: 145 },
+  { name: 'INDONESIA', role: 'Global Terroir & Partner Facilities',   x: 585, y: 115 },
+  { name: 'FRANCE',    role: 'Partner Facilities — Grasse',           x: 660, y: 85 }
+];
+
+function getSplinePath(pts) {
+  if (pts.length < 2) return '';
+  let d = 'M ' + pts[0].x + ' ' + pts[0].y;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i === 0 ? 0 : i - 1];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[i + 2 < pts.length ? i + 2 : i + 1];
+
+    const cp1x = p1.x + (p2.x - p0.x) / 6;
+    const cp1y = p1.y + (p2.y - p0.y) / 6;
+    const cp2x = p2.x - (p3.x - p1.x) / 6;
+    const cp2y = p2.y - (p3.y - p1.y) / 6;
+
+    d += ' C ' + cp1x.toFixed(1) + ' ' + cp1y.toFixed(1) + ', ' +
+                 cp2x.toFixed(1) + ' ' + cp2y.toFixed(1) + ', ' +
+                 p2.x + ' ' + p2.y;
+  }
+  return d;
+}
+
+const activePathEl = document.getElementById('routeActivePath');
+const bgPathEl = document.getElementById('routeBgPath');
+if (bgPathEl) {
+  bgPathEl.setAttribute('d', getSplinePath(routeData));
+}
+
+function setRoute(i) {
+  const clamped = Math.max(0, Math.min(routeData.length - 1, i));
+
+  // 1. Update map dots
+  document.querySelectorAll('#routeDots .mapdot').forEach(d => {
+    const idx = +d.dataset.i;
+    d.classList.toggle('lit', idx <= clamped);
+    d.classList.toggle('current', idx === clamped);
+  });
+
+  // 2. Update button list
+  document.querySelectorAll('#routeList .mapitem').forEach(b => {
+    b.classList.toggle('lit', +b.dataset.i === clamped);
+  });
+
+  // 3. Update header label & role
+  const loc = routeData[clamped];
+  const nameEl = document.getElementById('routeName');
+  if (nameEl) nameEl.textContent = loc.name;
+  const roleEl = document.getElementById('routeRole');
+  if (roleEl) roleEl.textContent = loc.role;
+
+  // 4. Update active dashed line to connect dot-by-dot
+  if (activePathEl) {
+    if (clamped === 0) {
+      activePathEl.setAttribute('d', '');
+    } else {
+      activePathEl.setAttribute('d', getSplinePath(routeData.slice(0, clamped + 1)));
+    }
+  }
+}
+
+// User interactions: clicks on buttons and dots
+document.querySelectorAll('#routeList .mapitem, #routeDots .mapdot').forEach(el => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    setRoute(+el.dataset.i);
+  });
+});
+
+// Scroll interaction: advance dot-by-dot smoothly as user scrolls past the route section
+const routeCard = document.getElementById('routeCard');
+if (routeCard && typeof ScrollTrigger !== 'undefined') {
+  ScrollTrigger.create({
+    trigger: routeCard,
+    start: 'top 75%',
+    end: 'bottom 25%',
+    onUpdate: (self) => {
+      const step = Math.min(8, Math.floor(self.progress * 9));
+      setRoute(step);
+    }
+  });
+}
+
+// Initial state: start at Hyderabad (0)
+setRoute(0);
+</script>
+    
+    <script src="/assets/nav.js"></script>
+</body>
+</html>

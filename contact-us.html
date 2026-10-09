@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact Dubey Perfumers | Start a Fragrance Project</title>
+<meta name="description" content="Tell us about your fragrance brief. Reach Dubey Perfumers by phone or email, or visit us in Shadnagar, near Hyderabad.">
+<style>
+:root{
+  --night:#070F1E; --night2:#050B16; --deep:#0B1C35; --ink:#122A4B; --paper:#F5F1EA;
+  --gold:#FDC92C; --line:rgba(245,241,234,.14); --muted:rgba(245,241,234,.68);
+  --raleway:Raleway,system-ui,-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--paper);font-family:var(--raleway);font-weight:300;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,92vw);margin:0 auto}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ===== header (exact reference) ===== */
+.nav{position:fixed;inset:0 0 auto 0;z-index:90;background:rgba(7,15,30,.22);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.05);transition:background .4s ease,border-color .4s ease,backdrop-filter .4s ease}
+.nav-in{width:min(1280px,92vw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;white-space:nowrap}
+.brand img{height:44px;width:auto;display:block}
+.brand-name{font-family:var(--raleway);font-weight:600;font-size:15px;letter-spacing:.24em;text-transform:lowercase;color:var(--paper)}
+.nav-cta{border:1px solid rgba(253,201,44,.55);color:var(--paper)!important;padding:9px 18px;border-radius:100px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;transition:.35s}
+.nav-cta:hover{background:var(--gold);color:var(--night)!important;border-color:var(--gold)}
+.menu-pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(253,201,44,.5);border-radius:100px;background:transparent;color:var(--paper);padding:11px 18px;cursor:pointer;transition:.35s;flex:none;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-family:var(--raleway)}
+.menu-pill:hover{background:var(--gold);color:var(--night);border-color:var(--gold)}
+.menu-pill .mp-lines{display:flex;flex-direction:column;gap:4px}
+.menu-pill .mp-lines span{width:16px;height:1.5px;background:var(--paper);display:block;transition:.35s}
+.menu-pill:hover .mp-lines span{background:var(--night)}
+.menu{position:fixed;inset:0;z-index:60;background:rgba(5,11,22,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .45s ease}
+.menu.on{opacity:1;pointer-events:auto}
+.menu-in{width:min(720px,90vw);text-align:center}
+.menu-in a.mlink{display:block;font-family:var(--raleway);font-weight:600;font-size:clamp(24px,4.5vw,38px);line-height:1.3;color:var(--paper);text-decoration:none;padding:10px 0;letter-spacing:.04em;opacity:0;transform:translateY(18px);transition:.5s}
+.menu-in a.mlink:hover{color:var(--gold)}
+.menu.on a.mlink{opacity:1;transform:none}
+.menu-close{position:absolute;top:22px;right:4vw;width:46px;height:46px;border:1px solid rgba(253,201,44,.5);border-radius:50%;background:transparent;color:var(--paper);font-size:18px;cursor:pointer}
+.menu-close:hover{background:var(--gold);color:var(--night)}
+
+/* ===== hero (banner) ===== */
+.hero{position:relative;min-height:88svh;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.12) contrast(1.05) brightness(.8)}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(90deg,var(--night) 0%,rgba(7,15,30,.92) 34%,rgba(7,15,30,.55) 60%,rgba(7,15,30,.25) 100%)}
+.hero-grad-b{position:absolute;inset:auto 0 0 0;height:26vh;background:linear-gradient(180deg,rgba(7,15,30,0),var(--night))}
+.hero-in{position:relative;z-index:2;width:min(1280px,92vw);margin:0 auto;padding:130px 0 90px}
+.hero-kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:600}
+.hero-copy h1{font-family:var(--raleway);font-weight:600;font-size:clamp(30px,4.2vw,52px);line-height:1.26;letter-spacing:.02em;max-width:14em}
+.hero-copy h1 b{color:var(--gold);font-weight:600}
+.hero-body{margin-top:22px;font-size:clamp(14px,1.35vw,16px);line-height:1.9;color:var(--muted);max-width:34em}
+.hero-cta{margin-top:34px;display:inline-flex;align-items:center;gap:14px;text-decoration:none;font-size:13px;letter-spacing:.22em;text-transform:uppercase}
+.hero-cta .arr{width:44px;height:44px;border:1px solid rgba(253,201,44,.55);border-radius:50%;display:grid;place-items:center;color:var(--gold);transition:.35s}
+.hero-cta:hover .arr{background:var(--gold);color:var(--night)}
+.hero-cta u{text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px}
+@media(max-width:900px){.hero-grad{background:linear-gradient(180deg,rgba(7,15,30,.88),var(--night) 92%)}.hero-in{padding:110px 0 70px}}
+/* ===== sections ===== */
+section.block{padding:80px 0}
+.sec-head{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:44px}
+.gold-rule{width:56px;height:1px;background:var(--gold);margin-bottom:22px}
+.sec-head h2{font-family:var(--raleway);font-weight:600;font-size:clamp(24px,2.8vw,36px);line-height:1.32;letter-spacing:.02em}
+.sec-head h2 b{color:var(--gold);font-weight:600}
+.sec-head p{font-size:clamp(14px,1.35vw,16px);line-height:1.9;color:var(--muted);max-width:44em}
+
+/* ===== form ===== */
+.form-shell{border:1px solid var(--line);background:var(--night2);padding:clamp(24px,4vw,52px)}
+.stage{display:grid;grid-template-columns:1fr 1px 1fr;gap:clamp(24px,4vw,48px);align-items:stretch}
+.stage-vr{background:var(--line)}
+@media(max-width:900px){.stage{grid-template-columns:1fr}.stage-vr{display:none}}
+.stage-label{margin-bottom:28px;display:flex;align-items:baseline;gap:10px}
+.stage-label .n{font-size:11px;letter-spacing:.28em;color:var(--gold);font-weight:600}
+.stage-label .t{font-family:var(--raleway);font-weight:600;font-size:clamp(20px,2.2vw,26px);letter-spacing:.02em}
+.field{margin-bottom:22px}
+label{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:600}
+label .req{color:var(--gold)}
+input,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--paper);font-family:var(--raleway);font-weight:300;font-size:15px;padding:8px 0;transition:border-color .3s}
+input:focus,textarea:focus{outline:none;border-bottom-color:var(--gold)}
+input::placeholder,textarea::placeholder{color:rgba(245,241,234,.35)}
+textarea{resize:vertical;min-height:110px;line-height:1.8}
+.err{display:none;font-size:11.5px;color:#E2856E;margin-top:6px;letter-spacing:.04em}
+.field.invalid .err,.chipfield.invalid .err{display:block}
+.field.invalid input,.field.invalid textarea{border-bottom-color:#E2856E}
+.choice-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{border:1px solid rgba(253,201,44,.35);background:transparent;color:var(--muted);font-family:var(--raleway);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;padding:9px 16px;border-radius:100px;cursor:pointer;transition:.3s}
+.chip:hover{border-color:var(--gold);color:var(--paper)}
+.chip.on{border-color:var(--gold);background:var(--gold);color:var(--night)}
+.q{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:600}
+.submit-btn{display:inline-flex;align-items:center;gap:14px;margin-top:8px;background:transparent;color:var(--paper);border:1px solid rgba(253,201,44,.55);font-family:var(--raleway);font-weight:400;font-size:12px;letter-spacing:.22em;text-transform:uppercase;padding:13px 30px;border-radius:100px;cursor:pointer;transition:.35s;width:100%;justify-content:center}
+.submit-btn:hover{background:var(--gold);color:var(--night);border-color:var(--gold)}
+.submit-btn .ar{transition:transform .3s}
+.submit-btn:hover .ar{transform:translateX(6px)}
+.form-note{margin-top:18px;font-size:13px;line-height:1.8;color:var(--muted)}
+.form-note b{color:var(--paper);font-weight:400}
+.success{display:none;margin-top:20px;border:1px solid rgba(253,201,44,.5);border-radius:4px;padding:16px 20px;font-size:13.5px;line-height:1.8;color:var(--paper);background:rgba(253,201,44,.07)}
+.success.show{display:block}
+.success a{color:var(--gold)}
+
+/* ===== direct ===== */
+#direct{}
+.contact-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+@media(max-width:760px){.contact-cols{grid-template-columns:1fr}}
+.cl{border-top:1px solid var(--line);padding-top:24px}
+.cl .lab{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600}
+.cl a.big{font-family:var(--raleway);font-weight:600;font-size:clamp(20px,2.6vw,30px);letter-spacing:.02em;text-decoration:none;transition:color .3s}
+.cl a.big:hover{color:var(--gold)}
+.cl .sub{color:var(--muted);font-size:14px;margin-top:12px;line-height:1.8}
+.hours{display:inline-flex;align-items:center;gap:10px;margin-top:16px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--paper)}
+.hours::before{content:"";width:26px;height:1px;background:var(--gold)}
+
+/* ===== visit ===== */
+.visit-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,72px);align-items:stretch}
+@media(max-width:900px){.visit-grid{grid-template-columns:1fr}}
+.addr{font-size:15px;color:var(--muted);line-height:2}
+.visit-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.row-cta{display:inline-flex;align-items:center;gap:14px;text-decoration:none;font-size:12px;letter-spacing:.22em;text-transform:uppercase}
+.row-cta .arr{width:40px;height:40px;border:1px solid rgba(253,201,44,.55);border-radius:50%;display:grid;place-items:center;color:var(--gold);transition:.35s}
+.row-cta:hover .arr{background:var(--gold);color:var(--night)}
+.row-cta u{text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px}
+.visit-img{position:relative;min-height:320px;border:1px solid var(--line)}
+.visit-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.2) brightness(.9)}
+.frame-tag{position:absolute;left:0;bottom:0;background:var(--night2);padding:8px 16px;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+
+/* ===== footer (exact reference) ===== */
+.foot{background:#000;color:#fff;border-top:1px solid rgba(255,255,255,.14)}
+.foot-grid{width:min(1280px,92vw);margin:0 auto;padding:56px 0 26px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:32px}
+@media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr;padding:44px 0 20px;gap:28px}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr;padding:40px 0 18px;gap:24px}}
+.foot-grid h5{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#fff;margin-bottom:18px;font-weight:600}
+.foot-grid a{display:block;font-size:13.5px;letter-spacing:.04em;color:#fff;text-decoration:none;padding:5px 0}
+.foot-grid a:hover{color:var(--gold)}
+.foot-brand{display:inline-block;text-decoration:none;margin-bottom:14px} .foot-brand img, .brand-logo-foot, .f-logo{height:56px;width:auto;display:block;object-fit:contain}
+.brand-logo-foot{height:52px;width:auto;display:block}
+.foot-name{font-family:var(--raleway);font-weight:600;font-size:15px;letter-spacing:.24em;text-transform:lowercase;color:#fff}
+.foot-tag{margin-top:12px;font-size:13px;line-height:1.8;color:rgba(255,255,255,.72);max-width:26em}
+.foot-base{border-top:1px solid rgba(255,255,255,.16);margin-top:26px;padding:18px 0 8px;display:flex;justify-content:space-between;gap:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.72);width:min(1280px,92vw);margin-left:auto;margin-right:auto}
+@media(max-width:600px){.foot-base{font-size:10px;flex-wrap:wrap}}
+.foot-base a{color:#fff;text-decoration:none}
+.foot-base a:hover{color:var(--gold)}
+
+/* === HAUTE PARFUMERIE EDITORIAL TYPOGRAPHY (CORMORANT GARAMOND) === */
+:root {
+  --font-serif: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+}
+h1, h2, h3, h4, .sec-title, .hero-copy h1, .row-copy h3, .menu-in a.mlink, .brand-name, .era-name, .stage-label .t, .close h2, .captive-in .sig {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif !important;
+  letter-spacing: 0.02em;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+}
+/* Aligned Lining Numerals: Numbers (1895, 1960s, 1970s) completely level on the baseline */
+.chapter-year, [class*="year"], [class*="num"], [class*="stat"], .era-no, .chapter-dot {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+}
+.chapter-year {
+  font-size: clamp(28px, 2.5vw, 36px) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  color: #fff !important;
+}
+
+</style>
+    <!-- Haute Luxury Editorial Typography (Cormorant Garamond, Cinzel, Raleway) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" crossorigin href="/assets/nav-BCnBoWF3.css">
+</head>
+<body id="top">
+
+<header class="nav"><div class="nav-in">
+<a class="brand" href="index.html" aria-label="Dubey Perfumers"><img src="/assets/Dubey-Logo-CX9k5OmQ.svg" alt="Dubey Perfumers" class="brand-logo"></a>
+<button class="nav-menu-btn" id="burger" aria-label="Open Navigation Menu">
+  <div class="menu-dots-grid">
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+  </div>
+</button>
+</div></header>
+
+<div class="menu-drawer" id="menu" aria-hidden="true">
+  <div class="menu-top-bar">
+    <div class="menu-brand-tag">
+      <span class="menu-brand-title">DUBEY PERFUMERS</span>
+      <span class="menu-brand-sep">|</span>
+      <span class="menu-brand-sub">FRAGRANCE HOUSE SINCE 1895</span>
+    </div>
+    <button class="menu-close-btn" id="menuClose" aria-label="Close Navigation Menu">
+      <span>CLOSE</span>
+      <div class="close-icon-circle">&#10005;</div>
+    </button>
+  </div>
+  <div class="menu-main-content">
+    <div class="menu-items-col">
+      <a class="menu-row" href="index.html" data-num="I" data-meta="FOUNDED 1895 · KANNAUJ &amp; HYDERABAD" data-img="/assets/images/img_09.webp">
+        <span class="menu-roman">I</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Home</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Fine fragrance creation &amp; natural extraction since 1895</p>
+        </div>
+      </a>
+      <a class="menu-row" href="about-us.html" data-num="II" data-meta="OUR STORY &amp; MILESTONES · 1895 — PRESENT" data-img="/assets/images/1895.png">
+        <span class="menu-roman">II</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">About Us</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">How we got here &amp; our sacred centennial heritage</p>
+        </div>
+      </a>
+      <a class="menu-row" href="expertise.html" data-num="III" data-meta="GRASSE &amp; INDIAN TERROIRS" data-img="/assets/images/img_56.webp">
+        <span class="menu-roman">III</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Expertise</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">French rigour, Indian craft, and rare global terroirs</p>
+        </div>
+      </a>
+      <a class="menu-row" href="craft-and-process.html" data-num="IV" data-meta="SUPERCRITICAL CO2 &amp; EXTRACTIONS" data-img="/assets/images/img_19.webp">
+        <span class="menu-roman">IV</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Craft &amp; Process</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Natural extraction &amp; supercritical laboratory distillation</p>
+        </div>
+      </a>
+      <a class="menu-row" href="services.html" data-num="V" data-meta="PERSONALISED FRAGRANCES &amp; COMPOUNDS" data-img="/assets/images/img_57.webp">
+        <span class="menu-roman">V</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Services</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Personalised fragrance creation &amp; exceptional quality for your market needs</p>
+        </div>
+      </a>
+      <a class="menu-row" href="journal.html" data-num="VI" data-meta="RESEARCH &amp; FIELD ARCHIVES" data-img="/assets/images/img_23.webp">
+        <span class="menu-roman">VI</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Journal</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Case studies, harvest whitepapers, and field archives</p>
+        </div>
+      </a>
+      <a class="menu-row" href="careers.html" data-num="VII" data-meta="ATELIER TALENT &amp; OPPORTUNITIES" data-img="/assets/images/careers-facility.png">
+        <span class="menu-roman">VII</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Careers</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Join the master formulation atelier and chemists</p>
+        </div>
+      </a>
+      <a class="menu-row" href="contact-us.html" data-num="VIII" data-meta="START YOUR BRIEF" data-img="/assets/images/Today.png">
+        <span class="menu-roman">VIII</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Contact Us</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Reach our team in Shadnagar, Hyderabad · Delhi &amp; Dubai</p>
+        </div>
+      </a>
+    </div>
+    <div class="menu-preview-col">
+      <div class="menu-preview-card">
+        <img id="menuPreviewImg" src="/assets/Today-DOaGn-z9.png" alt="Menu Preview" class="menu-preview-img">
+        <div class="menu-preview-gradient"></div>
+        <div class="menu-preview-meta">
+          <span id="menuPreviewTag" class="preview-tag">START A PROJECT</span>
+          <span id="menuPreviewTitle" class="preview-title">Contact Us</span>
+        </div>
+      </div>
+      <div class="menu-preview-foot">
+        <span>INDIAN HERITAGE · FRENCH EXPERTISE</span>
+        <span>ESTABLISHED 1895</span>
+      </div>
+    </div>
+  </div>
+  <div class="menu-bottom-bar">
+    <div><b>FACILITY:</b> Shadnagar, Hyderabad, Telangana 509410</div>
+    <div><b>PHONE:</b> <a href="tel:+919000222725" style="color:inherit;text-decoration:none;">+91 90002 22725</a></div>
+    <div><b>EMAIL:</b> <a href="mailto:contact@dubeyperfumers.com" style="color:inherit;text-decoration:none;">contact@dubeyperfumers.com</a></div>
+  </div>
+</div>
+
+<main>
+<!-- HERO (banner image + gradient) -->
+<section class="hero" id="hero">
+  <img class="hero-bg" src="/assets/contact-facility-campus.jpg" alt="Dubey Perfumers Facility Campus"/>
+  <div class="hero-grad"></div>
+  <div class="hero-grad-b"></div>
+  <div class="hero-in">
+    <div class="hero-copy rv in">
+      <div class="hero-kicker">Contact Dubey</div>
+      <h1>Let's build your <b>fragrance.</b></h1>
+      <p class="hero-body">Tell us what you're working on. We'll take it from there.</p>
+      <a class="hero-cta" href="#enquiry"><u>Begin Your Enquiry</u><span class="arr">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY FORM -->
+<section class="block wrap" id="enquiry">
+  <div class="sec-head rv">
+      <div class="gold-rule"></div>
+    <h2>Begin your <b>enquiry.</b></h2>
+    <p>A few precise lines. Our perfumers and commercial team reply with next steps — no noise, no obligation.</p>
+  </div>
+
+  <form class="form-shell rv" id="form" novalidate>
+    <div class="stage">
+      <div>
+        <div class="stage-label"><span class="n">01</span><span class="t">Your project</span></div>
+        <div class="field" data-req>
+          <label>Name <span class="req">*</span></label>
+          <input type="text" name="name" placeholder="Your full name"/>
+          <div class="err">Please tell us your name.</div>
+        </div>
+        <div class="field">
+          <label>Company</label>
+          <input type="text" name="company" placeholder="Brand or company"/>
+        </div>
+        <div class="field" data-req data-type="email">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" name="email" placeholder="you@company.com"/>
+          <div class="err">Please enter a valid email address.</div>
+        </div>
+        <div class="field" data-type="tel">
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="+91 …"/>
+          <div class="err">Please enter a valid phone number.</div>
+        </div>
+      </div>
+
+      <div class="stage-vr"></div>
+
+      <div>
+        <div class="stage-label"><span class="n">02</span><span class="t">Your brief</span></div>
+
+        <div class="chipfield" data-chipreq>
+          <div class="q">What describes your business? Choose one</div>
+          <div class="choice-row">
+            <button type="button" class="chip">Emerging Brand</button>
+            <button type="button" class="chip">Established Brand</button>
+            <button type="button" class="chip">Custom Fragrance</button>
+            <button type="button" class="chip">Other</button>
+          </div>
+          <div class="err">Please choose one option.</div>
+        </div>
+
+        <div class="chipfield" data-chipreq>
+          <div class="q">Where are you creating for? Choose one</div>
+          <div class="choice-row">
+            <button type="button" class="chip">India</button>
+            <button type="button" class="chip">Middle East</button>
+            <button type="button" class="chip">Europe</button>
+            <button type="button" class="chip">Egypt</button>
+            <button type="button" class="chip">Other</button>
+          </div>
+          <div class="err">Please choose one option.</div>
+        </div>
+
+        <div class="chipfield" data-chipreq>
+          <div class="q">What are you developing? Choose one</div>
+          <div class="choice-row">
+            <button type="button" class="chip">Fine Fragrance</button>
+            <button type="button" class="chip">Personal Care</button>
+            <button type="button" class="chip">Home Care</button>
+            <button type="button" class="chip">Cosmetics</button>
+            <button type="button" class="chip">Natural Extracts</button>
+          </div>
+          <div class="err">Please choose one option.</div>
+        </div>
+
+        <div class="field" data-req data-min="20">
+          <label>Tell us about your project <span class="req">*</span></label>
+          <textarea name="brief" placeholder="A few lines help us respond well"></textarea>
+          <div class="err">A few lines help us respond well (min. 20 characters).</div>
+        </div>
+
+        <button class="submit-btn" type="submit">Send Enquiry <span class="ar">&rarr;</span></button>
+        <div class="form-note">One email opens with everything pre-filled. We reply personally within <b>2–3 working days</b>.</div>
+        <div class="success" id="success">Thank you — your enquiry is ready. Your mail client has opened with everything pre-filled; if it didn't, write to <a href="mailto:contact@dubeyperfumers.com">contact@dubeyperfumers.com</a>.</div>
+      </div>
+    </div>
+  </form>
+</section>
+
+<!-- DIRECT -->
+<section class="block" id="direct">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="gold-rule"></div>
+      <h2>Prefer a <b>direct conversation?</b></h2>
+      <p>For existing partners and urgent briefs, call or write directly. A perfumer or commercial lead answers personally.</p>
+    </div>
+    <div class="contact-cols rv">
+      <div class="cl">
+        <div class="lab">Tel</div>
+        <a class="big" href="tel:+919000222725">+91 90002 22725</a>
+        <div class="sub">Call for urgent briefs and existing partner support.</div>
+        <div class="hours">Mon–Sat · 10:00–18:00 IST</div>
+      </div>
+      <div class="cl">
+        <div class="lab">Mail</div>
+        <a class="big" href="mailto:contact@dubeyperfumers.com?subject=Enquiry%20%E2%80%94%20Dubey%20Perfumers">contact@dubeyperfumers.com</a>
+        <div class="sub">Write anytime — a perfumer or commercial lead answers personally, never a bot.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="block wrap" id="visit">
+  <div class="sec-head rv">
+      <div class="gold-rule"></div>
+    <h2>Visit <b>Dubey.</b></h2>
+    <p>Shadnagar · Telangana</p>
+  </div>
+  <div class="visit-grid rv">
+    <div>
+      <div class="addr">
+        Sy. No. 528, Yelikatta Village,<br/>
+        Beside Total Gas, Farooq Nagar Mandal,<br/>
+        Shadnagar, Ranga Reddy,<br/>
+        Telangana 509410
+      </div>
+      <div class="hours" style="margin-top:20px">Visits by appointment</div>
+      <div style="border-left:2px solid var(--gold);padding:6px 0 6px 20px;margin-top:32px;max-width:32em">
+        <div style="font-size:15px;color:var(--paper);font-weight:400">Where ideas move from brief to fragrance.</div>
+        <div style="font-size:14px;color:var(--muted);margin-top:6px">Visit us by appointment and experience the people and place behind Dubey Perfumers.</div>
+      </div>
+      <div class="visit-ctas">
+        <a class="row-cta" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Yelikatta+Village+Farooq+Nagar+Mandal+Shadnagar+Ranga+Reddy+Telangana+509410"><u>Open in Google Maps</u><span class="arr">&rarr;</span></a>
+      </div>
+      <div style="margin-top:28px">
+        <span style="font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:600;display:block;margin-bottom:12px">Follow us</span>
+        <div style="display:flex;gap:18px;font-size:12px;letter-spacing:.2em;text-transform:uppercase">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" style="color:var(--paper);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px">Instagram</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" style="color:var(--paper);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px">LinkedIn</a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" style="color:var(--paper);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="visit-img" style="position:relative;min-height:360px;overflow:hidden;border-radius:4px">
+      <iframe src="https://maps.google.com/maps?q=17.0673,78.2045+(Dubey+Perfumers+Shadnagar)&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" width="100%" height="100%" style="border:0;filter:invert(90%) hue-rotate(180deg) brightness(85%) contrast(1.1);position:absolute;inset:0" allowfullscreen="" loading="lazy"></iframe>
+      <div class="frame-tag" style="z-index:2">Shadnagar · Telangana</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER (exact reference) -->
+<div class="foot"><div class="foot-grid">
+<div><a class="foot-brand" href="index.html"><img class="brand-logo-foot" src="/assets/images/dubey-emblem.svg" alt="Dubey Perfumers — Passion Perfumery"></a><p class="foot-tag">French rigour. Indian craft. A fragrance house in India with European-level quality.</p></div>
+<div><h5>House</h5><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="expertise.html">Expertise</a><a href="craft-and-process.html">Craft &amp; Process</a></div>
+<div><h5>More</h5><a href="services.html">Services</a><a href="journal.html">Journal</a><a href="careers.html">Careers</a><a href="#top">Contact Us</a></div>
+<div><h5>Fragrance</h5><a href="index.html#fine-fragrances">Fine Fragrances</a><a href="index.html#captive-aroma-chemicals">Captive Aroma Chemicals</a><a href="contact-us.html">Start Your Brief</a><a href="#top">Back to top &uarr;</a></div>
+</div><div class="wrap"><div class="foot-base"><span>&copy; Dubey Perfumers</span><span><a href="index.html#fine-fragrances">Fine Fragrances</a> &middot; <a href="index.html#captive-aroma-chemicals">Captive Aroma Chemicals</a></span></div></div></div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+document.querySelectorAll('.chipfield').forEach(g=>{
+  g.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+    g.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));
+    c.classList.add('on');g.classList.remove('invalid');
+  }));
+});
+
+const form=document.getElementById('form');
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  let ok=true;
+  form.querySelectorAll('.field[data-req]').forEach(f=>{
+    const inp=f.querySelector('input,textarea');
+    const v=(inp.value||'').trim();
+    let bad=!v;
+    if(!bad&&f.dataset.type==='email')bad=!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    if(!bad&&f.dataset.min)bad=v.length<parseInt(f.dataset.min);
+    f.classList.toggle('invalid',bad);if(bad)ok=false;
+  });
+  form.querySelectorAll('.chipfield[data-chipreq]').forEach(g=>{
+    const bad=!g.querySelector('.chip.on');
+    g.classList.toggle('invalid',bad);if(bad)ok=false;
+  });
+  if(!ok)return;
+  const v=n=>{const i=form.querySelector('[name="'+n+'"]');return i?i.value.trim():''};
+  const picks=[];form.querySelectorAll('.chipfield').forEach(g=>{const c=g.querySelector('.chip.on');if(c)picks.push(c.textContent.trim())});
+  const body='Name: '+v('name')+'\nCompany: '+v('company')+'\nEmail: '+v('email')+'\nPhone: '+v('phone')+'\nBusiness: '+(picks[0]||'')+'\nMarket: '+(picks[1]||'')+'\nCategory: '+(picks[2]||'')+'\n\nBrief:\n'+v('brief');
+  location.href='mailto:contact@dubeyperfumers.com?subject='+encodeURIComponent('Enquiry — Dubey Perfumers')+'&body='+encodeURIComponent(body);
+  document.getElementById('success').classList.add('show');
+});
+</script>
+    
+    <script src="/assets/nav.js"></script>
+</body>
+</html>

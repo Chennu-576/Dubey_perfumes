@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dubey Perfumers — Our Journey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Haute Luxury Editorial Typography (Cormorant Garamond, Cinzel, Raleway) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<style>
+:root{
+--night:#070F1E; --night2:#050B16; --deep:#0B1C35; --ink:#122A4B;
+--paper:#F5F1EA; --gold:#FDC92C;
+--line:rgba(245,241,234,.14); --muted:rgba(245,241,234,.68);
+--rale:Raleway,system-ui,-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--night);color:var(--paper);font-family:var(--rale);font-weight:300;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--gold);color:var(--night)}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1280px,92vw);margin:0 auto}
+/* HEADER — reference layout, top-left brand / top-right menu only */
+.nav{position:fixed;inset:0 0 auto 0;z-index:90;background:rgba(7,15,30,.22);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.05);transition:background .4s ease,border-color .4s ease,backdrop-filter .4s ease}
+.nav-in{width:min(1280px,92vw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;white-space:nowrap}
+.brand img{height:44px;width:auto;display:block}
+.brand-name{font-family:var(--rale);font-weight:600;font-size:15px;letter-spacing:.24em;text-transform:lowercase;color:var(--paper)}
+.menu-pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(253,201,44,.5);border-radius:100px;background:transparent;color:var(--paper);padding:11px 18px;cursor:pointer;transition:.35s;flex:none;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-family:var(--rale)}
+.menu-pill:hover{background:var(--gold);color:#070F1E;border-color:var(--gold)}
+.menu-pill:hover .mp-lines span{background:#070F1E}
+.mp-label{line-height:1}
+.mp-lines{display:grid;gap:4px}
+.mp-lines span{display:block;width:20px;height:1.5px;background:var(--paper);transition:.35s}
+.menu-pill.open .mp-lines span:nth-child(1){transform:translateY(5.5px) rotate(45deg)}
+.menu-pill.open .mp-lines span:nth-child(2){opacity:0}
+.menu-pill.open .mp-lines span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg)}
+.menu{position:fixed;inset:0;z-index:60;background:rgba(5,11,22,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .45s ease}
+.menu.on{opacity:1;pointer-events:auto}
+.menu-in{width:min(720px,90vw);text-align:center}
+.menu-eyebrow{font-size:11px;letter-spacing:.4em;color:var(--gold);margin-bottom:18px}
+.menu-in a.mlink{display:block;font-family:var(--rale);font-weight:600;font-size:clamp(24px,4.5vw,36px);line-height:1.3;color:var(--paper);text-decoration:none;padding:9px 0;letter-spacing:.04em;opacity:0;transform:translateY(18px);transition:.5s}
+.menu-in a.mlink:hover{color:var(--gold)}
+.menu.on a.mlink{opacity:1;transform:none}
+.menu-close{position:absolute;top:22px;right:4vw;width:46px;height:46px;border:1px solid rgba(253,201,44,.5);border-radius:50%;background:transparent;color:var(--paper);font-size:18px;cursor:pointer}
+.menu-close:hover{background:var(--gold);color:#070F1E}
+/* === GRAND CENTERED HERO INTRO === */
+.journey-hero-sec{
+  padding: 148px 0 54px;
+  position: relative;
+  text-align: center;
+  background: radial-gradient(ellipse 80% 50% at 50% 25%, rgba(253,201,44,0.07), transparent 70%), var(--night);
+}
+.journey-eyebrow{
+  font-family: var(--rale);
+  font-size: 11px;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.journey-hero-title{
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(48px, 6.4vw, 84px);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  margin: 0 auto 18px;
+}
+.journey-hero-sub{
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.3vw, 28px);
+  line-height: 1.5;
+  color: var(--paper);
+  letter-spacing: 0.04em;
+  max-width: 36em;
+  margin: 0 auto;
+}
+/* Centerpiece archival photograph frame */
+.hero-archival-card{
+  margin: 44px auto 0;
+  max-width: min(1040px, 92vw);
+  position: relative;
+}
+.hero-archival-frame{
+  position: relative;
+  border-radius: 6px;
+  padding: 10px;
+  background: linear-gradient(135deg, rgba(253,201,44,0.3) 0%, rgba(255,255,255,0.05) 50%, rgba(253,201,44,0.18) 100%);
+  border: 1px solid rgba(253,201,44,0.4);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.7), 0 0 50px rgba(253,201,44,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.hero-archival-frame:hover{
+  box-shadow: 0 32px 85px rgba(0,0,0,0.8), 0 0 65px rgba(253,201,44,0.14);
+}
+.hero-archival-img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+  filter: contrast(1.04) brightness(0.99);
+}
+.archival-caption{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 22px;
+  font-family: var(--rale);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+.archival-dash{
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+  background: rgba(253,201,44,0.4);
+}
+.milestone-transition-cue{
+  margin: 54px auto 0;
+  display: flex;
+  justify-content: center;
+}
+.cue-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--muted);
+  font-family: var(--rale);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  transition: color .3s ease;
+}
+.cue-link:hover{
+  color: var(--gold);
+}
+.cue-line{
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: rgba(255,255,255,0.18);
+  transition: background .3s, width .3s;
+}
+.cue-link:hover .cue-line{
+  background: var(--gold);
+  width: 44px;
+}
+.cue-icon{
+  color: var(--gold);
+  font-size: 14px;
+  animation: bounceCue 2s infinite ease-in-out;
+}
+@keyframes bounceCue {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* === MILESTONE TIMELINE STRIP === */
+.timeline-sec{padding:36px 0 80px;position:relative}
+.timeline-header-bar{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 0 20px;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--line);
+}
+.th-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+}
+.th-title{
+  font-family: var(--rale);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+.th-rule{
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(253,201,44,0.3) 0%, transparent 100%);
+}
+.timeline-layout{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;margin-top:20px;align-items:start}
+.tl-sticky{position:sticky;top:88px;height:min(calc(100vh - 118px), 820px);min-height:500px;overflow:hidden;background:var(--deep);border-radius:4px;box-shadow:0 24px 60px rgba(0,0,0,0.55)}
+.tl-stack{position:absolute;inset:0}
+.tl-stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.07);transition:opacity .8s ease,transform 2s ease;filter:saturate(.92)}
+.tl-stack img.active{opacity:1;transform:scale(1)}
+.tl-stack::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,15,30,.02) 0%,rgba(7,15,30,.62) 100%)}
+.tl-progress{position:absolute;left:0;top:0;bottom:0;width:2px;background:rgba(255,255,255,.16);z-index:3}
+.tl-progress i{display:block;width:100%;background:var(--gold);height:0;transition:height .45s cubic-bezier(0.16,1,0.3,1)}
+.tl-overlay{position:absolute;left:0;right:0;bottom:0;padding:26px;color:var(--paper);z-index:2}
+.tl-overlay .era-no{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.tl-overlay .era-name{font-weight:500;font-size:20px;letter-spacing:.04em;margin:6px 0 2px}
+.tl-overlay p{font-size:12.5px;opacity:.78}
+.tl-chapters{position:relative;padding-left:8px;padding-bottom:clamp(260px, 32vh, 340px)}
+/* Connecting line strictly between dots 01 through 08, not trailing into runway */
+.chapter:not(:last-child)::before{content:"";position:absolute;left:35.5px;top:34px;bottom:-4px;width:1px;background:var(--line)}
+.chapter{position:relative;padding:0 0 100px 80px;opacity:.35;transition:opacity .5s cubic-bezier(0.16,1,0.3,1),transform .5s cubic-bezier(0.16,1,0.3,1);transform:translateX(0)}
+.chapter.active{opacity:1;transform:translateX(6px)}
+/* circular outline-to-fill indicators */
+.chapter-dot{position:absolute;left:21px;top:4px;width:30px;height:30px;border-radius:50%;border:1px solid rgba(253,201,44,.55);display:grid;place-items:center;font-size:10px;letter-spacing:.06em;font-weight:500;color:var(--gold);background:transparent;z-index:2;transition:background .5s ease,border-color .5s ease,color .5s ease,transform .5s ease,box-shadow .5s ease}
+.chapter.active .chapter-dot{background:var(--gold);border-color:var(--gold);color:#070F1E;transform:scale(1.12);box-shadow:0 0 16px rgba(212,175,55,0.45)}
+.chapter-year{font-weight:500;font-size:clamp(22px,2vw,28px);letter-spacing:.02em;color:#fff;line-height:1.2;font-family:var(--rale)}
+.chapter-tag{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:8px 0 10px;font-weight:400}
+.chapter p{font-size:15.5px;line-height:1.85;color:#C2CFE4;max-width:520px}
+.ch-m-img{display:none}
+/* FOOTER — reference premium structure */
+.foot{background:#000;color:#fff;border-top:1px solid rgba(255,255,255,.14)}
+.foot-grid{width:min(1280px,92vw);margin:0 auto;padding:64px 0 28px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px}
+.foot-grid h5{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#fff;margin-bottom:18px;font-weight:600}
+.foot-grid a{display:block;font-size:13.5px;letter-spacing:.04em;color:#fff;text-decoration:none;padding:5px 0}
+.foot-grid a:hover{color:var(--gold)}
+.foot-brand{display:inline-block;text-decoration:none;margin-bottom:14px} .foot-brand img, .brand-logo-foot, .f-logo{height:56px;width:auto;display:block;object-fit:contain}
+.foot-brand img{height:52px;width:auto;display:block}
+.foot-name{font-family:'Cinzel',serif;font-weight:600;font-size:15px;letter-spacing:.25em;text-transform:uppercase;color:#FDC92C}
+.foot-tag{margin-top:14px;font-size:13.5px;line-height:1.85;color:rgba(255,255,255,.72);max-width:26em}
+.foot-base{border-top:1px solid rgba(255,255,255,.16);margin-top:26px;padding:18px 0 8px;display:flex;justify-content:space-between;gap:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.72);width:min(1280px,92vw);margin-left:auto;margin-right:auto}
+.fade{opacity:0;transform:translateY(26px)}
+@media(max-width:1100px){.timeline-layout{gap:36px}}
+@media(max-width:960px){
+.brand img{height:38px}
+.journey-hero-sec{padding:124px 0 40px}
+.hero-archival-frame{padding:8px}
+.archival-caption{font-size:9.5px;letter-spacing:.2em;gap:10px}
+.archival-dash{width:20px}
+.milestone-transition-cue{margin-top:38px}
+.timeline-sec{padding:24px 0 40px}
+.timeline-layout{grid-template-columns:1fr;gap:0;margin-top:28px}
+.tl-sticky{display:none}
+.tl-chapters{padding-left:0;padding-bottom:40px}
+.chapter:not(:last-child)::before{left:14px;top:32px;bottom:-4px}
+.chapter{padding:0 0 38px 48px;opacity:1;transform:none}
+.chapter.active{transform:none}
+.chapter-dot{left:0;width:28px;height:28px}
+.ch-m-img{display:block;height:64vw;max-height:380px;overflow:hidden;margin:16px 0 14px;background:var(--deep);border-radius:3px}
+.ch-m-img img{width:100%;height:100%;object-fit:cover}
+.foot-grid{grid-template-columns:1fr 1fr;padding:48px 0 20px}
+}
+@media(max-width:600px){
+.nav-in{padding:10px 0}
+.brand img{height:32px}
+.brand-name{font-size:13px}
+.menu-pill{padding:10px 16px}
+.journey-hero-sec{padding:108px 0 30px}
+.hero-archival-frame{padding:6px;border-radius:4px}
+.archival-caption{flex-direction:column;gap:6px;font-size:9px}
+.archival-dash{display:none}
+.timeline-sec{padding:20px 0 36px}
+.timeline-header-bar{gap:10px}
+.th-title{font-size:9.5px;letter-spacing:.2em}
+.foot-grid{grid-template-columns:1fr;gap:26px}
+.foot-base{flex-direction:column;align-items:center;text-align:center}
+.ch-m-img{height:72vw}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fade{opacity:1;transform:none}}
+
+/* === HAUTE PARFUMERIE EDITORIAL TYPOGRAPHY (CORMORANT GARAMOND) === */
+:root {
+  --font-serif: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+}
+h1, h2, h3, h4, .sec-title, .hero-copy h1, .row-copy h3, .menu-in a.mlink, .brand-name, .era-name, .stage-label .t, .close h2, .captive-in .sig {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif !important;
+  letter-spacing: 0.02em;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+}
+/* Aligned Lining Numerals: Numbers (1895, 1960s, 1970s) completely level on the baseline */
+.chapter-year, [class*="year"], [class*="num"], [class*="stat"], .era-no, .chapter-dot {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+}
+.chapter-year {
+  font-size: clamp(28px, 2.5vw, 36px) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  color: #fff !important;
+}
+</style>
+
+  <link rel="stylesheet" crossorigin href="/assets/nav-BCnBoWF3.css">
+</head>
+<body>
+<header class="nav"><div class="nav-in">
+<a class="brand" href="index.html" aria-label="Dubey Perfumers"><img src="/assets/Dubey-Logo-CX9k5OmQ.svg" alt="Dubey Perfumers" class="brand-logo"></a>
+<button class="nav-menu-btn" id="burger" aria-label="Open Navigation Menu">
+  <div class="menu-dots-grid">
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+  </div>
+</button>
+</div></header>
+
+<div class="menu-drawer" id="menu" aria-hidden="true">
+  <div class="menu-top-bar">
+    <div class="menu-brand-tag">
+      <span class="menu-brand-title">DUBEY PERFUMERS</span>
+      <span class="menu-brand-sep">|</span>
+      <span class="menu-brand-sub">FRAGRANCE HOUSE SINCE 1895</span>
+    </div>
+    <button class="menu-close-btn" id="menuClose" aria-label="Close Navigation Menu">
+      <span>CLOSE</span>
+      <div class="close-icon-circle">&#10005;</div>
+    </button>
+  </div>
+  <div class="menu-main-content">
+    <div class="menu-items-col">
+      <a class="menu-row" href="index.html" data-num="I" data-meta="FOUNDED 1895 · KANNAUJ &amp; HYDERABAD" data-img="/assets/images/img_09.webp">
+        <span class="menu-roman">I</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Home</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Fine fragrance creation &amp; natural extraction since 1895</p>
+        </div>
+      </a>
+      <a class="menu-row" href="about-us.html" data-num="II" data-meta="OUR STORY &amp; MILESTONES · 1895 — PRESENT" data-img="/assets/images/1895.png">
+        <span class="menu-roman">II</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">About Us</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">How we got here &amp; our sacred centennial heritage</p>
+        </div>
+      </a>
+      <a class="menu-row" href="expertise.html" data-num="III" data-meta="GRASSE &amp; INDIAN TERROIRS" data-img="/assets/images/img_56.webp">
+        <span class="menu-roman">III</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Expertise</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">French rigour, Indian craft, and rare global terroirs</p>
+        </div>
+      </a>
+      <a class="menu-row" href="craft-and-process.html" data-num="IV" data-meta="SUPERCRITICAL CO2 &amp; EXTRACTIONS" data-img="/assets/images/img_19.webp">
+        <span class="menu-roman">IV</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Craft &amp; Process</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Natural extraction &amp; supercritical laboratory distillation</p>
+        </div>
+      </a>
+      <a class="menu-row" href="services.html" data-num="V" data-meta="PERSONALISED FRAGRANCES &amp; COMPOUNDS" data-img="/assets/images/img_57.webp">
+        <span class="menu-roman">V</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Services</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Personalised fragrance creation &amp; exceptional quality for your market needs</p>
+        </div>
+      </a>
+      <a class="menu-row" href="journal.html" data-num="VI" data-meta="RESEARCH &amp; FIELD ARCHIVES" data-img="/assets/images/img_23.webp">
+        <span class="menu-roman">VI</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Journal</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Case studies, harvest whitepapers, and field archives</p>
+        </div>
+      </a>
+      <a class="menu-row" href="careers.html" data-num="VII" data-meta="ATELIER TALENT &amp; OPPORTUNITIES" data-img="/assets/images/careers-facility.png">
+        <span class="menu-roman">VII</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Careers</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Join the master formulation atelier and chemists</p>
+        </div>
+      </a>
+      <a class="menu-row" href="contact-us.html" data-num="VIII" data-meta="START YOUR BRIEF" data-img="/assets/images/Today.png">
+        <span class="menu-roman">VIII</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Contact Us</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Reach our team in Shadnagar, Hyderabad · Delhi &amp; Dubai</p>
+        </div>
+      </a>
+    </div>
+    <div class="menu-preview-col">
+      <div class="menu-preview-card">
+        <img id="menuPreviewImg" src="/assets/img_09-DH2S8nRe.webp" alt="Menu Preview" class="menu-preview-img">
+        <div class="menu-preview-gradient"></div>
+        <div class="menu-preview-meta">
+          <span id="menuPreviewTag" class="preview-tag">DUBEY PERFUMERS · SINCE 1895</span>
+          <span id="menuPreviewTitle" class="preview-title">Home</span>
+        </div>
+      </div>
+      <div class="menu-preview-foot">
+        <span>INDIAN HERITAGE · FRENCH EXPERTISE</span>
+        <span>ESTABLISHED 1895</span>
+      </div>
+    </div>
+  </div>
+  <div class="menu-bottom-bar">
+    <div><b>FACILITY:</b> Shadnagar, Hyderabad, Telangana 509410</div>
+    <div><b>PHONE:</b> <a href="tel:+919000222725" style="color:inherit;text-decoration:none;">+91 90002 22725</a></div>
+    <div><b>EMAIL:</b> <a href="mailto:contact@dubeyperfumers.com" style="color:inherit;text-decoration:none;">contact@dubeyperfumers.com</a></div>
+  </div>
+</div>
+
+<section class="journey-hero-sec" id="journey">
+  <div class="wrap">
+    <div class="journey-eyebrow">DOMAINE &amp; ATELIER ARCHIVE · EST. 1895</div>
+    <h1 class="journey-hero-title">Our Journey</h1>
+    <p class="journey-hero-sub">Indian heritage. French expertise. A global outlook.</p>
+    
+    <div class="hero-archival-card">
+      <div class="hero-archival-frame">
+        <img src="/assets/our-journey-founders-DMgFwomI.jpg" alt="Dubey Perfumers founding generation and early Kannauj atelier" class="hero-archival-img">
+      </div>
+      <div class="archival-caption">
+        <span class="archival-dash"></span>
+        <span>THE FOUNDING PATRIARCHS &amp; ATELIER CRAFTSMEN · KANNAUJ, CIRCA 1895</span>
+        <span class="archival-dash"></span>
+      </div>
+    </div>
+
+    <div class="milestone-transition-cue">
+      <a href="#milestones" class="cue-link" id="exploreMilestonesBtn">
+        <span class="cue-line"></span>
+        <span>EXPLORE 130 YEARS OF MILESTONES</span>
+        <span class="cue-icon">↓</span>
+        <span class="cue-line"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-sec" id="milestones">
+<div class="wrap">
+  <div class="timeline-header-bar">
+    <span class="th-dot"></span>
+    <span class="th-title">HISTORICAL CHRONOLOGY · 1895 — PRESENT</span>
+    <span class="th-rule"></span>
+  </div>
+  <div class="timeline-layout">
+<div class="tl-sticky">
+<div class="tl-stack" id="tlStack">
+<img class="active" src="/assets/1895-Dynwc-Ob.png" alt="1895 — Founded in Kannauj">
+<img src="/assets/1960-BwrZYvqN.png" alt="1960s — Expansion to Calcutta">
+<img src="/assets/1970-DkCL2qJO.png" alt="1970s — A New Base in Hyderabad">
+<img src="/assets/1980-DRgv9mHq.png" alt="Late 1980s — Fragrance at the Core">
+<img src="/assets/1990_U.JPG" alt="1990s–2005 — Leadership in Indian Fragrance">
+<img src="/assets/2005-Bpbey_Ey.png" alt="After 2005 — Our French Connection">
+<img src="/assets/2016-DHXS15nL.png" alt="2016–2022 — Built for International Growth">
+<img src="/assets/Today-DOaGn-z9.png" alt="Today — A Global Fragrance House">
+</div>
+<div class="tl-progress"><i id="tlBar"></i></div>
+<div class="tl-overlay"><div class="era-no" id="tlNo">01 / 08 — 1895</div><div class="era-name" id="tlName">Founded in Kannauj</div><p id="tlHint">Dubey Perfumers · Heritage</p></div>
+</div>
+<div class="tl-chapters" id="chapters">
+<div class="chapter" data-i="0" data-name="Founded in Kannauj"><span class="chapter-dot">01</span><div class="chapter-year">1895</div><div class="chapter-tag">Founded in Kannauj</div><div class="ch-m-img"><img src="/assets/1895-Dynwc-Ob.png" alt="1895"></div><p>Devi Prasad Dubey establishes the business in Kannauj, India’s fragrance capital, laying the foundations of a family-led fragrance house. Early clients include officials of the British Empire.</p></div>
+<div class="chapter" data-i="1" data-name="Expansion to Calcutta"><span class="chapter-dot">02</span><div class="chapter-year">1960s</div><div class="chapter-tag">Expansion to Calcutta</div><div class="ch-m-img"><img src="/assets/1960-BwrZYvqN.png" alt="1960s"></div><p>We relocate to Calcutta, expanding our capabilities in natural distillation, fragrance compounding and international trade. Our sandalwood oil business grows to become one of India’s largest exporters to the United States.</p></div>
+<div class="chapter" data-i="2" data-name="A New Base in Hyderabad"><span class="chapter-dot">03</span><div class="chapter-year">1970s</div><div class="chapter-tag">A New Base in Hyderabad</div><div class="ch-m-img"><img src="/assets/1970-DkCL2qJO.png" alt="1970s"></div><p>We move to Hyderabad, a major centre for sandalwood procurement. Closer to the source, we strengthen our operations and establish ourselves as one of India’s largest sandalwood businesses.</p></div>
+<div class="chapter" data-i="3" data-name="Fragrance at the Core"><span class="chapter-dot">04</span><div class="chapter-year">Late 1980s</div><div class="chapter-tag">Fragrance at the Core</div><div class="ch-m-img"><img src="/assets/1980-DRgv9mHq.png" alt="Late 1980s"></div><p>Building on decades of expertise in natural ingredients, we make fragrance creation the central focus of our business. This strategic evolution sets the foundation for a new chapter of growth.</p></div>
+<div class="chapter" data-i="4" data-name="Leadership in Indian Fragrance"><span class="chapter-dot">05</span><div class="chapter-year">1990s–2005</div><div class="chapter-tag">Leadership in Indian Fragrance</div><div class="ch-m-img"><img src="/assets/1990_U.JPG" alt="1990s to 2005"></div><p>We emerge as one of India’s leading fragrance houses, combining creative expertise with manufacturing scale. Strong customer partnerships and a deep understanding of the Indian market establish our position as a trusted industry partner.</p></div>
+<div class="chapter" data-i="5" data-name="Our French Connection"><span class="chapter-dot">06</span><div class="chapter-year">After 2005</div><div class="chapter-tag">Our French Connection</div><div class="ch-m-img"><img src="/assets/2005-Bpbey_Ey.png" alt="After 2005"></div><p>We expand into France, establishing Only Fragrances in partnership with a senior French perfumer. Dedicated to fine fragrance, the company brings French creative expertise into our business, connecting our Indian heritage with an international perfumery perspective.</p></div>
+<div class="chapter" data-i="6" data-name="Built for International Growth"><span class="chapter-dot">07</span><div class="chapter-year">2016–2022</div><div class="chapter-tag">Built for International Growth</div><div class="ch-m-img"><img src="/assets/2016-DHXS15nL.png" alt="2016 to 2022"></div><p>We develop our Hyderabad fine-fragrance facility, bringing French-inspired working practices together with Indian manufacturing strength. The facility marks a new chapter in our ability to create, develop and produce fragrances for international markets.</p></div>
+<div class="chapter" data-i="7" data-name="A Global Fragrance House"><span class="chapter-dot">08</span><div class="chapter-year">Today</div><div class="chapter-tag">A Global Fragrance House</div><div class="ch-m-img"><img src="/assets/Today-DOaGn-z9.png" alt="Today"></div><p>We create fine fragrances for brands across the globe, uniting Indian heritage, French expertise and modern manufacturing. Still led by our founding family, we continue to grow through innovation, quality and enduring partnerships.</p></div>
+<div class="tl-completion-marker" style="padding-left:80px;margin-top:24px;display:flex;align-items:center;gap:14px;opacity:0.75;">
+  <span style="display:inline-block;width:32px;height:1px;background:var(--gold);"></span>
+  <span style="font-size:10.5px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);font-family:var(--font-serif);font-weight:600;">130 Years of Unbroken Craft · 1895 — Present</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="foot-grid">
+<div>
+<a class="foot-brand" href="index.html"><img src="/assets/images/dubey-emblem.svg" alt="Dubey Perfumers"></a>
+<p class="foot-tag">French rigour. Indian craft. A fragrance house in India with European-level quality. For 130 years — turning what the earth grows into what the world wears.</p>
+</div>
+<div><h5>House</h5><nav><a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="expertise.html">Expertise</a><a href="craft-and-process.html">Craft &amp; Process</a></nav></div>
+<div><h5>More</h5><nav><a href="services.html">Services</a><a href="journal.html">Journal</a><a href="careers.html">Careers</a><a href="contact-us.html">Contact</a></nav></div>
+</div>
+<div class="foot-base"><span><b style="color:var(--gold);font-weight:400">DUBEY PERFUMERS</b> · PASSION PERFUMERY</span><span>SINCE 1895</span></div>
+</footer>
+
+<script>
+let lenis=null;
+if(window.Lenis){lenis=new Lenis({duration:1.15,smoothWheel:true});function raf(t){lenis.raf(t);requestAnimationFrame(raf)}requestAnimationFrame(raf);}
+gsap.registerPlugin(ScrollTrigger);
+if(lenis){lenis.on('scroll',ScrollTrigger.update);}
+// intro reveal (hero title, subtitle, and vintage center of attraction)
+gsap.fromTo('.journey-eyebrow',{y:20,opacity:0},{y:0,opacity:1,duration:0.9,ease:'power3.out',delay:.1});
+gsap.fromTo('.journey-hero-title',{y:34,opacity:0},{y:0,opacity:1,duration:1.1,ease:'power3.out',delay:.2});
+gsap.fromTo('.journey-hero-sub',{y:24,opacity:0},{y:0,opacity:1,duration:1.1,ease:'power3.out',delay:.35});
+gsap.fromTo('.hero-archival-card',{y:38,opacity:0,scale:0.97},{y:0,opacity:1,scale:1,duration:1.2,ease:'power3.out',delay:.45});
+// timeline — Accurate focal detection & stationary left showcase
+const imgs = [...document.querySelectorAll('#tlStack img')];
+const chapters = [...document.querySelectorAll('.chapter')];
+const chaptersEl = document.getElementById('chapters');
+const tlNo = document.getElementById('tlNo'), tlName = document.getElementById('tlName'), tlBar = document.getElementById('tlBar');
+let curEra = -1;
+
+function setEra(i) {
+  if (i === curEra) return;
+  curEra = i;
+  imgs.forEach((im, k) => im.classList.toggle('active', k === i));
+  chapters.forEach((c, k) => c.classList.toggle('active', k === i));
+  const c = chapters[i];
+  if (c) {
+    const yrEl = c.querySelector('.chapter-year');
+    const yr = yrEl ? yrEl.textContent.trim() : '';
+    tlNo.textContent = String(i + 1).padStart(2, '0') + ' / 08 — ' + yr;
+    tlName.textContent = c.dataset.name || '';
+  }
+  if (tlBar) {
+    tlBar.style.height = ((i + 1) / chapters.length * 100) + '%';
+  }
+}
+
+// Initial state: Chapter 01 (1895)
+setEra(0);
+
+// Determine active era based on focal trigger line (48% of screen height, aligned with sticky card center)
+function updateTimelineEra() {
+  const focalY = window.innerHeight * 0.52;
+  let activeIdx = 0;
+  for (let i = 0; i < chapters.length; i++) {
+    const rect = chapters[i].getBoundingClientRect();
+    if (rect.top <= focalY) {
+      activeIdx = i;
+    }
+  }
+  setEra(activeIdx);
+}
+
+// Initial check
+updateTimelineEra();
+
+// Scroll & resize listeners
+window.addEventListener('scroll', updateTimelineEra, { passive: true });
+window.addEventListener('resize', updateTimelineEra, { passive: true });
+if (lenis) {
+  lenis.on('scroll', updateTimelineEra);
+}
+
+ScrollTrigger.create({
+  trigger: chaptersEl,
+  start: 'top bottom',
+  end: 'bottom top',
+  onUpdate: updateTimelineEra
+});
+
+// Soft paragraph reveal as each chapter enters viewport
+chapters.forEach(ch => {
+  const p = ch.querySelector('p');
+  if (p) {
+    gsap.fromTo(p, 
+      { y: 16, opacity: 0 }, 
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.7, 
+        ease: 'power2.out',
+        scrollTrigger: { trigger: ch, start: 'top 85%' } 
+      }
+    );
+  }
+});
+
+window.addEventListener('load',()=>{try{ScrollTrigger.refresh()}catch(e){}});
+</script>
+    
+    <script src="/assets/nav.js"></script>
+</body>
+</html>

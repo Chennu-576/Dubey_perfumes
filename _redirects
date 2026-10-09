@@ -1,0 +1,9 @@
+# Netlify clean URLs
+/about-us           /about-us.html           200
+/careers            /careers.html            200
+/contact-us         /contact-us.html         200
+/contact            /contact-us.html         200
+/craft-and-process  /craft-and-process.html  200
+/expertise          /expertise.html          200
+/journal            /journal.html            200
+/services           /services.html           200

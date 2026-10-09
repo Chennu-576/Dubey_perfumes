@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Working With Us — Dubey Perfumers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Haute Luxury Editorial Typography (Cormorant Garamond, Cinzel, Raleway) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<style>
+:root{
+--night:#070F1E; --night2:#050B16; --deep:#050B16; --paper:#F5F1EA;
+--gold:#FDC92C; --line:rgba(245,241,234,.14); --muted:rgba(245,241,234,.68);
+--rale:Raleway,system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--night);color:var(--paper);font-family:var(--rale);font-weight:400;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,92vw);margin:0 auto}
+.grain{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E")}
+.kicker{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:22px;font-weight:600}
+.kicker:before{content:"";width:40px;height:1px;background:var(--gold)}
+h1,h2{font-weight:400;letter-spacing:.01em;line-height:1.2}
+/* HERO */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:130px 0 70px;overflow:hidden}
+.hero-bg{display:none}
+.hero-bg img{display:none}
+.hero-veil{display:none}
+.hero-veil2{display:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,90px);align-items:center;width:min(1280px,92vw);margin:0 auto}
+.hero-copy h1{font-size:clamp(34px,4.6vw,60px);max-width:12em}
+.hero-copy h1 em{font-style:normal;color:var(--gold)}
+.hero-body{margin-top:24px;max-width:34em;font-size:clamp(14px,1.35vw,16.5px);line-height:1.9;color:var(--muted);font-weight:300}
+.hero-meta{margin-top:34px;display:flex;gap:26px;align-items:center;border-top:1px solid var(--line);padding-top:22px;max-width:34em;font-size:11px;letter-spacing:.24em;color:var(--muted)}
+.hero-meta b{color:var(--gold);font-weight:600}
+.hero-vis{position:relative;min-height:560px}
+.hero-tall{position:absolute;right:0;top:0;width:76%;height:520px;object-fit:cover;border-radius:3px}
+.hero-small{position:absolute;left:0;bottom:0;width:46%;height:300px;object-fit:cover;border-radius:3px;border:1px solid rgba(245,241,234,.22);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.hero-frame{position:absolute;right:22px;top:22px;width:76%;height:520px;border:1px solid rgba(253,201,44,.4);border-radius:3px;pointer-events:none}
+.scroll-cue{margin-top:36px;display:flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.26em;color:var(--muted)}
+.scroll-cue i{display:block;width:1px;height:44px;background:rgba(245,241,234,.25);position:relative;overflow:hidden}
+.scroll-cue i:after{content:"";position:absolute;left:0;top:-100%;width:100%;height:100%;background:var(--gold);animation:drop 2.2s ease-in-out infinite}
+@keyframes drop{0%{top:-100%}60%,100%{top:100%}}
+/* HOW */
+.how{background:var(--night2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.how-pin{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:90px 0 60px}
+.how-head{width:min(1280px,92vw);margin:0 auto 40px}
+.how-head h2{font-size:clamp(28px,3.4vw,44px)}
+.how-head p{color:var(--muted);font-weight:300;max-width:44em;margin-top:12px;font-size:15px}
+.hviewport{overflow:hidden;width:100%}
+.htrack{display:flex;gap:clamp(20px,3vw,40px);padding:0 max(4vw,(100vw - 1280px)/2);width:max-content;align-items:stretch}
+.hstep{width:min(400px,78vw);flex-shrink:0;border-top:1px solid rgba(253,201,44,.5);padding-top:26px;position:relative}
+.hstep .n{font-size:12px;letter-spacing:.24em;color:var(--gold);font-weight:600}
+.hstep h3{font-size:24px;margin:12px 0 10px;font-weight:400}
+.hstep h3 em{font-style:normal;color:var(--gold)}
+.hstep p{color:var(--muted);font-weight:300;font-size:15px;line-height:1.85}
+.hstep img{width:100%;height:220px;object-fit:cover;border-radius:3px;margin-top:20px;border:1px solid var(--line)}
+.hprog{width:min(1280px,92vw);margin:36px auto 0;height:2px;background:rgba(245,241,234,.12);position:relative;overflow:hidden;border-radius:2px}
+.hprog div{position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left}
+/* WHO */
+.who{padding:110px 0}
+.who-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(36px,6vw,90px);align-items:center}
+.who img{width:100%;height:520px;object-fit:cover;border-radius:3px}
+.who h2{font-size:clamp(28px,3.2vw,42px);max-width:14em}
+.who p{margin-top:20px;color:var(--muted);font-weight:300;font-size:16px;line-height:1.9;max-width:32em}
+.btn-gold{display:inline-flex;align-items:center;gap:12px;margin-top:30px;background:var(--gold);color:var(--night);text-decoration:none;font-size:12px;letter-spacing:.22em;font-weight:700;padding:16px 30px;border-radius:100px;transition:.35s;border:1px solid var(--gold)}
+.btn-gold:hover{background:transparent;color:var(--gold)}
+.btn-line{display:inline-flex;align-items:center;gap:12px;margin-top:30px;border:1px solid rgba(253,201,44,.55);color:var(--paper);text-decoration:none;font-size:12px;letter-spacing:.22em;font-weight:600;padding:16px 30px;border-radius:100px;transition:.35s}
+.btn-line:hover{background:var(--gold);color:var(--night);border-color:var(--gold)}
+/* CONSULT */
+.consult{background:var(--night2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:110px 0}
+.cons-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,6vw,90px);align-items:start}
+.cons-grid h2{font-size:clamp(28px,3.4vw,44px)}
+.cons-grid .lede{margin-top:18px;color:var(--muted);font-weight:300;font-size:15.5px;line-height:1.9}
+.cons-grid .lede p+p{margin-top:14px}
+.get{margin-top:34px;border-top:1px solid var(--line)}
+.get h4{font-size:11px;letter-spacing:.28em;color:var(--gold);padding:20px 0 6px;font-weight:700}
+.get-item{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px;font-weight:300;color:var(--paper)}
+.get-item span{color:var(--gold);font-size:12px;letter-spacing:.15em;font-weight:600}
+.cons-note{margin-top:20px;color:var(--muted);font-size:14.5px;font-weight:300;line-height:1.85;font-style:italic}
+.cons-vis{position:sticky;top:100px}
+.cons-vis img{width:100%;height:480px;object-fit:cover;border-radius:3px}
+.cons-vis figcaption{margin-top:12px;font-size:11px;letter-spacing:.22em;color:var(--muted)}
+/* REALISTIC LUXURY WORLD MAP */
+.mapsec{padding:110px 0;background:var(--night);position:relative}
+.mapsec h2{font-size:clamp(28px,3.4vw,44px);max-width:18em}
+.mapsec .lede{margin-top:14px;color:var(--muted);font-weight:300;max-width:48em;font-size:16px;line-height:1.7}
+.map-wrap{margin-top:44px;display:grid;grid-template-columns:1.42fr .58fr;gap:clamp(24px,3.5vw,44px);align-items:stretch}
+.map-panel{background:radial-gradient(115% 95% at 52% 38%,#112547 0%,#081427 52%,#040913 100%);border:1px solid rgba(253,201,44,.22);border-radius:10px;padding:16px;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(253,201,44,.18);min-height:460px;display:flex;flex-direction:column;justify-content:center}
+.map-panel svg{width:100%;height:auto;display:block;filter:drop-shadow(0 6px 24px rgba(0,0,0,.5))}
+.map-legend{position:absolute;left:20px;bottom:16px;display:flex;gap:18px;align-items:center;font-size:9.5px;letter-spacing:.22em;color:rgba(245,241,234,.65);background:rgba(4,9,19,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 16px;border-radius:100px;border:1px solid rgba(255,255,255,.09);z-index:4}
+.map-legend i{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;margin-right:7px;box-shadow:0 0 10px rgba(253,201,44,.9)}
+.map-legend b{color:var(--paper);font-weight:600}
+.map-grid-lines line{stroke:rgba(245,241,234,.05);stroke-width:.8}
+
+/* Countries & Continents */
+.land{fill:#0C1A34;stroke:rgba(245,241,234,.12);stroke-width:.65;transition:fill .45s ease,stroke .45s ease,filter .45s ease;cursor:pointer}
+.land:hover{fill:#1B345E;stroke:rgba(253,201,44,.45)}
+.land.lit{fill:#234477;stroke:var(--gold);stroke-width:1.2;filter:drop-shadow(0 0 8px rgba(253,201,44,.6))}
+#c_ind{fill:#153060;stroke:rgba(253,201,44,.5);stroke-width:.9}
+#c_ind.lit{fill:#2A508E;stroke:var(--gold);stroke-width:1.5;filter:drop-shadow(0 0 12px rgba(253,201,44,.8))}
+
+/* Export Routes */
+.route{fill:none;stroke:var(--gold);stroke-width:1.1;stroke-dasharray:4 6;opacity:.14;transition:opacity .45s ease,stroke-width .45s ease;animation:routeDash 3.2s linear infinite;pointer-events:none}
+.route.lit{opacity:.95;stroke-width:1.85;filter:drop-shadow(0 0 7px rgba(253,201,44,.95))}
+@keyframes routeDash{to{stroke-dashoffset:-40}}
+
+/* Pins & Labels */
+.mdot{cursor:pointer}
+.mdot .halo{fill:none;stroke:var(--gold);stroke-width:1.2;opacity:0;pointer-events:none}
+.mdot.lit .halo,.mdot:hover .halo{opacity:.85;animation:radarPing 2.2s cubic-bezier(0,.2,.8,1) infinite;transform-origin:center;transform-box:fill-box}
+@keyframes radarPing{0%{transform:scale(.35);opacity:.95}100%{transform:scale(2.5);opacity:0}}
+.mdot .core{fill:#081427;stroke:var(--gold);stroke-width:1.4;transition:all .3s ease}
+.mdot.lit .core,.mdot:hover .core{fill:var(--gold);stroke:#fff;stroke-width:2.2;filter:drop-shadow(0 0 10px rgba(253,201,44,.95))}
+.map-label{fill:rgba(245,241,234,.7);font-size:8.5px;font-weight:700;letter-spacing:.12em;pointer-events:none;transition:fill .3s,text-shadow .3s}
+.mdot.lit .map-label,.mdot:hover .map-label{fill:var(--gold);text-shadow:0 0 8px rgba(253,201,44,.75)}
+.label-region{opacity:0;transition:opacity .3s}
+.mdot-region.lit .label-region{opacity:1}
+
+.map-tip{position:absolute;pointer-events:none;background:rgba(4,9,19,.94);border:1px solid rgba(253,201,44,.55);border-radius:6px;padding:8px 14px;font-size:11px;letter-spacing:.14em;color:var(--paper);opacity:0;transform:translate(-50%,-135%);transition:opacity .25s,transform .25s;white-space:nowrap;z-index:10;box-shadow:0 8px 24px rgba(0,0,0,.6)}
+.map-tip.show{opacity:1;transform:translate(-50%,-145%)}
+.map-tip b{color:var(--gold)}
+
+/* Side Panel */
+.map-side{border:1px solid var(--line);border-radius:10px;padding:32px 28px;background:var(--night2);display:flex;flex-direction:column;position:relative;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.45)}
+.map-side:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.7}
+.map-side .rname{font-size:12px;letter-spacing:.26em;color:var(--gold);font-weight:700}
+.map-side h3{font-size:26px;margin:8px 0 10px;font-weight:400;color:var(--paper)}
+.map-side .rimg-wrap{position:relative;overflow:hidden;border-radius:6px;border:1px solid var(--line);margin:4px 0 14px}
+.map-side .rimg{width:100%;height:155px;object-fit:cover;display:block}
+.map-side .rbadge{position:absolute;bottom:8px;right:10px;background:rgba(4,9,19,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(253,201,44,.45);color:var(--gold);font-size:9.5px;letter-spacing:.18em;padding:4px 10px;border-radius:100px;font-weight:600}
+.map-side p{color:var(--muted);font-weight:300;font-size:14.5px;line-height:1.8;min-height:100px}
+.region-btns{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
+.region-btns button{background:transparent;border:1px solid rgba(245,241,234,.18);color:var(--paper);font-family:inherit;font-size:10.5px;letter-spacing:.16em;font-weight:600;padding:11px 8px;border-radius:100px;cursor:pointer;transition:all .28s}
+.region-btns button.lit,.region-btns button:hover{border-color:var(--gold);color:var(--gold);background:rgba(253,201,44,.1);box-shadow:0 0 14px rgba(253,201,44,.2)}
+.map-cta{margin-top:auto;padding-top:22px}
+
+/* Interactive Pills */
+.dest-pills{display:flex;flex-wrap:wrap;gap:8px;font-size:12px}
+.dest-pill{padding:7px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:100px;color:rgba(245,241,234,.85);cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:.04em;transition:all .25s ease;user-select:none;outline:none}
+.dest-pill:hover{background:rgba(253,201,44,.08);border-color:rgba(253,201,44,.5);color:var(--gold);transform:translateY(-1px)}
+.dest-pill.lit{background:rgba(253,201,44,.12)!important;border-color:var(--gold)!important;color:var(--gold)!important;box-shadow:0 0 16px rgba(253,201,44,.3);font-weight:600}
+/* FINAL */
+.final{display:none}
+/* FOOTER */
+.footer{background:#000000;border-top:1px solid rgba(253,201,44,.35);color:#F5F1EA;position:relative;overflow:hidden}
+.footer::before{content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.7}
+.footer .f-top{max-width:1280px;margin:0 auto;padding:64px 40px 40px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;align-items:start}
+.footer .f-logo{height:72px;width:auto;object-fit:contain;border:1px solid rgba(253,201,44,.5);border-radius:4px;background:transparent}
+.footer .f-name{margin-top:16px;font-size:11px;letter-spacing:.34em;color:var(--gold)}
+.footer .f-note{margin-top:10px;font-size:13px;line-height:1.8;color:rgba(245,241,234,.72);max-width:340px;font-style:italic}
+.footer .f-col h5{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,241,234,.45);margin-bottom:16px;font-weight:400}
+.footer .f-links{display:flex;flex-direction:column;gap:10px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,241,234,.85)}
+.footer .f-links a{opacity:.75;transition:.3s;text-decoration:none}
+.footer .f-links a:hover{opacity:1;color:var(--gold);padding-left:4px}
+.footer .f-base{border-top:1px solid rgba(255,255,255,.08);padding:20px 40px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:10px;letter-spacing:.26em;color:rgba(245,241,234,.45);max-width:1280px;margin:0 auto}
+.footer .f-base b{color:var(--gold);font-weight:400}
+@media(max-width:960px){
+.hero{padding:110px 0 50px;min-height:auto}
+.hero-grid{grid-template-columns:1fr}
+.hero-vis{min-height:0;height:88vw;max-height:480px}
+.hero-tall{height:100%}.hero-frame{height:100%}
+.hero-small{height:52%}
+.who-grid,.cons-grid,.map-wrap{grid-template-columns:1fr}
+.who img{height:72vw;max-height:420px}
+.map-panel{min-height:0;padding:10px}
+.map-panel svg{max-height:300px}
+.map-legend{position:static;margin-top:10px;flex-wrap:wrap}
+.map-side{padding:26px 20px}
+.map-side .rimg{height:170px}
+.map-side p{min-height:0}
+.cons-vis{position:relative;top:auto}
+.cons-vis img{height:70vw;max-height:400px}
+.how-pin{min-height:auto;padding:70px 0 50px}
+.hviewport{overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding-bottom:8px}
+.htrack{padding:0 4vw}
+.hstep{scroll-snap-align:start}
+.footer .f-top{grid-template-columns:1fr;padding:48px 22px 30px}
+.footer .f-base{padding:18px 22px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* === HAUTE PARFUMERIE EDITORIAL TYPOGRAPHY (CORMORANT GARAMOND) === */
+:root {
+  --font-serif: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+}
+h1, h2, h3, h4, .sec-title, .hero-copy h1, .row-copy h3, .menu-in a.mlink, .brand-name, .era-name, .stage-label .t, .close h2, .captive-in .sig {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif !important;
+  letter-spacing: 0.02em;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+}
+/* Aligned Lining Numerals: Numbers (1895, 1960s, 1970s) completely level on the baseline */
+.chapter-year, [class*="year"], [class*="num"], [class*="stat"], .era-no, .chapter-dot {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif !important;
+  font-variant-numeric: lining-nums tabular-nums !important;
+  font-feature-settings: "lnum" 1, "tnum" 1 !important;
+}
+.chapter-year {
+  font-size: clamp(28px, 2.5vw, 36px) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  color: #fff !important;
+}
+
+</style>
+
+  <link rel="stylesheet" crossorigin href="/assets/nav-BCnBoWF3.css">
+</head>
+<body>
+<div class="grain"></div>
+<header class="nav"><div class="nav-in">
+<a class="brand" href="index.html" aria-label="Dubey Perfumers"><img src="/assets/Dubey-Logo-CX9k5OmQ.svg" alt="Dubey Perfumers" class="brand-logo"></a>
+<button class="nav-menu-btn" id="burger" aria-label="Open Navigation Menu">
+  <div class="menu-dots-grid">
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+    <span class="menu-dot"></span>
+  </div>
+</button>
+</div></header>
+
+<div class="menu-drawer" id="menu" aria-hidden="true">
+  <div class="menu-top-bar">
+    <div class="menu-brand-tag">
+      <span class="menu-brand-title">DUBEY PERFUMERS</span>
+      <span class="menu-brand-sep">|</span>
+      <span class="menu-brand-sub">FRAGRANCE HOUSE SINCE 1895</span>
+    </div>
+    <button class="menu-close-btn" id="menuClose" aria-label="Close Navigation Menu">
+      <span>CLOSE</span>
+      <div class="close-icon-circle">&#10005;</div>
+    </button>
+  </div>
+  <div class="menu-main-content">
+    <div class="menu-items-col">
+      <a class="menu-row" href="index.html" data-num="I" data-meta="FOUNDED 1895 · KANNAUJ &amp; HYDERABAD" data-img="/assets/images/img_09.webp">
+        <span class="menu-roman">I</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Home</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Fine fragrance creation &amp; natural extraction since 1895</p>
+        </div>
+      </a>
+      <a class="menu-row" href="about-us.html" data-num="II" data-meta="OUR STORY &amp; MILESTONES · 1895 — PRESENT" data-img="/assets/images/1895.png">
+        <span class="menu-roman">II</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">About Us</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">How we got here &amp; our sacred centennial heritage</p>
+        </div>
+      </a>
+      <a class="menu-row" href="expertise.html" data-num="III" data-meta="GRASSE &amp; INDIAN TERROIRS" data-img="/assets/images/img_56.webp">
+        <span class="menu-roman">III</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Expertise</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">French rigour, Indian craft, and rare global terroirs</p>
+        </div>
+      </a>
+      <a class="menu-row" href="craft-and-process.html" data-num="IV" data-meta="SUPERCRITICAL CO2 &amp; EXTRACTIONS" data-img="/assets/images/img_19.webp">
+        <span class="menu-roman">IV</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Craft &amp; Process</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Natural extraction &amp; supercritical laboratory distillation</p>
+        </div>
+      </a>
+      <a class="menu-row" href="services.html" data-num="V" data-meta="PERSONALISED FRAGRANCES &amp; COMPOUNDS" data-img="/assets/images/img_57.webp">
+        <span class="menu-roman">V</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Services</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Personalised fragrance creation &amp; exceptional quality for your market needs</p>
+        </div>
+      </a>
+      <a class="menu-row" href="journal.html" data-num="VI" data-meta="RESEARCH &amp; FIELD ARCHIVES" data-img="/assets/images/img_23.webp">
+        <span class="menu-roman">VI</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Journal</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Case studies, harvest whitepapers, and field archives</p>
+        </div>
+      </a>
+      <a class="menu-row" href="careers.html" data-num="VII" data-meta="ATELIER TALENT &amp; OPPORTUNITIES" data-img="/assets/images/careers-facility.png">
+        <span class="menu-roman">VII</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Careers</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Join the master formulation atelier and chemists</p>
+        </div>
+      </a>
+      <a class="menu-row" href="contact-us.html" data-num="VIII" data-meta="START YOUR BRIEF" data-img="/assets/images/Today.png">
+        <span class="menu-roman">VIII</span>
+        <div class="menu-info">
+          <div class="menu-title-wrap">
+            <h2 class="menu-title">Contact Us</h2>
+            <span class="menu-arrow">&#8599;</span>
+          </div>
+          <p class="menu-subtitle">Reach our team in Shadnagar, Hyderabad · Delhi &amp; Dubai</p>
+        </div>
+      </a>
+    </div>
+    <div class="menu-preview-col">
+      <div class="menu-preview-card">
+        <img id="menuPreviewImg" src="/assets/services-hero-partnership-Brc0dvZw.png" alt="Menu Preview" class="menu-preview-img">
+        <div class="menu-preview-gradient"></div>
+        <div class="menu-preview-meta">
+          <span id="menuPreviewTag" class="preview-tag">PERSONALISED FRAGRANCES &amp; COMPOUNDS</span>
+          <span id="menuPreviewTitle" class="preview-title">Services</span>
+        </div>
+      </div>
+      <div class="menu-preview-foot">
+        <span>INDIAN HERITAGE · FRENCH EXPERTISE</span>
+        <span>ESTABLISHED 1895</span>
+      </div>
+    </div>
+  </div>
+  <div class="menu-bottom-bar">
+    <div><b>FACILITY:</b> Shadnagar, Hyderabad, Telangana 509410</div>
+    <div><b>PHONE:</b> <a href="tel:+919000222725" style="color:inherit;text-decoration:none;">+91 90002 22725</a></div>
+    <div><b>EMAIL:</b> <a href="mailto:contact@dubeyperfumers.com" style="color:inherit;text-decoration:none;">contact@dubeyperfumers.com</a></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+
+<div class="hero-grid">
+<div class="hero-copy">
+<div class="kicker" id="k1">Working with us</div>
+<h1 id="heroH">We succeed <em>only if you do.</em></h1>
+<p class="hero-body" id="heroB">As a family-owned fragrance house, we bring personal commitment and a long-term perspective to every partnership. We take the time to understand your brand, your market and your ambitions—approaching each project with the same care and accountability we bring to our own business.</p>
+<p class="hero-body" style="margin-top:14px">Our commitment extends beyond the fragrance we create. We work to build enduring relationships and lasting value for your brand, because our success is built on yours.</p>
+<div class="hero-meta"><span>FAMILY-OWNED</span><span><b>·</b></span><span>INDIA → WORLD</span></div>
+<div class="scroll-cue">SCROLL <i></i></div>
+</div>
+<div class="hero-vis">
+<img class="hero-tall" id="heroTall" src="/assets/services-hero-partnership-Brc0dvZw.png" alt="Dubey Perfumers partnership and craft">
+<div class="hero-frame"></div>
+<img class="hero-small" id="heroSmall" src="/assets/services-facility-campus-DynDBBnU.png" alt="Dubey Perfumers facility campus">
+</div>
+</div>
+</section>
+
+<!-- HOW IT WORKS : horizontal journey -->
+<section class="how" id="how">
+<div class="how-pin" id="howPin">
+<div class="how-head">
+<div class="kicker">How it works</div>
+<h2>How it works</h2>
+<p>Enquiry to delivery — one continuous journey, left to right. Scroll to travel it with us.</p>
+</div>
+<div class="hviewport" id="hView"><div class="htrack" id="hTrack">
+<article class="hstep"><div class="n">01</div><h3>Enquiry. <em>Tell us</em></h3><p>Tell us what you&rsquo;re building.</p><img loading="lazy" src="/assets/services-step-enquiry-OlK7_Khx.png" alt="Client enquiry discussion"></article>
+<article class="hstep"><div class="n">02</div><h3>Development. <em>We compose</em></h3><p>Our perfumers get to work on your brief.</p><img loading="lazy" src="/assets/services-step-development-CBEHmNOp.png" alt="Perfumers developing in the laboratory"></article>
+<article class="hstep"><div class="n">03</div><h3>Sampling. <em>You judge</em></h3><p>You smell it. We refine it.</p><img loading="lazy" src="/assets/services-step-sampling-BOuzilAm.png" alt="Sampling a fine fragrance"></article>
+<article class="hstep"><div class="n">04</div><h3>Production. <em>At scale</em></h3><p>Made at scale, to the same standard.</p><img loading="lazy" src="/assets/services-step-production-1q0h-aiu.png" alt="Production at the Hyderabad facility"></article>
+<article class="hstep"><div class="n">05</div><h3>Delivery. <em>Worldwide</em></h3><p>Shipped to you, wherever you are.</p><img loading="lazy" src="/assets/services-step-delivery-BMxpvjWl.png" alt="Global fragrance delivery"></article>
+</div></div>
+<div class="hprog"><div id="hBar"></div></div>
+</div>
+</section>
+
+<!-- WHO WE WORK WITH -->
+<section class="who">
+<div class="wrap who-grid">
+<div><img id="whoImg" loading="lazy" src="/assets/services-who-we-work-with-DL1jEubL.png" alt="Dubey Perfumers manufacturing campus"></div>
+<div>
+<div class="kicker">Who we work with</div>
+<h2>Who we work with</h2>
+<p>Emerging and established fragrance brands, alongside partners in personal care and home care seeking personalised fine fragrance compounds.</p>
+<a class="btn-gold" href="contact-us.html">START A PROJECT →</a>
+</div>
+</div>
+</section>
+
+<!-- BRAND CONSULTATION : editorial, not cards -->
+<section class="consult">
+<div class="wrap cons-grid">
+<div>
+<div class="kicker">Brand consultation</div>
+<h2>Building a fragrance brand? Build with us.</h2>
+<div class="lede">
+<p>Most new brands face a choice. A contract manufacturer can have a labelled product out in a week, but you won&rsquo;t choose what goes inside. Or you can build it properly, with someone who asks about your vision first.</p>
+<p>That&rsquo;s us. Our fragrance consultation starts with your brand, your market tier (mass, mid-market or premium) and your ethos, before a single formula is written. It takes two weeks to two months, depending on the brief.</p>
+</div>
+<div class="get">
+<h4>WHAT YOU GET</h4>
+<div class="get-item"><span>01</span><div>Your fragrance oil, built to your brief</div></div>
+<div class="get-item"><span>02</span><div>Guidance on the production process</div></div>
+<div class="get-item"><span>03</span><div>Guidance on quality and process</div></div>
+<div class="get-item"><span>04</span><div>Connections for packaging and filling</div></div>
+</div>
+<p class="cons-note">The guidance is free. After more than a century in this business, we know what it takes to get a fragrance brand right.</p>
+<a class="btn-line" href="contact-us.html">TELL US ABOUT YOUR BRAND →</a>
+</div>
+<div class="cons-vis">
+<img loading="lazy" src="/assets/services-brand-consultation-DW1-itqj.png" alt="Brand consultation — Grow with time">
+<figcaption>CONSULTATION · TWO WEEKS TO TWO MONTHS</figcaption>
+</div>
+</div>
+</section>
+
+<!-- WORLD MAP -->
+<section class="mapsec" id="regions">
+<div class="wrap">
+<div class="kicker">Global reach</div>
+<h2>Where our fragrance travels.</h2>
+<p class="lede">A century-old fragrance exporter from India supplying heritage houses, bespoke ateliers, and private-label innovators across the Middle East, Europe, Egypt, the Americas, and Asia-Pacific.</p>
+<div class="map-wrap">
+<div class="map-panel">
+<svg viewBox="0 0 1000 520" role="img" aria-label="Dubey Perfumers global export network world map">
+<defs>
+<radialGradient id="seaGlow" cx="50%" cy="40%" r="75%">
+<stop offset="0%" stop-color="#14284A" stop-opacity=".95"/>
+<stop offset="55%" stop-color="#081427" stop-opacity=".75"/>
+<stop offset="100%" stop-color="#040913" stop-opacity=".2"/>
+</radialGradient>
+</defs>
+<rect x="0" y="0" width="1000" height="520" fill="url(#seaGlow)"/>
+<g class="map-grid-lines">
+<line x1="0" y1="105" x2="1000" y2="105"/><line x1="0" y1="210" x2="1000" y2="210"/><line x1="0" y1="315" x2="1000" y2="315"/><line x1="0" y1="420" x2="1000" y2="420"/>
+<line x1="200" y1="0" x2="200" y2="520"/><line x1="400" y1="0" x2="400" y2="520"/><line x1="600" y1="0" x2="600" y2="520"/><line x1="800" y1="0" x2="800" y2="520"/>
+</g>
+<g id="lands">
+<path class="land" id="c_afg" data-iso="AFG" data-name="Afghanistan"  d="M663.2,202.3L665.9,203.3L668.0,203.0L668.5,201.8L670.6,201.4L672.1,200.5L672.7,198.4L674.9,197.9L675.3,196.9L676.6,197.7L677.4,197.7L678.9,197.8L680.9,198.3L681.7,198.6L683.6,197.8L684.5,198.3L685.4,197.1L687.0,197.1L687.4,196.8L687.7,195.7L688.8,194.7L690.3,195.4L690.0,196.2L690.8,196.3L690.5,198.5L691.6,199.4L692.5,198.8L693.7,198.6L695.4,197.4L697.2,197.6L699.9,197.6L700.4,198.4L698.9,198.7L697.5,199.1L694.5,199.5L691.6,200.0L690.0,201.2L690.7,202.3L691.0,203.6L689.6,204.8L689.8,205.8L689.0,206.7L686.5,206.7L687.5,208.4L685.8,209.1L684.7,210.7L684.8,212.3L683.8,213.1L682.8,212.8L680.8,213.2L680.5,213.9L678.5,213.9L677.0,215.4L676.9,217.7L673.5,218.8L671.6,218.6L671.1,219.1L669.5,218.8L666.8,219.2L662.3,217.8L664.8,215.4L664.5,213.7L662.5,213.3L662.3,211.6L661.4,209.4L662.6,208.0L661.4,207.6L662.1,205.6Z"/>
+<path class="land" id="c_ago" data-iso="AGO" data-name="Angola"  d="M543.5,313.1L544.2,315.0L545.0,316.6L545.6,317.5L546.6,318.9L548.4,318.7L549.2,318.3L550.7,318.7L551.1,318.0L551.8,316.5L553.4,316.4L553.6,315.9L554.9,315.9L554.7,316.8L557.9,316.8L558.0,318.5L558.5,319.5L558.1,321.1L558.3,322.8L559.2,323.8L559.1,326.9L559.7,326.7L560.9,326.8L562.6,326.4L563.8,326.5L564.0,327.3L563.7,328.6L564.2,329.9L563.8,330.9L564.0,331.8L558.5,331.8L558.4,340.3L560.2,342.4L561.9,344.1L557.0,345.2L550.5,344.8L548.7,343.5L537.9,343.7L537.5,343.8L535.9,342.6L534.2,342.6L532.6,343.0L531.3,343.5L531.0,341.8L531.4,339.5L532.3,337.1L532.5,335.9L533.3,333.5L534.0,332.4L535.5,330.7L536.4,329.5L536.6,327.5L536.5,326.0L535.7,325.0L535.0,323.4L534.3,321.8L534.5,321.3L535.3,320.2L534.5,317.6L533.9,315.9L532.6,314.2L532.9,313.6L534.0,313.3L534.7,313.3L535.7,313.0ZM533.2,312.5L532.5,312.8L531.8,310.8L532.9,309.7L533.7,309.2L534.7,310.1L533.7,310.7L533.2,311.4Z"/>
+<path class="land" id="c_alb" data-iso="ALB" data-name="Albania"  d="M554.9,185.8L554.6,186.7L554.9,187.8L556.1,188.5L556,189.2L555.1,189.6L555.0,190.4L553.7,191.7L553.3,191.5L553.2,190.9L551.8,190.0L551.5,188.8L551.7,187.0L552.1,186.1L551.7,185.7L551.5,184.9L552.6,183.5L552.8,184.0L553.5,183.8L554.1,184.5L554.7,184.8Z"/>
+<path class="land land-dubai land-me" id="c_are" data-iso="ARE" data-name="United Arab Emirates" data-dest="dubai" d="M637.5,232.7L638.0,232.6L638.1,233.3L640.2,232.9L642.4,233.0L644.0,233.1L645.8,231.3L647.8,229.5L649.5,227.9L650.0,228.8L650.4,230.9L649.0,230.9L648.8,232.7L649.3,233.0L648.1,233.6L648.1,234.6L647.3,235.7L647.2,236.8L646.7,237.4L638.7,236.0L637.6,233.3Z"/>
+<path class="land" id="c_arg" data-iso="ARG" data-name="Argentina"  d="M325.3,444.6L322.8,444.7L321.4,443.8L319.8,443.7L317.0,443.7L317.0,437.7L318,439.0L319.3,441.0L322.8,442.6L326.5,443.2ZM326.8,356.2L328.3,358.2L329.4,356.0L332.4,356.1L332.8,356.7L337.7,361.1L339.9,361.5L343.2,363.4L345.9,364.5L346.3,365.7L343.7,369.7L346.4,370.4L349.4,370.8L351.5,370.4L353.9,368.4L354.3,366.0L355.7,365.5L357.0,367.0L356.9,369.2L354.7,370.6L352.9,371.7L349.9,374.3L346.3,378.0L345.7,380.1L345.0,382.8L345.0,385.5L344.4,386.1L344.2,387.8L344.0,389.2L347.4,391.5L347.0,393.3L348.7,394.5L348.6,395.8L346.0,399.2L342.0,400.6L336.7,401.2L333.8,400.9L334.3,402.5L333.8,404.5L334.3,405.8L332.7,406.8L329.9,407.2L327.4,406.2L326.4,406.9L326.7,409.5L328.5,410.3L330.0,409.5L330.8,410.9L328.3,411.7L326.2,413.4L325.8,416.0L325.2,417.5L322.6,417.5L320.6,418.8L319.8,420.8L322.4,422.8L325.0,423.3L324.0,425.7L320.9,427.2L319.2,430.4L316.7,431.4L315.6,432.7L316.5,435.4L318.3,437.0L317.1,436.8L314.7,436.4L308.2,436.1L307.1,434.5L307.2,432.5L305.4,432.7L304.5,431.7L304.2,428.9L306.3,427.7L307.1,426.0L306.8,424.7L308.2,422.4L309.2,418.9L308.9,417.3L310.1,416.8L309.8,415.8L308.6,415.3L309.4,414.1L308.2,413.1L307.6,410.1L308.7,409.5L308.2,406.3L308.9,403.5L309.6,401.2L311.2,400.2L310.4,397.6L310.3,395.1L312.4,393.4L312.3,391.2L313.8,388.6L313.8,386.1L313.1,385.6L311.9,381.0L313.5,378.3L313.3,375.7L314.3,373.3L316.0,370.8L317.9,369.1L317.1,368.1L317.6,367.2L317.6,362.8L320.5,361.4L321.4,358.7L321.0,358.0L323.3,355.6Z"/>
+<path class="land" id="c_arm" data-iso="ARM" data-name="Armenia"  d="M616.2,187.8L619.9,187.4L620.5,188.1L621.5,188.5L621.0,189.2L622.4,190.1L621.6,191.0L622.8,191.7L624.0,192.1L624.0,194.0L623.0,194.1L622.0,192.5L622.0,192.1L620.8,192.1L620.0,191.4L619.5,191.5L618.4,190.7L616.4,190.0L616.7,188.7Z"/>
+<path class="land" id="c_atf" data-iso="ATF" data-name="French Southern and Antarctic Lands"  d="M683.8,427.0L685.5,427.9L688.1,428.2L688.2,428.7L687.4,429.9L683.3,430.1L683.3,428.7L683.6,427.6Z"/>
+<path class="land land-australia" id="c_aus" data-iso="AUS" data-name="Australia" data-dest="australia" d="M887.7,406.2L890.3,407.1L891.8,406.7L893.8,406.2L895.4,406.4L895.6,409.5L894.7,410.5L894.4,412.6L893.5,411.9L891.7,413.7L891.1,413.6L889.5,413.5L887.8,411.2L887.5,409.5L885.9,407.1L886.0,405.9ZM882.8,334.1L883.8,336.2L885.5,335.2L886.4,336.3L887.7,337.3L887.4,338.5L888.0,340.8L888.4,342.1L889.0,342.5L889.8,344.7L889.5,346.1L890.4,347.9L893.3,349.3L895.1,350.6L896.9,351.8L896.6,352.4L898.1,354.1L899.1,357.0L900.2,356.4L901.3,357.5L901.9,357.1L902.4,359.9L904.3,361.6L905.5,362.6L907.6,364.8L908.4,366.9L908.4,368.4L908.2,370.1L909.5,372.3L909.4,374.7L908.9,375.9L908.2,378.3L908.2,379.8L907.7,381.8L906.5,384.2L904.6,385.5L903.6,387.6L902.7,388.9L901.9,391.2L900.9,392.5L900.2,394.5L899.9,396.3L900.0,397.2L898.5,398.1L895.5,398.2L893.0,399.3L891.8,400.3L890.2,401.5L888.0,400.3L886.3,399.8L886.8,398.4L885.3,398.9L883.0,400.9L880.7,400.1L879.1,399.7L877.6,399.5L875.0,398.8L873.3,397.1L872.8,395.1L872.2,393.7L870.9,392.7L868.3,392.3L869.2,391.1L868.6,389.1L867.3,390.9L864.9,391.4L866.3,389.9L866.7,388.4L867.7,387.1L867.5,385.1L865.3,387.4L863.7,388.3L862.6,390.4L860.6,389.3L860.6,387.9L859.0,386.0L857.6,385.0L858.1,384.4L854.6,382.7L852.8,382.7L850.2,381.4L845.4,381.6L842.0,382.6L838.9,383.5L836.4,383.3L833.6,384.7L831.3,385.3L830.7,386.7L829.8,387.8L827.5,387.8L825.8,388.1L823.5,387.6L821.5,387.9L819.7,388.0L818.1,389.4L817.4,389.3L816.0,390.0L814.7,390.9L812.8,390.8L811,390.8L808.2,389.1L806.7,388.6L806.8,387.0L808.1,386.7L808.6,386.1L808.5,385.1L808.8,383.3L808.5,381.7L807.1,379.0L806.7,377.5L806.8,375.9L805.7,374.2L805.6,373.4L804.5,372.4L804.1,370.3L802.6,368.2L802.2,367.0L803.4,368.2L802.5,365.7L803.8,366.5L804.6,367.5L804.6,366.1L803.3,364.0L803.0,363.2L802.4,362.4L802.7,360.9L803.2,360.2L803.6,358.9L803.3,357.3L804.4,355.4L804.6,357.4L805.7,355.6L807.9,354.7L809.2,353.6L811.2,352.6L812.4,352.4L813.2,352.7L815.3,351.7L816.9,351.4L817.3,350.8L818.0,350.6L819.5,350.6L822.3,349.9L823.7,348.7L824.4,347.3L826.0,345.9L826.1,344.8L826.2,343.4L828.0,341.1L829.2,343.4L830.3,342.9L829.3,341.6L830.2,340.3L831.4,340.9L831.7,338.9L833.1,337.6L833.8,336.5L835.1,336.1L835.2,335.3L836.3,335.6L836.4,335.0L837.6,334.6L838.8,334.2L840.8,335.4L842.3,337.0L844.0,337.0L845.7,337.3L845.1,335.8L846.4,333.7L847.6,333.0L847.2,332.3L848.3,330.8L849.9,329.9L851.3,330.2L853.5,329.7L853.5,328.3L851.5,327.4L853.0,327.1L854.7,327.7L856.1,328.8L858.4,329.5L859.1,329.2L860.8,330.0L862.4,329.3L863.4,329.5L864.0,329.0L865.2,330.3L864.5,331.7L863.5,332.8L862.6,332.9L862.9,334.0L862.1,335.3L861.1,336.6L861.3,337.4L863.5,338.8L865.5,339.7L866.9,340.6L868.8,342.2L869.6,342.2L871.0,342.9L871.4,343.7L873.9,344.6L875.7,343.7L876.2,342.3L876.7,341.1L877.1,339.6L877.9,337.5L877.5,336.2L877.7,335.4L877.4,333.9L877.7,331.9L878.2,331.4L877.8,330.5L878.5,329.1L879.0,327.6L879.0,326.8L880.0,325.8L880.8,327.1L881.0,328.8L881.6,329.1L881.8,330.2L882.7,331.6L882.9,333.1Z"/>
+<path class="land land-eu" id="c_aut" data-iso="AUT" data-name="Austria"  d="M545.3,169.0L545.1,170.1L543.6,170.1L544.1,170.7L543.2,172.4L542.7,172.9L540.4,173.0L539.0,173.6L536.8,173.4L533.0,172.7L532.4,171.7L529.8,172.2L529.5,172.7L527.8,172.3L526.5,172.3L525.3,171.8L525.7,171.1L525.6,170.6L526.4,170.5L527.7,171.2L528.1,170.5L530.5,170.6L532.4,170.2L533.7,170.3L534.5,170.8L534.7,170.3L534.4,168.6L535.3,168.3L536.3,167.0L538.2,167.9L539.7,166.8L540.7,166.6L542.7,167.4L544.0,167.3L545.2,167.8L545.0,168.1Z"/>
+<path class="land" id="c_aze" data-iso="AZE" data-name="Azerbaijan"  d="M620.0,191.4L620.8,192.1L622.0,192.1L622.0,192.5L623.0,194.1L621.2,193.7L619.9,192.5L619.5,191.5ZM626.3,187.5L627.5,187.6L628.0,187.0L629.6,185.9L631.0,187.3L632.3,189.2L633.6,189.3L634.4,190.0L632.2,190.2L631.7,192.3L631.3,193.2L630.3,193.9L630.4,195.2L629.7,195.3L628.0,193.9L628.9,192.6L628.2,191.8L627.2,192.0L624.0,194.0L624.0,192.1L622.8,191.7L621.6,191.0L622.4,190.1L621.0,189.2L621.5,188.5L620.5,188.1L619.9,187.4L620.6,186.9L622.6,187.7L624.0,187.9L624.4,187.6L623.1,186.1L623.7,185.7L624.5,185.8Z"/>
+<path class="land" id="c_bdi" data-iso="BDI" data-name="Burundi"  d="M578.2,309.4L578.1,306.2L577.4,304.9L579.0,305.2L579.8,303.6L581.3,303.8L581.4,304.9L582.0,305.5L582.0,306.3L581.3,306.9L580.3,308.3L579.3,309.3Z"/>
+<path class="land land-eu" id="c_bel" data-iso="BEL" data-name="Belgium"  d="M508.8,160.5L510.8,160.7L513.3,160.1L515.0,161.3L516.4,161.9L516.1,163.7L515.4,163.8L515.1,165.3L512.8,164.1L511.4,164.3L509.6,163.0L508.3,162.0L507.1,161.9L506.7,161.0Z"/>
+<path class="land" id="c_ben" data-iso="BEN" data-name="Benin"  d="M507.2,280.7L505.0,281.0L504.3,279.2L504.4,273.0L503.9,272.5L503.8,271.2L502.9,270.2L502.1,269.5L502.4,268.1L503.3,267.8L503.9,266.6L505.2,266.3L505.7,265.5L506.6,264.8L507.6,264.7L509.6,266.3L509.5,267.2L510.1,268.8L509.6,269.8L509.9,270.5L508.6,272.2L507.8,273.0L507.3,274.7L507.3,276.4Z"/>
+<path class="land" id="c_bfa" data-iso="BFA" data-name="Burkina Faso"  d="M492.5,271.7L490.6,271.0L489.4,271.1L488.5,271.7L487.3,271.2L486.8,270.3L485.6,269.7L485.4,268.2L486.1,267.0L486.1,266.1L488.2,263.9L488.6,262.1L489.3,261.5L490.6,261.8L491.7,261.3L492.1,260.6L494.2,259.4L494.7,258.6L497.2,257.4L498.6,257.1L499.3,257.6L501,257.6L500.8,258.9L501.1,260.1L502.6,261.8L502.7,263.1L505.8,263.7L505.7,265.5L505.2,266.3L503.9,266.6L503.3,267.8L502.4,268.1L500.1,268.0L498.8,267.8L498.0,268.2L496.8,268.0L492.2,268.1L492.1,269.7Z"/>
+<path class="land" id="c_bgd" data-iso="BGD" data-name="Bangladesh"  d="M747.1,238.6L747.1,240.5L746.1,240.1L746.3,242.3L745.6,240.9L745.4,239.5L744.9,238.2L743.8,236.7L741.3,236.6L741.6,237.7L740.7,239.1L739.6,238.6L739.2,239.1L738.5,238.8L737.4,238.6L737.0,236.4L736.1,234.4L736.5,232.8L734.9,232.0L735.5,231.1L737.2,230.1L735.2,228.7L736.2,226.9L738.3,228.0L739.6,228.1L739.8,230.0L742.3,230.4L744.8,230.3L746.3,230.8L745.1,233.0L743.9,233.2L743.1,234.7L744.6,236.1L745.0,234.4L745.7,234.4Z"/>
+<path class="land land-bulgaria land-eu" id="c_bgr" data-iso="BGR" data-name="Bulgaria" data-dest="bulgaria" d="M560.4,179.4L561.2,180.5L562.2,180.3L564.3,180.7L568.2,180.9L569.5,180.2L572.6,179.6L574.6,180.5L576.2,180.8L574.8,181.9L573.8,183.8L574.7,185.4L572.4,185L569.6,185.8L569.6,187.2L567.2,187.4L565.3,186.5L563.2,187.2L561.2,187.1L561.0,185.4L559.7,184.5L560.1,184.1L559.8,183.8L560.3,183.0L561.3,182.1L560,181.0L559.8,180.0Z"/>
+<path class="land" id="c_bhs" data-iso="BHS" data-name="The Bahamas"  d="M293.2,234.0L292.6,234.2L291.9,232.6L290.9,231.8L291.5,230.2L292.3,230.3L293.2,232.5ZM292.5,226.5L289.6,226.9L289.4,225.9L290.6,225.7L292.4,225.8ZM294.7,226.5L294.2,228.4L293.7,228.0L293.8,226.6L292.6,225.6L292.6,225.3Z"/>
+<path class="land" id="c_bih" data-iso="BIH" data-name="Bosnia and Herzegovina"  d="M550.7,177.8L551.6,177.7L551.0,178.9L552.3,179.9L551.9,181.2L551.2,181.3L550.8,181.6L549.9,182.2L549.5,183.6L547.1,182.6L546.1,181.5L545.1,180.9L543.9,179.9L543.3,179.1L542,177.9L542.6,176.8L543.5,177.4L544.1,176.8L545.3,176.8L547.6,177.2L549.5,177.2Z"/>
+<path class="land" id="c_blr" data-iso="BLR" data-name="Belarus"  d="M562.6,153.6L565.2,153.6L568.1,152.6L568.7,151.1L570.9,150.3L570.7,149.1L572.3,148.6L575.1,147.6L577.9,148.3L578.3,148.9L579.7,148.6L582.3,149.2L582.6,150.5L582.0,151.2L583.7,153.0L584.8,153.4L584.6,153.9L586.4,154.4L587.2,155.1L586.1,155.7L584.0,155.6L583.5,155.8L584.1,156.7L584.8,158.4L582.5,158.6L581.7,159.2L581.5,160.5L580.4,160.3L578.0,160.4L577.3,159.8L576.3,160.2L575.3,159.9L573.2,159.8L570.2,159.2L567.5,158.9L565.5,159.0L564.0,159.7L562.7,159.8L562.7,158.6L561.9,157.4L563.5,156.9L563.5,155.8L562.7,154.8Z"/>
+<path class="land" id="c_blz" data-iso="BLZ" data-name="Belize"  d="M262.3,249.9L262.3,249.5L262.6,249.4L263.1,249.7L264.0,248.1L264.5,248.0L264.5,248.4L265.0,248.4L265.0,249.2L264.6,250.3L264.8,250.7L264.5,251.7L264.7,251.9L264.4,253.3L263.9,254.0L263.4,254.1L262.9,255.0L262.1,255.0L262.3,252.0Z"/>
+<path class="land" id="c_bol" data-iso="BOL" data-name="Bolivia"  d="M332.4,356.1L329.4,356.0L328.3,358.2L326.8,356.2L323.3,355.6L321.0,358.0L319.1,358.4L318.1,354.7L316.6,351.7L317.5,349.1L316.1,348.0L315.7,346.1L314.4,344.3L316.1,341.4L315.0,339.1L315.6,338.2L315.1,337.3L316.1,335.9L316.2,333.7L316.3,331.8L316.9,330.9L314.6,326.6L316.6,326.8L317.9,326.8L318.5,325.9L320.9,324.9L322.3,323.9L325.8,323.4L325.5,325.4L325.8,326.4L325.6,328.2L328.5,330.6L331.5,331.1L332.5,332.0L334.3,332.6L335.4,333.3L337.1,333.3L338.7,334.1L338.8,335.7L339.3,336.4L339.3,337.6L338.6,337.6L339.6,340.7L344.7,340.8L344.3,342.4L344.6,343.4L346.0,344.2L346.7,345.8L346.2,347.9L345.5,349.1L345.7,350.6L344.9,351.2L344.8,350.4L342.4,349.0L339.9,349.0L335.2,349.7L334.0,352.1L333.9,353.5L332.8,356.7Z"/>
+<path class="land" id="c_bra" data-iso="BRA" data-name="Brazil"  d="M346.3,378.0L349.9,374.3L352.9,371.7L354.7,370.6L356.9,369.2L357.0,367.0L355.7,365.5L354.3,366.0L354.9,364.5L355.2,362.9L355.2,361.4L354.3,360.9L353.3,361.4L352.3,361.3L352.0,360.2L351.7,357.8L351.2,357.0L349.4,356.3L348.3,356.8L345.5,356.3L345.7,352.7L344.9,351.2L345.7,350.6L345.5,349.1L346.2,347.9L346.7,345.8L346.0,344.2L344.6,343.4L344.3,342.4L344.7,340.8L339.6,340.7L338.6,337.6L339.3,337.6L339.3,336.4L338.8,335.7L338.7,334.1L337.1,333.3L335.4,333.3L334.3,332.6L332.5,332.0L331.5,331.1L328.5,330.6L325.6,328.2L325.8,326.4L325.5,325.4L325.8,323.4L322.3,323.9L320.9,324.9L318.5,325.9L317.9,326.8L316.6,326.8L314.6,326.6L313.1,327.0L311.9,326.7L312.0,322.7L309.9,324.3L307.5,324.2L306.5,322.8L304.7,322.6L305.3,321.5L303.8,319.8L302.7,317.4L303.4,317.0L303.4,315.8L305.0,315.1L304.7,313.6L305.4,312.7L305.6,311.4L308.7,309.6L310.9,309.1L311.2,308.7L313.6,308.8L314.8,301.5L314.9,300.4L314.5,298.8L313.3,297.9L313.3,295.9L314.8,295.5L315.3,295.8L315.4,294.7L313.9,294.5L313.8,292.8L319.0,292.9L319.9,291.9L320.6,292.8L321.2,294.4L321.7,294.0L323.1,295.4L325.2,295.3L325.7,294.5L327.7,293.8L328.8,293.4L329.1,292.3L331.0,291.5L330.9,290.9L328.6,290.7L328.2,289.0L328.4,287.3L327.2,286.6L327.7,286.3L329.6,286.7L331.8,287.3L332.5,286.7L334.4,286.3L337.4,285.3L338.4,284.3L338.0,283.5L339.4,283.4L340.1,284.0L339.7,285.2L340.6,285.6L341.2,286.8L340.5,287.8L340.1,290.0L340.8,291.4L340.9,292.6L342.6,293.9L343.9,294.0L344.2,293.5L345.0,293.4L346.2,292.9L347.1,292.2L348.6,292.4L349.2,292.3L350.7,292.5L350.9,292.0L350.5,291.5L350.7,290.7L351.8,290.9L353.1,290.6L354.6,291.2L355.8,291.8L356.6,291.0L357.2,291.2L357.6,291.9L358.8,291.7L359.9,290.7L360.7,288.7L362.2,286.3L363.2,286.2L363.8,287.6L365.3,292.3L366.7,292.7L366.8,294.6L364.8,296.8L365.6,297.6L370.3,298.0L370.4,300.7L372.5,298.9L375.8,299.9L380.3,301.5L381.6,303.1L381.1,304.6L384.2,303.7L389.4,305.1L393.4,305.0L397.3,307.2L400.7,310.2L402.8,311.0L405.1,311.1L406.0,312.0L406.9,315.3L407.4,317.0L406.3,321.4L405.0,323.1L401.2,326.8L399.5,329.8L397.5,332.1L396.9,332.2L396.1,334.2L396.3,339.2L395.6,343.3L395.3,345.0L394.4,346.1L394.0,349.6L391.3,353.1L390.8,355.9L388.7,357.0L388.0,358.6L385.1,358.6L380.9,359.6L379.1,360.8L376.1,361.6L372.9,363.7L370.7,366.4L370.3,368.4L370.7,369.8L370.2,372.5L369.6,373.8L367.8,375.3L364.8,380.0L362.5,382.1L360.6,383.4L359.4,385.9L357.7,387.4L356.9,385.9L358.1,384.7L356.6,382.8L354.5,381.4L351.7,379.7L350.7,379.7L348.1,377.7Z"/>
+<path class="land" id="c_brn" data-iso="BRN" data-name="Brunei"  d="M804.5,285.3L805.6,284.3L807.9,282.9L807.7,284.2L807.6,285.9L806.3,285.8L805.8,286.7Z"/>
+<path class="land" id="c_btn" data-iso="BTN" data-name="Bhutan"  d="M744.5,223.3L745.6,224.2L745.4,225.8L743.2,225.9L741.0,225.7L739.3,226.1L736.9,225.1L736.8,224.6L738.6,222.6L740.0,221.9L741.9,222.5L743.4,222.6Z"/>
+<path class="land" id="c_bwa" data-iso="BWA" data-name="Botswana"  d="M568.4,346.8L568.9,347.3L569.8,348.8L572.8,351.8L573.9,352.0L573.9,353.0L574.7,354.7L576.8,355.1L578.5,356.3L574.7,358.3L572.3,360.2L571.4,362.0L570.6,363.0L569.2,363.2L568.7,364.5L568.4,365.3L566.7,366.0L564.6,365.8L563.3,365.1L562.2,364.8L560.9,365.4L560.2,366.7L558.9,367.5L557.6,368.6L555.7,368.9L555.1,368.0L555.4,366.4L553.8,363.8L553.1,363.4L553.1,355.6L555.7,355.5L555.8,346.1L557.7,346.0L561.9,345.0L562.9,346.1L564.6,345.1L565.4,345.1L566.9,344.5L567.4,344.7Z"/>
+<path class="land" id="c_caf" data-iso="CAF" data-name="Central African Republic"  d="M540.7,277.6L543.0,277.4L543.4,276.7L543.9,276.8L544.5,277.4L547.9,276.3L549.0,275.3L550.4,274.4L550.2,273.4L550.9,273.2L553.5,273.3L556.0,272.1L557.9,269.2L559.3,268.1L561.0,267.7L561.3,268.8L562.8,270.5L562.8,271.6L562.4,272.7L562.6,273.5L563.5,274.3L565.5,275.4L567.0,276.5L567.0,277.4L568.8,278.8L569.9,279.9L570.6,281.5L572.6,282.6L573.0,283.4L572.1,283.7L570.4,283.6L568.4,283.4L567.4,283.6L567.0,284.2L566.1,284.3L565.1,283.8L562.1,285.1L560.9,284.8L560.5,285.0L559.7,286.6L557.8,286.1L555.8,285.9L554.1,284.9L551.9,284.0L550.5,284.8L549.4,286.2L549.2,288.0L547.5,287.9L545.7,287.4L544.1,288.8L542.7,291.3L542.4,290.6L542.3,289.3L541.1,288.5L540.1,287.1L539.9,286.1L538.6,284.8L538.8,284.0L538.6,282.8L538.8,280.8L539.4,280.3Z"/>
+<path class="land" id="c_can" data-iso="CAN" data-name="Canada"  d="M330.2,173.2L332.2,173.6L334.6,173.5L333.3,174.6L332.3,174.8L329.0,173.7L328.3,172.8L329.3,171.9ZM335.2,166.4L333.9,166.5L330.4,165.6L327.9,164.4L328.9,164.2L332.4,164.8L335.1,165.9ZM170.6,168.0L169.3,168.4L164.9,167.2L164.1,166.2L161.7,165.3L161.3,164.5L158.5,164.1L157.5,162.6L157.7,162.0L160.5,162.6L162.1,163.0L164.7,163.3L165.6,164.2L166.9,165.4L169.5,166.5ZM350.3,162.2L348.5,164.5L350.3,163.6L352.1,164.2L351.1,165.1L353.5,165.9L354.7,165.2L357.4,166.0L356.6,168L358.4,167.5L358.8,169.0L359.6,170.6L358.5,173.0L357.3,173.1L355.5,172.6L356.1,170.4L355.4,170.0L352.3,172.4L350.7,172.3L352.6,171.0L350.0,170.4L347.1,170.5L342.0,170.4L341.5,169.6L343.2,168.7L342.0,168.0L344.3,166.4L347.0,162.1L348.7,160.6L351.0,159.7L352.2,159.8L351.7,160.5ZM146.1,153.3L146.1,153.3L146.1,153.3L146.1,153.3L148.7,153.1L147.9,156.1L150.2,158.2L149.1,158.2L147.5,157.0L146.5,155.8L145.2,154.9L144.7,153.8L144.9,152.9ZM288.6,131.6L287.6,133.0L286.4,132.8L285.7,132L285.8,131.8L286.9,131.0L287.9,131.1ZM281.6,130.1L278.5,131.6L276.6,131.6L276.0,130.8L278.0,129.6L281.7,129.6ZM272.9,122.3L273.4,123.5L274.8,123.1L276.3,123.8L279.2,124.7L282.3,125.5L282.5,126.8L284.5,126.6L286.4,127.4L284.0,128.3L279.9,127.6L278.4,126.4L275.7,127.9L271.9,129.2L271.0,127.7L267.4,127.9L269.7,126.6L270.1,124.5L271.0,122.1ZM297.7,118.3L294.7,118.4L294.0,117.1L295.2,115.6L297.6,115.3L299.7,116.0L299.7,117.2L299.4,117.5ZM244.9,113.1L243.3,114.0L239.7,113.2L237.5,113.5L233.9,112.3L236.2,111.5L238.1,110.3L240.9,111.1L242.5,111.6L243.3,112.1ZM258.5,112.1L258.5,114.8L262.1,112.7L265.3,114.4L264.5,116.4L267.1,118.2L269.9,116.3L271.8,114.0L271.9,111.0L275.7,111.2L279.7,111.6L283.3,112.9L283.4,114.3L281.4,115.7L283.3,117.1L283.0,118.4L277.7,120.3L274.0,120.7L271.3,119.9L270.5,121.2L267.9,123.5L267.1,124.6L264.0,126.4L260.2,126.6L258.1,127.8L257.9,129.5L254.8,129.8L251.6,132.0L248.7,135.0L247.7,137.1L247.5,140.2L251.4,140.6L252.6,143.1L253.9,145.1L257.6,144.6L262.6,145.8L265.2,146.8L267.1,148.0L270.5,148.8L273.3,149.9L277.7,150.1L280.6,150.3L280.2,152.6L281,155.3L282.9,158.3L286.9,160.8L289.0,160.0L290.4,157.2L289.0,153.0L287.1,151.6L291.4,150.3L294.4,148.5L295.9,146.6L295.7,144.8L293.9,142.6L290.6,140.6L293.8,137.8L292.6,135.4L291.7,131.2L293.6,130.6L298.1,131.3L300.9,131.6L303.1,130.9L305.6,131.8L308.9,133.3L309.7,134.3L314.4,134.5L314.3,136.8L315.2,140.2L317.7,140.6L319.6,142.1L323.5,140.7L326.0,137.7L327.8,136.5L329.9,138.9L333.3,142.3L336.3,145.5L335.2,147.1L338.8,148.6L341.1,150.2L345.4,150.9L347.1,151.7L348.2,154.0L350.2,154.3L351.3,155.3L351.5,158.3L349.6,159.3L347.7,160.3L343.3,161.2L339.9,163.4L335.4,163.8L329.7,163.3L325.7,163.2L322.9,163.4L320.7,165.3L317.3,166.5L313.5,170.1L310.4,172.5L312.7,172.1L316.9,168.6L322.5,166.4L326.5,166.1L328.9,167.4L326.4,169.2L327.2,172.1L328.1,174.1L331.5,175.4L335.9,175.0L338.6,172.0L338.8,174.0L340.5,174.9L337.2,176.7L331.3,178.3L328.7,179.3L325.7,181.3L323.7,181.1L323.6,178.8L328.2,176.6L323.9,176.7L321.0,177.0L319.2,175.5L319.2,171.9L318.0,171.1L316.3,171.6L315.4,170.8L313.3,172.9L312.5,174.9L311.6,176.2L310.4,176.6L309.6,176.7L309.3,177.4L304.4,177.4L300.4,177.4L299.2,177.9L296.3,179.8L296,180.0L295.1,181.0L292.7,181.0L290.1,181.0L288.9,181.5L289.3,182.0L289.5,182.8L289.5,183.1L286.0,184.4L283.3,184.8L280.2,186.2L279.5,186.2L278.6,185.8L278.3,185.4L278.3,185.2L278.9,184.2L280.2,182.8L281.0,181.2L280.4,178.9L279.9,176.5L277.1,175.2L277.4,174.7L277.0,174.4L276.3,174.4L275.8,174.0L275.6,173.3L275.1,173.6L274.4,173.5L274.6,173.3L273.9,173.0L273.7,172.3L271.6,171.5L269.4,170.6L266.8,169.5L264.3,168.6L261.9,169.3L261.1,169.4L257.8,168.7L255.6,169.0L253.0,168.2L250.3,167.8L248.5,167.6L247.6,167.1L247.2,165.7L246.3,165.7L246.2,166.7L240.7,166.7L231.6,166.7L222.5,166.7L214.5,166.7L206.5,166.7L198.7,166.7L190.5,166.7L187.9,166.7L180,166.7L172.4,166.7L172.1,166.7L166.9,164.1L165.0,162.9L160.2,161.8L158.7,159.5L159.1,157.8L155.7,156.7L155.2,154.5L152.0,152.6L151.9,151.2L153.4,150.0L153.3,148.3L148.8,146.6L146.1,143.5L144.4,141.6L141.9,140.4L140.1,139.3L138.7,137.9L136.1,138.8L133.5,140.3L131.1,138.5L129.2,137.4L126.6,136.6L124.0,136.6L124.0,121.4L124.0,111.5L129.0,112.1L133.2,113.4L136.0,113.7L138.3,112.5L141.6,111.7L145.5,112.0L149.5,110.9L153.9,110.2L155.7,111.3L157.7,110.7L158.3,109.4L160.1,109.7L164.7,112.1L168.2,110.3L168.6,112.3L171.8,111.9L172.8,111.1L176.1,111.3L180.2,112.4L186.4,113.3L190.1,113.8L192.7,113.6L196.3,115.0L192.5,116.3L197.3,116.9L204.5,116.6L206.8,116.1L209.7,117.7L212.6,116.3L209.8,115.2L211.6,114.3L214.8,114.2L216.9,113.9L219.1,114.5L221.8,116.0L224.7,115.8L229.5,117.0L233.6,116.6L237.5,116.6L237.2,115.0L239.5,114.5L243.7,115.4L243.7,117.9L245.4,115.8L247.5,115.9L248.7,113.2L245.9,111.5L242.7,110.5L243.0,107.5L246.1,105.6L249.6,106.0L252.3,107.2L255.9,110.2L253.6,111.5ZM195.6,102.4L194.2,103.6L200.2,102.8L203.9,104.2L206.9,102.8L209.3,103.7L211.5,106.3L212.8,105.2L210.9,102.5L213.3,102.1L215.9,102.5L218.9,103.6L220.6,106.2L221.4,108.1L225.9,109.4L230.7,110.6L230.4,111.8L226.1,112.0L227.8,113.1L226.9,114.0L222.0,113.6L217.4,112.9L214.3,113.1L209.3,114.0L202.6,114.4L197.8,114.6L196.4,113.4L192.7,112.6L190.4,112.9L187.1,110.8L188.9,110.5L193.0,110.1L196.7,110.2L200.2,109.7L195.1,109.1L189.4,109.3L185.6,109.3L184.2,108.3L190.4,107.2L186.3,107.3L181.6,106.6L183.8,104.6L185.7,103.5L192.8,101.9ZM221.3,101.6L219.0,103.4L214.8,101.5L215.7,101.1L219.3,101.0ZM296.4,102.4L296.7,103.2L293.8,103.1L291.0,103.0L288.0,103.4L287.3,103.2L284.3,101.8L284.4,100.9L285.7,100.7L291.8,101.0ZM269.2,102.3L271.3,104.0L273.7,101.8L280.5,100.7L285.1,103.5L284.7,105.2L289.9,104.4L292.5,103.4L298.4,104.7L302.1,106.0L302.4,107.2L307.4,106.6L310.1,108.3L316.6,109.3L318.9,110.4L321.4,112.9L316.5,114.1L322.8,115.9L327.0,116.5L330.9,118.9L335.1,119.1L334.2,121.0L329.6,124.0L326.3,122.9L322.1,120.3L318.6,120.7L318.3,122.2L321.1,123.8L324.7,125.0L325.8,125.7L327.5,128.3L326.6,130.2L323.3,129.5L316.6,127.4L320.3,129.7L323.1,131.3L323.6,132.2L316.3,131.2L310.6,129.6L307.4,128.3L308.3,127.6L304.3,126.2L300.4,124.9L300.5,125.7L292.8,126.1L290.5,125.2L292.3,123.2L297.3,123.2L302.8,122.8L301.9,121.9L302.8,120.5L306.3,118.0L305.5,116.8L304.5,115.9L300.4,114.6L295.0,113.7L296.7,113.0L293.9,111.3L291.6,111.2L289.4,110.3L288.0,111.1L283.2,111.4L273.5,110.8L267.8,110.0L263.5,109.6L261.3,108.7L264.1,107.5L260.3,107.5L259.5,104.8L261.5,102.4L264.2,101.3L271.1,100.6ZM232.4,100.5L235.6,101.0L240.3,100.7L241.0,101.5L238.5,102.7L242.6,103.9L242.1,106.3L237.7,107.3L235.1,107.1L233.3,106.1L226.7,104.0L226.7,103.2L232.2,103.5L229.2,101.8ZM251.5,103.3L248.6,105.3L245.6,105.2L243.9,102.9L244.0,101.5L245.3,100.4L248.0,99.7L253.5,99.8L258.6,100.4L254.7,102.8ZM178.8,107.0L171.8,108.3L170.3,107.1L164.2,105.7L165.3,104.6L167.2,102.7L169.5,100.9L166.9,99.3L175.9,98.8L179.7,99.4L186.5,99.5L189.1,100.3L192.0,101.4L188.6,102.1L182.1,104.0L178.8,105.9ZM250.4,97.4L248.9,98.5L245.0,98.3L241.8,97.6L243.2,96.4L247.1,95.7L249.4,96.6ZM237.3,92.8L239.4,94.0L239.5,95.4L238.2,97.4L233.8,97.7L231.0,97.2L231.0,95.7L226.7,95.9L226.5,93.8L229.4,93.9L233.4,93.0L237.1,93.1ZM211.4,94.2L212.5,95.1L214.9,94.7L217.7,94.8L218.1,96.1L216.5,97.4L207.5,97.8L200.7,98.9L196.7,99.0L196.3,98.1L201.9,96.9L189.8,97.3L186.1,96.8L189.7,94.2L192.3,93.4L199.8,94.3L204.5,95.9L209.2,96.1L205.3,93.6L207.8,92.6L210.5,92.9ZM247.5,91.8L250.5,92.6L255.7,92.6L258.0,93.5L257.4,94.5L260.5,95.1L262.2,95.8L265.8,95.9L269.7,96.1L273.9,95.5L279.3,95.3L283.7,95.5L286.5,96.5L287.1,97.6L285.4,98.3L281.5,98.9L278.1,98.5L270.4,99.0L264.9,99.0L260.6,98.7L253.5,97.8L252.6,96.3L252.3,95.0L249.6,93.9L244.1,93.5L241.0,92.7L242.0,91.6ZM190.1,90.3L189.8,92.4L187.7,93.3L185.2,93.4L180.3,94.6L176,95.0L172.4,94.4L172.4,94.4L176.9,92.4L182.4,90.7L186.5,90.7ZM249.8,90.7L248.5,90.7L243.5,90.6L242.8,89.8L248.2,89.9L250.1,90.4ZM206.2,90.2L201.2,91.0L197.2,90.1L199.4,89.2L203.3,89.0L207.1,89.4ZM207.6,87.8L204.3,88.3L199.9,88.3L199.9,87.9L202.7,87.1L204.1,87.2ZM244.5,89.2L240.5,89.8L238.3,89.2L237.2,88.2L237.0,87.1L240.4,87.2L242.0,87.3L245.2,88.3ZM233.2,88.5L234.2,89.6L229.9,89.3L225.5,88.5L219.5,88.4L222.1,87.6L218.9,86.9L218.7,85.9L223.9,86.3L231.1,87.2ZM267.9,85.0L271.2,85.8L267.5,86.6L262.6,88.6L257.9,88.8L252.3,88.5L249.5,87.4L249.5,86.4L251.6,85.7L246.7,85.7L243.8,84.8L242.1,83.6L244.0,82.4L245.8,81.6L248.5,81.4L247.4,80.8L253.6,80.7L257.0,82.1L261.5,82.7L265.8,83.2ZM317.3,75.8L324.5,76.0L330.2,76.3L335.1,77.0L334.9,77.7L328.4,78.9L322.0,79.4L319.6,80.0L325.4,80.0L319.1,81.6L314.7,82.4L310.2,84.6L304.7,85.0L303.0,85.6L294.9,85.8L298.6,86.2L296.7,86.7L299.0,88.0L296.4,88.9L292.3,89.6L291.0,90.7L287.3,91.5L287.7,92.1L292.2,92.0L292.3,92.6L285.2,94.2L278.2,93.5L270.4,93.9L266.4,93.6L261.4,93.5L261.0,92.2L266.0,91.6L264.6,89.6L266.3,89.5L273.4,90.6L269.8,88.9L265.4,88.4L267.6,87.4L272.3,86.7L273.1,85.8L269.3,84.7L268.2,83.4L275.5,83.5L277.6,83.8L281.7,82.8L275.7,82.5L266.4,82.7L261.7,81.8L259.5,80.7L256.4,79.9L255.8,79.0L259.7,78.5L262.8,78.4L268.1,78.0L272,77.0L275.3,77.1L278.2,77.9L280.2,76.4L283.7,76.0L288.5,75.7L296.7,75.6L298.1,75.9L305.8,75.4L311.6,75.6Z"/>
+<path class="land land-eu" id="c_che" data-iso="CHE" data-name="Switzerland"  d="M525.6,170.6L525.7,171.1L525.3,171.8L526.5,172.3L527.8,172.3L527.6,173.4L526.5,173.9L524.5,173.5L523.9,174.6L522.6,174.7L522.2,174.3L520.7,175.2L519.4,175.3L518.3,174.7L517.3,173.6L516.1,174.0L516.1,172.8L518.0,171.3L518.0,170.6L519.2,170.8L519.9,170.4L522.2,170.4L522.7,169.8Z"/>
+<path class="land" id="c_chl" data-iso="CHL" data-name="Chile"  d="M317.0,437.7L317.0,443.7L319.8,443.7L321.4,443.8L320.6,444.8L318.3,445.7L317.0,445.6L315.4,445.4L313.4,444.6L310.7,444.2L307.3,442.7L304.6,441.3L300.9,438.3L303.1,438.8L306.8,440.6L310.4,441.6L311.8,440.4L312.6,438.5L315.1,437.4ZM318.1,354.7L319.1,358.4L321.0,358.0L321.4,358.7L320.5,361.4L317.6,362.8L317.6,367.2L317.1,368.1L317.9,369.1L316.0,370.8L314.3,373.3L313.3,375.7L313.5,378.3L311.9,381.0L313.1,385.6L313.8,386.1L313.8,388.6L312.3,391.2L312.4,393.4L310.3,395.1L310.4,397.6L311.2,400.2L309.6,401.2L308.9,403.5L308.2,406.3L308.7,409.5L307.6,410.1L308.2,413.1L309.4,414.1L308.6,415.3L309.8,415.8L310.1,416.8L308.9,417.3L309.2,418.9L308.2,422.4L306.8,424.7L307.1,426.0L306.3,427.7L304.2,428.9L304.5,431.7L305.4,432.7L307.2,432.5L307.1,434.5L308.2,436.1L314.7,436.4L317.1,436.8L314.8,436.8L313.5,437.5L311.1,438.4L310.6,440.9L309.5,441.0L306.5,440.1L303.5,438.3L303.5,438.3L300.1,436.7L299.3,435.1L300.1,433.5L298.7,431.7L298.4,427.2L299.5,424.6L302.3,422.5L298.3,421.8L300.8,419.4L301.7,415.0L304.7,415.9L306.1,410.4L304.3,409.7L303.5,413.0L301.8,412.6L302.6,408.8L303.5,403.9L304.8,402.1L304.0,399.5L303.8,396.5L304.9,396.4L306.5,392.1L308.4,387.8L309.5,383.8L308.9,379.8L309.7,377.6L309.4,374.3L310.9,371.1L311.4,365.9L312.3,360.4L313.1,354.4L312.9,350.1L312.3,346.3L313.7,345.6L314.4,344.3L315.7,346.1L316.1,348.0L317.5,349.1L316.6,351.7Z"/>
+<path class="land" id="c_chn" data-iso="CHN" data-name="China"  d="M794.2,247.6L791.9,248.9L789.7,248.0L789.7,245.7L791.0,244.5L793.9,243.8L795.4,243.8L796.0,244.9L794.9,246.0ZM840.4,164.7L845.1,165.5L848.2,167.4L849.3,169.9L853.4,169.9L855.7,168.9L860.1,168.1L858.7,170.5L857.6,171.5L856.7,174.4L854.9,177.0L851.7,176.5L849.4,177.5L850.1,179.7L849.7,182.9L848.4,183.0L848.4,184.3L846.7,182.8L845.6,184.2L841.5,185.4L841.9,186.8L839.6,186.7L838.3,185.9L836.5,187.8L833.5,189.2L831.4,190.9L827.6,191.7L825.7,192.9L822.8,193.7L824.2,192.4L823.7,191.4L825.8,189.6L824.4,188.2L822.0,189.1L819.0,191.0L817.4,192.7L814.8,192.8L813.4,194.1L814.8,195.9L817.0,196.3L817.1,197.5L819.2,198.3L822.2,196.4L824.6,197.4L826.3,197.5L826.7,198.9L822.9,199.6L821.7,201.1L819.1,202.4L817.7,204.3L820.6,205.8L821.7,208.4L823.3,210.8L825.1,212.9L825.0,214.8L823.4,215.6L824.0,217.0L825.6,217.8L825.2,220.0L824.5,222.1L823.0,222.3L821.1,225.2L818.9,228.7L816.4,231.9L812.8,234.4L809.0,236.6L806.0,236.9L804.4,238.1L803.5,237.2L802.0,238.6L798.3,239.9L795.4,240.3L794.5,243.1L793.0,243.3L792.3,241.4L793.0,240.3L789.4,239.5L788.1,239.9L785.4,239.2L784.2,238.1L784.6,236.6L782.2,236.1L780.9,235.1L778.6,236.5L776.0,236.8L773.9,236.8L772.5,237.5L771.1,237.9L771.5,240.9L770.1,240.8L769.8,240.2L769.7,239.1L767.8,239.9L766.6,239.4L764.6,238.4L765.4,236.2L763.7,235.7L763.1,233.2L760.3,233.7L760.6,230.5L763.1,228.3L763.2,226.1L763.2,224.0L762.0,223.4L761.1,221.8L759.5,222.0L756.7,221.6L757.6,220.5L756.3,218.8L754.4,220.0L752.2,219.3L749.1,221.0L746.7,223.0L744.5,223.3L743.4,222.6L741.9,222.5L740.0,221.9L738.6,222.6L736.8,224.6L736.6,222.5L735.0,223.0L731.9,222.8L728.9,222.2L726.7,221.0L724.6,220.5L723.7,219.2L722.2,218.8L719.5,217.1L717.4,216.3L716.3,216.9L712.6,215.0L710.0,213.3L709.2,210.4L711.1,210.8L711.2,209.4L710.2,208.0L710.4,205.9L707.6,202.7L703.2,201.6L702.4,199.6L700.4,198.4L699.9,197.6L699.5,196.1L699.6,195.0L698.0,194.4L697.1,194.7L696.5,192.2L697.2,191.6L696.9,191.0L699.4,189.7L701.2,189.2L704.1,189.6L705.1,187.9L708.5,187.6L709.5,186.5L713.7,185.0L714.0,184.4L713.8,182.9L715.6,182.2L713.2,177.6L718.5,176.5L719.9,175.9L721.8,171.2L727.1,172.0L728.6,170.8L728.7,168.2L730.9,167.9L733.0,166.1L734.0,165.9L734.7,167.8L736.9,169.2L740.7,170.2L742.6,172.3L741.6,175.5L742.5,176.6L745.7,177.1L749.3,177.4L752.5,179.1L754.2,179.4L755.4,181.9L756.9,183.4L759.9,183.4L765.4,184.0L768.9,183.6L771.6,184.0L775.5,185.6L778.7,185.6L779.9,186.5L783.0,185.0L787.3,184.1L791.3,184.0L794.4,183.1L796.3,181.6L798.2,180.7L797.8,179.8L796.9,178.8L798.3,177.1L799.8,177.3L802.6,177.9L805.2,176.5L809.3,175.4L811.2,173.7L813.1,172.9L817.0,172.6L819.1,172.9L819.4,171.9L817.0,170.1L814.8,169.2L812.8,170.2L810.2,169.8L808.6,170.1L808.0,169.0L809.8,166.4L811.1,164.3L814.3,165.3L818.1,163.7L818.1,162.5L820.5,159.7L822.0,158.8L821.9,157.3L820.5,156.7L822.7,155.4L826.0,154.9L829.5,154.8L833.5,155.6L835.9,156.6L837.5,159.3L838.5,160.4L839.4,162.1Z"/>
+<path class="land" id="c_civ" data-iso="CIV" data-name="Ivory Coast"  d="M492.4,284.1L491.2,284.1L489.3,283.6L487.6,283.6L484.4,284.1L482.6,284.8L479.9,285.8L479.4,285.7L479.6,283.5L479.9,283.2L479.8,282.2L478.7,281.0L477.8,280.9L477.1,280.1L477.6,278.9L477.4,277.7L477.5,276.9L477.9,276.9L478.1,275.7L477.9,275.2L478.1,274.8L479.1,274.5L478.5,272.4L477.8,271.3L478.1,270.4L478.6,270.2L478.9,269.9L479.7,270.3L481.7,270.3L482.2,269.6L482.7,269.6L483.5,269.3L483.9,270.5L484.5,270.1L485.6,269.7L486.8,270.3L487.3,271.2L488.5,271.7L489.4,271.1L490.6,271.0L492.5,271.7L493.2,275.5L492.0,277.7L491.3,280.7L492.5,283.0Z"/>
+<path class="land" id="c_cmr" data-iso="CMR" data-name="Cameroon"  d="M534.9,291.3L534.5,291.2L533.0,291.5L531.3,291.2L530.1,291.3L525.7,291.3L526.1,289.2L525.1,287.4L523.9,287.0L523.3,285.8L522.6,285.4L522.7,284.7L523.4,282.8L524.6,280.2L525.4,280.2L527.0,278.6L528.0,278.6L529.5,279.7L531.3,278.8L531.6,277.7L532.2,276.6L532.6,275.2L534.0,274.1L534.5,272.3L535.1,271.7L535.5,270.3L536.2,268.6L538.4,266.5L538.6,265.6L538.9,265.1L537.8,264.1L537.9,263.2L538.7,263.1L539.7,264.8L539.9,266.6L539.8,268.3L541.2,270.8L539.8,270.7L539.0,270.9L537.8,270.7L537.2,271.9L538.8,273.5L539.9,273.9L540.3,275.0L541.2,276.9L540.7,277.6L539.4,280.3L538.8,280.8L538.6,282.8L538.8,284.0L538.6,284.8L539.9,286.1L540.1,287.1L541.1,288.5L542.3,289.3L542.4,290.6L542.7,291.3L542.5,292.8L540.4,292.1L538.2,291.4Z"/>
+<path class="land" id="c_cod" data-iso="COD" data-name="Democratic Republic of the Congo"  d="M582.2,288.0L582.1,291.1L583.1,291.5L582.3,292.4L581.2,293.2L580.2,294.5L579.7,295.8L579.5,297.9L578.9,298.9L578.9,301.0L578.1,301.7L578.0,303.3L577.6,303.5L577.4,304.9L578.1,306.2L578.2,309.4L578.7,311.8L578.5,313.2L579.0,314.8L580.5,316.3L582.0,319.6L580.9,319.3L577.3,319.8L576.6,320.1L575.9,321.8L576.5,323.0L576.0,326.2L575.7,328.8L576.4,329.3L578.2,330.3L579.0,329.9L579.2,332.7L577.2,332.7L576.1,331.2L575.1,330.1L573.0,329.7L572.4,328.3L570.8,329.2L568.7,328.8L567.8,327.6L566.1,327.3L564.8,327.4L564.7,326.6L563.8,326.5L562.6,326.4L560.9,326.8L559.7,326.7L559.1,326.9L559.2,323.8L558.3,322.8L558.1,321.1L558.5,319.5L558.0,318.5L557.9,316.8L554.7,316.8L554.9,315.9L553.6,315.9L553.4,316.4L551.8,316.5L551.1,318.0L550.7,318.7L549.2,318.3L548.4,318.7L546.6,318.9L545.6,317.5L545.0,316.6L544.2,315.0L543.5,313.1L535.7,313.0L534.7,313.3L534.0,313.3L532.9,313.6L532.5,312.8L533.2,312.5L533.2,311.4L533.7,310.7L534.7,310.1L535.4,310.4L536.3,309.4L537.7,309.4L537.9,310.2L538.9,310.6L540.5,309.0L542.0,307.7L542.7,306.8L542.6,304.6L543.8,302.0L545.0,300.6L546.7,299.4L547.0,298.5L547.1,297.5L547.5,296.6L547.4,295.1L547.7,292.7L548.3,291.1L549.0,289.6L549.2,288.0L549.4,286.2L550.5,284.8L551.9,284.0L554.1,284.9L555.8,285.9L557.8,286.1L559.7,286.6L560.5,285.0L560.9,284.8L562.1,285.1L565.1,283.8L566.1,284.3L567.0,284.2L567.4,283.6L568.4,283.4L570.4,283.6L572.1,283.7L573.0,283.4L574.6,285.6L575.8,285.9L576.5,285.5L577.8,285.7L579.2,285.1L579.9,286.2Z"/>
+<path class="land" id="c_cog" data-iso="COG" data-name="Republic of the Congo"  d="M534.7,310.1L533.7,309.2L532.9,309.7L531.8,310.8L529.6,308.0L531.6,306.5L530.6,304.8L531.5,304.1L533.3,303.8L533.5,302.6L535.0,303.9L537.3,304.0L538.1,302.7L538.5,300.9L538.2,298.9L536.9,297.3L538.1,294.2L537.4,293.7L535.4,293.9L534.7,292.5L534.9,291.3L538.2,291.4L540.4,292.1L542.5,292.8L542.7,291.3L544.1,288.8L545.7,287.4L547.5,287.9L549.2,288.0L549.0,289.6L548.3,291.1L547.7,292.7L547.4,295.1L547.5,296.6L547.1,297.5L547.0,298.5L546.7,299.4L545.0,300.6L543.8,302.0L542.6,304.6L542.7,306.8L542.0,307.7L540.5,309.0L538.9,310.6L537.9,310.2L537.7,309.4L536.3,309.4L535.4,310.4Z"/>
+<path class="land" id="c_col" data-iso="COL" data-name="Colombia"  d="M299.0,297.8L297.9,297.2L296.6,296.3L295.8,296.7L293.5,296.3L292.9,295.2L292.4,295.2L289.7,293.7L289.4,292.9L290.4,292.7L290.2,291.3L290.9,290.4L292.2,290.2L293.3,288.5L294.3,287.1L293.3,286.5L293.8,284.9L293.2,282.5L293.8,281.8L293.4,279.5L292.3,278.1L292.7,276.8L293.5,277.0L294.0,276.2L293.4,274.6L293.7,274.3L295.1,274.3L297.1,272.5L298.2,272.2L298.2,271.3L298.7,269.1L300.2,267.8L301.9,267.8L302.1,267.2L304.2,267.4L306.3,266.1L307.4,265.5L308.7,264.2L309.6,264.4L310.3,265.1L309.8,266.0L308.1,266.4L307.4,267.8L306.4,268.5L305.6,269.5L305.3,271.4L304.5,273.0L305.9,273.2L306.2,274.4L306.8,275.0L307.0,276.0L306.7,277.0L306.8,277.6L307.5,277.8L308.1,278.7L311.5,278.5L313.1,278.8L315.0,281.1L316.0,280.8L318.0,281.0L319.5,280.7L320.4,281.1L319.9,282.6L319.3,283.5L319.1,285.4L319.7,287.1L320.4,287.9L320.5,288.5L319.2,289.9L320.1,290.4L320.9,291.4L321.7,294.0L321.2,294.4L320.6,292.8L319.9,291.9L319.0,292.9L313.8,292.8L313.9,294.5L315.4,294.7L315.3,295.8L314.8,295.5L313.3,295.9L313.3,297.9L314.5,298.8L314.9,300.4L314.8,301.5L313.6,308.8L312.3,307.4L311.5,307.4L313.2,304.6L311.2,303.4L309.6,303.6L308.6,303.2L307.1,303.9L305.1,303.5L303.6,300.7L302.3,300.1L301.5,298.8L299.7,297.5Z"/>
+<path class="land" id="c_cri" data-iso="CRI" data-name="Costa Rica"  d="M278.8,275.4L277.3,274.9L276.8,274.3L277.1,273.8L277.0,273.2L276.2,272.6L275.2,272.1L274.3,271.7L274.1,271.0L273.4,270.5L273.6,271.3L273.0,271.9L272.4,271.2L271.6,270.9L271.2,270.4L271.2,269.5L271.6,268.7L270.8,268.3L271.4,267.8L271.8,267.5L273.6,268.2L274.2,267.8L275.1,268.0L275.5,268.6L276.3,268.8L276.9,268.2L277.6,269.7L278.6,270.7L279.9,271.9L278.8,272.1L278.9,273.2L279.4,273.6L279.0,273.9L279.1,274.4L278.9,274.9Z"/>
+<path class="land" id="c_cub" data-iso="CUB" data-name="Cuba"  d="M280.6,235.5L282.9,235.7L285.0,235.8L287.5,236.7L288.6,237.6L291.1,237.3L292.0,238.0L294.3,239.6L295.9,240.8L296.8,240.8L298.4,241.3L298.2,242.1L300.2,242.2L302.2,243.3L301.9,243.9L300.1,244.2L298.3,244.4L296.5,244.2L292.7,244.4L294.4,242.9L293.4,242.2L291.6,242.1L290.7,241.3L290.1,239.8L288.6,239.9L286.1,239.2L285.3,238.6L281.8,238.2L280.9,237.7L281.9,237.0L279.3,236.9L277.3,238.3L276.2,238.3L275.9,238.9L274.5,239.2L273.4,239.0L274.8,238.2L275.4,237.2L276.6,236.6L278.0,236.1L280.0,235.8Z"/>
+<path class="land" id="c_-99" data-iso="-99" data-name="Northern Cyprus"  d="M587.3,203.7L587.5,203.7L587.9,203.0L589.8,203.0L592.2,202.3L590.4,203.4L590.6,203.9L590.3,203.8L589.8,204.0L589.4,203.9L589.3,204.0L589.2,203.8L589.0,203.6L588.5,203.6L587.8,203.8Z"/>
+<path class="land" id="c_cyp" data-iso="CYP" data-name="Cyprus"  d="M590.6,203.9L590.7,204.1L587.9,205.2L586.6,204.8L586.0,203.8L587.3,203.7L587.8,203.8L588.5,203.6L589.0,203.6L589.2,203.8L589.3,204.0L589.4,203.9L589.8,204.0L590.3,203.8Z"/>
+<path class="land" id="c_cze" data-iso="CZE" data-name="Czech Republic"  d="M545.2,167.8L544.0,167.3L542.7,167.4L540.7,166.6L539.7,166.8L538.2,167.9L536.3,167.0L534.8,165.9L533.4,165.3L533.1,164.1L532.6,163.3L534.6,162.8L535.6,162.1L537.5,161.6L538.2,161.1L538.9,161.4L540.0,161.1L541.3,162.0L543.3,162.2L543.1,162.9L544.6,163.5L545.0,162.8L546.8,163.1L547.1,163.9L549.0,164.1L550.3,165.4L549.5,165.4L549.1,165.9L548.5,166.0L548.3,166.6L547.8,166.7L547.7,167.0L546.8,167.2L545.6,167.2Z"/>
+<path class="land land-eu" id="c_deu" data-iso="DEU" data-name="Germany"  d="M526.5,150.8L526.5,151.8L529.2,152.4L529.2,153.4L531.9,152.9L533.4,152.1L536.4,153.2L537.7,154.0L538.3,155.4L537.5,156.1L538.5,157.0L539.2,158.5L539.0,159.4L540.0,161.1L538.9,161.4L538.2,161.1L537.5,161.6L535.6,162.1L534.6,162.8L532.6,163.3L533.1,164.1L533.4,165.3L534.8,165.9L536.3,167.0L535.3,168.3L534.4,168.6L534.7,170.3L534.5,170.8L533.7,170.3L532.4,170.2L530.5,170.6L528.1,170.5L527.7,171.2L526.4,170.5L525.6,170.6L522.7,169.8L522.2,170.4L519.9,170.4L520.3,168.5L521.6,166.7L517.8,166.2L516.5,165.5L516.6,164.3L516.1,163.7L516.4,161.9L516.0,159.1L517.6,159.1L518.2,158.1L518.9,155.7L518.4,154.8L518.9,154.2L521.2,154.0L521.7,154.6L523.5,153.3L522.9,152.3L522.7,150.8L524.8,151.2Z"/>
+<path class="land" id="c_dji" data-iso="DJI" data-name="Djibouti"  d="M614.9,263.5L615.5,264.3L615.4,265.4L613.9,266.1L615.1,266.8L614.1,268.2L613.5,267.8L612.8,268.0L611.3,267.9L611.3,267.1L611.1,266.4L612,265.1L612.9,263.9L614.1,264.2Z"/>
+<path class="land" id="c_dnk" data-iso="DNK" data-name="Denmark"  d="M533.8,149.1L532.2,151.2L529.4,149.7L529.1,148.6L533.0,147.7ZM529.1,146.8L528.4,147.8L527.7,147.5L525.7,149.5L526.5,150.8L524.8,151.2L522.7,150.8L521.7,149.3L521.6,146.6L522.0,145.9L522.8,145.1L525.1,144.9L526.1,144.2L528.2,143.4L528.1,144.8L527.3,145.7L527.7,146.4Z"/>
+<path class="land" id="c_dom" data-iso="DOM" data-name="Dominican Republic"  d="M308.8,244.8L309.1,244.4L311.2,244.4L312.8,245.1L313.5,245.0L313.9,245.9L315.4,245.9L315.3,246.7L316.5,246.8L317.8,247.7L316.8,248.8L315.6,248.3L314.3,248.4L313.5,248.2L313.0,248.7L312.0,248.9L311.5,248.2L310.7,248.6L309.6,250.4L308.9,250.0L308.8,249.3L308.8,248.5L308.1,247.7L308.8,247.3L309,246.3Z"/>
+<path class="land" id="c_dza" data-iso="DZA" data-name="Algeria"  d="M532.0,234.8L522.9,239.9L515.1,245.1L511.4,246.3L508.4,246.6L508.4,244.9L507.2,244.4L505.5,243.7L504.9,242.4L495.9,236.6L486.9,230.8L476.8,224.3L476.9,223.8L476.9,223.6L476.9,220.5L481.2,218.5L483.8,218.1L486.0,217.4L487.0,216.0L490.2,215.0L490.3,213.0L491.8,212.8L493.0,211.8L496.5,211.3L497.0,210.3L496.3,209.7L495.4,206.9L495.2,205.3L494.2,203.6L496.8,202.1L499.7,201.7L501.3,200.6L503.9,199.8L508.4,199.3L512.8,199.1L514.2,199.5L516.7,198.4L519.5,198.4L520.6,199.0L522.5,198.9L521.9,200.2L522.3,202.8L521.7,205.0L520.1,206.5L520.3,208.5L522.5,210.0L522.5,210.7L524.1,211.8L525.3,216.6L526.1,218.9L526.3,220.2L525.8,222.3L526.0,223.5L525.7,225.0L525.9,226.7L524.9,227.8L526.4,229.7L526.5,230.9L527.5,232.4L528.7,231.9L530.8,233.1Z"/>
+<path class="land" id="c_ecu" data-iso="ECU" data-name="Ecuador"  d="M285.9,306.5L287.3,304.5L286.7,303.3L285.7,304.5L284.1,303.4L284.6,302.6L284.2,300.2L285.1,299.8L285.6,298.1L286.6,296.4L286.4,295.3L287.9,294.8L289.7,293.7L292.4,295.2L292.9,295.2L293.5,296.3L295.8,296.7L296.6,296.3L297.9,297.2L299.0,297.8L299.4,299.8L298.5,301.5L295.6,304.3L292.4,305.4L290.8,307.7L290.3,309.5L288.8,310.6L287.7,309.3L286.6,309.0L285.5,309.2L285.4,308.2L286.2,307.6Z"/>
+<path class="land land-egypt land-me" id="c_egy" data-iso="EGY" data-name="Egypt" data-dest="egypt" d="M593.1,218.7L592.4,219.8L591.8,221.8L591.1,223.2L590.5,223.6L589.6,222.8L588.4,221.6L586.5,217.8L586.2,218.0L587.3,220.8L588.9,223.5L590.9,227.7L591.9,229.1L592.8,230.6L595.2,233.6L594.6,234.0L594.7,235.8L597.8,238.2L598.3,238.7L587.7,238.7L577.4,238.7L566.7,238.7L566.7,228.9L566.7,219.4L565.9,217.3L566.6,215.6L566.1,214.5L567.1,213.2L570.7,213.1L573.2,213.9L575.9,214.6L577.1,215.1L579.2,214.2L580.3,213.4L582.6,213.2L584.5,213.6L585.2,214.9L585.8,214.0L588.0,214.6L590.1,214.8L591.4,214.1Z"/>
+<path class="land" id="c_eri" data-iso="ERI" data-name="Eritrea"  d="M612.9,263.9L612.0,263.1L610.9,261.5L609.7,260.6L609.1,259.7L606.7,258.7L604.9,258.6L604.3,258.1L602.7,258.7L601.1,257.5L600.3,259.5L597.1,258.9L596.9,257.9L598.0,253.9L598.3,252.2L599.1,251.3L601.1,250.9L602.4,249.4L604.0,252.5L604.7,254.9L606.2,256.2L609.8,258.7L611.3,260.3L612.7,261.8L613.6,262.7L614.9,263.5L614.1,264.2Z"/>
+<path class="land land-eu" id="c_esp" data-iso="ESP" data-name="Spain"  d="M475.9,185.7L476.0,183.8L475.0,182.6L478.7,180.7L482.0,181.2L485.6,181.2L488.4,181.6L490.6,181.5L494.9,181.6L496.0,182.6L500.9,183.8L501.9,183.3L504.9,184.5L508.0,184.1L508.1,185.7L505.6,187.4L502.2,188.0L501.9,188.9L500.3,190.4L499.3,192.6L500.3,194.1L498.8,195.3L498.2,197.0L496.2,197.5L494.3,199.6L490.9,199.6L488.4,199.6L486.7,200.5L485.7,201.5L484.4,201.3L483.4,200.4L482.6,198.9L480.1,198.4L479.9,197.6L480.9,196.6L481.3,195.8L480.3,195.1L481.1,193.3L480.0,191.7L481.2,191.5L481.3,190.2L481.7,189.8L481.7,187.7L483.0,187.0L482.2,185.7L480.7,185.6L480.2,185.9L478.6,185.9L478.0,184.6L476.9,185.0Z"/>
+<path class="land" id="c_est" data-iso="EST" data-name="Estonia"  d="M564.8,143.3L565.1,141.7L564.2,142.0L562.5,141.1L562.2,139.5L565.6,138.8L569.0,138.4L571.9,138.9L574.6,138.8L575.0,139.2L573.1,140.8L573.9,143.3L572.8,144.1L570.6,144.1L568.3,143.1L567.1,142.8Z"/>
+<path class="land" id="c_eth" data-iso="ETH" data-name="Ethiopia"  d="M601.1,257.5L602.7,258.7L604.3,258.1L604.9,258.6L606.7,258.7L609.1,259.7L609.7,260.6L610.9,261.5L612.0,263.1L612.9,263.9L612,265.1L611.1,266.4L611.3,267.1L611.3,267.9L612.8,268.0L613.5,267.8L614.1,268.2L613.5,269.2L614.5,270.7L615.5,271.9L616.5,272.9L625.2,276.1L627.4,276.0L619.9,284.0L616.4,284.2L614.1,286.0L612.3,286.1L611.6,286.9L609.8,286.9L608.7,286.0L606.3,287.1L605.5,288.3L603.7,288.0L603.1,287.7L602.5,287.8L601.7,287.8L598.3,285.5L596.4,285.5L595.5,284.6L595.5,283.1L594.1,282.7L592.6,279.8L591.3,279.2L590.9,278.1L589.5,276.8L587.9,276.6L588.8,275.1L590.2,275.0L590.6,274.2L590.6,271.8L591.4,269.0L592.6,268.3L592.9,267.2L594.0,265.2L595.6,263.8L596.7,261.2L597.1,258.9L600.3,259.5Z"/>
+<path class="land" id="c_fin" data-iso="FIN" data-name="Finland"  d="M576.2,113.2L575.9,115.1L579.9,116.8L577.5,118.9L580.6,121.9L578.8,124.2L581.2,126.2L580.1,127.9L584.0,129.7L583.0,131.1L580.6,132.6L574.9,136.0L570.0,136.2L565.3,137.2L561.0,137.8L559.4,136.3L556.9,135.5L557.5,132.8L556.2,130.4L557.4,128.9L559.8,127.2L565.9,124.3L567.7,123.7L567.5,122.6L563.7,121.4L562.8,120.3L562.8,116.2L558.6,114.4L555.1,113.1L556.7,112.4L559.6,113.8L563.1,113.7L566.0,114.3L568.5,113.1L569.8,111.2L574.0,110.3L577.4,111.3Z"/>
+<path class="land" id="c_fji" data-iso="FJI" data-name="Fiji"  d="M975.7,343.6L976.6,344.4L976.1,345.8L974.5,346.1L973.0,345.8L972.8,344.6L973.8,343.7L975.0,344.1ZM978.3,342.2L976.6,342.7L976.3,341.7L977.6,341.2L978.4,341.1L980,340.2L980,341.5ZM20.2,341.4L20,341.5L20,340.2L20.6,340.1Z"/>
+<path class="land" id="c_flk" data-iso="FLK" data-name="Falkland Islands"  d="M336.8,435.6L340,434.0L342.3,434.7L343.9,433.6L346,434.8L345.2,435.8L341.6,436.6L340.4,435.6L338.1,436.8Z"/>
+<path class="land land-france land-eu" id="c_fra" data-iso="FRA" data-name="France" data-dest="france" d="M359.9,290.7L358.8,291.7L357.6,291.9L357.2,291.2L356.6,291.0L355.8,291.8L354.6,291.2L355.3,290.1L355.5,288.9L356.0,287.7L354.9,286.1L354.7,284.3L356.1,282.0L357.0,282.3L359.0,283.0L361.8,285.2L362.2,286.3L360.7,288.7ZM525.5,185.0L524.6,187.0L523.4,186.5L522.8,184.7L523.3,183.7L525.0,182.7ZM509.6,163.0L511.4,164.3L512.8,164.1L515.1,165.3L515.7,165.5L516.5,165.5L517.8,166.2L521.6,166.7L520.3,168.5L519.9,170.4L519.2,170.8L518.0,170.6L518.0,171.3L516.1,172.8L516.1,174.0L517.3,173.6L518.3,174.7L518.1,175.5L518.9,176.5L518,177.3L518.7,179.4L520.1,179.7L519.8,180.9L517.4,182.4L512.2,181.6L508.3,182.5L508.0,184.1L504.9,184.5L501.9,183.3L500.9,183.8L496.0,182.6L494.9,181.6L496.3,180.0L496.8,174.7L494.1,171.9L492.1,170.5L488.0,169.5L487.8,167.6L491.2,167.0L495.7,167.7L494.8,164.6L497.4,165.8L503.6,163.7L504.4,161.5L506.7,161.0L507.1,161.9L508.3,162.0Z"/>
+<path class="land" id="c_gab" data-iso="GAB" data-name="Gabon"  d="M529.6,308.0L526.8,305.3L525.1,303.1L523.5,300.3L523.5,299.5L524.1,298.6L524.8,296.7L525.3,294.7L526.2,294.5L530.1,294.6L530.1,291.3L531.3,291.2L533.0,291.5L534.5,291.2L534.9,291.3L534.7,292.5L535.4,293.9L537.4,293.7L538.1,294.2L536.9,297.3L538.2,298.9L538.5,300.9L538.1,302.7L537.3,304.0L535.0,303.9L533.5,302.6L533.3,303.8L531.5,304.1L530.6,304.8L531.6,306.5Z"/>
+<path class="land land-eu" id="c_gbr" data-iso="GBR" data-name="England"  d="M484.9,151.9L483.5,153.7L481.5,153.2L479.8,153.2L480.4,151.8L479.8,150.4L482.0,150.3ZM492.0,141.0L489.1,143.9L491.9,143.5L494.8,143.6L494.1,145.7L491.7,148.1L494.4,148.3L494.7,148.6L497.0,151.7L498.9,152.1L500.5,155.2L501.3,156.2L504.5,156.7L504.2,158.4L502.8,159.2L503.9,160.6L501.5,162.0L497.9,162.0L493.4,162.7L492.1,162.2L490.4,163.4L487.9,163.1L486.0,164.2L484.6,163.6L488.5,160.8L490.9,160.2L490.9,160.2L486.7,159.8L486.0,158.7L488.7,157.9L487.3,156.5L487.8,154.7L491.8,155.0L491.8,155.0L492.1,153.4L490.4,151.8L490.3,151.7L487.1,151.3L486.4,150.5L487.4,149.4L486.5,148.6L485.1,149.9L484.9,147.3L483.6,146.0L484.6,143.2L486.6,141.0L488.8,141.2Z"/>
+<path class="land" id="c_geo" data-iso="GEO" data-name="Georgia"  d="M610.8,186.6L611.2,185.5L610.5,183.7L609.0,182.7L607.5,182.4L606.5,181.6L606.9,181.2L609.1,181.7L613.1,182.1L616.7,183.4L617.1,183.9L618.8,183.5L621.3,184.0L622.1,185.1L623.7,185.7L623.1,186.1L624.4,187.6L624.0,187.9L622.6,187.7L620.6,186.9L619.9,187.4L616.2,187.8L613.7,186.5Z"/>
+<path class="land" id="c_gha" data-iso="GHA" data-name="Ghana"  d="M502.8,281.6L498.6,283.1L497.2,284.0L494.8,284.8L492.4,284.1L492.5,283.0L491.3,280.7L492.0,277.7L493.2,275.5L492.5,271.7L492.1,269.7L492.2,268.1L496.8,268.0L498.0,268.2L498.8,267.8L500.1,268.0L499.9,268.8L501.0,270.2L501.0,272.1L501.2,274.2L501.9,275.2L501.3,277.6L501.5,278.9L502.2,280.6Z"/>
+<path class="land" id="c_gin" data-iso="GIN" data-name="Guinea"  d="M477.5,276.9L476.7,276.8L476.2,277.9L475.4,277.9L474.9,277.3L475.1,276.2L474.0,274.6L473.3,274.9L472.7,275.0L472.0,275.1L472.0,274.1L471.6,273.4L471.7,272.7L471.1,271.5L470.4,270.6L468.2,270.6L467.6,271.1L466.9,271.1L466.4,271.7L466.1,272.5L464.7,273.6L463.5,272.1L462.5,271.0L461.8,270.7L461.1,270.1L460.8,269.0L460.4,268.4L459.7,267.9L460.8,266.6L461.6,266.7L462.3,266.2L462.9,266.2L463.4,265.9L463.1,265.0L463.4,264.7L463.5,263.8L464.8,263.8L466.7,264.5L467.3,264.4L467.5,264.1L468.9,264.3L469.3,264.2L469.4,265.2L469.9,265.2L470.6,264.8L471.0,264.9L471.8,265.6L472.9,265.8L473.6,265.2L474.5,264.9L475.1,264.5L475.7,264.6L476.3,265.1L476.6,265.9L477.7,267.0L477.1,267.7L477.0,268.5L477.6,268.3L477.9,268.6L477.8,269.4L478.6,270.2L478.1,270.4L477.8,271.3L478.5,272.4L479.1,274.5L478.1,274.8L477.9,275.2L478.1,275.7L477.9,276.9Z"/>
+<path class="land" id="c_gmb" data-iso="GMB" data-name="Gambia"  d="M455.1,262.3L455.4,261.1L458.3,261.0L458.9,260.4L459.8,260.4L460.8,261.0L461.7,261.0L462.5,260.6L463.1,261.4L461.9,262.0L460.8,261.9L459.6,261.4L458.6,262.0L458.2,262.0L457.5,262.4Z"/>
+<path class="land" id="c_gnb" data-iso="GNB" data-name="Guinea Bissau"  d="M459.7,267.9L458.2,266.8L457.1,266.6L456.5,265.9L456.5,265.5L455.7,264.9L455.5,264.4L456.9,263.9L457.8,264.0L458.5,263.7L463.5,263.8L463.4,264.7L463.1,265.0L463.4,265.9L462.9,266.2L462.3,266.2L461.6,266.7L460.8,266.6Z"/>
+<path class="land" id="c_gnq" data-iso="GNQ" data-name="Equatorial Guinea"  d="M525.3,294.7L524.8,294.3L525.7,291.3L530.1,291.3L530.1,294.6L526.2,294.5Z"/>
+<path class="land land-eu" id="c_grc" data-iso="GRC" data-name="Greece"  d="M563.2,202.2L564.7,203.1L566.7,202.9L568.7,203.1L568.7,203.6L570.1,203.2L569.8,204.0L565.9,204.3L566.0,203.8L562.7,203.3ZM570.9,186.5L570.1,188.2L569.5,188.5L567.9,188.4L566.5,188.2L563.2,188.9L565.1,190.4L563.7,190.8L562.2,190.8L560.8,189.4L560.3,190.0L560.9,191.6L562.3,192.9L561.3,193.5L562.7,194.7L564.1,195.5L564.1,197.0L561.6,196.3L562.4,197.6L560.7,197.9L561.7,200.3L560.0,200.3L557.8,199.1L556.8,197.0L556.3,195.2L555.3,194.0L553.9,192.5L553.7,191.7L555.0,190.4L555.1,189.6L556,189.2L556.1,188.5L557.8,188.2L558.8,187.6L560.3,187.7L560.7,187.2L561.2,187.1L563.2,187.2L565.3,186.5L567.2,187.4L569.6,187.2L569.6,185.8Z"/>
+<path class="land" id="c_grl" data-iso="GRL" data-name="Greenland"  d="M375.3,77.0L384.2,75.4L393.6,75.6L397.0,74.6L406.4,74.3L427.7,74.7L444.4,76.8L439.5,77.8L429.3,77.9L414.9,78.2L416.3,78.7L425.7,78.4L433.7,79.3L438.9,78.5L441.1,79.4L438.2,81.0L445.0,80.0L458.0,78.9L465.9,79.5L467.4,80.6L456.6,82.5L455.1,83.1L446.5,83.6L452.7,83.7L449.6,85.6L447.5,87.4L447.5,90.3L450.7,92.1L446.6,92.2L442.2,93.0L447.1,94.5L447.7,96.7L444.9,97.0L448.3,99.3L442.4,99.4L445.5,100.5L444.6,101.5L440.9,101.9L437.2,101.9L440.5,103.7L440.5,104.9L435.3,103.8L433.9,104.5L437.5,105.2L441.0,106.8L442.0,108.9L437.2,109.5L435.2,108.4L431.9,106.9L432.8,108.7L429.7,110.1L436.7,110.2L440.4,110.4L433.3,112.7L426.0,114.8L418.2,115.7L415.3,115.7L412.5,116.8L408.8,119.6L403.1,121.4L401.2,121.5L397.7,122.2L393.8,122.8L391.5,124.5L391.5,126.3L390.2,128.1L385.8,130.2L386.9,132.3L385.7,134.5L384.3,137.1L380.6,137.3L376.6,135.1L371.3,135.1L368.7,133.6L366.9,131.0L362.3,127.7L361.0,126.0L360.6,123.6L356.9,121.1L357.9,119.1L356.1,118.2L358.7,115.1L362.7,114.1L363.8,113.0L364.3,110.9L361.3,111.8L359.8,112.2L357.4,112.6L354.2,111.8L354,109.9L355.0,108.5L357.5,108.5L363.0,109.2L358.4,107.5L356.0,106.6L353.3,107.0L351.1,106.3L354.1,103.8L352.5,102.8L350.3,101.0L347.1,98.2L343.7,97.1L343.8,96.0L336.6,94.4L331.0,94.2L323.8,94.4L317.3,94.5L314.2,93.7L309.6,92.0L316.6,91.2L322.0,91.0L310.6,90.3L304.5,89.3L304.9,88.2L315.0,86.9L324.8,85.7L325.8,84.7L318.6,83.7L320.9,82.7L330.2,80.8L334.0,80.5L332.9,79.3L339.2,78.6L347.4,78.2L355.6,78.2L358.6,79.0L365.6,77.5L372.0,78.5L375.7,78.7L381.3,79.6L374.9,78.2Z"/>
+<path class="land" id="c_gtm" data-iso="GTM" data-name="Guatemala"  d="M259.7,260.8L258.4,260.3L256.7,260.2L255.5,259.7L254.1,258.6L254.1,257.8L254.4,257.2L254.1,256.7L255.3,254.5L258.8,254.5L258.8,253.6L258.4,253.5L258.1,252.9L257.1,252.3L256.1,251.4L257.3,251.4L257.3,249.9L259.8,249.9L262.3,249.9L262.3,252.0L262.1,255.0L262.9,255.0L263.7,255.5L264.0,255.1L264.7,255.4L263.5,256.5L262.3,257.2L262.1,257.7L262.3,258.2L261.7,258.9L261.1,259.1L261.2,259.4L260.7,259.7L259.8,260.4Z"/>
+<path class="land" id="c_guy" data-iso="GUY" data-name="Guyana"  d="M340.6,275.1L342.4,276.0L344.0,277.8L344.1,279.2L345.1,279.2L346.6,280.5L347.6,281.4L347.2,283.8L345.6,284.5L345.7,285.2L345.2,286.5L346.4,288.5L347.3,288.5L347.6,290.0L349.2,292.3L348.6,292.4L347.1,292.2L346.2,292.9L345.0,293.4L344.2,293.5L343.9,294.0L342.6,293.9L340.9,292.6L340.8,291.4L340.1,290.0L340.5,287.8L341.2,286.8L340.6,285.6L339.7,285.2L340.1,284.0L339.4,283.4L338.0,283.5L336.2,281.5L337.0,280.8L336.9,279.5L338.5,279.1L339.2,278.6L338.3,277.6L338.5,276.6Z"/>
+<path class="land" id="c_hnd" data-iso="HND" data-name="Honduras"  d="M267.2,262.8L266.7,261.9L265.9,261.7L266.1,260.6L265.7,260.3L265.2,260.1L264.0,260.5L263.9,260.1L263.1,259.7L262.5,259.1L261.7,258.9L262.3,258.2L262.1,257.7L262.3,257.2L263.5,256.5L264.7,255.4L265.0,255.5L265.6,255.1L266.4,255.0L266.6,255.3L267.0,255.1L268.3,255.4L269.5,255.3L270.3,255.0L270.7,254.7L271.5,254.8L272.1,255.0L272.8,255.0L273.4,254.7L274.6,255.1L275.0,255.2L275.8,255.6L276.6,256.2L277.6,256.7L278.3,257.4L277.4,257.3L277.0,257.7L276.1,258.0L275.4,258.0L274.8,258.4L274.3,258.3L273.8,257.9L273.5,257.9L273.2,258.6L272.9,258.6L272.9,259.1L272.0,259.8L271.5,260.2L271.2,260.5L270.4,259.9L269.8,260.7L269.3,260.6L268.7,260.7L268.7,262.0L268.3,262.0L268.0,262.6Z"/>
+<path class="land" id="c_hrv" data-iso="HRV" data-name="Croatia"  d="M550.2,175.0L550.9,176.0L551.7,176.7L550.7,177.8L549.5,177.2L547.6,177.2L545.3,176.8L544.1,176.8L543.5,177.4L542.6,176.8L542,177.9L543.3,179.1L543.9,179.9L545.1,180.9L546.1,181.5L547.1,182.6L549.5,183.6L549.2,184.1L546.7,183.1L545.1,182.2L542.7,181.4L540.5,179.4L541.0,179.2L539.8,178.1L539.7,177.2L538.0,176.8L537.2,177.9L536.4,177.0L536.5,176.1L536.6,176.0L538.4,176.1L538.9,175.7L539.8,176.1L540.9,176.2L540.9,175.4L541.8,175.2L542.0,174.1L544.2,173.4L545.0,173.7L547.0,174.8L549.2,175.4Z"/>
+<path class="land" id="c_hti" data-iso="HTI" data-name="Haiti"  d="M304.8,244.3L306.5,244.4L308.8,244.8L309,246.3L308.8,247.3L308.1,247.7L308.8,248.5L308.8,249.3L307.0,248.8L305.7,249.0L304.1,248.8L302.9,249.3L301.4,248.5L301.7,247.6L304.1,248.0L306.1,248.2L307.1,247.6L305.9,246.4L305.9,245.4L304.2,245.0Z"/>
+<path class="land" id="c_hun" data-iso="HUN" data-name="Hungary"  d="M543.2,172.4L544.1,170.7L543.6,170.1L545.1,170.1L545.3,169.0L546.6,169.7L547.6,170.0L549.9,169.7L550.1,169.2L551.1,169.1L552.4,168.7L552.7,168.8L554.0,168.5L554.6,167.9L555.5,167.7L558.3,168.5L558.9,168.3L560.4,169.0L560.6,169.7L558.9,170.3L557.7,172.1L556.1,173.9L553.9,174.4L552.3,174.3L550.2,175.0L549.2,175.4L547.0,174.8L545.0,173.7L544.2,173.4L543.7,172.5Z"/>
+<path class="land" id="c_idn" data-iso="IDN" data-name="Indonesia"  d="M821.9,324.7L820.8,324.7L817.2,322.9L819.7,322.3L821.1,323.2L822.1,324.0ZM831.8,324.4L829.5,325.0L829.2,324.7L829.5,323.8L830.6,322.2L833.3,321.1L833.5,321.6L833.6,322.4ZM814.4,319.0L815.4,319.7L817.0,319.5L817.7,320.6L814.6,321.1L812.7,321.5L811.3,321.5L812.2,319.9L813.7,319.9ZM827.7,319.0L827.4,320.4L823.3,321.2L819.8,320.9L819.8,319.9L821.9,319.3L823.6,320.1L825.4,319.9ZM789.7,315.5L794.8,315.7L795.4,314.6L800.3,315.9L801.3,317.6L805.3,318.1L808.5,319.7L805.5,320.7L802.6,319.6L800.2,319.7L797.4,319.5L794.9,319.0L791.8,318.0L789.9,317.8L788.7,318.1L783.9,317.0L783.4,315.8L781.0,315.6L782.8,313.1L786.0,313.3L788.2,314.3L789.3,314.5ZM859.3,313.9L857.9,315.8L857.6,313.8L858.1,312.8L858.7,311.9L859.3,312.7ZM839.3,306.6L838.3,307.5L836.5,307.0L836.0,305.9L838.7,305.7ZM847.9,305.6L848.9,307.7L846.6,306.6L844.4,306.3L842.9,306.5L841.1,306.4L841.7,305.0L845.0,304.9ZM857.7,300.4L858.5,304.8L861.2,306.4L863.4,303.5L866.5,301.9L868.9,301.9L871.2,302.8L873.1,303.8L876.0,304.3L876.0,313.0L876.1,321.7L873.7,319.5L871.0,319.0L870.4,319.7L867.0,319.8L868.1,317.6L869.8,316.9L869.1,314.0L867.8,311.8L862.6,309.5L860.4,309.3L856.4,306.8L855.6,308.1L854.6,308.3L854.0,307.4L854.0,306.2L852.0,304.9L854.8,303.9L856.7,304.0L856.5,303.3L852.6,303.3L851.6,301.7L849.2,301.2L848.1,299.9L851.6,299.2L853.0,298.4L857.3,299.5ZM834.0,293.6L831.8,296.2L829.8,296.7L827.3,296.2L822.8,296.4L820.5,296.7L820.1,298.8L822.5,301.1L823.9,299.9L828.9,299.0L828.7,300.2L827.5,299.9L826.4,301.4L824.0,302.5L826.5,305.9L826.1,306.8L828.5,309.9L828.4,311.6L827.0,312.4L826.0,311.5L827.3,309.3L824.6,310.3L824.0,309.6L824.3,308.5L822.4,307.0L822.6,304.4L820.8,305.2L821.0,308.3L821.1,312.1L819.5,312.5L818.3,311.7L819.1,309.3L818.7,306.7L817.5,306.7L816.7,304.9L817.8,303.1L818.2,301.0L819.5,297.0L820.1,295.9L822.4,293.9L824.4,294.7L827.8,295.0L830.9,294.9L833.5,293.0ZM843.2,294.4L843.0,296.7L841.7,296.4L841.2,298.1L842.3,299.5L841.6,299.8L840.5,298.1L839.7,294.7L840.3,292.5L841.2,291.6L841.3,293.0L842.9,293.3ZM814.3,292.5L817.3,295.0L814.2,295.3L813.3,297.1L813.4,299.5L810.8,301.3L810.8,304L809.7,308.1L809.3,307.1L806.3,308.3L805.3,306.7L803.3,306.5L802.0,305.7L798.8,306.7L797.9,305.4L796.1,305.5L793.9,305.2L793.5,301.6L792.2,300.9L790.9,298.6L790.5,296.3L790.9,293.8L792.4,292.0L792.9,293.8L794.7,295.3L796.4,294.8L798.1,295.0L799.7,293.6L801.0,293.4L803.5,294.1L805.7,293.6L807.0,289.9L808.1,288.9L809.0,285.9L812.0,285.9L814.4,286.3L812.8,288.8L814.8,291.3ZM782.2,313.0L779.2,313.0L777.0,310.8L773.6,308.6L772.4,307.0L770.4,304.8L769.1,302.8L767.0,299.1L764.7,296.9L763.9,294.6L762.9,292.5L760.5,290.8L759.1,288.6L757.1,287.1L754.3,284.1L754.1,282.8L755.8,282.9L760.0,283.4L762.3,286.0L764.4,287.8L765.9,288.9L768.4,291.8L771.1,291.8L773.3,293.6L774.9,295.9L776.9,297.1L775.8,299.3L777.4,300.2L778.3,300.3L778.8,302.1L779.7,303.6L781.7,303.9L783.0,305.5L782.3,308.9Z"/>
+<path class="land land-india" id="c_ind" data-iso="IND" data-name="India" data-dest="india" d="M707.6,202.7L710.4,205.9L710.2,208.0L711.2,209.4L711.1,210.8L709.2,210.4L710.0,213.3L712.6,215.0L716.3,216.9L714.6,218.1L713.6,220.6L716.2,221.6L718.7,222.9L722.1,224.4L725.8,224.8L727.3,226.1L729.4,226.4L732.6,227.0L734.8,226.9L735.1,225.9L734.8,224.2L735.0,223.0L736.6,222.5L736.8,224.6L736.9,225.1L739.3,226.1L741.0,225.7L743.2,225.9L745.4,225.8L745.6,224.2L744.5,223.3L746.7,223.0L749.1,221.0L752.2,219.3L754.4,220.0L756.3,218.8L757.6,220.5L756.7,221.6L759.5,222.0L759.7,223.0L758.8,223.5L759.0,225.2L757.1,224.7L753.7,226.5L753.7,228.0L752.3,230.3L752.1,231.6L751.0,233.8L748.9,233.2L748.8,235.9L748.2,236.8L748.4,238.0L747.1,238.6L745.7,234.4L745.0,234.4L744.6,236.1L743.1,234.7L743.9,233.2L745.1,233.0L746.3,230.8L744.8,230.3L742.3,230.4L739.8,230.0L739.6,228.1L738.3,228.0L736.2,226.9L735.2,228.7L737.2,230.1L735.5,231.1L734.9,232.0L736.5,232.8L736.1,234.4L737.0,236.4L737.4,238.6L737.0,239.5L735.2,239.5L731.9,240.1L732.1,242.1L730.7,243.6L726.8,245.4L723.8,248.6L721.8,250.3L719.2,252L719.2,253.2L717.8,253.9L715.4,254.8L714.2,255.0L713.4,257.0L714.0,260.5L714.1,262.7L713.0,265.2L713.0,269.8L711.6,269.9L710.4,271.9L711.2,272.8L708.7,273.6L707.8,275.4L706.8,276.1L704.2,273.6L703.0,269.9L702.0,267.2L701.1,266.0L699.6,263.4L699.0,260.1L698.5,258.4L696.1,254.7L695.0,249.6L694.2,246.2L694.2,242.9L693.7,240.4L689.8,242.0L687.9,241.7L684.4,238.5L685.7,237.5L684.9,236.5L681.8,234.2L683.6,232.4L689.4,232.4L688.9,230.1L687.4,228.8L687.1,226.7L685.4,225.5L688.3,222.7L691.4,222.9L694.2,220.1L695.9,217.4L698.5,214.8L698.4,212.9L700.7,211.3L698.5,210.0L697.6,208.2L696.7,205.9L698.0,204.7L702.0,205.4L705.0,205.0Z"/>
+<path class="land" id="c_irl" data-iso="IRL" data-name="Ireland"  d="M483.5,153.7L483.9,155.6L481.9,158.0L477.2,159.6L473.4,159.2L475.6,156.4L474.2,153.7L477.8,151.6L479.8,150.4L480.4,151.8L479.8,153.2L481.5,153.2Z"/>
+<path class="land" id="c_irn" data-iso="IRN" data-name="Iran"  d="M643.8,198.2L646.1,197.7L648.0,196.1L649.8,196.2L651.0,195.7L652.9,196.0L655.8,197.3L658.0,197.6L661.0,200.0L663.0,200.1L663.2,202.3L662.1,205.6L661.4,207.6L662.6,208.0L661.4,209.4L662.3,211.6L662.5,213.3L664.5,213.7L664.8,215.4L662.3,217.8L663.7,219.2L664.7,220.8L667.3,222.0L667.3,224.4L668.6,224.8L668.8,226.0L665.0,227.4L664.0,230.5L659.0,229.7L656.1,229.1L653.1,228.7L651.9,225.5L650.6,225.0L648.6,225.5L645.9,226.8L642.6,225.9L640.0,223.8L637.4,223.1L635.6,220.5L633.6,217.0L632.2,217.4L630.5,216.5L629.5,217.6L628.0,216.2L628.0,214.8L627.2,214.8L627.6,212.8L626.2,210.8L623.0,209.3L621.1,206.8L621.7,204.7L623.1,203.8L622.9,202.2L621.1,201.4L619.4,198.3L617.9,196.1L618.5,195.3L617.6,192.2L619.5,191.5L619.9,192.5L621.2,193.7L623.0,194.1L624.0,194.0L627.2,192.0L628.2,191.8L628.9,192.6L628.0,193.9L629.7,195.3L630.4,195.2L631.2,197.2L633.7,197.7L635.6,199.1L639.4,199.5L643.5,198.8Z"/>
+<path class="land land-me" id="c_irq" data-iso="IRQ" data-name="Iraq"  d="M621.1,201.4L622.9,202.2L623.1,203.8L621.7,204.7L621.1,206.8L623.0,209.3L626.2,210.8L627.6,212.8L627.2,214.8L628.0,214.8L628.0,216.2L629.5,217.6L627.9,217.4L626.1,217.2L624.2,219.8L619.2,219.6L611.7,214.2L607.7,212.3L604.5,211.6L603.4,208.4L609.4,205.6L610.4,202.4L610.1,200.4L611.6,199.8L612.9,198.1L614.1,197.7L617.2,198.0L618.1,198.7L619.4,198.3Z"/>
+<path class="land" id="c_isl" data-iso="ISL" data-name="Iceland"  d="M461.3,120.2L460.7,121.9L463.7,123.7L460.2,125.7L452.5,127.6L450.3,128.1L446.7,127.7L439.3,126.8L441.9,125.6L436.1,124.3L440.8,123.8L440.7,123.0L435.1,122.4L436.9,120.7L441.0,120.3L445.1,122.1L449.2,120.6L452.5,121.4L456.9,120.0Z"/>
+<path class="land" id="c_isr" data-iso="ISR" data-name="Israel"  d="M595.3,210.2L594.8,211.0L593.8,210.6L593.3,212.4L593.9,212.7L593.3,213.1L593.1,213.8L594.4,213.4L594.5,214.4L593.1,218.7L591.4,214.1L592.1,213.2L592.0,213.1L592.7,211.8L593.2,209.8L593.6,209.2L593.7,209.1L594.6,209.1L594.8,208.7L595.5,208.6L595.6,209.7L595.2,210.1Z"/>
+<path class="land land-italy land-eu" id="c_ita" data-iso="ITA" data-name="Italy" data-dest="italy" d="M541.4,195.4L540.4,197.5L540.8,198.4L540.3,199.7L538.2,198.7L536.9,198.4L533.1,197.1L533.5,195.7L536.6,196.0L539.4,195.7ZM524.6,187.5L526.2,189.4L525.8,192.9L524.6,192.7L523.5,193.6L522.5,192.9L522.4,189.7L521.8,188.2L523.2,188.3ZM533.0,172.7L536.8,173.4L536.5,174.7L537.2,175.8L535.0,175.4L532.9,176.4L533.0,177.7L532.7,178.4L533.6,179.8L536.1,181.1L537.4,183.3L540.4,185.5L542.5,185.5L543.1,186.1L542.4,186.6L544.8,187.6L546.7,188.4L549.0,189.8L549.3,190.3L548.8,191.2L547.3,190.0L545.0,189.5L543.9,191.3L545.8,192.2L545.5,193.6L544.4,193.8L542.9,196.1L541.8,196.3L541.8,195.5L542.4,194.0L543.0,193.5L541.9,191.9L541.1,190.6L540.0,190.3L539.2,189.1L537.5,188.6L536.3,187.5L534.4,187.4L532.3,186.2L529.8,184.4L528.0,182.9L527.2,180.3L525.9,179.9L523.7,179.1L522.5,179.4L520.9,180.7L519.8,180.9L520.1,179.7L518.7,179.4L518,177.3L518.9,176.5L518.1,175.5L518.3,174.7L519.4,175.3L520.7,175.2L522.2,174.3L522.6,174.7L523.9,174.6L524.5,173.5L526.5,173.9L527.6,173.4L527.8,172.3L529.5,172.7L529.8,172.2L532.4,171.7Z"/>
+<path class="land" id="c_jam" data-iso="JAM" data-name="Jamaica"  d="M293.1,248.1L294.9,248.3L296.4,248.9L296.8,249.7L294.9,249.7L294.1,250.2L292.6,249.7L291.1,248.8L291.4,248.2L292.5,248.0Z"/>
+<path class="land land-jordan land-me" id="c_jor" data-iso="JOR" data-name="Jordan" data-dest="jordan" d="M594.8,211.0L595.3,210.2L598.2,211.2L603.4,208.4L604.5,211.6L604.0,212.0L598.7,213.4L601.3,216.0L600.4,216.5L600.0,217.4L598.0,217.7L597.3,218.7L596.2,219.5L593.2,219.1L593.1,218.7L594.5,214.4L594.4,213.4L594.8,212.6Z"/>
+<path class="land" id="c_jpn" data-iso="JPN" data-name="Japan"  d="M859.0,206.3L859.4,207.2L857.9,208.8L856.8,208.0L855.4,208.6L854.7,210.2L853.0,209.4L853.0,208.1L854.5,206.6L856.0,206.9L857.1,205.7ZM875.9,198.3L874.9,200.5L875.4,201.8L874.0,203.7L870.6,204.9L865.9,205.1L862.1,208.1L860.3,207.1L860.2,205.1L855.6,205.7L852.4,207.0L849.3,207.0L852,209.0L850.2,213.5L848.5,214.6L847.2,213.6L847.9,211.2L846.2,210.4L845.1,208.6L847.6,207.8L849.0,206.1L851.7,204.7L853.6,202.9L859.0,202.1L861.8,202.6L864.6,197.9L866.4,199.2L870.3,196.5L871.8,195.5L873.5,192.2L873.0,189.2L874.1,187.5L877.0,187.0L878.4,190.7L878.4,192.9L875.9,195.6ZM883.8,179.6L885.6,180.1L887.5,179.0L888.1,182.0L884.2,182.7L881.8,185.4L877.6,183.6L876.2,186.5L873.2,186.5L872.8,183.9L874.2,181.8L877.0,181.7L877.8,178.0L878.6,175.9L881.7,178.7Z"/>
+<path class="land" id="c_kaz" data-iso="KAZ" data-name="Kazakhstan"  d="M689.2,184.7L687.7,185.2L684.2,187.0L683.0,188.9L682.0,188.9L681.3,187.7L677.9,187.6L677.4,185.4L676.1,185.4L676.3,182.7L673.1,180.8L668.5,181.0L665.4,181.4L662.8,179.0L660.6,178.0L656.5,176.0L656.0,175.8L649.1,177.4L649.2,187.2L647.9,187.4L646.0,185.3L644.2,184.5L641.2,185.1L640.0,186.0L639.9,185.3L640.5,184.2L640.0,183.3L636.9,182.4L635.7,180.0L634.2,179.3L634.1,178.4L636.7,178.7L636.8,176.7L639.1,176.3L641.4,176.7L641.9,174.1L641.4,172.4L638.8,172.6L636.5,171.9L633.4,173.1L630.9,173.6L629.6,173.2L629.9,171.8L628.2,170.1L626.2,170.1L623.9,168.3L625.5,166.3L624.7,165.8L626.8,162.8L629.5,164.4L629.9,162.4L635.4,159.5L639.5,159.5L645.4,161.3L648.6,162.4L651.4,161.3L655.6,161.2L659.0,162.6L659.8,161.8L663.6,161.9L664.2,160.7L659.9,158.8L662.5,157.5L662.0,156.8L664.5,156.1L662.6,154.3L663.8,153.4L673.8,152.4L675.1,151.8L681.8,150.8L684.2,149.7L689.0,150.3L689.8,153.0L692.6,152.4L696.0,153.3L695.8,154.7L698.4,154.6L705.0,152.1L704.1,152.9L707.5,155.0L713.4,161.7L714.8,160.3L718.5,161.9L722.4,161.2L723.8,161.7L725.1,163.2L727.0,163.7L728.1,164.9L731.5,164.5L733.0,166.1L730.9,167.9L728.7,168.2L728.6,170.8L727.1,172.0L721.8,171.2L719.9,175.9L718.5,176.5L713.2,177.6L715.6,182.2L713.8,182.9L714.0,184.4L712.4,184.1L711.0,183.1L707.1,182.8L702.7,182.7L701.7,183.0L697.9,181.9L696.4,182.5L696.0,184.0L691.6,183.1L689.8,183.5Z"/>
+<path class="land" id="c_ken" data-iso="KEN" data-name="Kenya"  d="M609.3,299.7L610.9,301.9L609.0,302.9L608.4,304.0L607.4,304.2L607.0,306.1L606.1,307.2L605.6,309.0L604.5,309.8L600.7,307.2L600.5,305.6L590.9,300.2L590.4,299.9L590.4,297.1L591.1,296.0L592.5,294.2L593.4,292.3L592.3,289.2L591.9,287.9L590.7,286.0L592.3,284.5L594.1,282.7L595.5,283.1L595.5,284.6L596.4,285.5L598.3,285.5L601.7,287.8L602.5,287.8L603.1,287.7L603.7,288.0L605.5,288.3L606.3,287.1L608.7,286.0L609.8,286.9L611.6,286.9L609.3,290.0Z"/>
+<path class="land" id="c_kgz" data-iso="KGZ" data-name="Kyrgyzstan"  d="M689.2,184.7L689.8,183.5L691.6,183.1L696.0,184.0L696.4,182.5L697.9,181.9L701.7,183.0L702.7,182.7L707.1,182.8L711.0,183.1L712.4,184.1L714.0,184.4L713.7,185.0L709.5,186.5L708.5,187.6L705.1,187.9L704.1,189.6L701.2,189.2L699.4,189.7L696.9,191.0L697.2,191.6L696.5,192.2L691.4,192.6L688.1,191.8L685.2,192.0L685.5,190.4L688.4,190.9L689.4,190.1L691.4,190.3L694.8,188.4L691.7,187.0L689.8,187.7L687.8,186.7L690.0,184.9Z"/>
+<path class="land" id="c_khm" data-iso="KHM" data-name="Cambodia"  d="M776.0,269.0L774.9,267.6L773.6,264.9L772.9,261.7L774.6,259.4L778.1,258.9L780.6,259.3L782.8,260.4L784.0,258.5L786.4,259.5L787.0,261.3L786.6,264.5L782.2,266.5L783.3,268.1L780.5,268.3L778.2,269.4Z"/>
+<path class="land" id="c_kor" data-iso="KOR" data-name="South Korea"  d="M842.3,194.4L844.6,197.6L845.2,199.3L845.2,202.4L844.2,203.8L841.8,204.3L839.7,205.4L837.3,205.7L837.0,204.2L837.5,202.2L836.3,199.4L838.3,199.0L836.5,196.7L836.6,196.5L837.8,196.6L838.9,195.4L840.7,195.2L841.9,195.1Z"/>
+<path class="land" id="c_osa" data-iso="OSA" data-name="Kosovo"  d="M555.4,185.2L555.2,185.8L554.9,185.8L554.7,184.8L554.1,184.5L553.5,183.8L554.0,183.2L554.7,183.0L555.0,182.1L555.5,182.0L555.9,182.4L556.4,182.5L556.7,183.0L557.2,183.1L557.7,183.6L558.1,183.6L557.8,184.2L557.4,184.5L557.5,184.7L556.9,184.8Z"/>
+<path class="land land-me" id="c_kwt" data-iso="KWT" data-name="Kuwait"  d="M627.9,217.4L628.5,218.6L628.3,219.2L629.1,221.2L627.2,221.3L626.6,220.0L624.2,219.8L626.1,217.2Z"/>
+<path class="land" id="c_lao" data-iso="LAO" data-name="Laos"  d="M780.6,259.3L781.5,258.1L781.6,255.9L779.4,253.5L779.2,250.9L777.2,248.7L775.2,248.6L774.7,249.5L773.1,249.6L772.3,249.1L769.5,250.7L769.4,248.3L770.1,245.5L768.3,245.4L768.1,243.8L767.0,242.9L767.5,241.9L769.8,240.2L770.1,240.8L771.5,240.9L771.1,237.9L772.5,237.5L774.0,239.6L775.2,242L778.5,242.0L779.5,244.3L777.8,245.0L777.1,246.0L780.3,247.6L782.5,250.8L784.1,253.1L786.2,255.0L786.8,256.8L786.4,259.5L784.0,258.5L782.8,260.4Z"/>
+<path class="land land-me" id="c_lbn" data-iso="LBN" data-name="Lebanon"  d="M595.5,208.6L594.8,208.7L594.6,209.1L593.7,209.1L594.6,207.0L595.9,205.1L596.0,205.0L597.2,205.1L597.6,206.2L596.2,207.2Z"/>
+<path class="land" id="c_lbr" data-iso="LBR" data-name="Liberia"  d="M479.4,285.7L478.7,285.8L476.0,284.5L473.6,282.5L471.3,281.0L469.5,279.3L470.1,278.4L470.3,277.7L471.5,276.2L472.7,275.0L473.3,274.9L474.0,274.6L475.1,276.2L474.9,277.3L475.4,277.9L476.2,277.9L476.7,276.8L477.5,276.9L477.4,277.7L477.6,278.9L477.1,280.1L477.8,280.9L478.7,281.0L479.8,282.2L479.9,283.2L479.6,283.5Z"/>
+<path class="land" id="c_lby" data-iso="LBY" data-name="Libya"  d="M539.6,236.4L537.7,237.4L536.2,235.9L532.0,234.8L530.8,233.1L528.7,231.9L527.5,232.4L526.5,230.9L526.4,229.7L524.9,227.8L525.9,226.7L525.7,225.0L526.0,223.5L525.8,222.3L526.3,220.2L526.1,218.9L525.3,216.6L526.6,215.9L526.8,214.8L526.5,213.7L528.4,212.7L529.2,211.8L530.5,211.1L530.6,209.0L533.8,209.9L534.9,209.7L537.1,210.1L540.7,211.3L541.9,213.7L544.3,214.2L548.1,215.3L550.9,216.7L552.2,216.0L553.5,214.7L552.9,212.7L553.7,211.4L555.6,210.2L557.4,209.8L561.1,210.3L562.0,211.5L563.0,211.5L563.8,212L566.5,212.3L567.1,213.2L566.1,214.5L566.6,215.6L565.9,217.3L566.7,219.4L566.7,228.9L566.7,238.7L566.7,244.0L563.6,244.0L563.6,245.2L552.9,240.1L542.3,235.0Z"/>
+<path class="land" id="c_lka" data-iso="LKA" data-name="Sri Lanka"  d="M718.1,277.3L717.7,280.1L716.6,280.9L714.3,281.5L713.0,279.3L712.5,275.5L713.7,271.2L715.6,272.7L716.8,274.5Z"/>
+<path class="land" id="c_lso" data-iso="LSO" data-name="Lesotho"  d="M577.3,374.6L578.2,375.4L577.4,376.7L576.9,377.6L575.4,378.0L575.0,378.8L574.0,379.1L572.0,377.0L573.4,375.4L574.9,374.3L576.1,373.8Z"/>
+<path class="land" id="c_ltu" data-iso="LTU" data-name="Lithuania"  d="M560.6,152.5L560.4,151.8L560.7,151.1L559.5,150.7L556.7,150.2L556.1,148.0L559.2,147.1L563.7,147.3L566.3,147.1L566.7,147.6L568.1,147.8L570.7,149.1L570.9,150.3L568.7,151.1L568.1,152.6L565.2,153.6L562.6,153.6L562.0,152.8Z"/>
+<path class="land" id="c_lux" data-iso="LUX" data-name="Luxembourg"  d="M516.1,163.7L516.6,164.3L516.5,165.5L515.7,165.5L515.1,165.3L515.4,163.8Z"/>
+<path class="land" id="c_lva" data-iso="LVA" data-name="Latvia"  d="M556.1,148.0L556.2,146.0L557.6,144.3L560.1,143.4L562.2,145.4L564.3,145.3L564.8,143.3L567.1,142.8L568.3,143.1L570.6,144.1L572.8,144.1L574.1,144.7L574.3,146.0L575.1,147.6L572.3,148.6L570.7,149.1L568.1,147.8L566.7,147.6L566.3,147.1L563.7,147.3L559.2,147.1Z"/>
+<path class="land" id="c_mar" data-iso="MAR" data-name="Morocco"  d="M486.1,202.0L487.8,203.2L490.3,203.0L493.1,203.6L494.2,203.6L495.2,205.3L495.4,206.9L496.3,209.7L497.0,210.3L496.5,211.3L493.0,211.8L491.8,212.8L490.3,213.0L490.2,215.0L487.0,216.0L486.0,217.4L483.8,218.1L481.2,218.5L476.9,220.5L476.9,223.6L476.5,223.6L476.5,223.6L476.5,225.1L474.9,225.1L474.0,225.7L472.8,225.7L471.9,225.4L469.6,225.7L468.8,227.8L467.9,228.0L466.7,231.3L463.0,234.2L462.1,237.9L461.0,239.1L460.7,240.0L454.7,240.3L454.6,240.3L454.7,239.0L455.8,238.3L456.6,236.9L456.5,236.0L457.4,234.1L458.9,232.4L459.8,232.0L460.5,230.4L460.5,229.0L461.5,227.4L463.3,226.4L465.0,223.7L465.0,223.6L466.4,222.6L468.8,222.3L470.9,220.5L472.3,219.8L474.5,217.6L473.8,214.2L474.8,211.9L475.2,210.5L476.9,208.7L479.6,207.5L481.6,206.4L483.3,203.7L484.2,202.0Z"/>
+<path class="land" id="c_mda" data-iso="MDA" data-name="Moldova"  d="M571.0,168.8L571.6,168.4L573.4,168.1L575.4,169.0L576.5,169.1L577.7,169.8L577.5,170.7L578.4,171.1L578.8,172.2L579.8,172.9L579.6,173.3L580.1,173.6L579.4,173.8L577.8,173.7L577.5,173.3L577.0,173.5L577.2,174.0L576.4,174.9L576.0,175.8L575.3,176.1L574.8,174.9L575.1,173.7L575.0,172.6L573.5,171.0L572.6,169.8L571.8,169.0Z"/>
+<path class="land" id="c_mdg" data-iso="MDG" data-name="Madagascar"  d="M632.1,330.6L632.8,331.8L633.5,333.5L633.9,336.7L634.6,338.0L634.3,339.3L633.9,340.0L633.0,338.5L632.5,339.3L633.0,341.2L632.7,342.4L632.0,343.0L631.8,345.3L630.8,348.4L629.5,352.0L627.8,357.1L626.8,360.8L625.6,363.9L623.4,364.5L621.1,365.6L619.6,365.0L617.4,364.0L616.7,362.6L616.5,360.2L615.6,358.1L615.3,356.2L615.8,354.3L617.0,353.8L617.1,352.9L618.3,350.9L618.6,349.2L618.0,347.9L617.4,346.3L617.2,343.8L618.2,342.3L618.5,340.6L619.9,340.5L621.3,340.0L622.3,339.5L623.5,339.5L625.0,337.9L627.2,336.3L628.0,335.0L627.7,333.8L628.8,334.1L630.3,332.3L630.3,330.7L631.2,329.5Z"/>
+<path class="land" id="c_mex" data-iso="MEX" data-name="Mexico"  d="M241.0,228.4L239.9,230.7L239.5,232.7L239.3,236.2L239.0,237.5L239.5,239.0L240.3,240.3L240.8,242.3L242.6,244.3L243.2,245.9L244.3,247.2L247.1,247.9L248.2,249.0L250.5,248.2L252.6,248.0L254.6,247.5L256.2,247.0L257.9,246.0L258.6,244.4L258.8,242.2L259.3,241.4L261.1,240.7L263.9,240.1L266.2,240.2L267.9,239.9L268.5,240.5L268.4,241.8L267.0,243.4L266.3,245.0L266.8,245.5L266.4,246.6L265.8,248.7L265.1,248L264.5,248.0L264.0,248.1L263.1,249.7L262.6,249.4L262.3,249.5L262.3,249.9L259.8,249.9L257.3,249.9L257.3,251.4L256.1,251.4L257.1,252.3L258.1,252.9L258.4,253.5L258.8,253.6L258.8,254.5L255.3,254.5L254.1,256.7L254.4,257.2L254.1,257.8L254.1,258.6L251.0,255.7L249.7,254.9L247.5,254.2L246.0,254.4L243.9,255.4L242.5,255.6L240.6,254.9L238.6,254.4L236.1,253.2L234.1,252.8L231.1,251.6L228.9,250.3L228.2,249.6L226.7,249.4L224.0,248.6L222.9,247.4L220.0,245.9L218.7,244.2L218.1,242.9L218.9,242.6L218.7,241.9L219.3,241.2L219.3,240.3L218.4,239.1L218.2,238.0L217.3,236.6L214.9,234.0L212.2,231.9L210.9,230.3L208.6,229.2L208.1,228.5L208.6,226.9L207.2,226.2L205.6,224.9L205.0,223.1L203.5,222.9L202.0,221.5L200.7,220.2L200.6,219.3L199.2,217.3L198.2,215.3L198.3,214.3L196.3,213.2L195.5,213.3L193.9,212.6L193.5,213.7L193.9,214.9L194.2,216.9L195.1,218.0L197.1,219.9L197.5,220.5L197.9,220.7L198.3,221.6L198.8,221.6L199.3,223.3L200.1,224.0L200.7,224.9L202.4,226.3L203.2,228.8L204.0,229.9L204.8,231.2L204.9,232.6L206.2,232.7L207.3,233.9L208.2,235.1L208.2,235.5L207.1,236.5L206.6,236.5L205.9,234.9L204.1,233.4L202.2,232.1L200.8,231.4L200.9,229.5L200.5,228.0L199.3,227.2L197.4,226.0L197.1,226.3L196.4,225.6L194.8,225.0L193.2,223.4L193.4,223.2L194.5,223.4L195.5,222.4L195.6,221.2L193.5,219.3L191.9,218.6L191.0,216.9L190.0,215.1L188.7,213.0L187.7,210.6L190.7,210.4L194.1,210.1L193.8,210.6L197.9,211.9L203.9,213.8L209.2,213.8L211.4,213.8L211.4,212.7L216.0,212.7L217.0,213.6L218.3,214.5L219.9,215.7L220.8,217.1L221.4,218.5L222.8,219.3L225.0,220.1L226.7,218.0L228.9,218.0L230.8,219.0L232.1,220.9L233.0,222.4L234.6,223.9L235.2,225.8L235.9,227.1L238.0,227.9L239.9,228.5Z"/>
+<path class="land" id="c_mkd" data-iso="MKD" data-name="Macedonia"  d="M554.9,185.8L555.2,185.8L555.4,185.2L556.9,184.8L557.5,184.7L558.4,184.6L559.7,184.5L561.0,185.4L561.2,187.1L560.7,187.2L560.3,187.7L558.8,187.6L557.8,188.2L556.1,188.5L554.9,187.8L554.6,186.7Z"/>
+<path class="land" id="c_mli" data-iso="MLI" data-name="Mali"  d="M467.5,258.4L468.4,257.9L468.9,256.3L469.7,256.3L471.6,257.0L473.1,256.5L474.1,256.7L474.5,256.1L485.2,256.0L485.8,254.2L485.4,253.8L484.1,242.3L482.8,230.8L486.9,230.8L495.9,236.6L504.9,242.4L505.5,243.7L507.2,244.4L508.4,244.9L508.4,246.6L511.4,246.3L511.4,252.4L509.9,254.2L509.7,255.9L507.3,256.3L503.7,256.5L502.7,257.5L501,257.6L499.3,257.6L498.6,257.1L497.2,257.4L494.7,258.6L494.2,259.4L492.1,260.6L491.7,261.3L490.6,261.8L489.3,261.5L488.6,262.1L488.2,263.9L486.1,266.1L486.1,267.0L485.4,268.2L485.6,269.7L484.5,270.1L483.9,270.5L483.5,269.3L482.7,269.6L482.2,269.6L481.7,270.3L479.7,270.3L478.9,269.9L478.6,270.2L477.8,269.4L477.9,268.6L477.6,268.3L477.0,268.5L477.1,267.7L477.7,267.0L476.6,265.9L476.3,265.1L475.7,264.6L475.1,264.5L474.5,264.9L473.6,265.2L472.9,265.8L471.8,265.6L471.0,264.9L470.6,264.8L469.9,265.2L469.4,265.2L469.3,264.2L469.4,263.4L469.2,262.3L468.2,261.6L467.7,260.1Z"/>
+<path class="land" id="c_mmr" data-iso="MMR" data-name="Myanmar"  d="M765.4,243.5L763.9,244.7L762.0,244.8L760.8,247.7L759.7,248.2L761.0,250.5L762.6,252.5L763.7,254.2L762.8,256.6L761.8,257.0L762.5,258.4L764.3,260.5L764.6,262.0L764.5,263.2L765.6,265.7L764.1,268.1L762.8,270.9L762.6,268.9L763.4,266.9L762.5,265.3L762.7,262.4L761.6,261.0L760.7,257.8L760.3,254.4L759.1,252.2L757.3,253.6L754.3,255.5L752.8,255.2L751.2,254.6L752.1,251.3L751.5,248.8L749.4,245.7L749.8,244.8L748.2,244.4L746.3,242.3L746.1,240.1L747.1,240.5L747.1,238.6L748.4,238.0L748.2,236.8L748.8,235.9L748.9,233.2L751.0,233.8L752.1,231.6L752.3,230.3L753.7,228.0L753.7,226.5L757.1,224.7L759.0,225.2L758.8,223.5L759.7,223.0L759.5,222.0L761.1,221.8L762.0,223.4L763.2,224.0L763.2,226.1L763.1,228.3L760.6,230.5L760.3,233.7L763.1,233.2L763.7,235.7L765.4,236.2L764.6,238.4L766.6,239.4L767.8,239.9L769.7,239.1L769.8,240.2L767.5,241.9L767.0,242.9Z"/>
+<path class="land" id="c_mne" data-iso="MNE" data-name="Montenegro"  d="M552.8,184.0L552.6,183.5L551.5,184.9L551.7,185.7L551.1,185.5L550.4,184.6L549.2,184.1L549.5,183.6L549.9,182.2L550.8,181.6L551.2,181.3L552.0,181.8L552.3,182.1L553.2,182.4L554.2,183.0L554.0,183.2L553.5,183.8Z"/>
+<path class="land" id="c_mng" data-iso="MNG" data-name="Mongolia"  d="M734.0,165.9L736.8,165.5L741.9,163.2L746.0,161.9L748.3,162.7L751.1,162.8L752.8,164.0L755.5,164.1L759.4,164.8L762.0,162.9L760.9,161.3L763.6,158.6L766.6,159.7L769.0,160.0L772.2,160.7L772.7,162.7L776.5,163.8L779.0,163.3L782.4,163.0L785.0,163.3L787.6,164.6L789.3,166.0L791.7,165.9L795.1,166.4L797.5,165.7L801.1,165.3L805.0,163.4L806.6,163.7L808.0,164.6L811.1,164.3L809.8,166.4L808.0,169.0L808.6,170.1L810.2,169.8L812.8,170.2L814.8,169.2L817.0,170.1L819.4,171.9L819.1,172.9L817.0,172.6L813.1,172.9L811.2,173.7L809.3,175.4L805.2,176.5L802.6,177.9L799.8,177.3L798.3,177.1L796.9,178.8L797.8,179.8L798.2,180.7L796.3,181.6L794.4,183.1L791.3,184.0L787.3,184.1L783.0,185.0L779.9,186.5L778.7,185.6L775.5,185.6L771.6,184.0L768.9,183.6L765.4,184.0L759.9,183.4L756.9,183.4L755.4,181.9L754.2,179.4L752.5,179.1L749.3,177.4L745.7,177.1L742.5,176.6L741.6,175.5L742.6,172.3L740.7,170.2L736.9,169.2L734.7,167.8Z"/>
+<path class="land" id="c_moz" data-iso="MOZ" data-name="Mozambique"  d="M592.2,328.1L594.2,327.9L597.4,328.6L598.1,328.3L599.9,328.2L600.9,327.4L602.5,327.5L605.4,326.4L607.5,324.9L607.9,326.1L607.8,328.7L608.2,331.1L608.3,335.3L608.7,336.6L607.9,338.5L606.9,340.3L605.2,342.0L602.8,343.0L599.8,344.3L596.8,347.1L595.7,347.6L593.9,349.5L592.8,350.1L592.5,352.0L593.8,354.1L594.3,355.6L594.4,356.4L594.8,356.3L594.8,358.9L594.3,360.1L595.0,360.6L594.6,361.7L593.4,362.7L591.2,363.6L588.0,365.0L586.9,366.0L587.1,367.1L587.8,367.3L587.5,368.7L585.5,368.7L585.3,367.5L584.9,366.3L584.7,365.3L585.1,362.4L584.5,360.5L583.2,356.7L586.0,353.7L586.7,351.8L587.1,351.5L587.4,350.0L587.0,349.2L587.1,347.2L587.6,345.3L587.6,341.9L586.2,341.1L584.9,340.9L584.4,340.2L583.1,339.7L580.9,339.7L580.7,338.7L580.5,336.8L588.6,334.6L590.1,335.9L590.8,335.7L591.9,336.3L592.0,337.4L591.5,338.7L591.7,340.5L593.4,342.2L594.2,340.3L595.4,339.8L595.2,336.3L594.0,334.4L593.1,333.6L592.2,333.6L591.4,330.1Z"/>
+<path class="land" id="c_mrt" data-iso="MRT" data-name="Mauritania"  d="M467.5,258.4L465.8,256.6L464.2,254.6L462.4,253.9L461.1,253.1L459.6,253.1L458.3,253.7L457.0,253.5L456.1,254.4L455.9,252.9L456.6,251.6L456.9,249.1L456.6,246.5L456.3,245.1L456.6,243.8L455.9,242.5L454.5,241.4L455.1,240.5L465.5,240.5L465.0,236.7L465.7,235.3L468.2,235.0L468.1,228.2L476.8,228.4L476.8,224.3L486.9,230.8L482.8,230.8L484.1,242.3L485.4,253.8L485.8,254.2L485.2,256.0L474.5,256.1L474.1,256.7L473.1,256.5L471.6,257.0L469.7,256.3L468.9,256.3L468.4,257.9Z"/>
+<path class="land" id="c_mwi" data-iso="MWI" data-name="Malawi"  d="M592.2,328.1L591.4,330.1L592.2,333.6L593.1,333.6L594.0,334.4L595.2,336.3L595.4,339.8L594.2,340.3L593.4,342.2L591.7,340.5L591.5,338.7L592.0,337.4L591.9,336.3L590.8,335.7L590.1,335.9L588.6,334.6L587.2,333.9L588.0,331.5L588.8,330.5L588.3,328.3L588.8,326.2L589.3,325.4L588.6,323.2L587.4,322.0L590.0,322.5L590.5,323.2L591.4,324.5Z"/>
+<path class="land" id="c_mys" data-iso="MYS" data-name="Malaysia"  d="M769.5,280.8L769.7,282.2L771.5,281.9L772.4,280.8L773.0,281.0L774.6,282.6L775.7,284.4L775.8,286.2L775.6,287.4L775.8,288.4L776.0,289.9L776.9,290.7L778.0,293.0L777.9,293.9L776.1,294.1L773.5,292.1L770.4,290.0L770.1,288.7L768.5,286.9L768.2,284.7L767.2,283.2L767.5,281.3L766.9,280.1L767.4,279.7ZM816.3,285.4L814.4,286.3L812.0,285.9L809.0,285.9L808.1,288.9L807.0,289.9L805.7,293.6L803.5,294.1L801.0,293.4L799.7,293.6L798.1,295.0L796.4,294.8L794.7,295.3L792.9,293.8L792.4,292.0L794.4,292.9L796.5,292.4L797.0,290.2L798.1,289.7L801.3,289.1L803.2,287.0L804.5,285.3L805.8,286.7L806.3,285.8L807.6,285.9L807.7,284.2L807.9,282.9L809.9,281.0L811.3,278.9L812.3,278.9L813.7,280.3L813.8,281.4L815.6,282.2L817.8,283.0L817.6,284.0L815.8,284.1Z"/>
+<path class="land" id="c_nam" data-iso="NAM" data-name="Namibia"  d="M543.6,373.6L541.6,371.6L540.6,369.6L540.0,367.0L539.3,365.1L538.4,361.0L538.4,357.8L538.0,356.3L537.0,355.2L535.6,353.0L534.2,349.8L533.6,348.2L531.5,345.6L531.3,343.5L532.6,343.0L534.2,342.6L535.9,342.6L537.5,343.8L537.9,343.7L548.7,343.5L550.5,344.8L557.0,345.2L561.9,344.1L564.1,343.5L565.8,343.7L566.9,344.3L566.9,344.5L565.4,345.1L564.6,345.1L562.9,346.1L561.9,345.0L557.7,346.0L555.8,346.1L555.7,355.5L553.1,355.6L553.1,363.4L553.1,373.3L550.7,374.6L549.2,374.8L547.6,374.3L546.4,374.1L545.9,373.0L544.9,372.3Z"/>
+<path class="land" id="c_ncl" data-iso="NCL" data-name="New Caledonia"  d="M942.1,353.6L944.3,355.2L945.7,356.5L944.6,357.1L943.2,356.4L941.3,355.2L939.5,353.8L937.8,351.9L937.4,351.0L938.6,351.0L940.1,351.9L941.2,352.8Z"/>
+<path class="land" id="c_ner" data-iso="NER" data-name="Niger"  d="M505.7,265.5L505.8,263.7L502.7,263.1L502.6,261.8L501.1,260.1L500.8,258.9L501,257.6L502.7,257.5L503.7,256.5L507.3,256.3L509.7,255.9L509.9,254.2L511.4,252.4L511.4,246.3L515.1,245.1L522.9,239.9L532.0,234.8L536.2,235.9L537.7,237.4L539.6,236.4L540.3,240.6L541.3,241.2L541.3,242.1L542.4,243.0L541.8,244.2L540.8,249.6L540.7,253.0L537.3,255.6L536.1,259.1L537.2,260.1L537.2,261.8L538.9,261.8L538.7,263.1L537.9,263.2L537.8,264.1L537.3,264.1L535.5,261.2L534.9,261.1L532.8,262.6L530.7,261.8L529.3,261.7L528.5,262.1L527.0,262.0L525.4,263.1L524.0,263.2L520.8,261.8L519.5,262.4L518.2,262.4L517.2,261.4L514.5,260.4L511.6,260.7L511.0,261.3L510.6,262.8L509.8,263.9L509.6,266.3L507.6,264.7L506.6,264.8Z"/>
+<path class="land" id="c_nga" data-iso="NGA" data-name="Nigeria"  d="M522.7,284.7L519.9,285.6L518.9,285.5L517.9,286.1L515.7,286.0L514.3,284.3L513.4,282.4L511.5,280.7L509.5,280.7L507.2,280.7L507.3,276.4L507.3,274.7L507.8,273.0L508.6,272.2L509.9,270.5L509.6,269.8L510.1,268.8L509.5,267.2L509.6,266.3L509.8,263.9L510.6,262.8L511.0,261.3L511.6,260.7L514.5,260.4L517.2,261.4L518.2,262.4L519.5,262.4L520.8,261.8L524.0,263.2L525.4,263.1L527.0,262.0L528.5,262.1L529.3,261.7L530.7,261.8L532.8,262.6L534.9,261.1L535.5,261.2L537.3,264.1L537.8,264.1L538.9,265.1L538.6,265.6L538.4,266.5L536.2,268.6L535.5,270.3L535.1,271.7L534.5,272.3L534.0,274.1L532.6,275.2L532.2,276.6L531.6,277.7L531.3,278.8L529.5,279.7L528.0,278.6L527.0,278.6L525.4,280.2L524.6,280.2L523.4,282.8Z"/>
+<path class="land" id="c_nic" data-iso="NIC" data-name="Nicaragua"  d="M271.4,267.8L270.5,267.0L269.3,265.9L268.7,265.0L267.6,264.2L266.2,263.0L266.5,262.5L267.0,262.9L267.2,262.8L268.0,262.6L268.3,262.0L268.7,262.0L268.7,260.7L269.3,260.6L269.8,260.7L270.4,259.9L271.2,260.5L271.5,260.2L272.0,259.8L272.9,259.1L272.9,258.6L273.2,258.6L273.5,257.9L273.8,257.9L274.3,258.3L274.8,258.4L275.4,258.0L276.1,258.0L277.0,257.7L277.4,257.3L278.3,257.4L278.0,257.6L277.9,258.2L278.2,259.2L277.6,260.1L277.3,261.2L277.2,262.4L277.3,263.1L277.4,264.3L277.0,264.5L276.7,265.7L276.9,266.4L276.4,267.0L276.5,267.8L276.9,268.2L276.3,268.8L275.5,268.6L275.1,268.0L274.2,267.8L273.6,268.2L271.8,267.5Z"/>
+<path class="land land-eu" id="c_nld" data-iso="NLD" data-name="Netherlands"  d="M516.2,154.7L518.4,154.8L518.9,155.7L518.2,158.1L517.6,159.1L516.0,159.1L516.4,161.9L515.0,161.3L513.3,160.1L510.8,160.7L508.8,160.5L510.2,159.7L512.5,155.8Z"/>
+<path class="land" id="c_nor" data-iso="NOR" data-name="Norway"  d="M575.1,107.5L583.4,109.5L580.0,110.2L582.9,111.9L578.4,113.0L576.2,113.2L577.4,111.3L574.0,110.3L569.8,111.2L568.5,113.1L566.0,114.3L563.1,113.7L559.6,113.8L556.7,112.4L555.1,113.1L553.4,113.2L553.0,115.0L548.0,114.5L547.3,116.0L544.7,116.0L543.0,117.9L540.3,120.9L536.1,124.6L537.1,125.5L536.2,126.6L533.5,126.5L531.8,129.0L532.0,132.6L533.7,133.9L532.8,137.1L530.6,138.9L529.4,140.4L527.6,138.8L522.4,141.9L518.8,142.5L515.1,141.1L514.2,138.3L513.3,132.1L515.8,130.4L522.8,128.2L528.1,125.4L533.0,121.7L539.4,116.5L543.8,114.5L551.2,111.2L557.0,110.0L561.4,110.2L565.5,108.0L570.3,108.1ZM565.9,89.8L560.0,90.9L555.3,90.2L557.1,89.6L555.5,88.7L561.0,88.2L562.1,89.2ZM548.7,84.8L557.5,86.8L550.7,87.9L549.3,89.8L546.9,90.3L545.6,92.6L542.4,92.7L536.7,91.0L539.1,90.1L535.1,89.3L529.9,87.1L527.9,85.0L535.1,84.0L536.6,85.0L540.4,84.9L541.4,84.0L545.3,83.9ZM567.9,83.0L573.1,83.9L569.1,85.3L561.4,85.6L553.5,85.2L553.1,84.5L549.2,84.4L546.3,83.2L554.5,82.4L558.4,83.1L561.1,82.3Z"/>
+<path class="land" id="c_npl" data-iso="NPL" data-name="Nepal"  d="M735.0,223.0L734.8,224.2L735.1,225.9L734.8,226.9L732.6,227.0L729.4,226.4L727.3,226.1L725.8,224.8L722.1,224.4L718.7,222.9L716.2,221.6L713.6,220.6L714.6,218.1L716.3,216.9L717.4,216.3L719.5,217.1L722.2,218.8L723.7,219.2L724.6,220.5L726.7,221.0L728.9,222.2L731.9,222.8Z"/>
+<path class="land" id="c_nzl" data-iso="NZL" data-name="New Zealand"  d="M961.4,406.5L962.0,407.6L963.9,406.5L964.7,407.6L964.7,408.8L963.7,410L961.9,412.0L960.6,413.0L961.5,414.3L959.5,414.4L957.2,415.4L956.5,417.1L955.0,419.8L952.9,421.0L951.6,421.8L949.1,421.7L947.4,420.8L944.5,420.6L944.0,419.7L945.5,417.7L948.8,415.0L950.5,414.5L952.4,413.5L954.7,412.1L956.3,410.7L957.5,408.8L958.5,408.1L958.9,406.6L960.8,405.4ZM965.6,393.8L967.6,396.6L967.6,394.8L968.8,395.5L969.2,397.5L971.4,398.4L973.2,398.6L974.7,397.6L976.0,397.9L975.4,400.3L974.6,401.8L972.6,401.8L971.8,402.6L972.1,403.7L971.7,404.2L970.7,405.7L969.4,407.5L967.3,408.5L966.8,407.8L965.7,407.5L967.3,405.3L966.4,403.8L963.5,402.7L963.6,401.8L965.5,400.8L966.0,398.8L965.9,397.1L964.8,395.3L964.9,394.8L963.6,393.7L961.5,391.3L960.4,389.5L961.4,389.2L962.8,390.7L964.9,391.4Z"/>
+<path class="land land-me" id="c_omn" data-iso="OMN" data-name="Oman"  d="M657.0,241.1L656.0,242.9L654.8,242.8L654.2,243.4L653.8,244.7L654.1,246.5L653.9,246.9L652.6,246.8L651.0,247.8L650.7,249.1L650.1,249.7L648.4,249.7L647.4,250.4L647.4,251.4L646.1,252.2L644.6,251.9L642.9,252.8L641.6,253.0L640.8,251.1L638.7,246.7L646.7,244.0L648.4,238.7L647.2,236.8L647.3,235.7L648.1,234.6L648.1,233.6L649.3,233.0L648.8,232.7L649.0,230.9L650.4,230.9L651.6,232.7L653.1,233.7L655.0,234.1L656.6,234.5L657.8,236.1L658.5,236.9L659.5,237.3L659.5,237.9L658.5,239.5L658.1,240.2ZM650.4,228.3L650.0,228.8L649.5,227.9L650.3,227.0L650.6,227.2Z"/>
+<path class="land" id="c_pak" data-iso="PAK" data-name="Pakistan"  d="M700.4,198.4L702.4,199.6L703.2,201.6L707.6,202.7L705.0,205.0L702.0,205.4L698.0,204.7L696.7,205.9L697.6,208.2L698.5,210.0L700.7,211.3L698.4,212.9L698.5,214.8L695.9,217.4L694.2,220.1L691.4,222.9L688.3,222.7L685.4,225.5L687.1,226.7L687.4,228.8L688.9,230.1L689.4,232.4L683.6,232.4L681.8,234.2L679.9,233.5L679.1,231.6L677.0,229.6L672.1,230.1L667.7,230.1L664.0,230.5L665.0,227.4L668.8,226.0L668.6,224.8L667.3,224.4L667.3,222.0L664.7,220.8L663.7,219.2L662.3,217.8L666.8,219.2L669.5,218.8L671.1,219.1L671.6,218.6L673.5,218.8L676.9,217.7L677.0,215.4L678.5,213.9L680.5,213.9L680.8,213.2L682.8,212.8L683.8,213.1L684.8,212.3L684.7,210.7L685.8,209.1L687.5,208.4L686.5,206.7L689.0,206.7L689.8,205.8L689.6,204.8L691.0,203.6L690.7,202.3L690.0,201.2L691.6,200.0L694.5,199.5L697.5,199.1L698.9,198.7Z"/>
+<path class="land" id="c_pan" data-iso="PAN" data-name="Panama"  d="M292.3,278.1L291.4,277.3L290.9,275.9L291.5,275.2L290.8,275.0L290.3,274.1L289.0,273.4L287.8,273.6L287.3,274.5L286.2,275.2L285.6,275.2L285.4,275.8L286.7,277.3L285.9,277.6L285.5,278.0L284.3,278.1L283.8,276.5L283.5,277.0L282.6,276.8L282.1,275.8L281.0,275.6L280.3,275.3L279.1,275.3L279.1,275.8L278.8,275.4L278.9,274.9L279.1,274.4L279.0,273.9L279.4,273.6L278.9,273.2L278.8,272.1L279.9,271.9L280.8,272.8L280.8,273.4L281.8,273.5L282.1,273.3L282.8,273.9L284.1,273.8L285.3,273.1L286.9,272.5L287.8,271.7L289.3,271.9L289.2,272.2L290.7,272.3L291.9,272.7L292.7,273.5L293.7,274.3L293.4,274.6L294.0,276.2L293.5,277.0L292.7,276.8Z"/>
+<path class="land" id="c_per" data-iso="PER" data-name="Peru"  d="M314.4,344.3L313.7,345.6L312.3,346.3L309.7,344.8L309.4,343.7L304.1,341.0L299.4,338.1L297.3,336.4L296.2,334.2L296.6,333.5L294.4,330.0L291.8,325.1L289.2,319.7L288.1,318.5L287.3,316.6L285.2,314.8L283.3,313.7L284.2,312.6L282.9,310.0L283.7,308.1L285.9,306.5L286.2,307.6L285.4,308.2L285.5,309.2L286.6,309.0L287.7,309.3L288.8,310.6L290.3,309.5L290.8,307.7L292.4,305.4L295.6,304.3L298.5,301.5L299.4,299.8L299.0,297.8L299.7,297.5L301.5,298.8L302.3,300.1L303.6,300.7L305.1,303.5L307.1,303.9L308.6,303.2L309.6,303.6L311.2,303.4L313.2,304.6L311.5,307.4L312.3,307.4L313.6,308.8L311.2,308.7L310.9,309.1L308.7,309.6L305.6,311.4L305.4,312.7L304.7,313.6L305.0,315.1L303.4,315.8L303.4,317.0L302.7,317.4L303.8,319.8L305.3,321.5L304.7,322.6L306.5,322.8L307.5,324.2L309.9,324.3L312.0,322.7L311.9,326.7L313.1,327.0L314.6,326.6L316.9,330.9L316.3,331.8L316.2,333.7L316.1,335.9L315.1,337.3L315.6,338.2L315.0,339.1L316.1,341.4Z"/>
+<path class="land" id="c_phl" data-iso="PHL" data-name="Philippines"  d="M837.0,274.9L837.3,276.7L837.4,278.2L836.5,280.6L835.5,277.9L834.3,279.3L835.2,281.2L834.4,282.5L831.3,280.9L830.5,279.0L831.3,277.7L829.6,276.5L828.8,277.6L827.5,277.5L825.6,279.0L825.1,278.2L826.2,276.0L827.8,275.2L829.3,274.2L830.2,275.4L832.3,274.7L832.7,273.5L834.6,273.4L834.4,271.4L836.6,272.6L836.8,274.0ZM830.6,270.0L829.7,270.8L828.8,272.5L828.0,273.3L826.3,271.5L826.9,270.8L827.6,270.0L827.9,268.4L829.3,268.2L828.9,270.0L830.9,267.4ZM816.0,272.5L812.5,275.1L813.8,273.2L815.7,271.6L817.3,269.7L818.7,267.1L819.2,269.2L817.4,270.7ZM825.0,265.7L826.6,266.5L828.3,266.5L828.3,267.6L827.0,268.7L825.3,269.5L825.2,268.3L825.4,266.9ZM834.7,264.9L835.4,267.9L833.4,267.2L833.4,268.1L834.1,269.8L832.8,270.4L832.7,268.5L831.9,268.3L831.5,266.7L833.0,266.9L833.0,265.9L831.4,263.9L833.9,263.9ZM824.1,262.5L823.4,264.8L822.2,263.5L820.9,261.5L823.1,261.6ZM823.5,248.0L825.2,248.8L826.0,248.1L826.2,248.8L825.8,249.9L826.7,251.8L826.0,254.0L824.4,254.9L824.0,257.0L824.6,259.2L826.0,259.5L827.2,259.1L830.5,260.6L830.3,262.1L831.1,262.7L830.9,263.9L828.8,262.6L827.8,261.2L827.1,262.2L825.4,260.6L823.0,261.0L821.7,260.4L821.8,259.3L822.6,258.6L821.8,258.0L821.5,259.0L820.2,257.5L819.8,256.3L819.7,253.7L820.8,254.6L821.0,250.4L821.9,248.0Z"/>
+<path class="land" id="c_png" data-iso="PNG" data-name="Papua New Guinea"  d="M915.7,315.6L914.9,315.8L913.8,314.8L912.6,313.1L912.0,311.1L912.4,310.8L912.7,311.6L913.5,312.2L914.8,313.9L916.1,314.8ZM905.3,312.0L903.9,312.2L903.5,313.0L902.0,313.6L900.6,314.2L899.2,314.2L897.0,313.4L895.5,312.7L895.7,311.9L898.1,312.3L899.6,312.1L900.0,310.8L900.4,310.7L900.6,312.1L902.2,311.9L902.9,311.0L904.4,310.1L904.1,308.5L905.7,308.4L906.2,308.9L906.2,310.4ZM892.5,317.1L894.9,318.8L896.6,321.7L898.2,321.6L898.0,322.7L900.1,323.2L899.3,323.7L902.1,324.8L901.8,325.6L900.1,325.8L899.4,325.1L897.1,324.8L894.4,324.4L892.4,322.7L890.8,321.2L889.5,318.9L886.0,317.7L883.7,318.5L882.1,319.4L882.4,321.3L880.3,322.2L878.8,321.8L876.1,321.7L876.0,313.0L876.0,304.3L880.6,306.1L885.6,307.7L887.4,309.0L888.9,310.4L889.3,312.0L893.7,313.6L894.4,315.0L891.9,315.3ZM908.4,309.4L907.5,310.1L907.0,308.5L906.4,307.5L905.2,306.6L903.7,305.5L901.8,304.7L902.5,304.0L903.9,304.8L904.9,305.4L906.0,306.0L907.0,307.1L908.1,308.0Z"/>
+<path class="land" id="c_pol" data-iso="POL" data-name="Poland"  d="M540.0,161.1L539.0,159.4L539.2,158.5L538.5,157.0L537.5,156.1L538.3,155.4L537.7,154.0L539.5,153.2L543.6,152.0L547.0,151.1L549.7,151.6L549.9,152.2L552.4,152.2L555.7,152.5L560.6,152.5L562.0,152.8L562.6,153.6L562.7,154.8L563.5,155.8L563.5,156.9L561.9,157.4L562.7,158.6L562.7,159.8L564.1,162.2L563.8,162.9L562.5,163.2L560.0,165.4L560.7,166.6L560.2,166.5L557.6,165.5L555.7,165.8L554.4,165.6L552.9,166.1L551.5,165.2L550.4,165.5L550.3,165.4L549.0,164.1L547.1,163.9L546.8,163.1L545.0,162.8L544.6,163.5L543.1,162.9L543.3,162.2L541.3,162.0Z"/>
+<path class="land" id="c_pri" data-iso="PRI" data-name="Puerto Rico"  d="M323.2,248.0L324.6,248.2L325.1,248.8L324.4,249.4L322.4,249.4L320.8,249.5L320.7,248.4L321.1,248.0Z"/>
+<path class="land" id="c_prk" data-iso="PRK" data-name="North Korea"  d="M848.4,184.3L848.7,184.8L847.7,184.6L846.6,185.5L845.8,186.4L845.9,188.4L844.5,188.9L844.0,189.4L843.0,190.2L841.2,190.6L840.1,191.4L840.0,192.5L839.7,192.8L840.8,193.2L842.3,194.4L841.9,195.1L840.7,195.2L838.9,195.4L837.8,196.6L836.6,196.5L836.5,196.7L835.2,196.2L834.8,196.7L834.1,196.9L834.0,196.4L833.3,196.2L832.6,195.8L833.3,194.6L833.9,194.3L833.7,193.8L834.4,192.3L834.2,191.9L832.6,191.6L831.4,190.9L833.5,189.2L836.5,187.8L838.3,185.9L839.6,186.7L841.9,186.8L841.5,185.4L845.6,184.2L846.7,182.8Z"/>
+<path class="land land-eu" id="c_prt" data-iso="PRT" data-name="Portugal"  d="M475.9,185.7L476.9,185.0L478.0,184.6L478.6,185.9L480.2,185.9L480.7,185.6L482.2,185.7L483.0,187.0L481.7,187.7L481.7,189.8L481.3,190.2L481.2,191.5L480.0,191.7L481.1,193.3L480.3,195.1L481.3,195.8L480.9,196.6L479.9,197.6L480.1,198.4L479.1,199.1L477.6,198.8L476.3,199.1L476.7,197.0L476.4,195.3L475.2,195.1L474.6,194.1L474.8,192.3L475.9,191.4L476.1,190.3L476.6,188.7L476.6,187.6L476.0,186.6Z"/>
+<path class="land land-paraguay" id="c_pry" data-iso="PRY" data-name="Paraguay" data-dest="paraguay" d="M332.8,356.7L333.9,353.5L334.0,352.1L335.2,349.7L339.9,349.0L342.4,349.0L344.8,350.4L344.9,351.2L345.7,352.7L345.5,356.3L348.3,356.8L349.4,356.3L351.2,357.0L351.7,357.8L352.0,360.2L352.3,361.3L353.3,361.4L354.3,360.9L355.2,361.4L355.2,362.9L354.9,364.5L354.3,366.0L353.9,368.4L351.5,370.4L349.4,370.8L346.4,370.4L343.7,369.7L346.3,365.7L345.9,364.5L343.2,363.4L339.9,361.5L337.7,361.1Z"/>
+<path class="land land-qatar land-me" id="c_qat" data-iso="QAT" data-name="Qatar" data-dest="qatar" d="M635.5,231.4L635.3,229.4L636.0,228.0L636.8,227.7L637.6,228.6L637.6,230.1L637.0,231.7L636.3,231.9Z"/>
+<path class="land" id="c_rou" data-iso="ROU" data-name="Romania"  d="M560.6,169.7L561.7,169.1L563.4,169.4L565.1,169.4L566.3,170.1L567.2,169.7L569.2,169.4L569.9,168.8L571.0,168.8L571.8,169.0L572.6,169.8L573.5,171.0L575.0,172.6L575.1,173.7L574.8,174.9L575.3,176.1L576.5,176.6L577.7,176.1L578.9,176.6L579.0,177.3L577.7,177.9L576.9,177.6L576.2,180.8L574.6,180.5L572.6,179.6L569.5,180.2L568.2,180.9L564.3,180.7L562.2,180.3L561.2,180.5L560.4,179.4L559.9,179.0L560.5,178.5L559.9,178.2L559.1,178.8L557.5,178.0L557.3,176.9L555.7,176.3L555.4,175.4L553.9,174.4L556.1,173.9L557.7,172.1L558.9,170.3Z"/>
+<path class="land" id="c_rus" data-iso="RUS" data-name="Russia"  d="M883.1,162.1L885.7,166.8L881.8,165.9L880.2,169.7L882.8,172.5L882.7,174.3L880.7,172.7L878.9,174.8L878.4,172.6L878.7,170.0L878.4,167.1L879.0,165.1L879.1,161.5L877.6,158.9L877.8,155.2L880.3,154.0L879.2,152.8L880.4,152.4L881.1,154.2L882.0,156.7L882.0,159.4ZM560.6,152.5L555.7,152.5L552.4,152.2L553.0,151.1L556.7,150.2L559.5,150.7L560.7,151.1L560.4,151.8ZM33.3,119.8L35.1,120.5L34.5,118.5L41.7,118.9L46.9,121.4L44.3,122.6L39.9,122.9L39.9,125.5L38.8,126.0L36.3,126.0L34.3,125.0L30.7,124.3L30.1,123.1L27.4,122.7L24.4,123.0L22.9,122.1L23.5,121.1L20.3,121.7L21.5,123.0L20,124.1L20,113.5L26.5,115.5L33.5,118.2ZM980,108.5L977.1,108.6L976.6,107.8L980,106.7ZM23.5,108.3L20,108.5L20,106.7L20.3,106.6L22.6,106.6L26.5,107.3L26.2,107.7ZM882.9,102.1L878.9,102.2L873.4,101.9L873.0,101.7L875.5,100.7L878.8,100.4L882.6,101.4ZM902.0,97.2L898.9,98.2L894.6,98.0L889.7,96.9L890.3,96.1L895.3,96.5ZM886.9,95.9L884.8,97.9L875.0,97.8L870.5,98.4L865.3,96.7L866.7,94.8L870.2,94.3L877.3,94.5ZM653.4,108.8L651.9,109.0L643.1,108.7L642.4,107.5L637.6,106.8L637.2,105.3L639.9,104.8L639.9,103.3L645.1,101.0L642.7,100.7L649.1,98.4L648.4,97.2L654.3,95.8L663.1,94.0L672.0,93.5L676.6,92.6L681.8,92.2L683.6,93.3L681.8,94.1L672.4,95.4L664.2,96.7L655.9,99.2L652.0,101.8L647.8,104.4L648.3,106.6ZM785.3,92.1L786.0,93.4L788.4,92.8L796.2,92.8L802.2,94.1L804.4,95.1L803.7,96.5L800.7,97.3L793.7,98.8L791.7,99.6L795.0,99.9L799.0,100.6L801.4,100.1L802.7,101.8L803.9,101.1L808.2,100.7L816.7,101.1L817.4,102.4L828.5,102.8L828.7,100.8L834.3,101.2L838.6,101.2L842.9,102.6L844.1,104.3L842.6,105.4L845.9,107.5L850.1,108.6L852.7,105.8L857.0,107.0L861.5,106.3L866.7,107.1L868.6,106.4L873.0,106.7L871.1,104.3L874.6,103.1L898.7,104.8L900.9,106.4L907.9,108.5L918.7,108.0L924.0,108.4L926.2,109.5L925.9,111.5L929.2,112.2L932.7,111.7L937.5,111.6L942.5,112.1L947.6,111.8L952.2,114.2L955.5,113.3L953.4,111.6L954.5,110.5L963.0,111.2L968.6,111.0L976.3,112.3L980,113.5L980,124.1L980.0,124.1L976.6,125.3L973.1,125.1L975.5,126.5L977.1,128.7L978.3,129.4L978.6,130.5L977.9,131.2L973.0,130.7L965.5,132.7L963.1,133.0L959.1,134.8L955.2,136.5L954.2,137.7L950.4,135.8L943.5,137.9L942.2,137.0L939.7,138.1L936.1,137.7L935.2,139.5L932.0,142.1L932.1,143.1L935.2,143.7L934.8,147.6L932.3,147.7L931.2,149.9L932.3,151.1L927.6,152.5L926.7,155.5L922.7,156.2L922.0,158.9L918.1,161.3L917.1,159.5L916.0,155.6L914.5,149.7L915.8,146.0L918.0,144.4L918.2,143.2L922.3,142.6L927.1,139.2L931.7,136.5L936.5,134.3L938.6,130.6L935.4,130.8L933.8,133.0L927.0,135.9L924.8,132.6L917.9,133.6L911.2,138.0L913.5,139.7L907.5,140.4L903.4,140.6L903.6,138.7L899.4,138.3L896.1,139.6L888.0,139.1L879.2,139.9L870.6,145.1L860.3,151.4L864.5,151.8L865.8,153.4L868.4,154.0L870.1,152.7L873.1,152.9L876.9,155.8L877.0,158.1L874.9,160.7L874.7,163.9L873.5,168.2L869.5,172.0L868.6,173.9L865.0,177.0L861.4,180.1L859.7,181.6L856.1,183.2L854.4,183.2L852.7,182.0L849.2,183.9L848.7,184.8L848.4,184.3L848.4,183.0L849.7,182.9L850.1,179.7L849.4,177.5L851.7,176.5L854.9,177.0L856.7,174.4L857.6,171.5L858.7,170.5L860.1,168.1L855.7,168.9L853.4,169.9L849.3,169.9L848.2,167.4L845.1,165.5L840.4,164.7L839.4,162.1L838.5,160.4L837.5,159.3L835.9,156.6L833.5,155.6L829.5,154.8L826.0,154.9L822.7,155.4L820.5,156.7L821.9,157.3L822.0,158.8L820.5,159.7L818.1,162.5L818.1,163.7L814.3,165.3L811.1,164.3L808.0,164.6L806.6,163.7L805.0,163.4L801.1,165.3L797.5,165.7L795.1,166.4L791.7,165.9L789.3,166.0L787.6,164.6L785.0,163.3L782.4,163.0L779.0,163.3L776.5,163.8L772.7,162.7L772.2,160.7L769.0,160.0L766.6,159.7L763.6,158.6L760.9,161.3L762.0,162.9L759.4,164.8L755.5,164.1L752.8,164.0L751.1,162.8L748.3,162.7L746.0,161.9L741.9,163.2L736.8,165.5L734.0,165.9L733.0,166.1L731.5,164.5L728.1,164.9L727.0,163.7L725.1,163.2L723.8,161.7L722.4,161.2L718.5,161.9L714.8,160.3L713.4,161.7L707.5,155.0L704.1,152.9L705.0,152.1L698.4,154.6L695.8,154.7L696.0,153.3L692.6,152.4L689.8,153.0L689.0,150.3L684.2,149.7L681.8,150.8L675.1,151.8L673.8,152.4L663.8,153.4L662.6,154.3L664.5,156.1L662.0,156.8L662.5,157.5L659.9,158.8L664.2,160.7L663.6,161.9L659.8,161.8L659.0,162.6L655.6,161.2L651.4,161.3L648.6,162.4L645.4,161.3L639.5,159.5L635.4,159.5L629.9,162.4L629.5,164.4L626.8,162.8L624.7,165.8L625.5,166.3L623.9,168.3L626.2,170.1L628.2,170.1L629.9,171.8L629.6,173.2L630.9,173.6L629.7,175.2L627.1,175.7L624.5,178.4L626.9,181.0L626.6,182.7L629.6,185.9L628.0,187.0L627.5,187.6L626.3,187.5L624.5,185.8L623.7,185.7L622.1,185.1L621.3,184.0L618.8,183.5L617.1,183.9L616.7,183.4L613.1,182.1L609.1,181.7L606.9,181.2L606.5,181.6L603.1,179.3L600.1,178.3L597.8,176.7L599.7,176.3L602.0,174.1L600.5,173.0L604.4,171.9L604.3,171.3L601.9,171.8L602.0,170.6L603.4,169.8L606.0,169.6L606.4,168.8L605.8,167.3L606.9,165.9L606.9,165.1L602.9,164.2L601.4,164.3L599.7,163.0L597.7,163.4L594.3,162.5L594.3,162.0L593.4,160.8L591.3,160.7L591.0,159.9L591.7,159.3L590.0,157.8L587.2,158.1L586.4,157.9L585.8,158.5L584.8,158.4L584.1,156.7L583.5,155.8L584.0,155.6L586.1,155.7L587.2,155.1L586.4,154.4L584.6,153.9L584.8,153.4L583.7,153.0L582.0,151.2L582.6,150.5L582.3,149.2L579.7,148.6L578.3,148.9L577.9,148.3L575.1,147.6L574.3,146.0L574.1,144.7L572.8,144.1L573.9,143.3L573.1,140.8L575.0,139.2L574.6,138.8L577.6,137.3L574.9,136.0L580.6,132.6L583.0,131.1L584.0,129.7L580.1,127.9L581.2,126.2L578.8,124.2L580.6,121.9L577.5,118.9L579.9,116.8L575.9,115.1L576.2,113.2L578.4,113.0L582.9,111.9L585.7,111.0L590.1,112.6L597.4,113.2L607.4,116.2L609.5,117.5L609.7,119.3L606.7,120.7L602.4,121.4L590.5,119.4L588.5,119.7L592.8,121.6L593.0,122.9L593.2,125.6L596.6,126.4L598.7,127.1L599.0,125.8L597.4,124.7L599.1,123.7L605.6,125.3L607.8,124.7L606.0,122.7L612.2,120.1L614.7,120.3L617.2,121.2L618.8,119.4L616.5,117.8L617.8,116.2L615.9,114.5L623.3,115.4L624.9,116.9L621.5,117.2L621.5,118.7L623.6,119.6L627.7,119.0L628.4,117.3L633.9,116.0L643.2,113.8L645.3,113.9L642.6,115.5L645.9,115.8L647.8,114.9L652.8,114.8L656.8,113.7L659.8,115.3L662.9,113.5L660.1,112.0L661.5,111.1L669.3,111.9L673.0,112.8L682.7,115.8L684.5,114.4L681.8,113.0L681.7,112.4L678.5,112.2L679.4,110.9L677.9,108.8L677.9,108.0L682.8,105.6L684.5,103.1L686.5,102.6L693.6,103.3L694.1,104.8L691.6,107.0L693.3,107.8L694.1,109.7L693.5,113.3L696.4,115.0L695.3,116.7L690.1,120.5L693.1,120.9L694.2,120.0L697.1,119.3L697.8,118.0L700.1,116.7L698.6,115.2L699.8,113.4L696.9,113.2L696.3,111.7L698.4,109.0L694.9,106.9L699.7,105.1L699.1,103.2L700.4,103.1L701.8,104.6L700.8,107.2L703.6,107.6L702.4,105.7L706.9,104.7L712.4,104.5L717.3,106.0L715.0,103.8L714.7,101.0L719.3,100.4L725.7,100.6L731.5,100.2L729.4,98.8L732.4,97.1L735.5,97.0L740.7,95.7L747.7,95.3L748.6,94.6L755.6,94.3L757.8,94.9L763.8,93.5L768.7,93.6L769.4,92.4L772.0,91.3L778.3,90.2L782.8,91.0L779.2,91.7ZM780.2,88.6L765.2,89.6L770.0,86.1L772.2,85.8L774.2,86.0L781.0,87.5ZM636.4,82.6L632.8,82.9L630.4,83.1L630.0,83.6L626.9,84.0L624.0,83.4L625.5,82.6L619.6,82.5L624.8,82.0L628.8,82.0L629.4,82.7L630.9,82.0L633.4,81.6L637.4,82.2ZM766.5,87.0L760.7,87.4L753.3,86.6L748.8,85.6L746.8,83.7L743.1,83.1L750.1,81.3L755.8,80.7L761.0,82.1L767.2,84.6Z"/>
+<path class="land" id="c_rwa" data-iso="RWA" data-name="Rwanda"  d="M581.1,300.4L582.2,301.9L582.0,303.5L581.3,303.8L579.8,303.6L579.0,305.2L577.4,304.9L577.6,303.5L578.0,303.3L578.1,301.7L578.9,301.0L579.5,301.2Z"/>
+<path class="land" id="c_esh" data-iso="ESH" data-name="Western Sahara"  d="M476.5,225.1L476.5,223.6L476.9,223.6L476.9,223.8L476.8,224.3L476.8,228.4L468.1,228.2L468.2,235.0L465.7,235.3L465.0,236.7L465.5,240.5L455.1,240.5L454.5,241.4L454.6,240.3L454.7,240.3L460.7,240.0L461.0,239.1L462.1,237.9L463.0,234.2L466.7,231.3L467.9,228.0L468.8,227.8L469.6,225.7L471.9,225.4L472.8,225.7L474.0,225.7L474.9,225.1Z"/>
+<path class="land land-saudi land-me" id="c_sau" data-iso="SAU" data-name="Saudi Arabia" data-dest="saudi" d="M614.1,253.8L613.7,252.6L612.9,251.8L612.7,250.8L611.3,249.8L609.9,247.6L609.2,245.4L607.3,243.6L606.1,243.1L604.4,240.6L604.1,238.7L604.2,237.2L602.6,234.2L601.4,233.2L600.0,232.6L599.1,231.1L599.2,230.5L598.5,229.1L597.7,228.5L596.7,226.5L595.0,224.4L593.7,222.5L592.4,222.6L592.8,221.1L592.9,220.2L593.2,219.1L596.2,219.5L597.3,218.7L598.0,217.7L600.0,217.4L600.4,216.5L601.3,216.0L598.7,213.4L604.0,212.0L604.5,211.6L607.7,212.3L611.7,214.2L619.2,219.6L624.2,219.8L626.6,220.0L627.2,221.3L629.1,221.2L630.2,223.5L631.5,224.1L631.9,225.1L633.7,226.2L633.9,227.3L633.6,228.2L634.0,229.1L634.7,229.8L635.1,230.7L635.5,231.4L636.3,231.9L637.0,231.7L637.5,232.7L637.6,233.3L638.7,236.0L646.7,237.4L647.2,236.8L648.4,238.7L646.7,244.0L638.7,246.7L631.0,247.7L628.5,248.9L626.6,251.7L625.3,252.2L624.7,251.3L623.6,251.4L621.1,251.2L620.6,250.9L617.5,250.9L616.8,251.2L615.7,250.5L615.0,251.8L615.2,252.9Z"/>
+<path class="land land-sudan" id="c_sdn" data-iso="SDN" data-name="Sudan" data-dest="sudan" d="M590.6,272.1L590.2,272.1L590.2,270.8L589.9,269.8L588.6,268.8L588.2,266.9L588.6,264.9L587.3,264.7L587.1,265.3L585.5,265.4L586.2,266.2L586.4,267.8L584.9,269.3L583.6,271.2L582.2,271.5L580.0,269.9L579.0,270.5L578.7,271.3L577.3,271.8L577.2,272.3L574.6,272.3L574.2,271.8L572.3,271.7L571.3,272.1L570.6,271.9L569.2,270.3L568.8,269.6L566.9,270.0L566.1,271.2L565.4,273.6L564.5,274.1L563.7,274.4L563.5,274.3L562.6,273.5L562.4,272.7L562.8,271.6L562.8,270.5L561.3,268.8L561.0,267.7L561.0,267.0L560.0,266.2L560.0,264.7L559.4,263.7L558.5,263.8L558.8,262.8L559.5,261.7L559.2,260.6L560.0,259.8L559.5,259.2L560.2,257.5L561.4,255.6L563.7,255.7L563.6,245.2L563.6,244.0L566.7,244.0L566.7,238.7L577.4,238.7L587.7,238.7L598.3,238.7L599.2,241.3L598.6,241.8L599.0,244.6L600.0,247.7L601.0,248.4L602.4,249.4L601.1,250.9L599.1,251.3L598.3,252.2L598.0,253.9L596.9,257.9L597.1,258.9L596.7,261.2L595.6,263.8L594.0,265.2L592.9,267.2L592.6,268.3L591.4,269.0L590.6,271.8Z"/>
+<path class="land" id="c_sds" data-iso="SDS" data-name="South Sudan"  d="M590.6,272.1L590.6,274.2L590.2,275.0L588.8,275.1L587.9,276.6L589.5,276.8L590.9,278.1L591.3,279.2L592.6,279.8L594.1,282.7L592.3,284.5L590.7,286.0L589.0,287.3L587.2,287.3L585.0,287.9L583.3,287.3L582.2,288.0L579.9,286.2L579.2,285.1L577.8,285.7L576.5,285.5L575.8,285.9L574.6,285.6L573.0,283.4L572.6,282.6L570.6,281.5L569.9,279.9L568.8,278.8L567.0,277.4L567.0,276.5L565.5,275.4L563.7,274.4L564.5,274.1L565.4,273.6L566.1,271.2L566.9,270.0L568.8,269.6L569.2,270.3L570.6,271.9L571.3,272.1L572.3,271.7L574.2,271.8L574.6,272.3L577.2,272.3L577.3,271.8L578.7,271.3L579.0,270.5L580.0,269.9L582.2,271.5L583.6,271.2L584.9,269.3L586.4,267.8L586.2,266.2L585.5,265.4L587.1,265.3L587.3,264.7L588.6,264.9L588.2,266.9L588.6,268.8L589.9,269.8L590.2,270.8L590.2,272.1Z"/>
+<path class="land" id="c_sen" data-iso="SEN" data-name="Senegal"  d="M455.4,261.1L454.3,259.0L453,258.1L454.2,257.6L455.5,255.7L456.1,254.4L457.0,253.5L458.3,253.7L459.6,253.1L461.1,253.1L462.4,253.9L464.2,254.6L465.8,256.6L467.5,258.4L467.7,260.1L468.2,261.6L469.2,262.3L469.4,263.4L469.3,264.2L468.9,264.3L467.5,264.1L467.3,264.4L466.7,264.5L464.8,263.8L463.5,263.8L458.5,263.7L457.8,264.0L456.9,263.9L455.5,264.4L455.1,262.3L457.5,262.4L458.2,262.0L458.6,262.0L459.6,261.4L460.8,261.9L461.9,262.0L463.1,261.4L462.5,260.6L461.7,261.0L460.8,261.0L459.8,260.4L458.9,260.4L458.3,261.0Z"/>
+<path class="land" id="c_slb" data-iso="SLB" data-name="Solomon Islands"  d="M932.3,325.3L933.1,326.2L931.2,326.2L930.2,324.6L931.8,325.2ZM928.9,323.7L927.9,323.8L926.3,323.5L925.7,323.1L925.9,322.0L927.6,322.4L928.5,323.0ZM931.1,323.0L930.7,323.5L928.8,321.2L928.2,319.6L929.1,319.6L930.1,321.7ZM926.3,319.6L926.4,320.1L924.4,319.0L922.9,318.1L921.9,317.2L922.3,316.9L923.5,317.5L925.7,318.8ZM920.1,317.0L919.6,317.1L918.4,316.5L917.3,315.4L917.4,315.0L919.0,316.1Z"/>
+<path class="land" id="c_sle" data-iso="SLE" data-name="Sierra Leone"  d="M469.5,279.3L468.8,279.1L466.9,278.0L465.5,276.6L465.0,275.6L464.7,273.6L466.1,272.5L466.4,271.7L466.9,271.1L467.6,271.1L468.2,270.6L470.4,270.6L471.1,271.5L471.7,272.7L471.6,273.4L472.0,274.1L472.0,275.1L472.7,275.0L471.5,276.2L470.3,277.7L470.1,278.4Z"/>
+<path class="land" id="c_slv" data-iso="SLV" data-name="El Salvador"  d="M265.9,261.7L265.6,262.3L264.0,262.3L263.1,262.0L262.0,261.5L260.5,261.3L259.7,260.8L259.8,260.4L260.7,259.7L261.2,259.4L261.1,259.1L261.7,258.9L262.5,259.1L263.1,259.7L263.9,260.1L264.0,260.5L265.2,260.1L265.7,260.3L266.1,260.6Z"/>
+<path class="land" id="c_abv" data-iso="ABV" data-name="Somaliland"  d="M630.5,272.2L629.3,273.8L627.4,276.0L625.2,276.1L616.5,272.9L615.5,271.9L614.5,270.7L613.5,269.2L614.1,268.2L615.1,266.8L615.9,267.3L616.4,268.4L617.6,269.5L619.0,269.5L621.5,268.9L624.4,268.5L626.7,267.7L628.1,267.5L629.0,267.0L630.5,266.9L630.5,267.0L630.5,268.1L630.5,270.8Z"/>
+<path class="land" id="c_som" data-iso="SOM" data-name="Somalia"  d="M632.6,266.5L634.0,266.2L635.3,265.3L636.3,265.3L636.4,266.0L636.1,267.6L636.1,269.0L635.6,270.0L634.8,272.8L633.5,275.8L631.9,279.2L629.6,283.1L627.3,286.1L624.2,289.8L621.5,291.9L617.5,294.6L615.0,296.6L612.1,299.8L611.5,301.2L610.9,301.9L609.3,299.7L609.3,290.0L611.6,286.9L612.3,286.1L614.1,286.0L616.4,284.2L619.9,284.0L627.4,276.0L629.3,273.8L630.5,272.2L630.5,270.8L630.5,268.1L630.5,267.0L630.5,266.9L631.4,266.9Z"/>
+<path class="land" id="c_srb" data-iso="SRB" data-name="Republic of Serbia"  d="M555.7,176.3L557.3,176.9L557.5,178.0L559.1,178.8L559.9,178.2L560.5,178.5L559.9,179.0L560.4,179.4L559.8,180.0L560,181.0L561.3,182.1L560.3,183.0L559.8,183.8L560.1,184.1L559.7,184.5L558.4,184.6L557.5,184.7L557.4,184.5L557.8,184.2L558.1,183.6L557.7,183.6L557.2,183.1L556.7,183.0L556.4,182.5L555.9,182.4L555.5,182.0L555.0,182.1L554.7,183.0L554.0,183.2L554.2,183.0L553.2,182.4L552.3,182.1L552.0,181.8L551.2,181.3L551.9,181.2L552.3,179.9L551.0,178.9L551.6,177.7L550.7,177.8L551.7,176.7L550.9,176.0L550.2,175.0L552.3,174.3L553.9,174.4L555.4,175.4Z"/>
+<path class="land" id="c_sur" data-iso="SUR" data-name="Suriname"  d="M347.6,281.4L350.8,282.0L351.1,281.5L353.2,281.3L356.1,282.0L354.7,284.3L354.9,286.1L356.0,287.7L355.5,288.9L355.3,290.1L354.6,291.2L353.1,290.6L351.8,290.9L350.7,290.7L350.5,291.5L350.9,292.0L350.7,292.5L349.2,292.3L347.6,290.0L347.3,288.5L346.4,288.5L345.2,286.5L345.7,285.2L345.6,284.5L347.2,283.8Z"/>
+<path class="land" id="c_svk" data-iso="SVK" data-name="Slovakia"  d="M550.3,165.4L550.4,165.5L551.5,165.2L552.9,166.1L554.4,165.6L555.7,165.8L557.6,165.5L560.2,166.5L559.4,167.2L558.9,168.3L558.3,168.5L555.5,167.7L554.6,167.9L554.0,168.5L552.7,168.8L552.4,168.7L551.1,169.1L550.1,169.2L549.9,169.7L547.6,170.0L546.6,169.7L545.3,169.0L545.0,168.1L545.2,167.8L545.6,167.2L546.8,167.2L547.7,167.0L547.8,166.7L548.3,166.6L548.5,166.0L549.1,165.9L549.5,165.4Z"/>
+<path class="land" id="c_svn" data-iso="SVN" data-name="Slovenia"  d="M536.8,173.4L539.0,173.6L540.4,173.0L542.7,172.9L543.2,172.4L543.7,172.5L544.2,173.4L542.0,174.1L541.8,175.2L540.9,175.4L540.9,176.2L539.8,176.1L538.9,175.7L538.4,176.1L536.6,176.0L537.2,175.8L536.5,174.7Z"/>
+<path class="land" id="c_swe" data-iso="SWE" data-name="Sweden"  d="M559.2,122.1L556.6,124.0L557.0,125.6L552.7,127.8L547.6,130.0L545.7,133.8L547.5,135.7L550.1,137.2L547.7,140.2L544.9,140.8L543.9,145.3L542.3,147.8L539.1,147.5L537.6,149.6L534.5,149.7L533.7,147.2L531.4,144.2L529.4,140.4L530.6,138.9L532.8,137.1L533.7,133.9L532.0,132.6L531.8,129.0L533.5,126.5L536.2,126.6L537.1,125.5L536.1,124.6L540.3,120.9L543.0,117.9L544.7,116.0L547.3,116.0L548.0,114.5L553.0,115.0L553.4,113.2L555.1,113.1L558.6,114.4L562.8,116.2L562.8,120.3L563.7,121.4Z"/>
+<path class="land" id="c_swz" data-iso="SWZ" data-name="Swaziland"  d="M585.5,368.7L585.0,369.9L583.4,370.1L581.8,368.7L581.8,367.8L582.5,366.8L582.8,366.0L583.6,365.8L584.9,366.3L585.3,367.5Z"/>
+<path class="land" id="c_syr" data-iso="SYR" data-name="Syria"  d="M603.4,208.4L598.2,211.2L595.3,210.2L595.2,210.1L595.6,209.7L595.5,208.6L596.2,207.2L597.6,206.2L597.2,205.1L596.0,205.0L595.7,203.0L596.4,201.9L597.1,201.3L597.8,200.7L598.0,199.2L598.8,199.7L601.8,199.0L603.2,199.5L605.4,199.5L608.5,198.5L609.9,198.5L612.9,198.1L611.6,199.8L610.1,200.4L610.4,202.4L609.4,205.6Z"/>
+<path class="land" id="c_tcd" data-iso="TCD" data-name="Chad"  d="M538.7,263.1L538.9,261.8L537.2,261.8L537.2,260.1L536.1,259.1L537.3,255.6L540.7,253.0L540.8,249.6L541.8,244.2L542.4,243.0L541.3,242.1L541.3,241.2L540.3,240.6L539.6,236.4L542.3,235.0L552.9,240.1L563.6,245.2L563.7,255.7L561.4,255.6L560.2,257.5L559.5,259.2L560.0,259.8L559.2,260.6L559.5,261.7L558.8,262.8L558.5,263.8L559.4,263.7L560.0,264.7L560.0,266.2L561.0,267.0L561.0,267.7L559.3,268.1L557.9,269.2L556.0,272.1L553.5,273.3L550.9,273.2L550.2,273.4L550.4,274.4L549.0,275.3L547.9,276.3L544.5,277.4L543.9,276.8L543.4,276.7L543.0,277.4L540.7,277.6L541.2,276.9L540.3,275.0L539.9,273.9L538.8,273.5L537.2,271.9L537.8,270.7L539.0,270.9L539.8,270.7L541.2,270.8L539.8,268.3L539.9,266.6L539.7,264.8Z"/>
+<path class="land" id="c_tgo" data-iso="TGO" data-name="Togo"  d="M505.0,281.0L502.8,281.6L502.2,280.6L501.5,278.9L501.3,277.6L501.9,275.2L501.2,274.2L501.0,272.1L501.0,270.2L499.9,268.8L500.1,268.0L502.4,268.1L502.1,269.5L502.9,270.2L503.8,271.2L503.9,272.5L504.4,273.0L504.3,279.2Z"/>
+<path class="land land-thailand" id="c_tha" data-iso="THA" data-name="Thailand" data-dest="thailand" d="M773.6,264.9L771.2,263.7L768.9,263.7L769.3,261.6L766.9,261.6L766.7,264.6L765.3,268.5L764.4,270.8L764.6,272.7L766.3,272.8L767.4,275.3L767.9,277.6L769.4,279.1L771.0,279.4L772.4,280.8L771.5,281.9L769.7,282.2L769.5,280.8L767.4,279.7L766.9,280.1L765.8,279.1L765.4,277.8L764.0,276.3L762.7,275.0L762.2,276.6L761.7,275.1L762.0,273.4L762.8,270.9L764.1,268.1L765.6,265.7L764.5,263.2L764.6,262.0L764.3,260.5L762.5,258.4L761.8,257.0L762.8,256.6L763.7,254.2L762.6,252.5L761.0,250.5L759.7,248.2L760.8,247.7L762.0,244.8L763.9,244.7L765.4,243.5L767.0,242.9L768.1,243.8L768.3,245.4L770.1,245.5L769.4,248.3L769.5,250.7L772.3,249.1L773.1,249.6L774.7,249.5L775.2,248.6L777.2,248.7L779.2,250.9L779.4,253.5L781.6,255.9L781.5,258.1L780.6,259.3L778.1,258.9L774.6,259.4L772.9,261.7Z"/>
+<path class="land" id="c_tjk" data-iso="TJK" data-name="Tajikistan"  d="M689.4,190.1L688.4,190.9L685.5,190.4L685.2,192.0L688.1,191.8L691.4,192.6L696.5,192.2L697.1,194.7L698.0,194.4L699.6,195.0L699.5,196.1L699.9,197.6L697.2,197.6L695.4,197.4L693.7,198.6L692.5,198.8L691.6,199.4L690.5,198.5L690.8,196.3L690.0,196.2L690.3,195.4L688.8,194.7L687.7,195.7L687.4,196.8L687.0,197.1L685.4,197.1L684.5,198.3L683.6,197.8L681.7,198.6L680.9,198.3L682.4,195.6L681.8,193.6L679.8,193.0L680.5,191.8L682.8,192.0L684.0,190.5L684.9,188.8L688.4,188.2L687.9,189.4L688.3,190.1Z"/>
+<path class="land" id="c_tkm" data-iso="TKM" data-name="Turkmenistan"  d="M663.2,202.3L663.0,200.1L661.0,200.0L658.0,197.6L655.8,197.3L652.9,196.0L651.0,195.7L649.8,196.2L648.0,196.1L646.1,197.7L643.8,198.2L643.3,196.3L643.7,193.5L641.6,192.6L642.3,190.8L640.5,190.6L641.1,188.4L643.6,189.0L646.0,188.2L644.0,186.6L643.3,185.0L641.1,185.7L640.8,187.7L640.0,186.0L641.2,185.1L644.2,184.5L646.0,185.3L647.9,187.4L649.2,187.2L652.3,187.2L651.8,185.8L654.1,184.9L656.3,183.4L659.9,184.8L660.2,186.9L661.2,187.5L664.1,187.3L665.0,187.8L666.3,190.6L669.4,192.4L671.1,193.7L673.9,195.0L677.5,196.1L677.4,197.7L676.6,197.7L675.3,196.9L674.9,197.9L672.7,198.4L672.1,200.5L670.6,201.4L668.5,201.8L668.0,203.0L665.9,203.3Z"/>
+<path class="land" id="c_tls" data-iso="TLS" data-name="East Timor"  d="M833.3,321.1L833.6,320.5L835.9,319.9L837.7,319.8L838.6,319.4L839.6,319.8L838.6,320.5L835.8,321.7L833.6,322.4L833.5,321.6Z"/>
+<path class="land" id="c_tto" data-iso="TTO" data-name="Trinidad and Tobago"  d="M335.5,268.7L337.1,268.3L337.6,268.4L337.5,270.4L335.3,270.7L334.8,270.5L335.6,269.7Z"/>
+<path class="land" id="c_tun" data-iso="TUN" data-name="Tunisia"  d="M525.3,216.6L524.1,211.8L522.5,210.7L522.5,210.0L520.3,208.5L520.1,206.5L521.7,205.0L522.3,202.8L521.9,200.2L522.5,198.9L525.4,197.8L527.2,198.1L527.1,199.4L529.4,198.5L529.6,199.0L528.3,200.3L528.2,201.5L529.2,202.2L528.8,204.5L527.1,205.8L527.6,207.3L529.0,207.3L529.6,208.6L530.6,209.0L530.5,211.1L529.2,211.8L528.4,212.7L526.5,213.7L526.8,214.8L526.6,215.9Z"/>
+<path class="land" id="c_tur" data-iso="TUR" data-name="Turkey"  d="M598.4,187.2L602.3,188.2L605.4,187.8L607.7,188.0L610.8,186.6L613.7,186.5L616.2,187.8L616.7,188.7L616.4,190.0L618.4,190.7L619.5,191.5L617.6,192.2L618.5,195.3L617.9,196.1L619.4,198.3L618.1,198.7L617.2,198.0L614.1,197.7L612.9,198.1L609.9,198.5L608.5,198.5L605.4,199.5L603.2,199.5L601.8,199.0L598.8,199.7L598.0,199.2L597.8,200.7L597.1,201.3L596.4,201.9L595.4,200.6L596.4,199.6L594.8,199.9L592.6,199.3L590.7,200.8L586.7,201.1L584.5,199.7L581.7,199.6L581.0,200.7L579.2,201.0L576.6,199.6L573.7,199.6L572.1,197.0L570.2,195.5L571.5,193.4L569.8,192.1L572.7,189.6L576.9,189.5L578.0,187.5L583.1,187.8L586.3,186.1L589.4,185.3L593.8,185.3ZM572.5,188.9L570.3,190.3L569.4,189.1L569.5,188.5L570.1,188.2L570.9,186.5L569.6,185.8L572.4,185L574.7,185.4L575.0,186.4L577.3,187.2L576.8,187.9L573.7,188.0Z"/>
+<path class="land" id="c_twn" data-iso="TWN" data-name="Taiwan"  d="M824.7,232.3L823.1,236.6L822.0,238.8L820.6,236.5L820.3,234.6L821.9,231.9L824.0,229.9L825.2,230.7Z"/>
+<path class="land" id="c_tza" data-iso="TZA" data-name="United Republic of Tanzania"  d="M590.4,299.9L590.9,300.2L600.5,305.6L600.7,307.2L604.5,309.8L603.3,313.1L603.5,314.6L605.2,315.6L605.3,316.3L604.5,317.9L604.7,318.7L604.5,320.0L605.4,321.7L606.5,324.3L607.5,324.9L605.4,326.4L602.5,327.5L600.9,327.4L599.9,328.2L598.1,328.3L597.4,328.6L594.2,327.9L592.2,328.1L591.4,324.5L590.5,323.2L590.0,322.5L587.4,322.0L585.8,321.2L584.1,320.7L583.1,320.3L582.0,319.6L580.5,316.3L579.0,314.8L578.5,313.2L578.7,311.8L578.2,309.4L579.3,309.3L580.3,308.3L581.3,306.9L582.0,306.3L582.0,305.5L581.4,304.9L581.3,303.8L582.0,303.5L582.2,301.9L581.1,300.4L582.1,300.1L585.0,300.1Z"/>
+<path class="land" id="c_uga" data-iso="UGA" data-name="Uganda"  d="M585.0,300.1L582.1,300.1L581.1,300.4L579.5,301.2L578.9,301.0L578.9,298.9L579.5,297.9L579.7,295.8L580.2,294.5L581.2,293.2L582.3,292.4L583.1,291.5L582.1,291.1L582.2,288.0L583.3,287.3L585.0,287.9L587.2,287.3L589.0,287.3L590.7,286.0L591.9,287.9L592.3,289.2L593.4,292.3L592.5,294.2L591.1,296.0L590.4,297.1L590.4,299.9Z"/>
+<path class="land" id="c_ukr" data-iso="UKR" data-name="Ukraine"  d="M584.8,158.4L585.8,158.5L586.4,157.9L587.2,158.1L590.0,157.8L591.7,159.3L591.0,159.9L591.3,160.7L593.4,160.8L594.3,162.0L594.3,162.5L597.7,163.4L599.7,163.0L601.4,164.3L602.9,164.2L606.9,165.1L606.9,165.9L605.8,167.3L606.4,168.8L606.0,169.6L603.4,169.8L602.0,170.6L601.9,171.8L599.8,172.0L598.0,172.8L595.5,173.0L593.2,174.0L593.4,175.6L594.7,176.3L597.4,176.1L596.9,177.1L594.0,177.5L590.4,179.1L588.9,178.5L589.5,177.3L586.5,176.5L587.0,176.0L589.6,175.1L588.8,174.5L584.7,173.8L584.5,172.8L582.0,173.2L581.0,174.6L578.9,176.6L577.7,176.1L576.5,176.6L575.3,176.1L576.0,175.8L576.4,174.9L577.2,174.0L577.0,173.5L577.5,173.3L577.8,173.7L579.4,173.8L580.1,173.6L579.6,173.3L579.8,172.9L578.8,172.2L578.4,171.1L577.5,170.7L577.7,169.8L576.5,169.1L575.4,169.0L573.4,168.1L571.6,168.4L571.0,168.8L569.9,168.8L569.2,169.4L567.2,169.7L566.3,170.1L565.1,169.4L563.4,169.4L561.7,169.1L560.6,169.7L560.4,169.0L558.9,168.3L559.4,167.2L560.2,166.5L560.7,166.6L560.0,165.4L562.5,163.2L563.8,162.9L564.1,162.2L562.7,159.8L564.0,159.7L565.5,159.0L567.5,158.9L570.2,159.2L573.2,159.8L575.3,159.9L576.3,160.2L577.3,159.8L578.0,160.4L580.4,160.3L581.5,160.5L581.7,159.2L582.5,158.6Z"/>
+<path class="land" id="c_ury" data-iso="URY" data-name="Uruguay"  d="M346.3,378.0L348.1,377.7L350.7,379.7L351.7,379.7L354.5,381.4L356.6,382.8L358.1,384.7L356.9,385.9L357.7,387.4L356.5,389.1L353.5,390.6L351.5,390.1L350.1,390.3L347.6,389.2L345.8,389.3L344.2,387.8L344.4,386.1L345.0,385.5L345.0,382.8L345.7,380.1Z"/>
+<path class="land land-usa" id="c_usa" data-iso="USA" data-name="USA" data-dest="usa" d="M85.2,246.5L84.8,246.9L84.2,246.6L84.2,245.8L83.8,244.8L83.9,244.5L84.4,244.1L84.2,243.6L84.4,243.3L84.6,243.4L85.6,243.8L86.1,244.1L86.5,244.4L87.2,245.4L87.1,245.5L86.1,246.1ZM83.8,242.3L82.9,242.5L82.4,242.0L82.1,241.7L82.1,241.6L82.4,241.3L83.3,241.6L84.0,242.0ZM82.0,240.9L81.9,241.2L80.5,241.1L80.7,240.8ZM79.6,240.5L79.4,240.7L79.3,240.6L78.3,240.5L78.0,239.9L77.9,239.8L78.6,239.5L78.8,239.6ZM75.1,238.8L74.8,239.0L73.9,238.5L74.0,238.3L74.4,238.1L75.0,238.1ZM247.2,165.7L247.6,167.1L248.5,167.6L250.3,167.8L253.0,168.2L255.6,169.0L257.8,168.7L261.1,169.4L261.9,169.3L264.3,168.6L266.8,169.5L269.4,170.6L271.6,171.5L273.7,172.3L273.9,173.0L274.6,173.3L274.4,173.5L275.1,173.6L275.6,173.3L275.8,174.0L276.3,174.4L277.0,174.4L277.4,174.7L277.1,175.2L279.9,176.5L280.4,178.9L281.0,181.2L280.2,182.8L278.9,184.2L278.3,185.2L278.3,185.4L278.6,185.8L279.5,186.2L280.2,186.2L283.3,184.8L286.0,184.4L289.5,183.1L289.5,182.8L289.3,182.0L288.9,181.5L290.1,181.0L292.7,181.0L295.1,181.0L296,180.0L296.3,179.8L299.2,177.9L300.4,177.4L304.4,177.4L309.3,177.4L309.6,176.7L310.4,176.6L311.6,176.2L312.5,174.9L313.3,172.9L315.4,170.8L316.3,171.6L318.0,171.1L319.2,171.9L319.2,175.5L321.0,177.0L321.4,177.9L318.6,179.2L315.8,180.1L313.0,180.9L311.6,182.5L311.2,183.1L311.1,184.5L312.0,185.9L313.1,186.0L312.8,185.0L313.6,185.6L313.4,186.3L311.6,186.8L310.3,186.7L308.4,187.2L307.2,187.3L305.7,187.5L303.4,188.2L307.4,187.7L308.1,188.2L304.4,189.0L302.7,189.0L302.8,188.7L302.0,189.4L302.8,189.6L302.2,191.5L300.3,193.5L300.1,192.9L299.5,192.7L298.6,192.0L299.1,193.5L299.8,194.0L299.8,195.0L299.0,196.0L297.5,198.1L297.3,198.0L298.1,196.2L296.7,195.2L296.4,193.0L295.9,194.1L296.5,195.8L294.7,195.4L296.5,196.3L296.6,198.8L297.4,199.0L297.7,199.9L298.1,202.6L296.4,204.6L293.6,205.3L291.9,206.9L290.5,207.1L289.2,208.1L288.8,209.0L285.9,210.7L284.4,212.0L283.1,213.5L282.7,215.4L283.2,217.3L284.1,219.6L285.2,221.5L285.3,222.6L286.5,225.7L286.4,227.5L286.3,228.5L285.7,230.2L284.9,230.5L283.5,230.2L283.1,229.0L282.1,228.4L280.7,226.1L279.5,224.1L279.1,223.0L279.6,221.2L278.9,219.8L276.8,217.5L275.7,217.1L273.0,218.3L272.6,218.2L271.3,217.0L269.6,216.3L266.6,216.6L264.2,216.4L262.2,216.5L261.1,217.0L261.6,217.7L261.5,218.7L262.1,219.3L261.6,219.6L260.6,219.2L259.6,219.7L257.7,219.6L255.7,218.2L253.3,218.6L251.4,218.0L249.7,218.1L247.5,218.8L245.1,220.7L242.4,221.9L241.0,223.2L240.3,224.4L240.3,226.2L240.5,227.5L241.0,228.4L239.9,228.5L238.0,227.9L235.9,227.1L235.2,225.8L234.6,223.9L233.0,222.4L232.1,220.9L230.8,219.0L228.9,218.0L226.7,218.0L225.0,220.1L222.8,219.3L221.4,218.5L220.8,217.1L219.9,215.7L218.3,214.5L217.0,213.6L216.0,212.7L211.4,212.7L211.4,213.8L209.2,213.8L203.9,213.8L197.9,211.9L193.8,210.6L194.1,210.1L190.7,210.4L187.7,210.6L187.2,209.3L185.5,207.7L184.2,207.4L183.9,206.6L182.5,206.5L181.5,205.8L179.0,205.5L178.3,205.1L178.0,203.6L175.4,200.9L173.2,197.2L173.3,196.6L172.1,195.7L170.1,193.5L169.7,191.3L168.3,189.9L168.9,187.7L168.8,185.4L167.9,183.3L169.0,180.8L169.3,178.4L169.6,176.0L169.1,172.4L168.3,170.1L167.5,168.9L167.8,168.4L171.7,169.3L173.1,171.8L173.8,171.1L173.3,168.9L172.4,166.7L180,166.7L187.9,166.7L190.5,166.7L198.7,166.7L206.5,166.7L214.5,166.7L222.5,166.7L231.6,166.7L240.7,166.7L246.2,166.7L246.3,165.7ZM92.0,145.1L89.3,146.1L88.0,145.4L87.5,144.1L90.0,143.2L91.4,142.8L93.2,143.0L94.3,143.8ZM58.5,137.6L56.8,138.0L55.1,137.5L53.5,136.8L56.1,136.4L58.2,136.6ZM42.0,127.3L43.7,127.8L45.4,127.5L47.5,128.2L50.2,128.6L49.9,128.9L47.9,129.4L45.9,128.9L44.9,128.4L42.5,128.5L41.9,128.3ZM86.5,107.7L88.4,108.9L89.6,108.3L94.1,108.5L93.9,109.1L98.0,109.6L100.7,109.3L106.4,110.1L111.5,110.4L113.5,110.7L117.1,110.3L121.1,111.1L124.0,111.5L124.0,111.5L124.0,121.4L124.0,136.6L126.6,136.6L129.2,137.4L131.1,138.5L133.5,140.3L136.1,138.8L138.7,137.9L140.1,139.3L141.9,140.4L144.4,141.6L146.1,143.5L148.8,146.6L153.3,148.3L153.4,150.0L151.9,151.2L150.4,150.2L148.1,149.4L147.3,147.1L143.9,144.9L142.5,142.4L139.9,142.2L135.7,142.1L132.5,141.4L127.0,138.6L124.5,138.1L119.8,137.2L116.1,137.4L110.9,136.2L107.7,135.0L104.7,135.6L105.3,137.4L103.8,137.6L100.7,138.2L98.4,139.1L95.4,139.6L95.0,138.1L96.2,135.4L99.1,134.6L98.3,134.0L94.9,135.4L93.1,137.2L89.3,139.1L91.2,140.4L88.7,142.3L85.8,143.4L83.2,144.3L82.5,145.4L78.4,146.8L77.5,148.1L74.4,149.2L72.6,149.0L70.1,149.7L67.4,150.6L65.1,151.5L60.6,152.3L60.2,151.9L63.1,150.6L65.7,149.8L68.5,148.3L71.8,148.0L73.1,146.9L76.8,145.3L77.4,144.8L79.4,143.9L79.9,141.8L81.2,140.3L78.1,141.1L77.3,140.6L75.8,141.6L74.1,140.2L73.4,141.2L72.4,139.9L69.7,140.9L68.1,140.9L67.9,139.3L68.3,138.4L66.6,137.4L63.2,137.9L60.9,136.7L59.1,136.0L59.1,134.5L57.0,133.4L58.0,131.8L60.2,130.4L61.2,129.0L63.3,128.8L65.2,129.2L67.3,127.9L69.2,128.2L71.3,127.3L70.8,126.1L69.3,125.6L71.3,124.6L69.6,124.6L66.8,125.2L66.0,125.8L63.9,125.2L60.1,125.5L56.2,124.9L55.1,123.8L51.7,122.3L55.5,121.1L61.4,119.8L63.6,119.8L63.2,121.2L68.9,121.1L66.7,119.4L63.4,118.4L61.5,117.1L59.0,115.9L55.3,115.1L56.8,113.7L61.5,113.6L64.9,112.4L65.5,111.1L68.2,109.8L70.8,109.5L75.9,108.3L78.3,108.5L82.5,107.1Z"/>
+<path class="land" id="c_uzb" data-iso="UZB" data-name="Uzbekistan"  d="M677.4,197.7L677.5,196.1L673.9,195.0L671.1,193.7L669.4,192.4L666.3,190.6L665.0,187.8L664.1,187.3L661.2,187.5L660.2,186.9L659.9,184.8L656.3,183.4L654.1,184.9L651.8,185.8L652.3,187.2L649.2,187.2L649.1,177.4L656.0,175.8L656.5,176.0L660.6,178.0L662.8,179.0L665.4,181.4L668.5,181.0L673.1,180.8L676.3,182.7L676.1,185.4L677.4,185.4L677.9,187.6L681.3,187.7L682.0,188.9L683.0,188.9L684.2,187.0L687.7,185.2L689.2,184.7L690.0,184.9L687.8,186.7L689.8,187.7L691.7,187.0L694.8,188.4L691.4,190.3L689.4,190.1L688.3,190.1L687.9,189.4L688.4,188.2L684.9,188.8L684.0,190.5L682.8,192.0L680.5,191.8L679.8,193.0L681.8,193.6L682.4,195.6L680.9,198.3L678.9,197.8Z"/>
+<path class="land" id="c_ven" data-iso="VEN" data-name="Venezuela"  d="M309.8,266.0L309.7,266.6L308.1,266.9L309.0,268.1L309.0,269.5L307.8,271.1L308.8,273.2L310.0,273.0L310.6,271.1L309.7,270.1L309.6,268.1L312.9,267.0L312.6,265.8L313.5,264.9L314.4,266.8L316.3,266.9L318.0,268.3L318.1,269.2L320.5,269.3L323.4,269.0L324.9,270.2L327.0,270.5L328.5,269.7L328.5,269.0L331.8,268.8L335.0,268.8L332.7,269.6L333.6,270.8L335.8,271.1L337.8,272.4L338.2,274.5L339.6,274.4L340.6,275.1L338.5,276.6L338.3,277.6L339.2,278.6L338.5,279.1L336.9,279.5L337.0,280.8L336.2,281.5L338.0,283.5L338.4,284.3L337.4,285.3L334.4,286.3L332.5,286.7L331.8,287.3L329.6,286.7L327.7,286.3L327.2,286.6L328.4,287.3L328.2,289.0L328.6,290.7L330.9,290.9L331.0,291.5L329.1,292.3L328.8,293.4L327.7,293.8L325.7,294.5L325.2,295.3L323.1,295.4L321.7,294.0L320.9,291.4L320.1,290.4L319.2,289.9L320.5,288.5L320.4,287.9L319.7,287.1L319.1,285.4L319.3,283.5L319.9,282.6L320.4,281.1L319.5,280.7L318.0,281.0L316.0,280.8L315.0,281.1L313.1,278.8L311.5,278.5L308.1,278.7L307.5,277.8L306.8,277.6L306.7,277.0L307.0,276.0L306.8,275.0L306.2,274.4L305.9,273.2L304.5,273.0L305.3,271.4L305.6,269.5L306.4,268.5L307.4,267.8L308.1,266.4Z"/>
+<path class="land" id="c_vnm" data-iso="VNM" data-name="Vietnam"  d="M788.1,239.9L784.6,242.2L782.4,244.7L781.8,246.6L783.8,249.4L786.3,252.9L788.7,254.5L790.3,256.6L791.6,261.6L791.2,266.3L789.0,268.0L785.9,269.7L783.7,272.0L780.4,274.4L779.5,272.7L780.2,270.9L778.2,269.4L780.5,268.3L783.3,268.1L782.2,266.5L786.6,264.5L787.0,261.3L786.4,259.5L786.8,256.8L786.2,255.0L784.1,253.1L782.5,250.8L780.3,247.6L777.1,246.0L777.8,245.0L779.5,244.3L778.5,242.0L775.2,242L774.0,239.6L772.5,237.5L773.9,236.8L776.0,236.8L778.6,236.5L780.9,235.1L782.2,236.1L784.6,236.6L784.2,238.1L785.4,239.2Z"/>
+<path class="land" id="c_vut" data-iso="VUT" data-name="Vanuatu"  d="M947.6,341.3L946.7,341.6L945.8,340.5L945.9,339.8ZM945.6,337.2L946.1,339.4L945.3,339.0L944.8,339.2L944.4,338.4L944.3,336.4Z"/>
+<path class="land" id="c_pse" data-iso="PSE" data-name="West Bank"  d="M594.8,211.0L594.8,212.6L594.4,213.4L593.1,213.8L593.3,213.1L593.9,212.7L593.3,212.4L593.8,210.6Z"/>
+<path class="land" id="c_yem" data-iso="YEM" data-name="Yemen"  d="M641.6,253.0L639.7,253.7L639.2,254.9L639.1,255.8L636.5,256.9L632.2,258.2L629.8,260.0L628.6,260.2L627.8,260.0L626.3,261.1L624.6,261.6L622.3,261.8L621.7,261.9L621.1,262.6L620.4,262.8L620.0,263.5L618.7,263.5L617.8,263.8L616.0,263.7L615.3,262.1L615.3,260.7L614.9,259.9L614.4,257.9L613.6,256.8L614.1,256.7L613.9,255.5L614.2,254.9L614.1,253.8L615.2,252.9L615.0,251.8L615.7,250.5L616.8,251.2L617.5,250.9L620.6,250.9L621.1,251.2L623.6,251.4L624.7,251.3L625.3,252.2L626.6,251.7L628.5,248.9L631.0,247.7L638.7,246.7L640.8,251.1Z"/>
+<path class="land" id="c_zaf" data-iso="ZAF" data-name="South Africa"  d="M584.1,375.4L583.5,375.8L582.4,377.1L581.7,378.5L580.1,380.4L577.1,383.2L575.3,384.8L573.2,386.0L570.5,387.0L569.1,387.2L568.7,387.9L567.1,387.5L565.8,388.0L562.9,387.5L561.3,387.8L560.2,387.7L557.4,388.7L555.2,389.2L553.5,390.2L552.3,390.2L551.2,389.3L550.3,389.2L549.1,388.0L549.0,388.4L548.7,387.7L548.7,386.1L547.8,384.3L548.7,383.9L548.6,381.8L546.8,379.3L545.5,377.1L545.5,377.0L543.6,373.6L544.9,372.3L545.9,373.0L546.4,374.1L547.6,374.3L549.2,374.8L550.7,374.6L553.1,373.3L553.1,363.4L553.8,363.8L555.4,366.4L555.1,368.0L555.7,368.9L557.6,368.6L558.9,367.5L560.2,366.7L560.9,365.4L562.2,364.8L563.3,365.1L564.6,365.8L566.7,366.0L568.4,365.3L568.7,364.5L569.2,363.2L570.6,363.0L571.4,362.0L572.3,360.2L574.7,358.3L578.5,356.3L579.6,356.3L580.9,356.8L581.8,356.4L583.2,356.7L584.5,360.5L585.1,362.4L584.7,365.3L584.9,366.3L583.6,365.8L582.8,366.0L582.5,366.8L581.8,367.8L581.8,368.7L583.4,370.1L585.0,369.9L585.5,368.7L587.5,368.7L586.9,370.6L586.6,372.8L585.9,374.1ZM577.3,374.6L576.1,373.8L574.9,374.3L573.4,375.4L572.0,377.0L574.0,379.1L575.0,378.8L575.4,378.0L576.9,377.6L577.4,376.7L578.2,375.4Z"/>
+<path class="land" id="c_zmb" data-iso="ZMB" data-name="Zambia"  d="M587.4,322.0L588.6,323.2L589.3,325.4L588.8,326.2L588.3,328.3L588.8,330.5L588.0,331.5L587.2,333.9L588.6,334.6L580.5,336.8L580.7,338.7L578.7,339.1L577.2,340.2L576.9,341.1L575.9,341.3L573.6,343.5L572.1,345.2L571.2,345.3L570.4,345.0L567.4,344.7L566.9,344.5L566.9,344.3L565.8,343.7L564.1,343.5L561.9,344.1L560.2,342.4L558.4,340.3L558.5,331.8L564.0,331.8L563.8,330.9L564.2,329.9L563.7,328.6L564.0,327.3L563.8,326.5L564.7,326.6L564.8,327.4L566.1,327.3L567.8,327.6L568.7,328.8L570.8,329.2L572.4,328.3L573.0,329.7L575.1,330.1L576.1,331.2L577.2,332.7L579.2,332.7L579.0,329.9L578.2,330.3L576.4,329.3L575.7,328.8L576.0,326.2L576.5,323.0L575.9,321.8L576.6,320.1L577.3,319.8L580.9,319.3L582.0,319.6L583.1,320.3L584.1,320.7L585.8,321.2Z"/>
+<path class="land" id="c_zwe" data-iso="ZWE" data-name="Zimbabwe"  d="M583.2,356.7L581.8,356.4L580.9,356.8L579.6,356.3L578.5,356.3L576.8,355.1L574.7,354.7L573.9,353.0L573.9,352.0L572.8,351.8L569.8,348.8L568.9,347.3L568.4,346.8L567.4,344.7L570.4,345.0L571.2,345.3L572.1,345.2L573.6,343.5L575.9,341.3L576.9,341.1L577.2,340.2L578.7,339.1L580.7,338.7L580.9,339.7L583.1,339.7L584.4,340.2L584.9,340.9L586.2,341.1L587.6,341.9L587.6,345.3L587.1,347.2L587.0,349.2L587.4,350.0L587.1,351.5L586.7,351.8L586.0,353.7Z"/>
+<circle class="land land-singapore" id="c_sgp" data-iso="SGP" data-name="Singapore" data-dest="singapore" cx="776.9" cy="293.8" r="3"/>
+</g>
+<g id="routes">
+<path class="route lit" data-route="india" d="M 710.6,242.5 Q 710.6,267.5 710.6,287.5"/>
+<path class="route" data-route="usa" d="M 710.6,242.5 Q 490,80 302.7,188.8"/>
+<path class="route" data-route="paraguay" d="M 710.6,242.5 Q 520,390 346.5,364.7"/>
+<path class="route" data-route="france" d="M 710.6,242.5 Q 608.5,156.9 506.3,167.1"/>
+<path class="route" data-route="italy" d="M 710.6,242.5 Q 622,173.2 533.5,185.7"/>
+<path class="route" data-route="bulgaria" d="M 710.6,242.5 Q 639.3,179 568,183.4"/>
+<path class="route" data-route="egypt" d="M 710.6,242.5 Q 647,201.4 583.3,217.3"/>
+<path class="route" data-route="jordan" d="M 710.6,242.5 Q 653.2,201.2 595.8,212.2"/>
+<path class="route" data-route="sudan" d="M 710.6,242.5 Q 648.7,221.9 586.8,256"/>
+<path class="route" data-route="saudi" d="M 710.6,242.5 Q 667.5,217.9 624.5,231.5"/>
+<path class="route" data-route="qatar" d="M 710.6,242.5 Q 674,219.9 637.4,230"/>
+<path class="route" data-route="dubai" d="M 710.6,242.5 Q 679,222.2 647.4,230.2"/>
+<path class="route" data-route="thailand" d="M 710.6,242.5 Q 739.3,238.4 768,260.7"/>
+<path class="route" data-route="singapore" d="M 710.6,242.5 Q 743.8,249.7 776.9,293.8"/>
+<path class="route" data-route="australia" d="M 710.6,242.5 Q 810,320 886.7,377.4"/>
+<path class="route" data-route="middle-east" d="M 710.6,242.5 Q 669.3,218.2 628,230.7"/>
+</g>
+<g id="pins">
+
+<g class="mdot lit " data-dest="india" transform="translate(710.6,242.5)">
+  <circle class="halo" r="14"/>
+  <circle class="core" r="7.5"/>
+  <text class="map-label " x="0" y="22" text-anchor="middle">INDIA · HOME</text>
+</g>
+
+<g class="mdot  " data-dest="usa" transform="translate(302.7,188.8)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="0" y="-12" text-anchor="middle">USA</text>
+</g>
+
+<g class="mdot  " data-dest="paraguay" transform="translate(346.5,364.7)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="0" y="16" text-anchor="middle">PARAGUAY</text>
+</g>
+
+<g class="mdot  " data-dest="france" transform="translate(506.3,167.1)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="-8" y="-8" text-anchor="end">FRANCE</text>
+</g>
+
+<g class="mdot  " data-dest="italy" transform="translate(533.5,185.7)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="8" y="14" text-anchor="start">ITALY</text>
+</g>
+
+<g class="mdot  " data-dest="bulgaria" transform="translate(568,183.4)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="8" y="-8" text-anchor="start">BULGARIA</text>
+</g>
+
+<g class="mdot  " data-dest="egypt" transform="translate(583.3,217.3)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="-10" y="4" text-anchor="end">EGYPT</text>
+</g>
+
+<g class="mdot  " data-dest="jordan" transform="translate(595.8,212.2)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="0" y="-12" text-anchor="middle">JORDAN</text>
+</g>
+
+<g class="mdot  " data-dest="sudan" transform="translate(586.8,256)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="-10" y="14" text-anchor="end">SUDAN</text>
+</g>
+
+<g class="mdot  " data-dest="saudi" transform="translate(624.5,231.5)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="-4" y="16" text-anchor="middle">SAUDI ARABIA</text>
+</g>
+
+<g class="mdot  " data-dest="qatar" transform="translate(637.4,230)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="2" y="-10" text-anchor="middle">QATAR</text>
+</g>
+
+<g class="mdot  " data-dest="dubai" transform="translate(647.4,230.2)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="10" y="3" text-anchor="start">DUBAI</text>
+</g>
+
+<g class="mdot  " data-dest="thailand" transform="translate(768,260.7)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="10" y="-6" text-anchor="start">THAILAND</text>
+</g>
+
+<g class="mdot  " data-dest="singapore" transform="translate(776.9,293.8)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="10" y="12" text-anchor="start">SINGAPORE</text>
+</g>
+
+<g class="mdot  " data-dest="australia" transform="translate(886.7,377.4)">
+  <circle class="halo" r="11"/>
+  <circle class="core" r="5"/>
+  <text class="map-label " x="0" y="18" text-anchor="middle">AUSTRALIA</text>
+</g>
+
+<g class="mdot  mdot-region" data-dest="middle-east" transform="translate(628,230.7)">
+  <circle class="halo" r="16"/>
+  <circle class="core" r="4.5"/>
+  <text class="map-label label-region" x="0" y="-14" text-anchor="middle">MIDDLE EAST</text>
+</g>
+</g>
+</svg>
+<div class="map-tip" id="mapTip"><b id="tipName">INDIA</b> · <span id="tipSub">GLOBAL HEADQUARTERS</span></div>
+<div class="map-legend"><span><i></i><b>ACTIVE REGION</b></span><span>DUBAI REGIONAL HUB · EXPORT ROUTES</span></div>
+</div>
+<div class="map-side">
+<div class="rname" id="rKicker">GLOBAL HEADQUARTERS — INDIA</div>
+<h3 id="rName">India</h3>
+<div class="rimg-wrap">
+  <img class="rimg" id="rImg" src="/assets/img_18-CGnzOWn7.webp" alt="India region">
+  <div class="rbadge" id="rBadge">130+ YRS OF HERITAGE</div>
+</div>
+<p id="rText">Home. Our ancestral deg-bhapka extraction roots in Kannauj and advanced high-capacity distillation campus in Shadnagar, Hyderabad run deepest here. Supplying raw essences and pure perfume compounds across the globe.</p>
+<div class="region-btns" id="rBtns">
+<button data-r="india" class="lit">INDIA (HOME)</button>
+<button data-r="middle-east">MIDDLE EAST</button>
+<button data-r="dubai">DUBAI</button>
+<button data-r="saudi">SAUDI ARABIA</button>
+<button data-r="france">FRANCE</button>
+<button data-r="usa">USA</button>
+</div>
+<div class="map-cta"><a class="btn-gold" href="contact-us.html">CHECK IF WE SERVE YOUR MARKET →</a></div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/10" style="margin-top:36px;padding-top:24px;border-top:1px solid rgba(245,241,234,.12)">
+  <div style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:600">KEY GLOBAL DESTINATIONS &amp; TERRITORIES</div>
+  <div class="dest-pills">
+    <button class="dest-pill" data-dest="usa">USA</button>
+    <button class="dest-pill" data-dest="paraguay">Paraguay</button>
+    <button class="dest-pill" data-dest="italy">Italy</button>
+    <button class="dest-pill" data-dest="bulgaria">Bulgaria</button>
+    <button class="dest-pill" data-dest="france">France</button>
+    <button class="dest-pill" data-dest="dubai">Dubai</button>
+    <button class="dest-pill" data-dest="egypt">Egypt</button>
+    <button class="dest-pill" data-dest="saudi">Saudi Arabia</button>
+    <button class="dest-pill" data-dest="jordan">Jordan</button>
+    <button class="dest-pill" data-dest="qatar">Qatar</button>
+    <button class="dest-pill" data-dest="sudan">Sudan</button>
+    <button class="dest-pill" data-dest="australia">Australia</button>
+    <button class="dest-pill" data-dest="singapore">Singapore</button>
+    <button class="dest-pill" data-dest="thailand">Thailand</button>
+    <button class="dest-pill" data-dest="middle-east">All Middle East Countries</button>
+    <button class="dest-pill lit" data-dest="india">India (Home Base)</button>
+  </div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="f-top">
+<div>
+<a class="foot-brand" href="index.html" aria-label="Dubey Perfumers"><img class="f-logo" src="/assets/images/dubey-emblem.svg" alt="Dubey Perfumers"></a>
+
+<p class="f-note">For 130 years — turning what the earth grows into what the world wears.</p>
+</div>
+<div class="f-col"><h5>House</h5><nav class="f-links">
+<a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="craft-and-process.html">Natural Extractions</a><a href="craft-and-process.html">Development Process</a>
+</nav></div>
+<div class="f-col"><h5>Craft</h5><nav class="f-links">
+<a href="services.html">Manufacturing &amp; Quality</a><a href="services.html">Captive Aroma Chemicals</a><a href="services.html">Working With Us</a><a href="contact-us.html">Contact Us</a>
+</nav></div>
+</div>
+<div class="f-base"><span><b>DUBEY PERFUMERS</b> · PASSION PERFUMERY</span><span>SINCE 1895</span></div>
+</footer>
+
+<script>
+(function(){
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let lenis=null;
+try{if(!reduce&&window.Lenis){lenis=new Lenis({duration:1.15,smoothWheel:true});const raf=(t)=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf);}}catch(e){}
+gsap.registerPlugin(ScrollTrigger);
+if(lenis)lenis.on('scroll',ScrollTrigger.update);
+gsap.from(['#k1','#heroH','#heroB'],{y:26,opacity:0,duration:1,stagger:.12,ease:'power3.out',delay:.15});
+gsap.fromTo('.hero-tall',{clipPath:'inset(6% 6% 6% 6%)',scale:1.12},{clipPath:'inset(0% 0% 0% 0%)',scale:1,duration:1.4,ease:'power3.out',delay:.2});
+gsap.fromTo('.hero-small',{y:40,opacity:0},{y:0,opacity:1,duration:1,delay:.7,ease:'power3.out'});
+if(!reduce){
+gsap.to('#heroImg',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('#heroTall',{yPercent:8,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('#heroSmall',{yPercent:-10,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('#whoImg',{yPercent:-6,ease:'none',scrollTrigger:{trigger:'.who',start:'top bottom',end:'bottom top',scrub:true}});
+}
+/* horizontal journey — desktop pin, mobile native swipe */
+const mm=gsap.matchMedia();
+mm.add('(min-width: 961px)',()=>{
+const track=document.getElementById('hTrack'),view=document.getElementById('hView');
+const getDist=()=>Math.max(0,track.scrollWidth-view.clientWidth);
+const tween=gsap.to(track,{x:()=>-getDist(),ease:'none',
+scrollTrigger:{trigger:'#howPin',start:'top top',end:()=>'+='+getDist(),scrub:1,pin:true,anticipatePin:1,invalidateOnRefresh:true,
+onUpdate:s=>{document.getElementById('hBar').style.transform='scaleX('+s.progress+')';}}});
+return ()=>{tween.scrollTrigger&&tween.scrollTrigger.kill();tween.kill();gsap.set(track,{x:0});};
+});
+mm.add('(max-width: 960px)',()=>{
+const view=document.getElementById('hView'),bar=document.getElementById('hBar');
+const upd=()=>{const max=view.scrollWidth-view.clientWidth;bar.style.transform='scaleX('+(max>0?view.scrollLeft/max:0)+')';};
+view.addEventListener('scroll',upd,{passive:true});upd();
+});
+/* section reveals */
+gsap.utils.toArray('.who-grid, .cons-grid, .map-wrap').forEach(el=>{
+gsap.from(el,{y:34,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 86%'}});
+});
+/* regions — realistic precision world map */
+const DATA = {
+  'india': {
+    n: 'India',
+    kicker: 'GLOBAL HEADQUARTERS — INDIA',
+    t: 'Home. Our ancestral deg-bhapka extraction roots in Kannauj and advanced distillation campus in Shadnagar, Hyderabad run deepest here. Supplying raw natural extracts and pure perfume compounds across the globe.',
+    img: '/assets/images/img_18.webp',
+    badge: '130+ YRS OF HERITAGE',
+    type: 'EXTRACTION BASE',
+    isos: ['IND']
+  },
+  'usa': {
+    n: 'United States',
+    kicker: 'NORTH AMERICA — USA',
+    t: 'Exporting bespoke fine fragrance bases, sustainable sandalwood distillates, and niche formulations to premier boutique houses, prestige retail lines, and private-label innovators across North America.',
+    img: '/assets/images/img_32.webp',
+    badge: 'NICHE & PRESTIGE SUPPLY',
+    type: 'KEY EXPORT MARKET',
+    isos: ['USA']
+  },
+  'paraguay': {
+    n: 'Paraguay',
+    kicker: 'SOUTH AMERICA — PARAGUAY',
+    t: 'Supplying bulk essential oils, exotic floral absolutes, and signature perfume compounds to regional South American cosmetic producers and luxury distributor networks.',
+    img: '/assets/images/craft-rose-harvest.png',
+    badge: 'REGIONAL B2B SUPPLY',
+    type: 'STRATEGIC ALLIANCE',
+    isos: ['PRY']
+  },
+  'italy': {
+    n: 'Italy',
+    kicker: 'SOUTHERN EUROPE — ITALY',
+    t: 'Collaborating with master Milanese noses and heritage Italian houses, providing pristine natural isolates, botanical extracts, and rare aged agarwood compounds for European fine perfumery.',
+    img: '/assets/images/img_01.webp',
+    badge: 'HAUTE PARFUMERIE SUPPLY',
+    type: 'CO-CREATION & SUPPLY',
+    isos: ['ITA']
+  },
+  'bulgaria': {
+    n: 'Bulgaria',
+    kicker: 'EASTERN EUROPE — BULGARIA',
+    t: 'Historic bilateral essence exchange with the storied Rose Valley. Sourcing pristine Rosa damascena distillates while supplying signature Oriental bases and attars to European formulators.',
+    img: '/assets/images/imgT.png',
+    badge: 'BOTANICAL EXTRACTION',
+    type: 'BILATERAL TRADE',
+    isos: ['BGR']
+  },
+  'france': {
+    n: 'France',
+    kicker: 'WESTERN EUROPE — FRANCE',
+    t: 'Partnering directly with legendary Grasse extraction laboratories and Parisian perfume ateliers for rare natural extracts, bespoke private-label concentrates, and custom olfactory development.',
+    img: '/assets/images/img_04.webp',
+    badge: 'GRASSE & PARIS LABS',
+    type: 'MAISON FORMULATION',
+    isos: ['FRA']
+  },
+  'dubai': {
+    n: 'Dubai (UAE)',
+    kicker: 'GULF HUB — DUBAI OFFICE',
+    t: 'Our primary international commercial gateway. Operating direct logistics, client consultations, and rapid distribution across the United Arab Emirates, GCC, and wider global markets.',
+    img: '/assets/images/img_10.webp',
+    badge: 'DIRECT REGIONAL OFFICE',
+    type: 'REGIONAL COMMERCIAL HUB',
+    isos: ['ARE']
+  },
+  'egypt': {
+    n: 'Egypt',
+    kicker: 'NORTH AFRICA — EGYPT',
+    t: 'Ancient Nile aroma trading heritage renewed. Supplying bulk fine-fragrance compounds and pure perfume oils to Egyptian manufacturers and private-label regional brands.',
+    img: '/assets/images/img_21.webp',
+    badge: 'BULK B2B CONCENTRATES',
+    type: 'HISTORIC TRADE ROUTE',
+    isos: ['EGY']
+  },
+  'saudi': {
+    n: 'Saudi Arabia',
+    kicker: 'MIDDLE EAST — SAUDI ARABIA',
+    t: 'Supplying royal-grade Dehn Al Oud, pure Shamama, and non-alcoholic Mukhallat bases to premier Saudi perfumery houses across Riyadh, Jeddah, and the holy cities.',
+    img: '/assets/images/journal-holy-mosques.png',
+    badge: 'PRESTIGE GULF CLIENTELE',
+    type: 'ROYAL-GRADE OUD MARKET',
+    isos: ['SAU']
+  },
+  'jordan': {
+    n: 'Jordan',
+    kicker: 'LEVANT — JORDAN',
+    t: 'Supplying traditional hydro-distilled attars, amber oils, and bespoke oriental bouquets to boutique perfumeries and discerning fragrance creators throughout the Levant.',
+    img: '/assets/images/img_11.webp',
+    badge: 'LEVANT NETWORK',
+    type: 'HERITAGE PERFUMERY',
+    isos: ['JOR']
+  },
+  'qatar': {
+    n: 'Qatar',
+    kicker: 'GULF — QATAR',
+    t: 'Catering to Qatar’s ultra-luxury connoisseurs with rare vintage agarwood distillations, Taif rose concentrates, and bespoke private flacon oil formulations.',
+    img: '/assets/images/journal-royalty-oman.png',
+    badge: 'ULTRA-PREMIUM ESSENCES',
+    type: 'BESPOKE HAUTE LUXURY',
+    isos: ['QAT']
+  },
+  'sudan': {
+    n: 'Sudan',
+    kicker: 'EAST AFRICA — SUDAN',
+    t: 'An enduring generational trade relationship supplying heritage sandalwood oils, aromatic resins, and traditional perfume bases across the Sudanese market.',
+    img: '/assets/images/img_29.webp',
+    badge: 'HISTORIC TRADE CORRIDOR',
+    type: 'CENTURY-OLD TRADE ROUTE',
+    isos: ['SDN']
+  },
+  'australia': {
+    n: 'Australia',
+    kicker: 'OCEANIA — AUSTRALIA',
+    t: 'Delivering IFRA-certified fine fragrances, sustainable sandalwood compounds, and clean-label botanical distillates to Australia’s innovative luxury and artisanal beauty sector.',
+    img: '/assets/images/img_27.webp',
+    badge: 'CLEAN BOTANICAL EXPORTS',
+    type: 'OCEANIA MARKET',
+    isos: ['AUS']
+  },
+  'singapore': {
+    n: 'Singapore',
+    kicker: 'SOUTHEAST ASIA — SINGAPORE',
+    t: 'Strategic ASEAN trading center serving premier hospitality scenting brands, luxury retail chains, and multinational fragrance innovators across the Asia-Pacific basin.',
+    img: '/assets/images/img_31.webp',
+    badge: 'ASEAN LOGISTICS HUB',
+    type: 'SOUTHEAST ASIA GATEWAY',
+    isos: ['SGP']
+  },
+  'thailand': {
+    n: 'Thailand',
+    kicker: 'SOUTHEAST ASIA — THAILAND',
+    t: 'Supplying exotic floral extracts, high-tenacity fragrance oils, and signature spa aroma compounds to Thailand’s world-renowned wellness resorts and boutique luxury brands.',
+    img: '/assets/images/img_20.webp',
+    badge: 'WELLNESS & FINE OILS',
+    type: 'WELLNESS & RETAIL',
+    isos: ['THA']
+  },
+  'middle-east': {
+    n: 'All Middle East Countries',
+    kicker: 'GCC & LEVANT NETWORK',
+    t: 'Our premier export domain spanning the UAE, Saudi Arabia, Qatar, Jordan, Oman, Kuwait, Bahrain, Egypt, and Lebanon. Coordinated seamlessly through our dedicated Dubai regional headquarters.',
+    img: '/assets/images/img_10.webp',
+    badge: 'COMPLETE GCC & REGIONAL NETWORK',
+    type: 'REGIONAL NETWORK',
+    isos: ['ARE', 'SAU', 'QAT', 'JOR', 'OMN', 'KWT', 'BHR', 'IRQ', 'LBN', 'EGY']
+  }
+};
+
+const DEST_KEYS = ['india', 'middle-east', 'dubai', 'saudi', 'france', 'usa', 'italy', 'bulgaria', 'qatar', 'jordan', 'egypt', 'sudan', 'singapore', 'thailand', 'australia', 'paraguay'];
+
+function setRegion(k) {
+  const d = DATA[k];
+  if (!d) return;
+
+  document.getElementById('rName').textContent = d.n;
+  document.getElementById('rText').textContent = d.t;
+  document.getElementById('rKicker').textContent = d.kicker;
+  const rb = document.getElementById('rBadge');
+  if (rb) rb.textContent = d.badge || 'GLOBAL REACH';
+
+  const ri = document.getElementById('rImg');
+  if (ri.getAttribute('src') !== d.img) {
+    gsap.to(ri, {
+      opacity: 0,
+      duration: 0.18,
+      onComplete: () => {
+        ri.src = d.img;
+        ri.alt = d.n + ' region';
+        gsap.to(ri, { opacity: 1, duration: 0.45 });
+      }
+    });
+  }
+
+  // Active Pins
+  document.querySelectorAll('.mdot').forEach(m => {
+    const isTarget = m.dataset.dest === k || (k === 'middle-east' && ['dubai', 'saudi', 'qatar', 'jordan', 'middle-east'].includes(m.dataset.dest));
+    m.classList.toggle('lit', isTarget);
+  });
+
+  // Active Routes
+  document.querySelectorAll('.route').forEach(r => {
+    const isTarget = r.dataset.route === k || (k === 'middle-east' && ['dubai', 'saudi', 'qatar', 'jordan', 'middle-east'].includes(r.dataset.route));
+    r.classList.toggle('lit', isTarget);
+  });
+
+  // Active Lands
+  const targetISOs = new Set(d.isos || []);
+  document.querySelectorAll('#lands .land').forEach(l => {
+    const iso = l.dataset.iso;
+    l.classList.toggle('lit', targetISOs.has(iso) || (k === 'india' && iso === 'IND'));
+  });
+
+  // Active Buttons and Pills
+  document.querySelectorAll('#rBtns button').forEach(b => {
+    b.classList.toggle('lit', b.dataset.r === k);
+  });
+  document.querySelectorAll('.dest-pill').forEach(p => {
+    p.classList.toggle('lit', p.dataset.dest === k);
+  });
+
+  const side = document.querySelector('.map-side');
+  gsap.fromTo(side, { opacity: 0.4, y: 5 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' });
+}
+
+// Interactivity & Tooltips
+const tip = document.getElementById('mapTip');
+const tipName = document.getElementById('tipName');
+const tipSub = document.getElementById('tipSub');
+const panel = document.querySelector('.map-panel');
+
+function attachEvents() {
+  // Pins
+  document.querySelectorAll('.mdot').forEach(el => {
+    const key = el.dataset.dest;
+    el.addEventListener('click', () => setRegion(key));
+    el.addEventListener('mouseenter', () => {
+      if (DATA[key]) {
+        tipName.textContent = DATA[key].n.toUpperCase();
+        tipSub.textContent = DATA[key].type || 'CLICK TO VIEW';
+        const r = panel.getBoundingClientRect();
+        const c = el.getBoundingClientRect();
+        tip.style.left = (c.left - r.left + c.width / 2) + 'px';
+        tip.style.top = (c.top - r.top) + 'px';
+        tip.classList.add('show');
+      }
+      if (matchMedia('(hover:hover)').matches) setRegion(key);
+    });
+    el.addEventListener('mouseleave', () => tip.classList.remove('show'));
+  });
+
+  // Pills
+  document.querySelectorAll('.dest-pill').forEach(pill => {
+    const key = pill.dataset.dest;
+    pill.addEventListener('click', () => setRegion(key));
+    pill.addEventListener('mouseenter', () => {
+      if (matchMedia('(hover:hover)').matches) setRegion(key);
+    });
+  });
+
+  // Side buttons
+  document.querySelectorAll('#rBtns button').forEach(btn => {
+    const key = btn.dataset.r;
+    btn.addEventListener('click', () => setRegion(key));
+  });
+
+  // Country paths with data-dest
+  document.querySelectorAll('#lands .land[data-dest]').forEach(land => {
+    land.addEventListener('click', () => setRegion(land.dataset.dest));
+    land.addEventListener('mouseenter', () => {
+      if (matchMedia('(hover:hover)').matches) setRegion(land.dataset.dest);
+    });
+  });
+}
+
+attachEvents();
+
+// Initial state
+setRegion('india');
+
+// Auto rotate through highlights gently unless user hovers
+let autoIdx = 0;
+let autoTimer = setInterval(() => {
+  if (document.hidden || reduce || panel.matches(':hover') || document.querySelector('.dest-pills').matches(':hover')) return;
+  autoIdx = (autoIdx + 1) % DEST_KEYS.length;
+  setRegion(DEST_KEYS[autoIdx]);
+}, 7000);
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();if(lenis)lenis.scrollTo(t,{offset:-70});else t.scrollIntoView({behavior:'smooth'});}}});});
+})();
+</script>
+    
+    <script src="/assets/nav.js"></script>
+</body>
+</html>
